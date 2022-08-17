@@ -1,0 +1,29 @@
+{
+  "name": "Data::Venice::Patrician",
+  "description": "Venice social networks",
+  "version": "0.0.1",
+  "perl": "6.d",
+  "meta-version": 1,
+  "authors": [
+    "JJ Merelo"
+  ],
+  "auth": "zef:jjmerelo",
+  "depends": [
+    "CSV"
+  ],
+  "test-depends": [
+    "Test",
+    "Test::META"
+  ],
+  "provides": { },
+  "resources": [
+    "Venice-marriage-duci.csv"
+  ],
+  "license": "Artistic-2.0",
+  "tags": [
+    "modules",
+    "data science",
+    "scraping"
+  ],
+  "source-url": "https://github.com/JJ/venice-patrician-social-network.git"
+}
