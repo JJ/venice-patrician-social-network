@@ -1,0 +1,1341 @@
+<?xml version="1.0" encoding="UTF-8"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+    <key attr.name="label" attr.type="string" for="node" id="label"/>
+    <key attr.name="Edge Label" attr.type="string" for="edge" id="edgelabel"/>
+    <key attr.name="weight" attr.type="double" for="edge" id="weight"/>
+    <key attr.name="r" attr.type="int" for="node" id="r"/>
+    <key attr.name="g" attr.type="int" for="node" id="g"/>
+    <key attr.name="b" attr.type="int" for="node" id="b"/>
+    <key attr.name="x" attr.type="float" for="node" id="x"/>
+    <key attr.name="y" attr.type="float" for="node" id="y"/>
+    <key attr.name="size" attr.type="float" for="node" id="size"/>
+    <key attr.name="Grado de entrada con pesos" attr.type="double" for="node" id="weighted indegree"/>
+    <key attr.name="Grado de salida con pesos" attr.type="double" for="node" id="weighted outdegree"/>
+    <key attr.name="Grado con pesos" attr.type="double" for="node" id="weighted degree"/>
+    <key attr.name="Modularity Class" attr.type="int" for="node" id="modularity_class"/>
+    <key attr.name="giantcomponent" attr.type="int" for="node" id="giantcomponent"/>
+    <key attr.name="Grado de entrada" attr.type="int" for="node" id="indegree"/>
+    <key attr.name="Grado de salida" attr.type="int" for="node" id="outdegree"/>
+    <key attr.name="Grado" attr.type="int" for="node" id="degree"/>
+    <key attr.name="PageRank" attr.type="double" for="node" id="pageranks"/>
+    <key attr.name="Component ID" attr.type="int" for="node" id="componentnumber"/>
+    <graph edgedefault="directed">
+        <node id="Tribuno">
+            <data key="label">Tribuno</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">0</data>
+            <data key="giantcomponent">0</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">0</data>
+            <data key="size">1.0</data>
+            <data key="r">0</data>
+            <data key="g">196</data>
+            <data key="b">255</data>
+            <data key="x">75.14247</data>
+            <data key="y">-777.36285</data>
+        </node>
+        <node id="Sanudo">
+            <data key="label">Sanudo</data>
+            <data key="weighted indegree">2.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">0</data>
+            <data key="giantcomponent">0</data>
+            <data key="indegree">2</data>
+            <data key="outdegree">0</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.026140827624449962</data>
+            <data key="componentnumber">0</data>
+            <data key="size">8.596577</data>
+            <data key="r">0</data>
+            <data key="g">196</data>
+            <data key="b">255</data>
+            <data key="x">-120.40121</data>
+            <data key="y">-769.9876</data>
+        </node>
+        <node id="Orseolo">
+            <data key="label">Orseolo</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">2.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">1</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">2</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">0.802704</data>
+            <data key="y">-0.096021466</data>
+        </node>
+        <node id="Malipiero">
+            <data key="label">Malipiero</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">1</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">1</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.013796794433026956</data>
+            <data key="componentnumber">1</data>
+            <data key="size">2.8991442</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">101.74559</data>
+            <data key="y">187.69403</data>
+        </node>
+        <node id="Memmo">
+            <data key="label">Memmo</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">1</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">211.53828</data>
+            <data key="y">1.4686985</data>
+        </node>
+        <node id="Candiano">
+            <data key="label">Candiano</data>
+            <data key="weighted indegree">2.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">1</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">2</data>
+            <data key="outdegree">0</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.022026149893975628</data>
+            <data key="componentnumber">1</data>
+            <data key="size">6.697433</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">107.12204</data>
+            <data key="y">-184.38008</data>
+        </node>
+        <node id="Doni">
+            <data key="label">Doni</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">2</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-108.9856</data>
+            <data key="y">183.78607</data>
+        </node>
+        <node id="Bembo">
+            <data key="label">Bembo</data>
+            <data key="weighted indegree">2.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">2</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">2</data>
+            <data key="outdegree">0</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.024974851459395507</data>
+            <data key="componentnumber">1</data>
+            <data key="size">8.058416</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-210.988</data>
+            <data key="y">359.60297</data>
+        </node>
+        <node id="Michele">
+            <data key="label">Michele</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">10</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">311.35562</data>
+            <data key="y">723.1792</data>
+        </node>
+        <node id="Cornaro">
+            <data key="label">Cornaro</data>
+            <data key="weighted indegree">3.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">3.0</data>
+            <data key="modularity_class">10</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">3</data>
+            <data key="outdegree">0</data>
+            <data key="degree">3</data>
+            <data key="pageranks">0.022300461742673916</data>
+            <data key="componentnumber">1</data>
+            <data key="size">6.8240423</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">112.29364</data>
+            <data key="y">570.8913</data>
+        </node>
+        <node id="Dandolo">
+            <data key="label">Dandolo</data>
+            <data key="weighted indegree">2.0</data>
+            <data key="weighted outdegree">3.0</data>
+            <data key="weighted degree">5.0</data>
+            <data key="modularity_class">2</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">2</data>
+            <data key="outdegree">3</data>
+            <data key="degree">5</data>
+            <data key="pageranks">0.024927451446887607</data>
+            <data key="componentnumber">1</data>
+            <data key="size">8.036539</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-6.5552287</data>
+            <data key="y">384.12677</data>
+        </node>
+        <node id="Tiepolo">
+            <data key="label">Tiepolo</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">2.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">3</data>
+            <data key="giantcomponent">2</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">2</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">2</data>
+            <data key="size">1.0</data>
+            <data key="r">115</data>
+            <data key="g">192</data>
+            <data key="b">0</data>
+            <data key="x">-632.5377</data>
+            <data key="y">-454.85324</data>
+        </node>
+        <node id="Storlato">
+            <data key="label">Storlato</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">3</data>
+            <data key="giantcomponent">2</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.013796794433026956</data>
+            <data key="componentnumber">2</data>
+            <data key="size">2.8991442</data>
+            <data key="r">115</data>
+            <data key="g">192</data>
+            <data key="b">0</data>
+            <data key="x">-547.33496</data>
+            <data key="y">-200.507</data>
+        </node>
+        <node id="Ghisi">
+            <data key="label">Ghisi</data>
+            <data key="weighted indegree">2.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">3</data>
+            <data key="giantcomponent">2</data>
+            <data key="indegree">2</data>
+            <data key="outdegree">0</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.022026149893975628</data>
+            <data key="componentnumber">2</data>
+            <data key="size">6.697433</data>
+            <data key="r">115</data>
+            <data key="g">192</data>
+            <data key="b">0</data>
+            <data key="x">-500.02747</data>
+            <data key="y">-605.8809</data>
+        </node>
+        <node id="Gradenigo">
+            <data key="label">Gradenigo</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">3.0</data>
+            <data key="weighted degree">4.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">2</data>
+            <data key="degree">3</data>
+            <data key="pageranks">0.017911472163501294</data>
+            <data key="componentnumber">1</data>
+            <data key="size">4.7982883</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-333.08704</data>
+            <data key="y">-188.31483</data>
+        </node>
+        <node id="Morosini">
+            <data key="label">Morosini</data>
+            <data key="weighted indegree">5.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">6.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">5</data>
+            <data key="outdegree">1</data>
+            <data key="degree">6</data>
+            <data key="pageranks">0.048425516411771174</data>
+            <data key="componentnumber">1</data>
+            <data key="size">18.882154</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-331.06613</data>
+            <data key="y">187.20218</data>
+        </node>
+        <node id="Contarini">
+            <data key="label">Contarini</data>
+            <data key="weighted indegree">4.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">5.0</data>
+            <data key="modularity_class">11</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">4</data>
+            <data key="outdegree">1</data>
+            <data key="degree">5</data>
+            <data key="pageranks">0.03624846881862957</data>
+            <data key="componentnumber">1</data>
+            <data key="size">13.261796</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-298.1038</data>
+            <data key="y">532.1101</data>
+        </node>
+        <node id="Cappello">
+            <data key="label">Cappello</data>
+            <data key="weighted indegree">3.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">3.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">2</data>
+            <data key="outdegree">0</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.024643782844308484</data>
+            <data key="componentnumber">1</data>
+            <data key="size">7.9056106</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-610.2776</data>
+            <data key="y">0.5164725</data>
+        </node>
+        <node id="Faliero">
+            <data key="label">Faliero</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-212.87593</data>
+            <data key="y">-2.4449112</data>
+        </node>
+        <node id="Dolfin">
+            <data key="label">Dolfin</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">3</data>
+            <data key="giantcomponent">2</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">2</data>
+            <data key="size">1.0</data>
+            <data key="r">115</data>
+            <data key="g">192</data>
+            <data key="b">0</data>
+            <data key="x">-317.22495</data>
+            <data key="y">-724.8347</data>
+        </node>
+        <node id="Condulmiero">
+            <data key="label">Condulmiero</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.050847436740994276</data>
+            <data key="componentnumber">1</data>
+            <data key="size">20.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-440.95486</data>
+            <data key="y">375.44852</data>
+        </node>
+        <node id="Steno">
+            <data key="label">Steno</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">4</data>
+            <data key="giantcomponent">3</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">3</data>
+            <data key="size">1.0</data>
+            <data key="r">255</data>
+            <data key="g">85</data>
+            <data key="b">132</data>
+            <data key="x">629.4194</data>
+            <data key="y">457.92456</data>
+        </node>
+        <node id="Galina">
+            <data key="label">Galina</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">4</data>
+            <data key="giantcomponent">3</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.017911472163501294</data>
+            <data key="componentnumber">3</data>
+            <data key="size">4.7982883</data>
+            <data key="r">255</data>
+            <data key="g">85</data>
+            <data key="b">132</data>
+            <data key="x">727.96954</data>
+            <data key="y">288.50885</data>
+        </node>
+        <node id="Foscari">
+            <data key="label">Foscari</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">5</data>
+            <data key="giantcomponent">4</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">4</data>
+            <data key="size">1.0</data>
+            <data key="r">0</data>
+            <data key="g">189</data>
+            <data key="b">148</data>
+            <data key="x">211.68636</data>
+            <data key="y">-356.40366</data>
+        </node>
+        <node id="Nani">
+            <data key="label">Nani</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">5</data>
+            <data key="giantcomponent">4</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.017911472163501294</data>
+            <data key="componentnumber">4</data>
+            <data key="size">4.7982883</data>
+            <data key="r">0</data>
+            <data key="g">189</data>
+            <data key="b">148</data>
+            <data key="x">301.5299</data>
+            <data key="y">-530.7207</data>
+        </node>
+        <node id="Moro">
+            <data key="label">Moro</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">0</data>
+            <data key="giantcomponent">0</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">0</data>
+            <data key="size">1.0</data>
+            <data key="r">0</data>
+            <data key="g">196</data>
+            <data key="b">255</data>
+            <data key="x">-302.82803</data>
+            <data key="y">-530.01514</data>
+        </node>
+        <node id="Tron">
+            <data key="label">Tron</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-418.02975</data>
+            <data key="y">0.9551196</data>
+        </node>
+        <node id="Marcello">
+            <data key="label">Marcello</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">11</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">1</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.011327987794742356</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.7596576</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-278.15628</data>
+            <data key="y">735.70807</data>
+        </node>
+        <node id="Mocenigo">
+            <data key="label">Mocenigo</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">5.0</data>
+            <data key="weighted degree">5.0</data>
+            <data key="modularity_class">11</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">5</data>
+            <data key="degree">5</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-93.53965</data>
+            <data key="y">576.60046</data>
+        </node>
+        <node id="Zorzi">
+            <data key="label">Zorzi</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">11</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.011327987794742356</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.7596576</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">115.826256</data>
+            <data key="y">772.10626</data>
+        </node>
+        <node id="Vendramin">
+            <data key="label">Vendramin</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">6</data>
+            <data key="giantcomponent">5</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">1</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.017911472163501294</data>
+            <data key="componentnumber">5</data>
+            <data key="size">4.7982883</data>
+            <data key="r">76</data>
+            <data key="g">70</data>
+            <data key="b">62</data>
+            <data key="x">607.80255</data>
+            <data key="y">-489.1885</data>
+        </node>
+        <node id="Gradenico">
+            <data key="label">Gradenico</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">6</data>
+            <data key="giantcomponent">5</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.024903426193979623</data>
+            <data key="componentnumber">5</data>
+            <data key="size">8.02545</data>
+            <data key="r">76</data>
+            <data key="g">70</data>
+            <data key="b">62</data>
+            <data key="x">469.0791</data>
+            <data key="y">-635.7236</data>
+        </node>
+        <node id="Michiel">
+            <data key="label">Michiel</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">11</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.011327987794742356</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.7596576</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-80.145325</data>
+            <data key="y">777.8272</data>
+        </node>
+        <node id="Barbarigo">
+            <data key="label">Barbarigo</data>
+            <data key="weighted indegree">2.0</data>
+            <data key="weighted outdegree">2.0</data>
+            <data key="weighted degree">4.0</data>
+            <data key="modularity_class">2</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">2</data>
+            <data key="outdegree">2</data>
+            <data key="degree">4</data>
+            <data key="pageranks">0.021431474431648445</data>
+            <data key="componentnumber">1</data>
+            <data key="size">6.422958</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">448.009</data>
+            <data key="y">359.44693</data>
+        </node>
+        <node id="Ruzzini">
+            <data key="label">Ruzzini</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">2</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.0187888404884455</data>
+            <data key="componentnumber">1</data>
+            <data key="size">5.203241</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">417.19052</data>
+            <data key="y">8.80577</data>
+        </node>
+        <node id="Soranzo">
+            <data key="label">Soranzo</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">2</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.0187888404884455</data>
+            <data key="componentnumber">1</data>
+            <data key="size">5.203241</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">552.46387</data>
+            <data key="y">189.28267</data>
+        </node>
+        <node id="Loredan">
+            <data key="label">Loredan</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">2.0</data>
+            <data key="weighted degree">3.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">2</data>
+            <data key="degree">3</data>
+            <data key="pageranks">0.017292771448266124</data>
+            <data key="componentnumber">1</data>
+            <data key="size">4.512725</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-774.6151</data>
+            <data key="y">129.0241</data>
+        </node>
+        <node id="Giustiniani">
+            <data key="label">Giustiniani</data>
+            <data key="weighted indegree">2.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">2</data>
+            <data key="outdegree">0</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.025262483559543657</data>
+            <data key="componentnumber">1</data>
+            <data key="size">8.191174</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-785.04706</data>
+            <data key="y">-88.86995</data>
+        </node>
+        <node id="Grimani">
+            <data key="label">Grimani</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">2.0</data>
+            <data key="weighted degree">3.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">2</data>
+            <data key="degree">3</data>
+            <data key="pageranks">0.017911472163501294</data>
+            <data key="componentnumber">1</data>
+            <data key="size">4.7982883</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-547.6244</data>
+            <data key="y">201.45483</data>
+        </node>
+        <node id="Gritti">
+            <data key="label">Gritti</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">6</data>
+            <data key="giantcomponent">5</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">5</data>
+            <data key="size">1.0</data>
+            <data key="r">76</data>
+            <data key="g">70</data>
+            <data key="b">62</data>
+            <data key="x">440.0512</data>
+            <data key="y">-376.00613</data>
+        </node>
+        <node id="Lando">
+            <data key="label">Lando</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">8</data>
+            <data key="giantcomponent">6</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">6</data>
+            <data key="size">1.0</data>
+            <data key="r">211</data>
+            <data key="g">179</data>
+            <data key="b">176</data>
+            <data key="x">2.4886389</data>
+            <data key="y">-380.55136</data>
+        </node>
+        <node id="Pasqualigo">
+            <data key="label">Pasqualigo</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">8</data>
+            <data key="giantcomponent">6</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.017911472163501294</data>
+            <data key="componentnumber">6</data>
+            <data key="size">4.7982883</data>
+            <data key="r">211</data>
+            <data key="g">179</data>
+            <data key="b">176</data>
+            <data key="x">-99.89024</data>
+            <data key="y">-568.6044</data>
+        </node>
+        <node id="Donato">
+            <data key="label">Donato</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-729.2365</data>
+            <data key="y">-283.7734</data>
+        </node>
+        <node id="Priuli">
+            <data key="label">Priuli</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">3.0</data>
+            <data key="weighted degree">4.0</data>
+            <data key="modularity_class">2</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">3</data>
+            <data key="degree">4</data>
+            <data key="pageranks">0.012425235189535512</data>
+            <data key="componentnumber">1</data>
+            <data key="size">2.266096</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">203.12321</data>
+            <data key="y">364.42975</data>
+        </node>
+        <node id="Diedo">
+            <data key="label">Diedo</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">2</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.013202118970699771</data>
+            <data key="componentnumber">1</data>
+            <data key="size">2.6246696</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">323.5539</data>
+            <data key="y">193.37689</data>
+        </node>
+        <node id="Venier">
+            <data key="label">Venier</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">11</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-608.3303</data>
+            <data key="y">487.88834</data>
+        </node>
+        <node id="Ponte">
+            <data key="label">Ponte</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">9</data>
+            <data key="giantcomponent">7</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">7</data>
+            <data key="size">1.0</data>
+            <data key="r">192</data>
+            <data key="g">192</data>
+            <data key="b">192</data>
+            <data key="x">612.2955</data>
+            <data key="y">-12.544425</data>
+        </node>
+        <node id="Canali">
+            <data key="label">Canali</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">9</data>
+            <data key="giantcomponent">7</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.017911472163501294</data>
+            <data key="componentnumber">7</data>
+            <data key="size">4.7982883</data>
+            <data key="r">192</data>
+            <data key="g">192</data>
+            <data key="b">192</data>
+            <data key="x">544.0414</data>
+            <data key="y">-204.21251</data>
+        </node>
+        <node id="Cicogna">
+            <data key="label">Cicogna</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-106.79588</data>
+            <data key="y">-184.27252</data>
+        </node>
+        <node id="Corner">
+            <data key="label">Corner</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">3.0</data>
+            <data key="weighted degree">3.0</data>
+            <data key="modularity_class">10</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">3</data>
+            <data key="degree">3</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">319.17294</data>
+            <data key="y">521.4065</data>
+        </node>
+        <node id="Delfino">
+            <data key="label">Delfino</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">10</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.012425235189535512</data>
+            <data key="componentnumber">1</data>
+            <data key="size">2.266096</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">499.34146</data>
+            <data key="y">610.0053</data>
+        </node>
+        <node id="Loredano">
+            <data key="label">Loredano</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">11</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.040491169011176595</data>
+            <data key="componentnumber">1</data>
+            <data key="size">15.220029</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-470.2292</data>
+            <data key="y">632.71844</data>
+        </node>
+        <node id="Valier">
+            <data key="label">Valier</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">2.0</data>
+            <data key="weighted degree">2.0</data>
+            <data key="modularity_class">12</data>
+            <data key="giantcomponent">8</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">2</data>
+            <data key="degree">2</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">8</data>
+            <data key="size">1.0</data>
+            <data key="r">255</data>
+            <data key="g">136</data>
+            <data key="b">5</data>
+            <data key="x">778.2675</data>
+            <data key="y">-129.75311</data>
+        </node>
+        <node id="Pisano">
+            <data key="label">Pisano</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">12</data>
+            <data key="giantcomponent">8</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.013796794433026956</data>
+            <data key="componentnumber">8</data>
+            <data key="size">2.8991442</data>
+            <data key="r">255</data>
+            <data key="g">136</data>
+            <data key="b">5</data>
+            <data key="x">783.5401</data>
+            <data key="y">91.712204</data>
+        </node>
+        <node id="Pesaro">
+            <data key="label">Pesaro</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">2</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">332.85913</data>
+            <data key="y">-181.64677</data>
+        </node>
+        <node id="Querini">
+            <data key="label">Querini</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">12</data>
+            <data key="giantcomponent">8</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.013796794433026956</data>
+            <data key="componentnumber">8</data>
+            <data key="size">2.8991442</data>
+            <data key="r">255</data>
+            <data key="g">136</data>
+            <data key="b">5</data>
+            <data key="x">711.54846</data>
+            <data key="y">-322.03708</data>
+        </node>
+        <node id="Pisani">
+            <data key="label">Pisani</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">13</data>
+            <data key="giantcomponent">9</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">9</data>
+            <data key="size">1.0</data>
+            <data key="r">192</data>
+            <data key="g">192</data>
+            <data key="b">192</data>
+            <data key="x">101.77065</data>
+            <data key="y">-572.63336</data>
+        </node>
+        <node id="Badoero">
+            <data key="label">Badoero</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">13</data>
+            <data key="giantcomponent">9</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.017911472163501294</data>
+            <data key="componentnumber">9</data>
+            <data key="size">4.7982883</data>
+            <data key="r">192</data>
+            <data key="g">192</data>
+            <data key="b">192</data>
+            <data key="x">274.11487</data>
+            <data key="y">-737.47876</data>
+        </node>
+        <node id="Renier">
+            <data key="label">Renier</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">14</data>
+            <data key="giantcomponent">10</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">10</data>
+            <data key="size">1.0</data>
+            <data key="r">192</data>
+            <data key="g">192</data>
+            <data key="b">192</data>
+            <data key="x">-208.16467</data>
+            <data key="y">-358.31058</data>
+        </node>
+        <node id="Dalmet">
+            <data key="label">Dalmet</data>
+            <data key="weighted indegree">1.0</data>
+            <data key="weighted outdegree">0.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">14</data>
+            <data key="giantcomponent">10</data>
+            <data key="indegree">1</data>
+            <data key="outdegree">0</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.017911472163501294</data>
+            <data key="componentnumber">10</data>
+            <data key="size">4.7982883</data>
+            <data key="r">192</data>
+            <data key="g">192</data>
+            <data key="b">192</data>
+            <data key="x">-441.78192</data>
+            <data key="y">-375.44174</data>
+        </node>
+        <node id="Manin">
+            <data key="label">Manin</data>
+            <data key="weighted indegree">0.0</data>
+            <data key="weighted outdegree">1.0</data>
+            <data key="weighted degree">1.0</data>
+            <data key="modularity_class">7</data>
+            <data key="giantcomponent">1</data>
+            <data key="indegree">0</data>
+            <data key="outdegree">1</data>
+            <data key="degree">1</data>
+            <data key="pageranks">0.009682116702552621</data>
+            <data key="componentnumber">1</data>
+            <data key="size">1.0</data>
+            <data key="r">223</data>
+            <data key="g">137</data>
+            <data key="b">255</data>
+            <data key="x">-712.3104</data>
+            <data key="y">321.64127</data>
+        </node>
+        <edge id="0" source="Tribuno" target="Sanudo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="1" source="Orseolo" target="Malipiero">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="2" source="Memmo" target="Candiano">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="3" source="Orseolo" target="Candiano">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="4" source="Doni" target="Bembo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="5" source="Michele" target="Cornaro">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="6" source="Dandolo" target="Bembo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="7" source="Tiepolo" target="Storlato">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="8" source="Tiepolo" target="Ghisi">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="9" source="Gradenigo" target="Morosini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="10" source="Dandolo" target="Contarini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="11" source="Gradenigo" target="Cappello">
+            <data key="weight">2.0</data>
+        </edge>
+        <edge id="12" source="Dandolo" target="Morosini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="13" source="Faliero" target="Gradenigo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="15" source="Dolfin" target="Ghisi">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="16" source="Morosini" target="Condulmiero">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="17" source="Steno" target="Galina">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="18" source="Foscari" target="Nani">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="19" source="Malipiero" target="Dandolo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="20" source="Moro" target="Sanudo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="21" source="Tron" target="Morosini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="22" source="Marcello" target="Contarini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="23" source="Mocenigo" target="Zorzi">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="24" source="Vendramin" target="Gradenico">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="25" source="Mocenigo" target="Michiel">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="26" source="Barbarigo" target="Ruzzini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="27" source="Barbarigo" target="Soranzo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="28" source="Loredan" target="Giustiniani">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="29" source="Grimani" target="Loredan">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="30" source="Gritti" target="Vendramin">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="31" source="Lando" target="Pasqualigo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="32" source="Donato" target="Giustiniani">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="33" source="Priuli" target="Dandolo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="34" source="Priuli" target="Diedo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="35" source="Loredan" target="Cappello">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="36" source="Mocenigo" target="Marcello">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="37" source="Venier" target="Contarini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="38" source="Ponte" target="Canali">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="39" source="Cicogna" target="Morosini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="40" source="Grimani" target="Morosini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="41" source="Priuli" target="Barbarigo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="42" source="Corner" target="Delfino">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="43" source="Contarini" target="Loredano">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="44" source="Corner" target="Priuli">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="45" source="Valier" target="Pisano">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="46" source="Pesaro" target="Barbarigo">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="47" source="Valier" target="Querini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="48" source="Corner" target="Cornaro">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="49" source="Pisani" target="Badoero">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="50" source="Mocenigo" target="Cornaro">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="51" source="Mocenigo" target="Contarini">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="52" source="Renier" target="Dalmet">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="53" source="Manin" target="Grimani">
+            <data key="weight">1.0</data>
+        </edge>
+    </graph>
+</graphml>
