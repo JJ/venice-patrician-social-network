@@ -9,7 +9,7 @@
   ],
   "auth": "zef:jjmerelo",
   "depends": [
-    "CSV"
+    "Text::CSV"
   ],
   "test-depends": [
     "Test",
