@@ -15,7 +15,9 @@ for @married-dogi -> ( $him, $her) {
     my $surname-him=  ~$<surname-him>;
     $her ~~ / ":" \s+ \w+ \s* $<surname-her> = [\w*]/;
     my $surname-her = ~$<surname-her>;
-    if ($surname-her && $surname-her.comb()[0] ne "d") {
+    if ($surname-her
+            && $surname-her.comb()[0] ne "d"
+            && $surname-her ne "Maria" | "Anna" ) {
         @surname-pairs.push: [$surname-him, $surname-her ];
     }
 }
