@@ -17,7 +17,7 @@
   ],
   "provides": { "Data::Venice::PatricianNetwork": "lib/Data/Venice/PatricianNetwork.rakumod" },
   "resources": [
-    "Venice-marriage-duci.csv"
+    "Venice-marriage-dogi.csv"
   ],
   "license": "Artistic-2.0",
   "tags": [
