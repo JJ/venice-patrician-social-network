@@ -15,7 +15,7 @@ for @married-dogi -> ( $him, $her) {
             && $surname-her.comb()[0] ne "d"
             && $surname-her ne "Maria" | "Anna"
             && $surname-her ne $surname-him ) {
-        @surname-pairs.push: [$surname-him, $surname-her ];
+        @surname-pairs.push: [$surname-him, canonicalize($surname-her) ];
     }
 }
 
