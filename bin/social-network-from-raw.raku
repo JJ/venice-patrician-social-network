@@ -1,6 +1,7 @@
 #!/usr/bin/env raku
 
 use Text::CSV;
+use Data::Venice::PatricianNetwork;
 
 my @dogi = csv(in => "resources/Venice-marriage-dogi.csv");
 
@@ -11,8 +12,7 @@ my @married-dogi = @dogi.grep( *[1] );
 my @surname-pairs;
 
 for @married-dogi -> ( $him, $her) {
-    $him ~~ / $<surname-him> = [ \w+ ] \s+ "(" /;
-    my $surname-him=  ~$<surname-him>;
+    my $surname-him=  doges-surname-from-raw($him);
     $her ~~ / ":" \s+ \w+ \s* $<surname-her> = [\w*]/;
     my $surname-her = ~$<surname-her>;
     if ($surname-her
