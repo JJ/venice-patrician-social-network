@@ -15,7 +15,10 @@
     "Test",
     "Test::META"
   ],
-  "provides": { "Data::Venice::PatricianNetwork": "lib/Data/Venice/PatricianNetwork.rakumod" },
+  "provides": {
+    "Data::Venice::PatricianNetwork": "lib/Data/Venice/PatricianNetwork.rakumod",
+    "Data::Venice::Dogi": "lib/Data/Venice/Dogi.rakumod"
+  },
   "resources": [
     "Venice-marriage-dogi.csv"
   ],
