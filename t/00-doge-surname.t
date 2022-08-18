@@ -6,6 +6,7 @@ use Data::Venice::Dogi;
 my @test-data= [
     [0, "Ipato"],
     [33, "Contarini"],
+    [63, "Corner"],
     [125, "Manin" ]
     ];
 
