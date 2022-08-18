@@ -1,6 +1,7 @@
 #!/usr/bin/env raku
 
 use Text::CSV;
+
 use Data::Venice::Dogi;
 use Data::Venice::PatricianNetwork;
 
