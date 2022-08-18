@@ -13,4 +13,5 @@ for @test-data -> ($index, $surname ) {
     is(doges-surname-from-raw(@dogi[$index]), $surname,
             "Good doge $surname");
 }
+
 done-testing;

@@ -1,13 +1,8 @@
 #!/usr/bin/env raku
 
 use Text::CSV;
+use Data::Venice::Dogi;
 use Data::Venice::PatricianNetwork;
-
-my @dogi = csv(in => "resources/Venice-marriage-dogi.csv");
-
-# Filter those that are not paired
-
-my @married-dogi = @dogi.grep( *[1] );
 
 my @surname-pairs;
 
