@@ -2,7 +2,7 @@
 
 use Text::CSV;
 
-my @dogi = csv(in => "resources/Venice-marriage-duci.csv");
+my @dogi = csv(in => "resources/Venice-marriage-dogi.csv");
 
 # Filter those that are not paired
 
