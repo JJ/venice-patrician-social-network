@@ -6,3 +6,7 @@
 lib/.precomp
 
 .idea
+
+auto/
+
+*~
