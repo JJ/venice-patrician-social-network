@@ -21,6 +21,5 @@ for %surnames.keys -> $name {
                     %positions<dogo> ?? 1 !! 0,
                     %positions<dogaressa> ?? 1!! 0];
 }
-say @arrayed;
 csv( out => "resources/family-positions.csv", in => @arrayed );
 
