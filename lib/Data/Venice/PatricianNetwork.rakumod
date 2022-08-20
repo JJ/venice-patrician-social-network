@@ -1,7 +1,8 @@
 unit module Data::Venice::PatricianNetwork;
 
 my %canonical = ( "Cornaro" => "Corner",
-                "Loredano" => "Loredan" );
+                "Loredano" => "Loredan",
+                "Pisano" => "Pisani");
 
 sub canonicalize( $surname ) is export {
     return %canonical{$surname} ?? %canonical{$surname} !! $surname;
