@@ -9,9 +9,8 @@ my @surname-pairs;
 
 for @married-dogi -> ( $him, $her) {
     my $surname-him=  doges-surname-from-raw($him);
-    my $surname-her = dogaresse-surname-from-raw(($her);
-    if ($surname-her
-            && $surname-her.comb()[0] ne "d"
+    my $surname-her = dogaresse-surname-from-raw($her);
+    if ( $surname-her && $surname-her.comb()[0] ne "d"
             && $surname-her ne "Maria" | "Anna"
             && $surname-her ne $surname-him ) {
         @surname-pairs.push: [$surname-him, canonicalize($surname-her) ];
