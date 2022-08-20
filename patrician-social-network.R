@@ -6,32 +6,29 @@ plot(venice.sn)
 V(venice.sn)$degree <- degree(venice.sn)
 cnet <- cluster_edge_betweenness(venice.sn)
 
-library(Dict)
 node.type <- read.csv("resources/family-positions.csv")
-node.type.dict <- Dict$new()
+node.type.dict <- list()
 
 for (r in 1:nrow(node.type)) {
-  print(node.type[r,])
-  node.type.dict[ node.type[r,"Family.name"] ] <-  node.type[r,"Positions"]
+  node.type.dict[[ node.type[r,"Family.name"] ]]  <-  node.type[r,"Positions"]
 }
 
-positions <- c()
-shapes <- c()
+positions = NULL
+shapes = NULL
 
-for (r in 1:nrow(V(venice.sn))) {
-  
-  print(r)
-  if (node.type.dict[r]) {
-    positions <- append(positions, node.type[r,"Positions"])
-    shapes <- append(shapes,
-                     ifelse(node.type[r,"Positions"] == "Doge",
+for (r in V(venice.sn)$name) {
+  if (! is.null(node.type.dict[[r]])) {
+    positions <- c(positions, node.type.dict[[r]])
+    shapes <- c(shapes,
+                     ifelse(node.type.dict[[r]] == "Doge",
                             "square",
-                            ifelse(node.type(r,"Positions") == "Dogaressa","rectangle","circle")))
+                            ifelse(node.type.dict[[r]] == "Dogaressa","rectangle","circle")))
     
   } else {
-    positions <- append(positions,"None")
-    shapes <- append(shapes,"sphere")
+    positions <- c(positions,"None")
+    shapes <- c(shapes,"sphere")
   }
   
 }
+
 plot(cnet,venice.sn,shape=V(venice.sn)$shape)
