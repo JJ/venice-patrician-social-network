@@ -38,6 +38,9 @@ plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes)
 
 V(venice.sn)$betweenness <- betweenness(venice.sn)
 
-plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes,vertex.size=5+(V(venice.sn)$betweenness/10))
+plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes,
+     layout=layout_with_fr(venice.sn),
+     vertex.size=5+(V(venice.sn)$betweenness/10))
 
 write_graph(venice.sn,"resources/venice-social-network.graphml",format="graphml")
+
