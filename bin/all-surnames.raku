@@ -13,13 +13,19 @@ for @dogi -> ( $him, $her) {
 
 my @arrayed;
 
-@arrayed.push: ["Family name", "Dogo","Dogaressa"];
+@arrayed.push: ["Family name", "Positions"];
 
 for %surnames.keys -> $name {
     my %positions = %surnames{$name};
-    @arrayed.push: [$name,
-                    %positions<dogo> ?? 1 !! 0,
-                    %positions<dogaressa> ?? 1!! 0];
+    my $position;
+    if %positions<dogo> && %positions<dogaressa> {
+        $position = "Both";
+    } elsif %positions<dogo> {
+        $position = "Doge"
+    } else {
+        $position = "Dogaressa"
+    }
+    @arrayed.push: [$name, $position ];
 }
 csv( out => "resources/family-positions.csv", in => @arrayed );
 
