@@ -9,8 +9,7 @@ my @surname-pairs;
 
 for @married-dogi -> ( $him, $her) {
     my $surname-him=  doges-surname-from-raw($him);
-    $her ~~ / ":" \s+ \w+ \s* $<surname-her> = [\w*]/;
-    my $surname-her = ~$<surname-her>;
+    my $surname-her = dogaresse-surname-from-raw(($her);
     if ($surname-her
             && $surname-her.comb()[0] ne "d"
             && $surname-her ne "Maria" | "Anna"

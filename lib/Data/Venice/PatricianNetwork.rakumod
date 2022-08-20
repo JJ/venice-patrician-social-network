@@ -10,3 +10,8 @@ sub doges-surname-from-raw( $wiki-column ) is export {
     $wiki-column ~~ / $<surname-him> = [ \w+ ] \s+ "(" /;
     return canonicalize(~$<surname-him>);
 }
+
+sub dogaresse-surname-from-raw( $wiki-column ) is export {
+    $wiki-column ~~ / ":" \s+ \w+ \s* $<surname-her> = [\w*]/;
+    return canonicalize(~$<surname-her>);
+}
