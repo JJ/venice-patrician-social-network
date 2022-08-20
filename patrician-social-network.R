@@ -22,7 +22,7 @@ for (r in V(venice.sn)$name) {
     shapes <- c(shapes,
                      ifelse(node.type.dict[[r]] == "Doge",
                             "square",
-                            ifelse(node.type.dict[[r]] == "Dogaressa","rectangle","circle")))
+                            ifelse(node.type.dict[[r]] == "Dogaressa","sphere","circle")))
     
   } else {
     positions <- c(positions,"None")
@@ -31,4 +31,13 @@ for (r in V(venice.sn)$name) {
   
 }
 
-plot(cnet,venice.sn,shape=V(venice.sn)$shape)
+V(venice.sn)$positions <- positions
+V(venice.sn)$shapes <- shapes
+
+plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes)
+
+V(venice.sn)$betweenness <- betweenness(venice.sn)
+
+plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes,vertex.size=5+(V(venice.sn)$betweenness/10))
+
+write_graph(venice.sn,"resources/venice-social-network.graphml",format="graphml")
