@@ -13,5 +13,9 @@ sub doges-surname-from-raw( $wiki-column ) is export {
 
 sub dogaresse-surname-from-raw( $wiki-column ) is export {
     $wiki-column ~~ / ":" \s+ \w+ \s* $<surname-her> = [\w*]/;
-    return canonicalize(~$<surname-her>);
+    if $<surname-her> {
+        return canonicalize(~$<surname-her>)
+    } else {
+        return ""
+    };
 }
