@@ -8,14 +8,15 @@ my %positions-data = csv(in => "resources/family-positions.csv",
         :key( "Family name" ));
 
 my %dogi-number-data = csv(in => "resources/doge-surnames.csv",
-        :key( "Family name" ));
+        :key( "Family" ));
 
 my %merged-data;
-
 for %positions-data.keys -> $family {
-    %merged-data{$family} = ( Positions => %positions-data<Positions> );
+    %merged-data{$family} = {
+        Positions => %positions-data{$family}<Positions>
+    };
     if %dogi-number-data{$family} {
-        %merged-data{$family}<Dogi> = %dogi-number-data{$family}<Dogi>;
+        %merged-data{$family}<Dogi> = %dogi-number-data{$family}<Count>;
     }
 
     if %doge-data{$family} {
@@ -26,4 +27,10 @@ for %positions-data.keys -> $family {
     }
 }
 
-say %merged-data;
+my @aoa;
+
+for %merged-data.keys -> $family {
+    @aoa.push: ( :Family($family), |%merged-data{$family} );
+}
+
+csv( out => "resources/family-data.csv", :headers, in => @aoa );
