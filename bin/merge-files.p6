@@ -29,8 +29,15 @@ for %positions-data.keys -> $family {
 
 my @aoa;
 
+@aoa.push: ["Family","Positions", "Type"];
+
 for %merged-data.keys -> $family {
-    @aoa.push: ( :Family($family), |%merged-data{$family} );
+    @aoa.push: [
+        $family,
+        %merged-data{$family}<Positions>,
+        %merged-data{$family}<Type> || ""
+    ];
 }
 
-csv( out => "resources/family-data.csv", :headers("auto"), in => @aoa );
+csv( out => "resources/family-data.csv",
+        in => @aoa );
