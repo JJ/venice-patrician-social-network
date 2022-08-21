@@ -29,11 +29,12 @@ for %positions-data.keys -> $family {
 
 my @aoa;
 
-@aoa.push: ["Family","Positions", "Type"];
+@aoa.push: ["Family","Doges","Positions", "Type"];
 
 for %merged-data.keys -> $family {
     @aoa.push: [
         $family,
+        %merged-data{$family}<Dogi> || 0,
         %merged-data{$family}<Positions>,
         %merged-data{$family}<Type> || ""
     ];
