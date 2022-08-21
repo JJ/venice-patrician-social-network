@@ -12,3 +12,4 @@ auto/
 *~
 
 .Rhistory
+.RData
