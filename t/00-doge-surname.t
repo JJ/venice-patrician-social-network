@@ -6,15 +6,15 @@ use Data::Venice::Dogi;
 my @test-data-dogi= [
     [0, "Orso"],
     [33, "Contarini"],
-    [63, "Corner"],
-    [125, "Manin" ]
+    [63, "Gradenigo"],
+    [128, "Manin" ]
     ];
 
 my @test-data-dogaresse= [
     [19, "Sanudo"],
-    [107, "Barbarigo"],
-    [115, "Corner"],
-    [125, "Grimani" ]
+    [107, "Loredan"],
+    [116, "Querini"],
+    [128, "Grimani" ]
 ];
 
 subtest "Dogi names", {
