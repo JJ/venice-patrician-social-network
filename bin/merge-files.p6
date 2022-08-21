@@ -33,4 +33,4 @@ for %merged-data.keys -> $family {
     @aoa.push: ( :Family($family), |%merged-data{$family} );
 }
 
-csv( out => "resources/family-data.csv", :headers, in => @aoa );
+csv( out => "resources/family-data.csv", :headers("auto"), in => @aoa );
