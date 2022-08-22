@@ -6,11 +6,13 @@ plot(venice.sn)
 V(venice.sn)$degree <- degree(venice.sn)
 cnet <- cluster_edge_betweenness(venice.sn)
 
-node.type <- read.csv("resources/family-positions.csv")
+node.type <- read.csv("resources/family-data.csv")
 node.type.dict <- list()
 
 for (r in 1:nrow(node.type)) {
-  node.type.dict[[ node.type[r,"Family.name"] ]]  <-  node.type[r,"Positions"]
+  node.type.dict[[ node.type[r,"Family.name"] ]]  <-  list( "positions"= node.type[r,"Positions"],
+                                                            "doges"= node.type[r,"Doges"],
+                                                            "type" = node.type[r,"Type"] )
 }
 
 positions = NULL

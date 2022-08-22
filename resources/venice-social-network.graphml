@@ -6,420 +6,348 @@
 <!-- Created by igraph -->
   <key id="v_name" for="node" attr.name="name" attr.type="string"/>
   <key id="v_degree" for="node" attr.name="degree" attr.type="double"/>
-  <key id="v_positions" for="node" attr.name="positions" attr.type="string"/>
   <key id="v_shapes" for="node" attr.name="shapes" attr.type="string"/>
   <key id="v_betweenness" for="node" attr.name="betweenness" attr.type="double"/>
   <graph id="G" edgedefault="undirected">
     <node id="n0">
       <data key="v_name">Tribuno</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n1">
       <data key="v_name">Orseolo</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
-      <data key="v_betweenness">64</data>
+      <data key="v_betweenness">66</data>
     </node>
     <node id="n2">
       <data key="v_name">Memmo</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n3">
       <data key="v_name">Faliero</data>
       <data key="v_degree">3</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">12.1666666666667</data>
+      <data key="v_betweenness">18.6666666666667</data>
     </node>
     <node id="n4">
-      <data key="v_name">Michele</data>
-      <data key="v_degree">1</data>
-      <data key="v_positions">Both</data>
+      <data key="v_name">Michiel</data>
+      <data key="v_degree">2</data>
       <data key="v_shapes">circle</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n5">
       <data key="v_name">Dandolo</data>
       <data key="v_degree">6</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">285.5</data>
+      <data key="v_betweenness">297.666666666667</data>
     </node>
     <node id="n6">
       <data key="v_name">Tiepolo</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">2</data>
     </node>
     <node id="n7">
       <data key="v_name">Gradenigo</data>
-      <data key="v_degree">5</data>
-      <data key="v_positions">Both</data>
+      <data key="v_degree">6</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">55</data>
+      <data key="v_betweenness">119.333333333333</data>
     </node>
     <node id="n8">
       <data key="v_name">Celsi</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n9">
       <data key="v_name">Morosini</data>
       <data key="v_degree">6</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">156</data>
+      <data key="v_betweenness">186.333333333333</data>
     </node>
     <node id="n10">
       <data key="v_name">Steno</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n11">
       <data key="v_name">Mocenigo</data>
       <data key="v_degree">6</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
-      <data key="v_betweenness">112.833333333333</data>
+      <data key="v_betweenness">96.5</data>
     </node>
     <node id="n12">
       <data key="v_name">Foscari</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n13">
       <data key="v_name">Malipiero</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">93</data>
+      <data key="v_betweenness">96</data>
     </node>
     <node id="n14">
       <data key="v_name">Moro</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n15">
       <data key="v_name">Tron</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n16">
       <data key="v_name">Marcello</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n17">
       <data key="v_name">Vendramin</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">1</data>
+      <data key="v_betweenness">34</data>
     </node>
     <node id="n18">
       <data key="v_name">Barbarigo</data>
       <data key="v_degree">4</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">96</data>
+      <data key="v_betweenness">99</data>
     </node>
     <node id="n19">
       <data key="v_name">Loredan</data>
       <data key="v_degree">4</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">85.5</data>
+      <data key="v_betweenness">86.1666666666667</data>
     </node>
     <node id="n20">
       <data key="v_name">Grimani</data>
       <data key="v_degree">3</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">45</data>
+      <data key="v_betweenness">46</data>
     </node>
     <node id="n21">
       <data key="v_name">Gritti</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n22">
       <data key="v_name">Lando</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n23">
       <data key="v_name">Donato</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n24">
       <data key="v_name">Priuli</data>
       <data key="v_degree">4</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">184</data>
+      <data key="v_betweenness">181.666666666667</data>
     </node>
     <node id="n25">
       <data key="v_name">Venier</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n26">
       <data key="v_name">Ponte</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n27">
       <data key="v_name">Cicogna</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n28">
       <data key="v_name">Corner</data>
       <data key="v_degree">4</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">92</data>
+      <data key="v_betweenness">65.3333333333333</data>
     </node>
     <node id="n29">
       <data key="v_name">Contarini</data>
       <data key="v_degree">6</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">150.666666666667</data>
+      <data key="v_betweenness">145.5</data>
     </node>
     <node id="n30">
       <data key="v_name">Valier</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">2</data>
     </node>
     <node id="n31">
       <data key="v_name">Pesaro</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n32">
       <data key="v_name">Pisani</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
       <data key="v_betweenness">2</data>
     </node>
     <node id="n33">
       <data key="v_name">Renier</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n34">
       <data key="v_name">Manin</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Doge</data>
       <data key="v_shapes">square</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n35">
       <data key="v_name">Sanudo</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">1</data>
     </node>
     <node id="n36">
       <data key="v_name">Candiano</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
-      <data key="v_betweenness">33</data>
+      <data key="v_betweenness">34</data>
     </node>
     <node id="n37">
       <data key="v_name">Bembo</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
       <data key="v_betweenness">6</data>
     </node>
     <node id="n38">
       <data key="v_name">Minotto</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n39">
       <data key="v_name">Storlato</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n40">
       <data key="v_name">Ghisi</data>
       <data key="v_degree">2</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">2</data>
     </node>
     <node id="n41">
       <data key="v_name">Cappello</data>
       <data key="v_degree">4</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
-      <data key="v_betweenness">41.3333333333333</data>
+      <data key="v_betweenness">53.8333333333333</data>
     </node>
     <node id="n42">
       <data key="v_name">Borromeo</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n43">
       <data key="v_name">Condulmiero</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n44">
       <data key="v_name">Galina</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n45">
       <data key="v_name">Nani</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n46">
       <data key="v_name">Zorzi</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Both</data>
       <data key="v_shapes">circle</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n47">
-      <data key="v_name">Gradenico</data>
+      <data key="v_name">Ruzzini</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
-      <data key="v_shapes">sphere</data>
+      <data key="v_shapes">circle</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n48">
-      <data key="v_name">Michiel</data>
+      <data key="v_name">Soranzo</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
-      <data key="v_shapes">sphere</data>
+      <data key="v_shapes">circle</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n49">
-      <data key="v_name">Ruzzini</data>
-      <data key="v_degree">1</data>
-      <data key="v_positions">Both</data>
-      <data key="v_shapes">circle</data>
-      <data key="v_betweenness">0</data>
+      <data key="v_name">Giustiniani</data>
+      <data key="v_degree">2</data>
+      <data key="v_shapes">sphere</data>
+      <data key="v_betweenness">34</data>
     </node>
     <node id="n50">
-      <data key="v_name">Soranzo</data>
+      <data key="v_name">Pasqualigo</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Both</data>
-      <data key="v_shapes">circle</data>
+      <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n51">
-      <data key="v_name">Giustiniani</data>
-      <data key="v_degree">2</data>
-      <data key="v_positions">Dogaressa</data>
+      <data key="v_name">Diedo</data>
+      <data key="v_degree">1</data>
       <data key="v_shapes">sphere</data>
-      <data key="v_betweenness">33</data>
+      <data key="v_betweenness">0</data>
     </node>
     <node id="n52">
-      <data key="v_name">Pasqualigo</data>
+      <data key="v_name">Canali</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n53">
-      <data key="v_name">Diedo</data>
+      <data key="v_name">Delfino</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n54">
-      <data key="v_name">Canali</data>
+      <data key="v_name">Querini</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n55">
-      <data key="v_name">Delfino</data>
+      <data key="v_name">Badoero</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
     <node id="n56">
-      <data key="v_name">Querini</data>
-      <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
-      <data key="v_shapes">sphere</data>
-      <data key="v_betweenness">0</data>
-    </node>
-    <node id="n57">
-      <data key="v_name">Badoero</data>
-      <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
-      <data key="v_shapes">sphere</data>
-      <data key="v_betweenness">0</data>
-    </node>
-    <node id="n58">
       <data key="v_name">Dalmet</data>
       <data key="v_degree">1</data>
-      <data key="v_positions">Dogaressa</data>
       <data key="v_shapes">sphere</data>
       <data key="v_betweenness">0</data>
     </node>
@@ -479,27 +407,27 @@
     </edge>
     <edge source="n11" target="n46">
     </edge>
-    <edge source="n17" target="n47">
+    <edge source="n7" target="n17">
     </edge>
-    <edge source="n11" target="n48">
+    <edge source="n4" target="n11">
     </edge>
-    <edge source="n18" target="n49">
+    <edge source="n18" target="n47">
     </edge>
-    <edge source="n18" target="n50">
+    <edge source="n18" target="n48">
     </edge>
-    <edge source="n19" target="n51">
+    <edge source="n19" target="n49">
     </edge>
     <edge source="n19" target="n20">
     </edge>
     <edge source="n17" target="n21">
     </edge>
-    <edge source="n22" target="n52">
+    <edge source="n22" target="n50">
     </edge>
-    <edge source="n23" target="n51">
+    <edge source="n23" target="n49">
     </edge>
     <edge source="n5" target="n24">
     </edge>
-    <edge source="n24" target="n53">
+    <edge source="n24" target="n51">
     </edge>
     <edge source="n19" target="n41">
     </edge>
@@ -507,7 +435,7 @@
     </edge>
     <edge source="n25" target="n29">
     </edge>
-    <edge source="n26" target="n54">
+    <edge source="n26" target="n52">
     </edge>
     <edge source="n9" target="n27">
     </edge>
@@ -515,7 +443,7 @@
     </edge>
     <edge source="n18" target="n24">
     </edge>
-    <edge source="n28" target="n55">
+    <edge source="n28" target="n53">
     </edge>
     <edge source="n19" target="n29">
     </edge>
@@ -525,15 +453,15 @@
     </edge>
     <edge source="n18" target="n31">
     </edge>
-    <edge source="n30" target="n56">
+    <edge source="n30" target="n54">
     </edge>
-    <edge source="n32" target="n57">
+    <edge source="n32" target="n55">
     </edge>
     <edge source="n11" target="n28">
     </edge>
     <edge source="n11" target="n29">
     </edge>
-    <edge source="n33" target="n58">
+    <edge source="n33" target="n56">
     </edge>
     <edge source="n20" target="n34">
     </edge>
