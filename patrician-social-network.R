@@ -11,8 +11,8 @@ node.type.dict <- list()
 
 for (r in 1:nrow(node.type)) {
   node.type.dict[[ node.type[r,"Family"] ]]  <-  list( "positions"= node.type[r,"Positions"],
-                                                            "doges"= node.type[r,"Doges"],
-                                                            "type" = node.type[r,"Type"] )
+                                                        "doges"= node.type[r,"Doges"],
+                                                        "type" = node.type[r,"Type"] )
 }
 
 positions = NULL
@@ -28,7 +28,7 @@ for (r in V(venice.sn)$name) {
                      ifelse(node.type.dict[[r]]$positions == "Doge",
                             "square",
                             ifelse(node.type.dict[[r]]$positions == "Dogaressa","sphere","circle")))
-    doges <- c(1+as.numeric(node.type.dict[[r]]$doges))
+    doges <- c(doges,(1+as.numeric(node.type.dict[[r]]$doges))/3)
     label.colors <- c(label.colors,label.colors.choice[1+as.numeric(node.type.dict[[r]]$doges)])
   } else {
     positions <- c(positions,"None")
@@ -40,6 +40,7 @@ for (r in V(venice.sn)$name) {
 V(venice.sn)$positions <- positions
 V(venice.sn)$shapes <- shapes
 V(venice.sn)$label.colors <- label.colors
+V(venice.sn)$doges <- doges
 
 plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes)
 
@@ -48,8 +49,6 @@ V(venice.sn)$betweenness <- betweenness(venice.sn)
 plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes,
      layout=layout_with_fr(venice.sn),
      vertex.size=5+(V(venice.sn)$betweenness/20),
-     vertex.frame.color=V(venice.sn)$label.colors,
-     vertex.frame.width=)
+     vertex.label.cex=V(venice.sn)$doges)
 
 write_graph(venice.sn,"resources/venice-social-network.graphml",format="graphml")
-
