@@ -53,10 +53,18 @@ V(venice.sn)$types <- types
 plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes)
 
 V(venice.sn)$betweenness <- betweenness(venice.sn)
+V(venice.sn)$eigen <- eigen_centrality(venice.sn)
+V(venice.sn)$pr <- unname(unlist(page_rank(venice.sn)$vector))
 
 plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes,
      layout=layout_with_fr(venice.sn),
      vertex.size=5+(V(venice.sn)$betweenness/20),
+     vertex.label.cex=V(venice.sn)$doges,
+     vertex.label.color=V(venice.sn)$types)
+
+plot(cnet,venice.sn,vertex.shape=V(venice.sn)$shapes,
+     layout=layout_with_fr(venice.sn),
+     vertex.size=500*V(venice.sn)$pr,
      vertex.label.cex=V(venice.sn)$doges,
      vertex.label.color=V(venice.sn)$types)
 
