@@ -12,4 +12,15 @@ abstract:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+# Introduction
+
+During one thousand years, the Venetian republic managed to raise from a small fiefdom to the biggest empire in the Mediterranean, and then maintain its existence until the *Napoleonic* storm reconfigured the map of Europe for ever [@horodowich2013brief].
+
+The main factors that influenced in that stability was the way it chose its presidents, or *doges*, as well as the constraints put on what they could effectively and a clear separation of powers that created a plethora of institutions with more or less clearly defined functions [@institutions]. The mercantile orientation of these institutions certainly helped, since it created a safe and secure environment where people from all over the world could do business.
+
+However, Venice was a far cry from a democracy. Nobles (*patriziato*) and the people (*popolani*) were totally separate, with the patricians being the only one with a possibility of occupying any job going from simple administrative jobs, to the highest offices such as the Maggior Consiglio (equivalent to a Privy Council), the Senate or the *Consiglio dei dieci*, that worked as higher instance tribunal as well as home office. This effectively implied that a certain number of families ruled the Republic, from its inception to the end.
+
+
+
 ## References
