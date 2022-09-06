@@ -28,14 +28,21 @@ It is, then, difficult to understand how what caused upheaval and instability in
 
 ## Dataset generation
 
-The data set has been created specifically from this line of research. The list of all doges, and the list of all *dogaresse*, or doge's wives, has been extracted from Wikipedia pages, the list of doges from the Spanish page (since it was already formated in a list) and the list of dogaresse from the Italian wikipedia. These lists included dates when they were dogaresse; they were matched to their husbands by these dates. Couples were then double-checked, when some possible doubt (due to dates) was found, using primary sources such as [@cicogna1863storia]. In some cases, dates had to be fixed in the original list, as is shown [in this diff](https://it.wikipedia.org/w/index.php?title=Dogaressa&type=revision&diff=128805136&oldid=127173404).
+It is theoretically possible, but out of reach for people that are not scholars, to access the whole marriage registry in the city of Venice. It is relatively simple, however, to find the list of all doges and all the women they were married to. Initially, I thought it was possible to use a simple Wikidata query to doso, but unfortunately that part of Wikidata has not been populated yet. So the dataset had to be built pretty much by hand.
+
+The data set has been created specifically from this line of research. The list of all doges, and the list of all *dogaresse*, or doge's wives, has been extracted from Wikipedia pages, the list of doges from the Spanish page (since it was already formatted in a list) and the list of dogaresse from the Italian Wikipedia. These lists included dates when they were dogaresse; they were matched to their husbands by these dates. Couples were then double-checked, when some possible doubt (due to dates) was found, using primary sources such as [@cicogna1863storia]. In some cases, dates had to be fixed in the original list, as is shown [in this diff](https://it.wikipedia.org/w/index.php?title=Dogaressa&type=revision&diff=128805136&oldid=127173404).
 
 ```{r raw, include=FALSE}
 all.data <- read.csv("../resources/Venice-marriage-dogi.csv",header=FALSE)
 married.data <- all.data[ all.data$V2 != "",]
 ```
 
-All in all, there were `r nrow(all.data)` doges through all history. Out of all of these, `r nrow(all.data) - nrow(married.data)` did not marry, or their marriage has not been registered.
+All in all, there were `r nrow(all.data)` doges through all history. Out of all of these, `r nrow(all.data) - nrow(married.data)` did not marry, or their marriage has not been registered. Out of these couples, there were a few doges that married twice; most married only once. Additional filtering and processing was done:
+
+* Couples marrying into the same family were eliminated. Patrician families were quite extensive, and sometimes had different branches. it was not common, but it happened, that some doge was married to a dogaressa belonging to another branch of the family. For instance, Pietro III Candiano as well as Pietro IV Candiano married to women of the Candiano family; Domenico Selvo married in 1075 to Theodora Selvo; Ordelafo Falier married to Matelda Falier, and right after that one, Domenico Michele married to Alicia Michele.
+* The patrician family was identified by following a regular expression on the original data. The surname of the doge was registered as the last name before the date of rule, the dogaresse was the last expression in the string. However, the extracted surname did not always correspond to a patrician family. In some cases, mainly in the initial stages of the republic, only first names were known. In some other case, mainly in the case of dogaresse, only their country or land of origin was noted: for instance, Valdrada di Sicilia or Loicia da Prata were married to doges in the late XIII century.
+* Family names were canonicalized. Many patrician family names have two forms: the one in Veneto, the language spoken in Venice, and the one in Italian. For instance, Cornaro and Corner, or Michele and Michel. In a case, "Mastropiero", it was also known as "Malipiero"; Gradenigo could also be written as Gradenico. These were normalized to a single form, in Veneto, which is the one found in most primary sources.
+
 
 ## Conclusions
 
