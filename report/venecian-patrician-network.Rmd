@@ -10,7 +10,9 @@ bibliography: ../patrician.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+library(igraph)
+data <- read.csv("../resources/family-pairs.csv",header=FALSE)
+venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
 ```
 
 
