@@ -13,3 +13,5 @@ auto/
 
 .Rhistory
 .RData
+
+*.pdf
