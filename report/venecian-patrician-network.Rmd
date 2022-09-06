@@ -18,11 +18,22 @@ venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
 
 # Introduction
 
-During one thousand years, the Venetian republic managed to raise from a small fiefdom to the biggest empire in the Mediterranean, and then maintain its existence until the *Napoleonic* storm reconfigured the map of Europe for ever [@horodowich2013brief].
+During one thousand years, the Venetian republic managed to raise from a small fiefdom under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the *Napoleonic* storm reconfigured the map of Europe for ever [@horodowich2013brief].
 
-The main factors that influenced in that stability was the way it chose its presidents, or *doges*, as well as the constraints put on what they could effectively and a clear separation of powers that created a plethora of institutions with more or less clearly defined functions [@institutions]. The mercantile orientation of these institutions certainly helped, since it created a safe and secure environment where people from all over the world could do business.
+One of the main factors that influenced in that stability was the way it chose its presidents, or *doges*, as well as the constraints put on what they could effectively do, as well as a clear separation of powers that created a plethora of institutions with more or less clearly defined functions [@institutions]. The mercantile orientation of these institutions certainly helped, since it created a safe and secure environment where people from all over the world could do business. But it was extremely rare for a doge to be deposed due to corruption, or ousted by a coup d'ètat, as it was extremely common all over the Italian peninsula and elsewhere.
 
-However, Venice was a far cry from a democracy. Nobles (*patriziato*) and the people (*popolani*) were totally separate, with the patricians being the only one with a possibility of occupying any job going from simple administrative jobs, to the highest offices such as the Maggior Consiglio (equivalent to a Privy Council), the Senate or the *Consiglio dei dieci*, that worked as higher instance tribunal as well as home office. This effectively implied that a certain number of families ruled the Republic, from its inception to the end.
+However, Venice was a far cry from a democracy. Nobles (*patriziato*) and the people (*popolani*) were totally separate, with the patricians being the only one with a possibility of occupying any job going from simple administrative jobs, to the highest offices such as the Maggior Consiglio (equivalent to a Privy Council), the Senate or the *Consiglio dei dieci*, that worked as higher instance tribunal as well as home office. This effectively implied that a certain number of families ruled the Republic, from its inception to the end. This rule was, also, increasingly authoritarian, with a tight grip on power, that was, however, distributed among the different institutions.
+
+It is, then, difficult to understand how what caused upheaval and instability in most Medieval and post-Medieval states instead was not a factor leading to the demise of the institution of the Doges. This paper tries to contribute to understand why, by studying the social network formed by these patrician families, and how it is related to the number of doges these families contributed as governors of the republic.
+
+
+# Conclusions
+
+The complicated way in which the doges were elected, and how individuals were chosen to enter a career as officers of the Republic, guaranteed that extremely wide, and variable, alliances had to be put in play. These alliances were solidified through marriages, which integrated politically as well as commercially the families of the two (romantic and commercial) partners.
+
+In this paper we have drawn two conclusions from the study of the social network. One, that *old* (*vecchie*) families had a firm grasp on power, through alliances that were kept in places for centuries. Two, that the position in the social network was highly correlated with their position in an hypothetical ranking of the positions of powers held by that family through the centuries. More than individual contributions (which were anyway important to be able to marry into one of the best families), how links between families had been forged and kept were the ones that made families raise to the top job in the Republic over and over again over the centuries.
+
+This, again, shows that quantitative studies over social networks are an excellent tool for understanding political history of different countries, and contribute to the explanation of the stability of the Republic's government: by raising to power only persons in families that were able to forge the widest alliances, *popular* will was satisfied (as a matter of fact, *patrician* will, since they were the ones that effectively had the power to vote), and this was one of the factors that contributed to the stability way beyond the zenit of the Venetian empire.
 
 
 
