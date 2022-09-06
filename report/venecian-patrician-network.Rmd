@@ -26,11 +26,16 @@ However, Venice was a far cry from a democracy. Nobles (*patriziato*) and the pe
 
 It is, then, difficult to understand how what caused upheaval and instability in most Medieval and post-Medieval states instead was not a factor leading to the demise of the institution of the Doges. This paper tries to contribute to understand why, by studying the social network formed by these patrician families, and how it is related to the number of doges these families contributed as governors of the republic.
 
-## Data extraction
+## Dataset generation
 
 The data set has been created specifically from this line of research. The list of all doges, and the list of all *dogaresse*, or doge's wives, has been extracted from Wikipedia pages, the list of doges from the Spanish page (since it was already formated in a list) and the list of dogaresse from the Italian wikipedia. These lists included dates when they were dogaresse; they were matched to their husbands by these dates. Couples were then double-checked, when some possible doubt (due to dates) was found, using primary sources such as [@cicogna1863storia]. In some cases, dates had to be fixed in the original list, as is shown [in this diff](https://it.wikipedia.org/w/index.php?title=Dogaressa&type=revision&diff=128805136&oldid=127173404).
 
+```{r raw, include=FALSE}
+all.data <- read.csv("../resources/Venice-marriage-dogi.csv",header=FALSE)
+married.data <- all.data[ all.data$V2 != "",]
+```
 
+All in all, there were `r nrow(all.data)` doges through all history. Out of all of these, `r nrow(all.data) - nrow(married.data)` did not marry, or their marriage has not been registered.
 
 ## Conclusions
 
