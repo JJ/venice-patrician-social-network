@@ -16,7 +16,7 @@ venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
 ```
 
 
-# Introduction
+## Introduction
 
 During one thousand years, the Venetian republic managed to raise from a small fiefdom under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the *Napoleonic* storm reconfigured the map of Europe for ever [@horodowich2013brief].
 
@@ -26,8 +26,13 @@ However, Venice was a far cry from a democracy. Nobles (*patriziato*) and the pe
 
 It is, then, difficult to understand how what caused upheaval and instability in most Medieval and post-Medieval states instead was not a factor leading to the demise of the institution of the Doges. This paper tries to contribute to understand why, by studying the social network formed by these patrician families, and how it is related to the number of doges these families contributed as governors of the republic.
 
+## Data extraction
 
-# Conclusions
+The data set has been created specifically from this line of research. The list of all doges, and the list of all *dogaresse*, or doge's wives, has been extracted from Wikipedia pages, the list of doges from the Spanish page (since it was already formated in a list) and the list of dogaresse from the Italian wikipedia. These lists included dates when they were dogaresse; they were matched to their husbands by these dates. Couples were then double-checked, when some possible doubt (due to dates) was found, using primary sources such as [@cicogna1863storia]. In some cases, dates had to be fixed in the original list, as is shown [in this diff](https://it.wikipedia.org/w/index.php?title=Dogaressa&type=revision&diff=128805136&oldid=127173404).
+
+
+
+## Conclusions
 
 The complicated way in which the doges were elected, and how individuals were chosen to enter a career as officers of the Republic, guaranteed that extremely wide, and variable, alliances had to be put in play. These alliances were solidified through marriages, which integrated politically as well as commercially the families of the two (romantic and commercial) partners.
 
