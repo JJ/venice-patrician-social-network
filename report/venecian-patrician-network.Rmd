@@ -26,7 +26,11 @@ However, Venice was a far cry from a democracy. Nobles (*patriziato*) and the pe
 
 It is, then, difficult to understand how what caused upheaval and instability in most Medieval and post-Medieval states instead was not a factor leading to the demise of the institution of the Doges. This paper tries to contribute to understand why, by studying the social network formed by these patrician families, and how it is related to the number of doges these families contributed as governors of the republic.
 
-## Dataset generation
+The rest of the paper has been organized as follows: coming up, a brief revision of the state of the art. The extraction and preparation of data is described in the [next section](#dataset). The resulting social network will be analyzed in Section [The Venetian patrician families social network]. We will finally draw some conclusions and present future work in the last section.
+
+## State of the art
+
+## Dataset generation {#dataset}
 
 It is theoretically possible, but out of reach for people that are not scholars, to access the whole marriage registry in the city of Venice. It is relatively simple, however, to find the list of all doges and all the women they were married to. Initially, I thought it was possible to use a simple Wikidata query to do so, but unfortunately those Wikidata predicates have not been populated yet. So the dataset had to be built pretty much by hand.
 
@@ -61,6 +65,10 @@ Out of all the families that contributed to the top most office in the republic,
 Five o them, including Bembo, do appear as dogaresse. This means that out of the 65 families that became doges, just 26 are not linked by marriage to ther families, at least with this small sample of links that is the list of married doges. Most of these non-married families, except five of them, Partecipazio, Candiano, Ziani, Galbaio and Teodato, had a single doge to their account. These are special cases: Partecipazio were the first doges, when office was still kind of inherited (the doge nominated a "consul", which succeeded him). So they *had* to be married; same goes for Candiano, except these took office a bit later. Galbaio and Teodato were not even properly doges, but more dukes or military leaders that took office in the first millennium. Ziani was in fact married, except that he was married to one such Cecilia, with no family recorded. So in fact families with more than one doge in them did include at least one marriage link with other patrician families; as a matter of fact, the Bembo family, for instance, included only one doge, Giovanni Bembo, but two dogaresse, Cornelia and Felicità.
 
 We can draw two conclusions from this: being married was the prevalent civil state of the doges, and the marriage registry is a good enough tool to research the social network of the patrician families of which they sprung.
+
+All data sets have been released at the [GitHub repository](https://github.com/JJ/venice-patrician-social-network) under a free license.
+
+## The Venetian patrician families social network {#sn}
 
 ## Conclusions
 
