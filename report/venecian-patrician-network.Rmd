@@ -59,12 +59,17 @@ any.d <- union( unique.doges.pairs, unique.dogaresse)
 After these filters, there were only `r nrow(data)` left. Out of these, there were only `r nrow(unique.doges.pairs)` different families that became "Serenest princes" or doges, `r nrow(unique.dogaresse)` that were *dogaresse*. Some families had members in both roles: `r length(both)` of them, a very small percentage of the total families; on the other hand, a total of `r length(any.d)` participated in any of them.
 
 ```{r doges, include=FALSE}
-doges <- read.csv("../resources/doge-surnames.csv")
-non.married <- setdiff( doges$Family, unique.doges.pairs )
+family.pairs <- read.csv("../resources/all-pairs.csv", header = FALSE)
+unique.families <- unique(family.pairs$V1)
+family.non.married <- unique(family.pairs[ family.pairs$V2 == "",]$V1)
+family.married <-  unique(family.pairs[ family.pairs$V2 != "",]$V1)
+doges.married.or.not <- intersect(family.married,family.non.married)
 ```
 
-Out of all the families that contributed to the top most office in the republic, there were `r length(non.married)` that did not marry, or their marriages were not registered. Some relatively important families, like Bembo, Erizzo or Michele, appear in this list. 
+Out of all the families that contributed to the top most office in the republic, there were `r length(family.non.married)` that did not marry, or their marriages were not registered. Some relatively important families, like Bembo, Erizzo or Michele, appear in this list. 
 Five o them, including Bembo, do appear as dogaresse. This means that out of the 65 families that became doges, just 26 are not linked by marriage to ther families, at least with this small sample of links that is the list of married doges. Most of these non-married families, except five of them, Partecipazio, Candiano, Ziani, Galbaio and Teodato, had a single doge to their account. These are special cases: Partecipazio were the first doges, when office was still kind of inherited (the doge nominated a "consul", which succeeded him). So they *had* to be married; same goes for Candiano, except these took office a bit later. Galbaio and Teodato were not even properly doges, but more dukes or military leaders that took office in the first millennium. Ziani was in fact married, except that he was married to one such Cecilia, with no family recorded. So in fact families with more than one doge in them did include at least one marriage link with other patrician families; as a matter of fact, the Bembo family, for instance, included only one doge, Giovanni Bembo, but two dogaresse, Cornelia and Felicità.
+
+Looking at this from another point of view, there were `r length(family.non.married)` families with unmarried doges, or unregistered marriages, and `r length(family.married)` with married doges. But `r length(doges.married.or.not)` families have both doges who married and other who did not. These familes were: `r doges.married.or.not`. This leaves only `r length(family.non.married) - length(doges.married.or.not)` who, being doges, do not have a registered marriage. This is a minority out of the `r length(unique.families)` that did.
 
 We can draw two conclusions from this: being married was the prevalent civil state of the doges, and the marriage registry is a good enough tool to research the social network of the patrician families of which they sprung.
 
