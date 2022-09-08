@@ -50,7 +50,7 @@ both <- intersect(unique.doges,unique.dogaresse)
 any.d <- union( unique.doges, unique.dogaresse)
 ```
 
-After these filters, there were only `r nrow(data)` left. Out of these, there were only `r nrow(unique.doges)` different families that became "Serenest princes" or doges, `r nrow(unique.dogaresse)` that were *dogaresse*. Some families had members in both roles: `r nrow(both)` of them, a very small percentage of the total families, a total of `r nrow(any.d)` participated in any of them.
+After these filters, there were only `r nrow(data)` left. Out of these, there were only `r nrow(unique.doges)` different families that became "Serenest princes" or doges, `r nrow(unique.dogaresse)` that were *dogaresse*. Some families had members in both roles: `r length(both)` of them, a very small percentage of the total families; on the other hand, a total of `r length(any.d)` participated in any of them.
 
 ## Conclusions
 
