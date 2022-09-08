@@ -44,14 +44,21 @@ All in all, there were `r nrow(all.data)` doges through all history. Out of all 
 * Family names were canonicalized. Many patrician family names have two forms: the one in Veneto, the language spoken in Venice, and the one in Italian. For instance, Cornaro and Corner, or Michele and Michel. In a case, "Mastropiero", it was also known as "Malipiero"; Gradenigo could also be written as Gradenico. These were normalized to a single form, in Veneto, which is the one found in most primary sources.
 
 ```{r sets, include=FALSE}
-unique.doges <- unique(data$V1)
+unique.doges.pairs <- unique(data$V1)
 unique.dogaresse <- unique(data$V2)
-both <- intersect(unique.doges,unique.dogaresse)
-any.d <- union( unique.doges, unique.dogaresse)
+both <- intersect(unique.doges.pairs,unique.dogaresse)
+any.d <- union( unique.doges.pairs, unique.dogaresse)
 ```
 
-After these filters, there were only `r nrow(data)` left. Out of these, there were only `r nrow(unique.doges)` different families that became "Serenest princes" or doges, `r nrow(unique.dogaresse)` that were *dogaresse*. Some families had members in both roles: `r length(both)` of them, a very small percentage of the total families; on the other hand, a total of `r length(any.d)` participated in any of them.
+After these filters, there were only `r nrow(data)` left. Out of these, there were only `r nrow(unique.doges.pairs)` different families that became "Serenest princes" or doges, `r nrow(unique.dogaresse)` that were *dogaresse*. Some families had members in both roles: `r length(both)` of them, a very small percentage of the total families; on the other hand, a total of `r length(any.d)` participated in any of them.
 
+```{r doges, include=FALSE}
+doges <- read.csv("../resources/doge-surnames.csv")
+non.married <- setdiff( doges$Family, unique.doges.pairs )
+```
+
+Out of all the families that contributed to the top most office in the republic, there were `r length(non.married)` that did not marry, or their marriages were not registered. Some relatively important families, like Bembo, Erizzo or Michele, appear in this list. 
+Five o them, including Bembo, do appear as dogaresse. This means that out of the 65 families that became doges, just 26 are not linked by marriage to ther families, at least with this small sample of links that is the list of married doges. We can draw two conclusions from this: being married was the prevalent civil state of the doges, and the marriage registry is a good enough tool to research the social network of the patrician families of which they sprung.
 ## Conclusions
 
 The complicated way in which the doges were elected, and how individuals were chosen to enter a career as officers of the Republic, guaranteed that extremely wide, and variable, alliances had to be put in play. These alliances were solidified through marriages, which integrated politically as well as commercially the families of the two (romantic and commercial) partners.
