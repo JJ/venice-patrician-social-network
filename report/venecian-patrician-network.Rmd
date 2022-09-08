@@ -58,7 +58,10 @@ non.married <- setdiff( doges$Family, unique.doges.pairs )
 ```
 
 Out of all the families that contributed to the top most office in the republic, there were `r length(non.married)` that did not marry, or their marriages were not registered. Some relatively important families, like Bembo, Erizzo or Michele, appear in this list. 
-Five o them, including Bembo, do appear as dogaresse. This means that out of the 65 families that became doges, just 26 are not linked by marriage to ther families, at least with this small sample of links that is the list of married doges. We can draw two conclusions from this: being married was the prevalent civil state of the doges, and the marriage registry is a good enough tool to research the social network of the patrician families of which they sprung.
+Five o them, including Bembo, do appear as dogaresse. This means that out of the 65 families that became doges, just 26 are not linked by marriage to ther families, at least with this small sample of links that is the list of married doges. Most of these non-married families, except six of them, Partecipazio, Candiano, Michele, Ziani, Galbaio and Teodato, had a single doge to their account. These are special cases: Partecipazio were the first doges, when office was still kind of inherited (the doge nominated a "consul", which succeeded him). So they *had* to be married; same goes for Candiano, except these took office a bit later. Galbaio and Teodato were not even properly doges, but more dukes or military leaders that took office in the first millenium. Ziani was in fact married, except that he was married to one such Cecilia, with no family recorded.
+
+
+We can draw two conclusions from this: being married was the prevalent civil state of the doges, and the marriage registry is a good enough tool to research the social network of the patrician families of which they sprung.
 ## Conclusions
 
 The complicated way in which the doges were elected, and how individuals were chosen to enter a career as officers of the Republic, guaranteed that extremely wide, and variable, alliances had to be put in play. These alliances were solidified through marriages, which integrated politically as well as commercially the families of the two (romantic and commercial) partners.
