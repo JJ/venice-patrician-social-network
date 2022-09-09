@@ -15,3 +15,5 @@ auto/
 .RData
 
 *.pdf
+
+*.log
