@@ -32,6 +32,12 @@ The rest of the paper has been organized as follows: coming up, a brief revision
 
 Social network analysis has increasingly become a tool in the toolset of historians, but it has not been used comprehensively; it is still relatively rare to find this kind of studies. Most studies focus on trade or mercantile networks, since these are the ones that have relatively better coverage. The trading networks of Venice were studied in [@apellaniz2013venetian], focusing on how low-ranking or colonial individuals used mercantile networks to penetrate other social circles, or even how the manipulation of these helped mobility, social and otherwise, for them. In this, the power of social network analysis to first analyze, and then, by focusing on the position of specific nodes and meso analysis, gather insights on social mechanisms, was revealed. Two quantities were analyzed: betweenness and closeness centrality. The first measure is related to the position of a node (person) in a specific network, and how passing through that node is a necessity to communicate different parts of the network. Closeness centrality, on the other hand, expresses how difficult is, for a specific actor, to reach any other part of the network. These two quantities are essential to have a high-level understanding of emerging properties of the network, such as modularization, division between different groups or cliques, and also how network-correlated attributes, such as wealth, arise.
 
+```{r age}
+ages <- read.csv("../resources/years-reign.csv")
+```
+
+Other approaches to the study of doges, however, is possible. [@smith2021long] recently publish a paper studying how the age of doges was chosen in such a way that, even if it was a lifelong post, their terms were naturally limited. As a matter of fact, we have computed the median number of years ruling to be `r median(ages$Reigning)`, with average at `r mean(ages$Reigning)`.
+
 ## A brief history of Venetian patritiate
 
 The Venetian patritiate has been always attached to the access to power symbolized by the office of the doge. However, it has evolved with the institution and the different instituted laws that constrained it.
