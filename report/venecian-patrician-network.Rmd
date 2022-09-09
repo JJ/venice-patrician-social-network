@@ -38,6 +38,8 @@ ages <- read.csv("../resources/years-reign.csv")
 
 Other approaches to the study of doges, however, is possible. [@smith2021long] recently publish a paper studying how the age of doges was chosen in such a way that, even if it was a lifelong post, their terms were naturally limited. As a matter of fact, we have computed the median number of years ruling to be `r median(ages$Reigning)`, with average at `r mean(ages$Reigning)`.
 
+We will analyze in this paper the social network of patrician families revealed by the marriage of doges, as a way to understand the power dynamics among different noble families, and thus have some insights on the causes of the stability and longevity of the Venetian state. But let us first present a brief history of these patrician families, and their attributes.
+
 ## A brief history of Venetian patritiate
 
 The Venetian patritiate has been always attached to the access to power symbolized by the office of the doge. However, it has evolved with the institution and the different instituted laws that constrained it.
@@ -54,9 +56,9 @@ This history of the nobility implied that it was not, by any extent of the term,
 
 ## Dataset generation {#dataset}
 
-It is theoretically possible, but out of reach for people that are not scholars, to access the whole marriage registry in the city of Venice. It is relatively simple, however, to find the list of all doges and all the women they were married to. Initially, I thought it was possible to use a simple Wikidata query to do so, but unfortunately those Wikidata predicates have not been populated yet. So the dataset had to be built pretty much by hand.
+It is theoretically possible, but out of reach for people that are not scholars, to access the whole marriage registry in the city of Venice. It is relatively simple, however, to find the list of all doges and all the women they were married to. Initially, I thought it was possible to use a simple Wikidata query to do so, but unfortunately those Wikidata predicates have not been populated yet. So the dataset had to be built pretty much by hand. In general, researching Medieval (and later) social networks is an endeavour complicated by the lack of records [@ryabova2016social], or the need to enter manually whatever data is gathered into a spreadsheet for their analysis.
 
-The data set has been created specifically from this line of research. The list of all doges, and the list of all *dogaresse*, or doge's wives, has been extracted from Wikipedia pages, the list of doges from the Spanish page (since it was already formatted in a list) and the list of dogaresse from the Italian Wikipedia. These lists included dates when they were dogaresse; they were matched to their husbands by these dates. Couples were then double-checked, when some possible doubt (due to dates) was found, using primary sources such as [@cicogna1863storia]. In some cases, dates had to be fixed in the original list, as is shown [in this diff](https://it.wikipedia.org/w/index.php?title=Dogaressa&type=revision&diff=128805136&oldid=127173404). The fact that Venetian wives did keep their family names, or at least were recorded that way, helps to identify them as members of a specific family.
+This is why we needed to create a data set specifically for this line of research. The list of all doges, and the list of all *dogaresse*, or doge's wives, has been extracted from Wikipedia pages, the list of doges from the Spanish page (since it was already formatted in a list) and the list of dogaresse from the Italian Wikipedia. These lists included dates when they were dogaresse; they were matched to their husbands by these dates. Couples were then double-checked, when some possible doubt (due to dates) was found, using primary sources such as [@cicogna1863storia]. In some cases, dates had to be fixed in the original list, as is shown [in this diff](https://it.wikipedia.org/w/index.php?title=Dogaressa&type=revision&diff=128805136&oldid=127173404). The fact that Venetian wives did keep their family names, or at least were recorded that way, helps to identify them as members of a specific family.
 
 ```{r raw, include=FALSE}
 all.data <- read.csv("../resources/Venice-marriage-dogi.csv",header=FALSE)
@@ -92,6 +94,8 @@ Five o them, including Bembo, do appear as dogaresse. This means that out of the
 Looking at this from another point of view, there were `r length(family.non.married)` families with unmarried doges, or unregistered marriages, and `r length(family.married)` with married doges. But `r length(doges.married.or.not)` families have both doges who married and other who did not. These familes were: `r doges.married.or.not`. This leaves only `r length(family.non.married) - length(doges.married.or.not)` who, being doges, do not have a registered marriage. This is a minority out of the `r length(unique.families)` that did.
 
 We can draw two conclusions from this: being married was the prevalent civil state of the doges, and the marriage registry is a good enough tool to research the social network of the patrician families of which they sprung.
+
+The dataset was also enriched with additional data from the Wikipedia: mainly, the type of family; that is, if a family was *vecchie*, *nuove* or one or the other half dozen denominations that families received. This data will eventually prove essential to understand the position in the social network.
 
 All data sets have been released at the [GitHub repository](https://github.com/JJ/venice-patrician-social-network) under a free license.
 
