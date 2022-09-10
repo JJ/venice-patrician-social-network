@@ -1,10 +1,10 @@
 ---
-title: What's a good doge? Analyzing the patrician social network of the Republic of Venice
+title: 'What is a good doge? Analyzing the patrician social network of the Republic of Venice'
 author: "JJ Merelo"
 date: '2022-08-23'
 output: pdf_document
-abstract:
-  The Venetian republic was one of the most successful transmodern states, surviving for a millenium through innovation, commercial cunning, exploitation of colonies and legal stability. Part of the success might be due to its government structure, a republic ruled by a doge chosen among a set of Venetian patrician families. In this paper we analyze the structure of the social network they formed through marriage, and how government was monopolyzed by a relatively small set of families, the one that became patrician first.
+abstract: |
+  The Venetian republic was one of the most successful transmodern states, surviving for a millenium through innovation, commercial cunning, exploitation of colonies and legal stability. Part of the success might be due to its government structure, a republic ruled by a doge chosen among a relatively limited set of Venetian patrician families. In this paper we analyze the structure of the social network they formed through marriage, and how government was monopolyzed by a relatively small set of families, the one that became patrician first.
 bibliography: ../patrician.bib
 ---
 
@@ -99,6 +99,8 @@ The dataset was also enriched with additional data from the Wikipedia: mainly, t
 All data sets have been released at the [GitHub repository](https://github.com/JJ/venice-patrician-social-network) under a free license.
 
 ## The Venetian patrician families social network {#sn}
+
+
 
 ## Conclusions
 
