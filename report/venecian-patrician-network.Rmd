@@ -1,6 +1,5 @@
 ---
-title: 'Social links and upward mobility: analyzing the patrician social network of
-  the Republic of Venice'
+title: What's a good doge? Analyzing the patrician social network of the Republic of Venice
 author: "JJ Merelo"
 date: '2022-08-23'
 output: pdf_document
