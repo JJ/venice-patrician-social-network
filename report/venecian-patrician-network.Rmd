@@ -102,7 +102,7 @@ All data sets have been released at the [GitHub repository](https://github.com/J
 
 Let us have a general look at the different families and how they relate to each other.
 
-```{r sna1, , echo=FALSE,fig.height=10, fig.cap="Patrician families social networks through weddings. Circles indicate that family has both; balls only doges, and squares only dogaresse"}
+```{r sna1, warning=FALSE , echo=FALSE,fig.height=10, fig.cap="Patrician families social networks through weddings. Circles indicate that family has both; balls only doges, and squares only dogaresse"}
 
 E(venice.sn)$weight <- 1
 venice.sn <- simplify(venice.sn, edge.attr.comb=list(weight="sum"))
@@ -126,7 +126,7 @@ shapes = NULL
 doges = NULL
 label.colors = NULL
 types = NULL
-label.colors.choice = c("white","lightgray","gray","lightblue","lightgreen","lightyellow", "magenta","darkgray","black")
+label.colors.choice = c("white","yellow","gray","lightblue","lightgreen","lightyellow", "magenta","darkblue","brown")
 
 for (r in V(venice.sn)$name) {
   if (! is.null(node.type.dict[[r]])) {
@@ -151,9 +151,20 @@ V(venice.sn)$shapes <- shapes
 V(venice.sn)$label.colors <- label.colors
 V(venice.sn)$doges <- doges
 V(venice.sn)$types <- types
-plot(venice.sn,vertex.size=10,vertex.shape=V(venice.sn)$shapes,vertex.color=V(venice.sn)$colors,layout=layout_with_fr, vertex.label.cex=0.7)
+plot(venice.sn,vertex.size=10,vertex.shape=V(venice.sn)$shapes,layout=layout_with_fr, vertex.label.cex=0.7)
 ```
 
+This graph already reveals one of the features of this social network: there is a connected core of different families, and then small "islands". In general, these islands are composed of up to four families that only managed to promote a member either to doge or dogaressa; except for the one that includes Badoero, Pisani, Valier and Querini, which includes a family, Pisani, that had both a doge (Alvise Pisani, from 1735 to 1741, married to Elena Badoer) and a dogaressa (Elisabetta Pisana or Pisani, from 1656 to 1658, married to Bertuccio Valier). These are families that did not really make it, and accessed power when the power of the Republic was already on the wane.
+
+
+```{r connected_component, echo=FALSE, fig.height=10, fig.cap="Connected component of the social network, with network coloring corresponding to the type of family. See text for interpretation"}
+components <- igraph::clusters(venice.sn, mode="weak")
+biggest_cluster_id <- which.max(components$csize)
+vert_ids <- V(venice.sn)[components$membership == biggest_cluster_id]
+
+venice.sn.connected <- igraph::induced_subgraph(venice.sn, vert_ids)
+plot(venice.sn.connected,vertex.size=10,vertex.shape=V(venice.sn.connected)$shapes,layout=layout_with_fr, vertex.label.cex=0.7,vertex.color=V(venice.sn.connected)$label.colors)
+```
 
 
 
