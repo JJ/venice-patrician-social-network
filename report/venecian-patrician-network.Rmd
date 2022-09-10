@@ -103,6 +103,9 @@ All data sets have been released at the [GitHub repository](https://github.com/J
 Let us have a general look at the different families and how they relate to each other.
 
 ```{r sna1, , echo=FALSE,fig.height=10, fig.cap="Patrician families social networks through weddings. Circles indicate that family has both; balls only doges, and squares only dogaresse"}
+
+E(venice.sn)$weight <- 1
+venice.sn <- simplify(venice.sn, edge.attr.comb=list(weight="sum"))
 V(venice.sn)$degree <- degree(venice.sn)
 cnet <- cluster_edge_betweenness(venice.sn)
 
