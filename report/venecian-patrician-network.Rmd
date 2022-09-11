@@ -3,6 +3,9 @@ title: 'What is a good doge? Analyzing the patrician social network of the Repub
 author: "JJ Merelo"
 date: '2022-08-23'
 output: pdf_document
+header-includes:
+ \usepackage{float}
+ \floatplacement{figure}{H}
 abstract: |
   The Venetian republic was one of the most successful transmodern states, surviving for a millenium through innovation, commercial cunning, exploitation of colonies and legal stability. Part of the success might be due to its government structure, a republic ruled by a doge chosen among a relatively limited set of Venetian patrician families. In this paper we analyze the structure of the social network they formed through marriage, and how government was monopolyzed by a relatively small set of families, the one that became patrician first.
 bibliography: ../patrician.bib
@@ -102,7 +105,7 @@ All data sets have been released at the [GitHub repository](https://github.com/J
 
 Let us have a general look at the different families and how they relate to each other.
 
-```{r sna1, warning=FALSE , echo=FALSE,fig.height=10, fig.cap="Patrician families social networks through weddings. Circles indicate that family has both; balls only doges, and squares only dogaresse"}
+```{r sna1, warning=FALSE, echo=FALSE, fig.pos="!H", fig.height=10, fig.cap="Patrician families social networks through weddings. Circles indicate that family has both; balls only doges, and squares only dogaresse"}
 
 E(venice.sn)$weight <- 1
 venice.sn <- simplify(venice.sn, edge.attr.comb=list(weight="sum"))
@@ -152,10 +155,10 @@ V(venice.sn)$types <- types
 plot(venice.sn,vertex.size=10,vertex.shape=V(venice.sn)$shapes,layout=layout_with_fr, vertex.label.cex=0.7)
 ```
 
-This graph already reveals one of the features of this social network: there is a connected core of different families, and then small "islands". In general, these islands are composed of up to four families that only managed to promote a member either to doge or dogaressa; except for the one that includes Badoero, Pisani, Valier and Querini, which includes a family, Pisani, that had both a doge (Alvise Pisani, from 1735 to 1741, married to Elena Badoer) and a dogaressa (Elisabetta Pisana or Pisani, from 1656 to 1658, married to Bertuccio Valier). These are families that did not really make it, and accessed power when the power of the Republic was already on the wane.
+This graph (in Figure 1) already reveals one of the features of this social network: there is a connected core of different families, and then small "islands". In general, these islands are composed of up to four families that only managed to promote a member either to doge or dogaressa; except for the one that includes Badoero, Pisani, Valier and Querini, which includes a family, Pisani, that had both a doge (Alvise Pisani, from 1735 to 1741, married to Elena Badoer) and a dogaressa (Elisabetta Pisana or Pisani, from 1656 to 1658, married to Bertuccio Valier). These are families that did not really make it, and accessed power when the power of the Republic was already on the wane.
 
 
-```{r connected_component, echo=FALSE, fig.height=10, fig.cap="Connected component of the social network, with network coloring corresponding to the type of family. See text for interpretation"}
+```{r connected_component, echo=FALSE, fig.height=10, fig.pos="!h", fig.cap="Connected component of the social network, with network coloring corresponding to the type of family. See text for interpretation"}
 components <- igraph::clusters(venice.sn, mode="weak")
 biggest_cluster_id <- which.max(components$csize)
 vert_ids <- V(venice.sn)[components$membership == biggest_cluster_id]
@@ -163,6 +166,15 @@ vert_ids <- V(venice.sn)[components$membership == biggest_cluster_id]
 venice.sn.connected <- igraph::induced_subgraph(venice.sn, vert_ids)
 plot(venice.sn.connected,vertex.size=10,vertex.shape=V(venice.sn.connected)$shapes,layout=layout_with_fr, vertex.label.cex=0.7,vertex.color=V(venice.sn.connected)$types)
 ```
+
+In Figure 2 we show only the connected component, with color meaning as follows: "None"="darkgray", "Ancient"="lightgray", "Extinct pre-serrata"="gray", "Evangeliche"="gold", "Nuove"="lightgreen",
+                     "Nuovissime"="red","Soldi"="yellow","Vecchie"="lightblue","Apostoliche"="pink". 
+The light-pink center of the graph, which has five *apostoliche* families, Contarini, Faliero, Gradenigo, Morosini and Dandolo, is also "seeded" with an *evangeliche* family, Bembo. Other "evangelical" and "apostolical" families are in the periphery, but the majority of the graph is occupied by the *nuove* families (in light green). Just a few of the *nuovissime* are present here: Condulmiero, Cicogna and Vendramin; and only one of the families that bought their way into the patriciate, Manin, is included. This was, also, the last doge before the fall of the republic. Other *vecchie* families, like Soranzo and Zorzi, are also present peripherally.
+
+But there are some families that appear conspicuosly at the center of the graph.
+
+
+                     
 
 
 
