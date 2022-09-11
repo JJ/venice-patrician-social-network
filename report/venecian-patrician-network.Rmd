@@ -110,7 +110,6 @@ Let us have a general look at the different families and how they relate to each
 E(venice.sn)$weight <- 1
 venice.sn <- simplify(venice.sn, edge.attr.comb=list(weight="sum"))
 V(venice.sn)$degree <- degree(venice.sn)
-cnet <- cluster_edge_betweenness(venice.sn)
 
 node.type <- read.csv("../resources/family-data.csv")
 node.type.dict <- list()
@@ -171,7 +170,18 @@ In Figure 2 we show only the connected component, with color meaning as follows:
                      "Nuovissime"="red","Soldi"="yellow","Vecchie"="lightblue","Apostoliche"="pink". 
 The light-pink center of the graph, which has five *apostoliche* families, Contarini, Faliero, Gradenigo, Morosini and Dandolo, is also "seeded" with an *evangeliche* family, Bembo. Other "evangelical" and "apostolical" families are in the periphery, but the majority of the graph is occupied by the *nuove* families (in light green). Just a few of the *nuovissime* are present here: Condulmiero, Cicogna and Vendramin; and only one of the families that bought their way into the patriciate, Manin, is included. This was, also, the last doge before the fall of the republic. Other *vecchie* families, like Soranzo and Zorzi, are also present peripherally.
 
-But there are some families that appear conspicuosly at the center of the graph.
+The chart also reveals a certain grouping. Although factions were not so much a factor in Venice politics, it can still show some insight into the time-wise organization of weddings and how different groups were formed through history; that is, it will tell us more about the temporal organization of the social network than about antagonist groups in the Senate or other institutions.
+
+```{r groups, echo=FALSE, warning=F, fig.height=10, fig.cap="Social groups in the central component of the patrician social network; colors indicate different groups"}
+cnet <- cluster_edge_betweenness(venice.sn.connected)
+plot(cnet,venice.sn.connected)
+```
+
+Figure 3 shows seven different groups, every one of them with at most 6 elements. A group includes the Soranzo family, studied in their commercial aspect in [@ryabova2016social]. It is, as it can be seen, a peripheral family only connected to the main component through the Barbarigo family. But it is interesting to note that, despite that family not showing up in the tables published by Ryabova above, we can see the Pesaro (or Pexaro) family there, so it is plausible that familial ties (with Barbarigo) led to commercial ties (with Pesaro) or the other way round. As a matter of fact, it's entirely possible that those ties exist too, only not at the doge level.
+
+Another "linear" group includes the Orseolo, Candiano, Memmo and Malipiero families; they are mostly ancient families, that did not really survive beyond the era of elected doges. But it is also interesting to note, in red, those links that bind families from different groups, and how there is a specific family that includes them. The Morosini and Contarini families, for instances, are two of those; these are at the same time some of the oldest, *apostoliche* families, and they include lots of doges in them. Of course, that is the reason why they have so many links, which are essentially weddings; but the Corner or the Barbarigo family also do, and they don't have their links places so strategically.
+
+But there are some families that appear conspicuously at the center of the graph. But how *centered* are they? So far we have been only visualizing the social network, let's analyze the standing of the families in that social network numerically. In general, betweenness centrality is one of the tools that measures that, being a numerical representation of how *needed* a node is to communicate information between two separate areas of the network. This is why it is one of the most widely used measurements in this area. For patricians, being able to achieve commercial or political goals depended on these family connections. A wedding, due to the fact that the bride's family provided a dowry for her and that this dowry included in many cases participation in business, was a link at many different levels. In order to be induced into some entry level position [@chojnacki_1985] indicates that sponsorship by your family adn/or your bride's family were essential for success. Since marriages were arranged, marrying strategically, not only tactically, allowed families to achieve and then keep their positions of powers in the Republic.
 
 
                      
