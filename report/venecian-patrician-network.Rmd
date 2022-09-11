@@ -112,9 +112,6 @@ cnet <- cluster_edge_betweenness(venice.sn)
 node.type <- read.csv("../resources/family-data.csv")
 node.type.dict <- list()
 
-family.types <- list("None"="white","Ancient"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="blue",
-                     "Nuovissime"="red","Soldi"="yellow","Evangeliche"="green","Vecchie"="black","Apostoliche"="pink")
-
 for (r in 1:nrow(node.type)) {
   node.type.dict[[ node.type[r,"Family"] ]]  <-  list( "positions"= node.type[r,"Positions"],
                                                         "doges"= node.type[r,"Doges"],
@@ -127,7 +124,8 @@ doges = NULL
 label.colors = NULL
 types = NULL
 label.colors.choice = c("white","yellow","gray","lightblue","lightgreen","lightyellow", "magenta","darkblue","brown")
-
+family.types <- list("None"="darkgray","Ancient"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
+                     "Nuovissime"="red","Soldi"="yellow","Vecchie"="lightblue","Apostoliche"="pink")
 for (r in V(venice.sn)$name) {
   if (! is.null(node.type.dict[[r]])) {
     positions <- c(positions, node.type.dict[[r]]$positions)
@@ -163,7 +161,7 @@ biggest_cluster_id <- which.max(components$csize)
 vert_ids <- V(venice.sn)[components$membership == biggest_cluster_id]
 
 venice.sn.connected <- igraph::induced_subgraph(venice.sn, vert_ids)
-plot(venice.sn.connected,vertex.size=10,vertex.shape=V(venice.sn.connected)$shapes,layout=layout_with_fr, vertex.label.cex=0.7,vertex.color=V(venice.sn.connected)$label.colors)
+plot(venice.sn.connected,vertex.size=10,vertex.shape=V(venice.sn.connected)$shapes,layout=layout_with_fr, vertex.label.cex=0.7,vertex.color=V(venice.sn.connected)$types)
 ```
 
 
