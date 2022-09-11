@@ -188,8 +188,16 @@ venice.sn.connected$betweenness <- betweenness(venice.sn.connected)
 plot(venice.sn.connected,vertex.size=venice.sn.connected$betweenness/10, vertex.label.cex=0.7,vertex.color=V(venice.sn.connected)$types)
 ```
 
-Figure 4 shows node size proportional to the family's betweenness, and keeping the same coloring as Figure 2. It clearly shows that the Dandolo family is the one with the highest betweenness, also highlighted by the fact that it's at the center of the graph, since the layout algorithm used (optimized by the `igraph` library) takes that fact into account. Surrounding it, the Morosini, Contarini and, surprisingly, Priuli famili, the only one of the four that is not an *apostoliche*, but a *nuova* family.                     
+Figure 4 shows node size proportional to the family's betweenness, and keeping the same coloring as Figure 2. It clearly shows that the Dandolo family is the one with the highest betweenness, also highlighted by the fact that it's at the center of the graph, since the layout algorithm used (optimized by the `igraph` library) takes that fact into account. Surrounding it, the Morosini, Contarini and, surprisingly, Priuli famili, the only one of the four that is not an *apostoliche*, but a *nuova* family. This is a curious case indeed, and shows the power of familiar ties in the Venetian power structures. Priuli, except for the hereditary cases, is the only family that spawned two consecutive doges: Lorenzo and Girolamo Priuli. But more important than that is the marriages of the family, a real who is who of the patrician families: Corner, Barbarigo... And Dandolo.
 
+```{r betwtop, echo=FALSE}
+betw.df <- data.frame(venice.sn.connected$betweenness)
+betw.df$Family <- rownames(betw.df)
+betw.df.ordered <- betw.df[ order(betw.df$venice.sn.connected.betweenness,decreasing = T),]
+library(knitr)
+betw.table <- data.frame( Family=betw.df.ordered$Family, Betweenness=betw.df.ordered$venice.sn.connected.betweenness )
+kable(betw.table[ betw.table$Betweenness> 0,],caption="Ranking of families according to betweenness")
+```
 
 
 ## Conclusions
