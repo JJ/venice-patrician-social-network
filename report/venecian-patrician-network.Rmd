@@ -183,11 +183,12 @@ Another "linear" group includes the Orseolo, Candiano, Memmo and Malipiero famil
 
 This visually observed reality can also be measured; some families seem to be *in the middle* of things. But how *centered* are they? So far we have been only visualizing the social network, let's analyze the standing of the families in that social network numerically. In general, betweenness centrality is one of the tools that measures that, being a numerical representation of how *needed* a node is to communicate information between two separate areas of the network. This is why it is one of the most widely used measurements in this area. For patricians, being able to achieve commercial or political goals depended on these family connections. A wedding, due to the fact that the bride's family provided a dowry for her and that this dowry included in many cases participation in business, was a link at many different levels. In order to be induced into some entry level position [@chojnacki_1985] indicates that sponsorship by your family adn/or your bride's family were essential for success. Since marriages were arranged, marrying strategically, not only tactically, allowed families to achieve and then keep their positions of powers in the Republic.
 
-```{r betw, echo=FALSE, fig.cap='Graph with node size proportional to betweenness'}
+```{r betw, echo=FALSE, fig.width=8, fig.cap='Graph with node size proportional to betweenness'}
 venice.sn.connected$betweenness <- betweenness(venice.sn.connected)
 plot(venice.sn.connected,vertex.size=venice.sn.connected$betweenness/10, vertex.label.cex=0.7,vertex.color=V(venice.sn.connected)$types)
 ```
-                     
+
+Figure 4 shows node size proportional to the family's betweenness, and keeping the same coloring as Figure 2. It clearly shows that the Dandolo family is the one with the highest betweenness, also highlighted by the fact that it's at the center of the graph, since the layout algorithm used (optimized by the `igraph` library) takes that fact into account. Surrounding it, the Morosini, Contarini and, surprisingly, Priuli famili, the only one of the four that is not an *apostoliche*, but a *nuova* family.                     
 
 
 
