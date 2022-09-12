@@ -20,3 +20,6 @@ auto/
 
 *.tex
 *.tgz
+
+*.bbl
+*.synctex.gz
