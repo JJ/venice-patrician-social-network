@@ -2,14 +2,14 @@
 title: 'What is a good doge? Analyzing the patrician social network of the Republic of Venice'
 author: "JJ Merelo"
 date: '2022-08-23'
-output: 
+output:
   pdf_document:
     keep_tex: true
 header-includes:
  \usepackage{float}
  \floatplacement{figure}{H}
 abstract: |
-  The Venetian republic was one of the most successful transmodern states, surviving for a millenium through innovation, commercial cunning, exploitation of colonies and legal stability. Part of the success might be due to its government structure, a republic ruled by a doge chosen among a relatively limited set of Venetian patrician families. In this paper we analyze the structure of the social network they formed through marriage, and how government was monopolyzed by a relatively small set of families, the one that became patrician first.
+  The Venetian republic was one of the most successful trans-modern states, surviving for a millennium through innovation, commercial cunning, exploitation of colonies and legal stability. Part of the success might be due to its government structure, a republic ruled by a doge chosen among a relatively limited set of Venetian patrician families. In this paper we analyze the structure of the social network they formed through marriage, and how government was monopolized by a relatively small set of families, the one that became patrician first.
 bibliography: ../patrician.bib
 ---
 
@@ -46,7 +46,7 @@ We will analyze in this paper the social network of patrician families revealed 
 
 ## A brief history of Venetian patriciate
 
-The Venetian patritiate has been always attached to the access to power symbolized by the office of the doge. However, it has evolved with the institution and the different instituted laws that constrained it.
+The Venetian patriciate has been always attached to the access to power symbolized by the office of the doge. However, it has evolved with the institution and the different instituted laws that constrained it.
 
 The beginning of the republic of Venice [@madden2012venice] is (possibly mythically) set in 697, with Paolo Lucio Anafesto converting from a Byzantine governor to the first leader of the independent city of Venice. This tradition does not have any source, but at any rate, it started the institution of doges as *elected* leaders. Since back then Venice was little more than a settlement, a popular assembly elected them directly.
 
@@ -221,7 +221,7 @@ There are two possible lines of works that can be pursued from this report, amon
 
 All data and code used in this paper is available under a free license at [its GitHub repository](https://github.com/JJ/venice-patrician-social-network). It includes R and Raku code, as well as the different files. This paper has been written in RMarkdown, and its source includes all code used to generate charts and tables.
 
-## Acknowledgements
+## Acknowledgments
 
 This paper has been supported in part by project and DemocratAI PID2020-115570GB-C22.
 
