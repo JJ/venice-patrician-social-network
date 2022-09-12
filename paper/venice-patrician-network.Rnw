@@ -23,6 +23,12 @@
 \corresp{Corresponding author: JJ Merelo (e-mail: jmerelo@ugr.es).}
 .
 
+<<setup, echo=FALSE,message=FALSE>>=
+library(igraph)
+data <- read.csv("../resources/family-pairs.csv",header=FALSE)
+venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
+@
+
 \begin{abstract}
 \end{abstract}
 
@@ -36,7 +42,14 @@
 
 \section{Introduction}
 
+During one thousand years, the Venetian republic managed to raise from a small fiefdom under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the *Napoleonic* storm reconfigured the map of Europe for ever \cite{horodowich2013brief}.
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{../patrician}
+
 \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{jj.jpg}}]{JJ Merelo}
+JJ Merelo has a PhD in Physics
 
 \end{IEEEbiography}
 
