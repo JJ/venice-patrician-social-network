@@ -30,7 +30,7 @@ venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
 @
 
 \begin{abstract}
-For a millenium, the Republic of Venice was a state where the form of government did not change much, being effectively an elective monarchy. Rulers, called \em{doges} (dux or doxe in the original language), were chosen from the noble families following a complicated procedure that essentially guaranteed a very wide majority needed to support that specific person. That means that the social network was essential to achieve that job, as well as every other job in the host of institutions that supported government. Understanding that social network is, then, essential to understand the tenure of some families, which managed to "make doge" for several centuries, as well as how {\em new} families had a head start to those very coveted positions. In this paper we will build that social network out of existing and available open sources, namely, marriages of doges, and check if there was some hints of strategic marrying. The position of certain families in the social network will be analyzed and matched to their historical record. How other factors, like age, increased the probability of becoming doge are also analyzed in conjunction with social network measurements.
+For a millennium, the Republic of Venice was a state where the form of government did not change much, being effectively an elective monarchy. Rulers, called \em{doges} (dux or doxe in the original language), were chosen from the noble families following a complicated procedure that essentially guaranteed a very wide majority needed to support that specific person. That means that the social network was essential to achieve that job, as well as every other job in the host of institutions that supported government. Understanding that social network is, then, essential to understand the tenure of some families, which managed to "make doge" for several centuries, as well as how {\em new} families had a head start to those very coveted positions. In this paper we will build that social network out of existing and available open sources, namely, marriages of doges, and check if there was some hints of strategic marrying. The position of certain families in the social network will be analyzed and matched to their historical record. How other factors, like age, increased the probability of becoming doge are also analyzed in conjunction with social network measurements.
 \end{abstract}
 
 \begin{keywords}
@@ -45,11 +45,23 @@ For a millenium, the Republic of Venice was a state where the form of government
 
 During one thousand years, the Venetian republic managed to raise from a small fiefdom under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the *Napoleonic* storm reconfigured the map of Europe for ever \cite{horodowich2013brief}.
 
+\section{State of the art}
+
+Social network analysis has increasingly become a tool in the toolset of historians, but it has not been used comprehensively; it is still relatively rare to find this kind of studies. Most studies focus on trade or mercantile networks, since these are the ones that have relatively better coverage. The trading networks of Venice were studied in \cite{apellaniz2013venetian}, focusing on how low-ranking or colonial individuals used mercantile networks to penetrate other social circles, or even how the manipulation of these helped mobility, social and otherwise, for them. In this, the power of social network analysis to first analyze, and then, by focusing on the position of specific nodes and mesoanalysis, gather insights on social mechanisms, was revealed. Two quantities were analyzed: betweenness and closeness centrality. The first measure is related to the position of a node (person) in a specific network, and how passing through that node is a necessity to communicate different parts of the network. Closeness centrality, on the other hand, expresses how difficult is, for a specific actor, to reach any other part of the network. These two quantities are essential to have a high-level understanding of emerging properties of the network, such as modularization, division between different groups or cliques, and also how network-correlated attributes, such as wealth, arise. Based on their books, \cite{ryabova2016social,ryabova2019venetian} analyses the social networks of a trading family, the Soranzo, which are also one of the *case vecchie*, please see below for a brief history of the Venetian nobility. This papers explains how mercantile companies were usually temporal partnerships in Venice, which augmented the importance of the social network as such. The study of commercial partnerships for this firm shows how extensive was commerce with German cities (possibly belonging to the Hansa league), which was even bigger than the one with Venice itself. Although there's no attempt to analyze the ego network beyond the connections between the center and others, it shows many patrician families among the mercantile partners, revealing how ties between nobles occurred at many different levels, political, familiar, and mercantile.
+
+<<r age, include=FALSE>>=
+ages <- read.csv("../resources/years-reign.csv")
+@
+
+Other approaches to the study of doges, however, is possible. \cite{smith2021long} recently published a paper studying how the age of doges was chosen in such a way that, even if it was a lifelong post, their terms were naturally limited. As a matter of fact, we have computed the median number of years ruling to be \Sexpr{median(ages$Reigning)}, with average at \Sexpr{mean(ages$Reigning)}.
+
+We will analyze in this paper the social network of patrician families revealed by the marriage of doges, as a way to understand the power dynamics among different noble families, and thus have some insights on the causes of the stability and longevity of the Venetian state. But let us first present a brief history of these patrician families, and their attributes.
 
 \bibliographystyle{IEEEtran}
 \bibliography{../patrician}
 
 \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{jj.jpg}}]{JJ Merelo}
+
 JJ Merelo has a PhD in Physics
 
 \end{IEEEbiography}
