@@ -21,7 +21,6 @@
 {JJ Merelo: Understanding power dynamics in the Republic of Venice}
 
 \corresp{Corresponding author: JJ Merelo (e-mail: jmerelo@ugr.es).}
-.
 
 <<setup, echo=FALSE,message=FALSE>>=
 library(igraph)
