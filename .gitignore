@@ -23,3 +23,5 @@ auto/
 
 *.bbl
 *.synctex.gz
+
+*.iml
