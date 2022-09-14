@@ -5,7 +5,8 @@ my %canonical = ( "Cornaro" => "Corner",
                   "Pisano" => "Pisani",
                   "Mastropiero" => "Malipiero",
                   "Gradenico" => "Gradenigo",
-                  "Michele" => "Michiel");
+                  "Michele" => "Michiel",
+                  "Giustiniani" => "Giustinian" );
 
 sub canonicalize( $surname ) is export {
     return %canonical{$surname} ?? %canonical{$surname} !! $surname;
