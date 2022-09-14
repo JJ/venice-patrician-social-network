@@ -66,6 +66,8 @@ We will analyze in this paper the social network of patrician families revealed 
 
 Except for the unknown brides and, thus, their families, which are probably not, at any rate, part of the Venetian nobility, and unlike most datasets used in digital humanities, this social network is, in its narrowest aception, complete. However, it is but a sample of the social network that links Venetian families and that would include all kind of links. Focusing on the cusp of the social network, the doges, it is probably quite a representative sample; after all, these were arranged marriages and one does not simply marry with a doge or a family with a member having a high chance of becoming one.
 
+\section{Conclusions}
+
 \bibliographystyle{IEEEtran}
 \bibliography{../patrician}
 
