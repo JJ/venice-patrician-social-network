@@ -7,7 +7,7 @@ use Data::Venice::PatricianNetwork;
 
 my @parsed = [("Doge","Dogaressa",
                "Doge raw","Dogaressa raw",
-               "Start", "End",
+               "Century", "Start", "End",
                "Family doge", "Family dogaressa"),];
 
 
@@ -24,6 +24,7 @@ for @dogi -> ( $him, $her) {
     if ( !$years ) {
         die "Can't work with $him";
     }
+    @row.append: +$years[0] div 100;
     @row.append: !$years[1].defined ?? | ~$years[0] xx 2 !! | [ ~$years[0],
                                                                ~$years[1] ];
     @row.push: doges-surname-from-raw($him);
