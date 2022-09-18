@@ -5,12 +5,16 @@ use Text::CSV;
 use Data::Venice::Dogi;
 use Data::Venice::PatricianNetwork;
 
-my @parsed = [("Doge data","Dogaressa data","Start", "End", "Family doge",
-               "Family dogaressa"),];
+my @parsed = [("Doge","Dogaressa",
+               "Doge raw","Dogaressa raw",
+               "Start", "End",
+               "Family doge", "Family dogaressa"),];
 
 
 for @dogi -> ( $him, $her) {
-    my @row = [ $him, $her || ""];
+    my $his-name = $him.split(/\s+\(/)[0];
+    my $her-name = $her.split(/\:\s*/)[1] // "";
+    my @row = [ $his-name, $her-name, $him, $her || ""];
     my $years = $him ~~ /\(\s*(\d+)\s*"-" \s* (\d+) |
             \("c." \s+ (\d+) \) |
             \("c." \s+ (\d+) "-" (\d+) |
