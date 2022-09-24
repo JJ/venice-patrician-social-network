@@ -10,15 +10,15 @@
 \history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
 \doi{10.1109/ACCESS.2017.DOI}
 
-\title{Understanding power dynamics in the Republic of Venice through social network analysis}
+\title{Keeping up with the Dandolos: Understanding family ties and power dynamics in the Republic of Venice through social network analysis}
 \author{\uppercase{J. J. Merelo}\authorrefmark{1}}
 \address[1]{Computer Engineering and Robotics Department, University of Granada (Spain)}
 \tfootnote{This paper has been supported in part by project and DemocratAI PID2020-115570GB-C22.
 }
 
 \markboth
-{JJ Merelo: Understanding power dynamics in the Republic of Venice}
-{JJ Merelo: Understanding power dynamics in the Republic of Venice}
+{JJ Merelo: Keeping up with the Dandolos}
+{JJ Merelo: Keeping up with the Dandolos}
 
 \corresp{Corresponding author: JJ Merelo (e-mail: jmerelo@ugr.es).}
 
@@ -66,7 +66,7 @@ We will analyze in this paper the social network of patrician families revealed 
 
 The Venetian {\em patriziato} (Italian) or {\em patrisiato} (Venetian), that is, the patriciate or nobility, has always been attached to the access to power symbolized by the office of the doge. However, it has evolved with the institution and the different instituted laws that constrained it. In general, being a patrician meant you could had the right to be elected or to elect the doge. And nobility, as usual, was inherited, so you became noble by simply being part of a family (in Venetian, {\em casa}), and obviously could never become one of them if you had not \cite{chojnacki2000women}.
 
-After a brief period when Venice was part of the exarchate of Ravenna and was governed by a military administration, dogarate was restored in 742, with doges, once again, elected popularly. This period was not particularly stable. Many doges were deposed or directly killed. In one of such cases, Pietro IV Candiano and his son were locked in palace by the populace, after which it was set afire. However, the first restricting law was introduced in 1032: the doge was forbidden from appointing a consul, and even more so, a privy council was appointed to take care of enforcing that law; a council of the wise was created in the next century to further control and counter-balance the executive power of the doge.
+After a brief period when Venice was part of the exarchate of Ravenna and was governed by a military administration, dogarate was restored in 742, with doges, once again, elected popularly. The period that started then was not particularly stable. Many doges were deposed by the people or directly killed. In one of such cases, Pietro IV Candiano and his son were locked in palace by the populace, after which it was set afire. However, the first restricting law was introduced in 1032: the doge was forbidden from appointing a consul, and even more so, a privy council was appointed to take care of enforcing that law; a council of the wise was created in the next century to further control and counter-balance the executive power of the doge.
 
 But one of the key laws in the future governance of the Republic was the {\em Serrata} \cite{serrata} or "closure" that was introduced in the XIII century. This law effectively {\em closed} the induction into the Supreme Council ({\em Maggior Consiglio}) to most families, and consecrated the existence of a relatively small group of patrician families with a monopoly on power. Although theoretically any {\em citadino} or {\em patrizio} could be elected as doge, the pool of possible doges was reduced to a few persons that had spent a life of serving in different institutions, including one or several terms in the aforementioned Maggior Consiglio. This made people effectively known and eventually eligible, so the highest seat was effectively closed to this group of families.
 
@@ -79,6 +79,12 @@ Finally, with the decadence of the Republic in the XVII century, you could simpl
 This history of the nobility implied that it was not, by any extent of the term, an uniform caste. Besides the age of their {\em case} (plural for {\em casa}) or dynasties, there was another axis, which was simply wealth. The {\em barnaboti} \cite{zennaro2018ritratto} where, simply put, poor noble people, who had nothing going for them except their name. Their appellation alluded to the fact that they resided in a destitute residence for nobles in the area of Saint Barnabas. We will need to see how families belonging to the different layers of accession to nobility are placed within the social network, and how this history has an influence on, or at least correlation, with it.
 
 Furthermore, relationships between families worked at many different levels, and, as \cite{chojnacki_1985}, they cannot be separated. Arranged marriages and commercial relationships were a fair aspect of them, but also {\em sponsorship} into what was called {\em Balla d'Oro}, a lottery to choose certain members into the Maggior Consiglio at an early age. Nobles could only be designated for these term-limited seats when they were twenty five; however, they could become eligible when they were only twenty years old if they won the lottery. However, to get a ticket for this "lottery" as many as five families were needed. This created a series of mutual links that could persist through time \cite{chojnacki_1985}.
+
+These power dynamics came into play when a new doge was elected. Starting with the Maggior Consiglio, to which all the noble families belonged, there followed a procedure \cite{electing:doge} where \begin{enumerate}
+\item A small group of electors were randomly selected. For instance, the first step drew 30 members from the Maggior Consiglio, from which again only 9 members were chosen.
+\item This random electoral college chose the electoral college in the next step. However, every member of this next-phase electoral college needed to be chosen by a super-majority; in the first case, 7 over 9 were needed.
+\item Four electoral colleges, with different numbers whose origin is difficult to ascertain, were sucessively elected until the final one: 41 members. 25 out of these were needed to nominate the doge.
+\end{enumerate}
 
 \section{Data set extraction and preparation}
 
