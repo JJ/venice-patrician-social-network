@@ -94,6 +94,37 @@ From the point of view of the social network, a complex game was afoot. While jo
 
 Except for the unknown brides and, thus, their families, which are probably not, at any rate, part of the Venetian nobility, and unlike most datasets used in digital humanities, this social network is, in its narrowest aception, complete. However, it is but a sample of the social network that links Venetian families and that would include all kind of links. Focusing on the cusp of the social network, the doges, it is probably quite a representative sample; after all, these were arranged marriages and one does not simply marry with a doge or a family with a member having a high chance of becoming one.
 
+\section{Analyzing Venetian social networks}
+\label{sna}
+
+There are several sources, that is, samples, of the social graph of the patrician families in Venice. All of them have one trait in common: they focus on families, more than on the individual level; this might be due to the scale of this social analysis, which spans many centuries, or simply to the fact that social links were, indeed, maintained by families through centuries.
+
+We will analyze, in turn, the social networks due to the {\em colleganza} or commercial joint ventures, the marriage social network, and the doges marriages and matrilinear social network.
+
+\subsection{{\em Colleganza} social network}
+
+The source for this data was published by Puga and Treffler \cite{10.1093/qje/qju006}
+
+<<r colleganza, echo=FALSE, warning=FALSE>>=
+
+library(igraph)
+
+data <- read.csv("../resources/colleganza-pairs.csv",header=FALSE)
+venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
+V(venice.sn)$degree <- degree(venice.sn)
+cnet <- cluster_edge_betweenness(venice.sn)
+V(venice.sn)$betweenness <- betweenness(venice.sn)
+V(venice.sn)$eigen <- eigen_centrality(venice.sn)
+V(venice.sn)$pr <- unname(unlist(page_rank(venice.sn)$vector))
+
+plot(cnet,venice.sn,
+     layout=layout_with_fr(venice.sn),
+     vertex.size=500*V(venice.sn)$pr)
+@
+
+What's striking in this graph is the prominence of the Viaro or Viadro family, which is almost completely unknown, and is due mainly to the doings of a single entrepreneurial person, Tommaso Viaro, which initiated joint ventures with many families, including several of the important ones, the Gradenigos and Badoers.
+
+
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
