@@ -105,7 +105,13 @@ We will analyze, in turn, the social networks due to the {\em colleganza} or com
 
 \subsection{{\em Colleganza} social network}
 
+<<r orig.data, echo=FALSE>>=
+orig.data <- read.csv("../data/venice_colleganza_puga_treffler_families.csv");
+@
+
 The source for this data was published by Puga and Treffler \cite{10.1093/qje/qju006}. It contains data for 230 {\em colleganza} contracts, linking two families one of which puts the capital, while the other acts as captain of the vessel that will ply the route (to Flanders, Middle East or Black sea ports). We made a small correction to this dataset, by unifying the "Mastropietro" and "Malipiero" names, which are actually different versions of the same name. This does not have a big impact on the overall structure, since the Malipiero is a peripheric family, but it does change those specific links.
+
+This data is an interesting cross-section of the Venetian social network 
 
 These are, then, actual commercial ties that imply interchange of money, information and thus trust.
 
@@ -147,11 +153,11 @@ kable(betw.table[ betw.table$Betweenness> 0.1,],caption="Ranking of families acc
 But more interesting, from the point of view of future events, is how these families clustered around each other. The figure shows these clusters with different colors, and also where families with high eigenvector centrality lie. These are the two clusters that include these families:
 
 <<r high.ev.families,echo=FALSE>>=
-high.ev.families.df <- data.frame("Morosini-Contarini group" = as_ids(V(venice.colleganza.sn)[cnet$membership==2]), "Viaro group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==3]),""), check.names = FALSE)
+high.ev.families.df <- data.frame("Morosini group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==2]),rep("",5)), "Contarini group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==4]),rep("",4)),"Viaro group" = as_ids(V(venice.colleganza.sn)[cnet$membership==3]), check.names = FALSE)
 kable(high.ev.families.df,caption="Groups of families that include those with the highest eigenvector centrality, named by the most characteristic \\protect{\\em case} in them.")
 @
 
-Please note that the Dandolo, which are featured in the title of this paper, already belong to one of the most prominent groups, the Viaro faction, which includes other high-EV families such as the Gradenigo, Soranzo and Ziani. These groups are also connected: The Contarini are connected to the Zorzi family, and the Viaro to the Lion family.
+Please note that the Dandolo, which are featured in the title of this paper, is not prominent in the chart; it is neither well connected nor in a powerful group. Very few incentives, then, to connect with them at this point in time. These groups are also connected: The Contarini are connected to the Zorzi family, and the Viaro to the Lion family.
 
 <<r weighted.plot, echo=FALSE>>=
 E(venice.colleganza.sn)$weight <- 1
