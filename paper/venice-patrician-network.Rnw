@@ -149,6 +149,7 @@ high.ev.families.df <- data.frame("Morosini-Contarini group" = as_ids(V(venice.c
 kable(high.ev.families.df,caption="Groups of families that include those with the highest eigenvector centrality, named by the most characteristic \\protect{\\em case} in them.")
 @
 
+Please note that the Dandolo, which are featured in the title of this paper, already belong to one of the most prominent groups, the Viaro faction, which includes other high-EV families such as the Gradenigo, Soranzo and Ziani. These groups are also connected: The Contarini are connected to the Zorzi family, and the Viaro to the Lion family.
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
