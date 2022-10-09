@@ -115,7 +115,11 @@ If we analyze the betweenness centrality, what strikes us most is the prominence
 library(igraph)
 
 data <- read.csv("../resources/colleganza-pairs.csv",header=FALSE)
+# data <- read.csv("resources/colleganza-pairs.csv",header=FALSE)
+
 venice.colleganza.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
+venice.colleganza.sn <- simplify(venice.colleganza.sn, edge.attr.comb=list(weight="sum"))
+
 V(venice.colleganza.sn)$degree <- degree(venice.colleganza.sn)
 cnet <- cluster_edge_betweenness(venice.colleganza.sn)
 V(venice.colleganza.sn)$betweenness <- betweenness(venice.colleganza.sn)
