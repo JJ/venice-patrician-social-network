@@ -109,7 +109,7 @@ The source for this data was published by Puga and Treffler \cite{10.1093/qje/qj
 
 These are, then, actual commercial ties that imply interchange of money, information and thus trust.
 
-<<r colleganza, fig.pos="h!tbp", fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\cite{10.1093/qje/qju006}'>>=
+<<r colleganza, fig.pos="h!tbp", fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\cite{10.1093/qje/qju006}. Groups are computed by edge betweenness, resulting in 18 different groups, 11 of which are connected'>>=
 
 library(igraph)
 
@@ -140,6 +140,13 @@ eigen.df.ordered <- eigen.df[ order(eigen.df$eigenvector.centrality,decreasing =
 library(knitr)
 betw.table <- data.frame( Family=eigen.df.ordered$Family, Betweenness=eigen.df.ordered$eigenvector.centrality )
 kable(betw.table[ betw.table$Betweenness> 0.25,],caption="Ranking of families according to eigenvector centrality; only those with a value higher than 0.25 are shown")
+@
+
+But more interesting, from the point of view of future events, is how these families clustered around each other. The figure shows these clusters with different colors, and also where families with high eigenvector centrality lie. These are the two clusters that include these families:
+
+<<r high.ev.families,echo=FALSE>>=
+high.ev.families.df <- data.frame("Morosini-Contarini group" = as_ids(V(venice.colleganza.sn)[cnet$membership==2]), "Viaro group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==3]),""), check.names = FALSE)
+kable(high.ev.families.df,caption="Groups of families that include those with the highest eigenvector centrality, named by the most characteristic \\protect{\\em case} in them.")
 @
 
 \section{Conclusions}
