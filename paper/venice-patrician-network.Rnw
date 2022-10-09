@@ -101,31 +101,33 @@ Except for the unknown brides and, thus, their families, which are probably not,
 
 There are several sources, that is, samples, of the social graph of the patrician families in Venice. All of them have one trait in common: they focus on families, more than on the individual level; this might be due to the scale of this social analysis, which spans many centuries, or simply to the fact that social links were, indeed, maintained by families through centuries.
 
-We will analyze, in turn, the social networks due to the {\em colleganza} or commercial joint ventures, the marriage social network, and the doges marriages and matrilinear social network.
+We will analyze, in turn, the social networks due to the {\em colleganza} or commercial joint ventures, the marriage social network, and the doges marriage and matrilinear social network. We will use two main measures: betweenness centrality and eigenvector centrality \cite{landherr2010critical}. While the first measures mainly how necessary is a particular node to transmit information, the second is related to how connected a node is to the nodes with the highest influence. Since what we have is a (possibly small) sample of the network, the second is supposed to be less influenced by this fact; betweenness centrality, on the other hand, will vary greatly if new nodes and/or connections are added to the sample.
 
 \subsection{{\em Colleganza} social network}
 
-The source for this data was published by Puga and Treffler \cite{10.1093/qje/qju006}
+The source for this data was published by Puga and Treffler \cite{10.1093/qje/qju006}. It contains data for 230 {\em colleganza} contracts, linking two families one of which puts the capital, while the other acts as captain of the vessel that will ply the route (to Flanders, Middle East or Black sea ports). These are, then, actual commercial ties that imply interchange of money, information and thus trust.
 
-<<r colleganza, echo=FALSE, warning=FALSE>>=
+If we analyze the betweenness centrality, what strikes us most is the prominence of the Viaro or Viadro family, which is almost completely unknown, and is due mainly to the doings of a single entrepreneurial person, Tommaso Viadro \cite{de2008secret}, which initiated joint ventures with many families, including several of the important ones, the Gradenigos and Badoers. This family is clearly not one of the most important families, even for the period considered, and this probably shows the vulnerability of measures like betweenness to low sample sizes. We will, then, use, as indicated in the introduction, eigenvector centrality in the following graph:
+
+
+<<r colleganza, fig.pos="h!tbp", fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\cite{10.1093/qje/qju006}'>>=
 
 library(igraph)
 
 data <- read.csv("../resources/colleganza-pairs.csv",header=FALSE)
-venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
-V(venice.sn)$degree <- degree(venice.sn)
-cnet <- cluster_edge_betweenness(venice.sn)
-V(venice.sn)$betweenness <- betweenness(venice.sn)
-V(venice.sn)$eigen <- eigen_centrality(venice.sn)
-V(venice.sn)$pr <- unname(unlist(page_rank(venice.sn)$vector))
+venice.colleganza.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
+V(venice.colleganza.sn)$degree <- degree(venice.colleganza.sn)
+cnet <- cluster_edge_betweenness(venice.colleganza.sn)
+V(venice.colleganza.sn)$betweenness <- betweenness(venice.colleganza.sn)
+V(venice.colleganza.sn)$eigen <- unname(unlist(eigen_centrality(venice.colleganza.sn)$vector))
+V(venice.colleganza.sn)$pr <- unname(unlist(page_rank(venice.colleganza.sn)$vector))
 
-plot(cnet,venice.sn,
-     layout=layout_with_fr(venice.sn),
-     vertex.size=500*V(venice.sn)$pr)
+plot(cnet,venice.colleganza.sn,
+     layout=layout_with_fr(venice.colleganza.sn),
+     vertex.size=20*V(venice.colleganza.sn)$eigen)
 @
 
-What's striking in this graph is the prominence of the Viaro or Viadro family, which is almost completely unknown, and is due mainly to the doings of a single entrepreneurial person, Tommaso Viadro \cite{de2008secret}, which initiated joint ventures with many families, including several of the important ones, the Gradenigos and Badoers.
-
+This graph shows the scale of the colleganza, which involves many different families, but also the fact that there are just a few families, and well known families at that, with a high eigenvector centrality. 
 
 \section{Conclusions}
 
