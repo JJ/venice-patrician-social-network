@@ -129,7 +129,15 @@ plot(cnet,venice.colleganza.sn,
      vertex.size=20*V(venice.colleganza.sn)$eigen)
 @
 
-This graph shows the scale of the colleganza, which involves many different families, but also the fact that there are just a few families, and well known families at that, with a high eigenvector centrality. What strikes us most is the prominence of the Viaro or Viadro family, which is almost completely unknown, and is due mainly to the doings of a single entrepreneurial person, Tommaso Viadro \cite{de2008secret}, which initiated joint ventures with many families, including several of the important ones, the Gradenigos and Badoers. This family is clearly not one of the most important families, even for the period considered, and this probably shows the vulnerability of measures like betweenness to low sample sizes. But this fact is an interesting showcase of how the Serrata changed everything, as posited by \cite{10.1093/qje/qju006}, closing social mobility of entrepreneurial families and shooting down the possibility of them participating in the government of the Republic. 
+This graph shows the scale of the colleganza, which involves many different families, but also the fact that there are just a few families, and well known families at that, with a high eigenvector centrality. What strikes us most is the prominence of the Viaro or Viadro family, which is almost completely unknown, and is due mainly to the doings of a single entrepreneurial person, Tommaso Viadro \cite{de2008secret}, which initiated joint ventures with many families, including several of the important ones, the Gradenigos and Badoers. This family is clearly not one of the most important families, even for the period considered, and this probably shows the vulnerability of measures like betweenness to low sample sizes. But this fact is an interesting showcase of how the Serrata changed everything, as posited by \cite{10.1093/qje/qju006}, closing social mobility of entrepreneurial families and shooting down the possibility of them participating in the government of the Republic. It also shows how closely knit this social network was, with just a few families kept out of it including, curiously enough, some families such as the Loredan, which later on was elevated to high nobility. Again, and as indicated by Puga and Treffler, this shows how the Serrata upended social order, bringing a set of families to the forefront, while dropping other families such as the aforementioned Viaro.
+
+<<r colleganza.table, echo=FALSE>>=
+eigen.df <- data.frame(Family=names(V(venice.colleganza.sn)),eigenvector.centrality=V(venice.colleganza.sn)$eigen)
+eigen.df.ordered <- eigen.df[ order(eigen.df$eigenvector.centrality,decreasing = T),]
+library(knitr)
+betw.table <- data.frame( Family=eigen.df.ordered$Family, Betweenness=eigen.df.ordered$eigenvector.centrality )
+kable(betw.table[ betw.table$Betweenness> 0.25,],caption="Ranking of families according to eigenvector centrality; only those with a value higher than 0.25 are shown")
+@
 
 \section{Conclusions}
 
