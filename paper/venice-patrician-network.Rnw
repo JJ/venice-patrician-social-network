@@ -114,7 +114,7 @@ data <- read.csv("../resources/colleganza-pairs.csv",header=FALSE)
 
 The source for this data was published by Puga and Treffler \cite{10.1093/qje/qju006}. It contains data for 230 {\em colleganza} contracts, linking two families one of which puts the capital, while the other acts as captain of the vessel that will ply the route (to Flanders, Middle East or Black sea ports). We made a small correction to this dataset, by unifying the "Mastropietro" and "Malipiero" names, which are actually different versions of the same name. This does not have a big impact on the overall structure, since the Malipiero is a peripheral family, but it does change those specific links.
 
-This data is an interesting cross-section of the Venetian social network spanning from  \Sexpr{min(data$V3)} to  \Sexpr{max(data$V3)}, that is, it goes beyond the creation of the electoral college in 1172, but barely after the Serrata by the beginning of 1300. These are, then, actual commercial ties that imply interchange of money, information and thus trust.
+This data is an interesting cross-section of the Venetian social network spanning from  \Sexpr{min(data$V3)} to  \Sexpr{max(data$V3)}, that is, it goes beyond the creation of the electoral college in 1172, but barely after the Serrata by the beginning of 1300. In that sense, it is the best data we have on the social situation, and social standing of families, before the access to Venetian nobility was closed. Besides, these are actual commercial ties that imply interchange of money, information and thus trust.
 
 <<r colleganza, fig.pos="h!tbp", fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\cite{10.1093/qje/qju006}. Groups are computed by edge betweenness, resulting in 18 different groups, 11 of which are connected'>>=
 
@@ -133,7 +133,8 @@ V(venice.colleganza.sn)$pr <- unname(unlist(page_rank(venice.colleganza.sn)$vect
 
 plot(cnet,venice.colleganza.sn,
      layout=layout_with_fr(venice.colleganza.sn),
-     vertex.size=20*V(venice.colleganza.sn)$eigen)
+     vertex.size=10*V(venice.colleganza.sn)$eigen,
+     vertex.label.cex=0.5)
 @
 
 Out of the 125 families that are included in the dataset, 108 are connected; most families, in one way or another, participated in these joint ventures, with varying allegiances through time.
