@@ -105,7 +105,9 @@ We will analyze, in turn, the social networks due to the {\em colleganza} or com
 
 \subsection{{\em Colleganza} social network}
 
-The source for this data was published by Puga and Treffler \cite{10.1093/qje/qju006}. It contains data for 230 {\em colleganza} contracts, linking two families one of which puts the capital, while the other acts as captain of the vessel that will ply the route (to Flanders, Middle East or Black sea ports). These are, then, actual commercial ties that imply interchange of money, information and thus trust.
+The source for this data was published by Puga and Treffler \cite{10.1093/qje/qju006}. It contains data for 230 {\em colleganza} contracts, linking two families one of which puts the capital, while the other acts as captain of the vessel that will ply the route (to Flanders, Middle East or Black sea ports). We made a small correction to this dataset, by unifying the "Mastropietro" and "Malipiero" names, which are actually different versions of the same name. This does not have a big impact on the overall structure, since the Malipiero is a peripheric family, but it does change those specific links.
+
+These are, then, actual commercial ties that imply interchange of money, information and thus trust.
 
 
 <<r colleganza, fig.pos="h!tbp", fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\cite{10.1093/qje/qju006}'>>=
