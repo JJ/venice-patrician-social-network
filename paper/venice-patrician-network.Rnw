@@ -117,10 +117,12 @@ data <- read.csv("../resources/colleganza-pairs.csv",header=FALSE)
 # data <- read.csv("resources/colleganza-pairs.csv",header=FALSE)
 
 venice.colleganza.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
-venice.colleganza.sn <- simplify(venice.colleganza.sn, edge.attr.comb=list(weight="sum"))
+cnet <- cluster_edge_betweenness(venice.colleganza.sn)
 
 V(venice.colleganza.sn)$degree <- degree(venice.colleganza.sn)
-cnet <- cluster_edge_betweenness(venice.colleganza.sn)
+
+E(venice.colleganza.sn)$weight <- 1
+venice.colleganza.sn <- simplify(venice.colleganza.sn, edge.attr.comb=list(weight="sum"))
 V(venice.colleganza.sn)$betweenness <- betweenness(venice.colleganza.sn)
 V(venice.colleganza.sn)$eigen <- unname(unlist(eigen_centrality(venice.colleganza.sn)$vector))
 V(venice.colleganza.sn)$pr <- unname(unlist(page_rank(venice.colleganza.sn)$vector))
@@ -139,7 +141,7 @@ eigen.df <- data.frame(Family=names(V(venice.colleganza.sn)),eigenvector.central
 eigen.df.ordered <- eigen.df[ order(eigen.df$eigenvector.centrality,decreasing = T),]
 library(knitr)
 betw.table <- data.frame( Family=eigen.df.ordered$Family, Betweenness=eigen.df.ordered$eigenvector.centrality )
-kable(betw.table[ betw.table$Betweenness> 0.25,],caption="Ranking of families according to eigenvector centrality; only those with a value higher than 0.25 are shown")
+kable(betw.table[ betw.table$Betweenness> 0.1,],caption="Ranking of families according to eigenvector centrality; only those with a value higher than 0.25 are shown")
 @
 
 But more interesting, from the point of view of future events, is how these families clustered around each other. The figure shows these clusters with different colors, and also where families with high eigenvector centrality lie. These are the two clusters that include these families:
@@ -150,6 +152,12 @@ kable(high.ev.families.df,caption="Groups of families that include those with th
 @
 
 Please note that the Dandolo, which are featured in the title of this paper, already belong to one of the most prominent groups, the Viaro faction, which includes other high-EV families such as the Gradenigo, Soranzo and Ziani. These groups are also connected: The Contarini are connected to the Zorzi family, and the Viaro to the Lion family.
+
+<<r weighted.plot, echo=FALSE>>=
+E(venice.colleganza.sn)$weight <- 1
+venice.colleganza.sn <- simplify(venice.colleganza.sn, edge.attr.comb=list(weight="sum"))
+@
+
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
