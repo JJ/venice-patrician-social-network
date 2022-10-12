@@ -29,4 +29,4 @@ for @families -> $raw {
     }
 }
 
-say @family-names;
+say @family-names.join("\n");
