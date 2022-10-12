@@ -221,7 +221,15 @@ library(ggplot2)
 ggplot(colleganza.families.df,aes( x= noble, y=ev.centrality))+ geom_boxplot()
 @
 
+But was there any reason to choose a set of families over others for the first Serrata? Let's look at the ev within the noble families. This is represented in Figure \ref{fig:col.noble.bp.serrata}.
 
+<<r colleganza.ev.serrata, echo=FALSE, ,fig.pos="h!tbp", fig.env="figure*", fig.cap="Boxplot of eigenvector centrality for noble families, those that were "closed" (vecchie) and those that were only ennobled later.\\protect\\ref{fig:col.noble.bp.serrata}">>=
+noble.colleganza.families.df <- colleganza.families.df[colleganza.families.df$noble==T,]
+ggplot(noble.colleganza.families.df,aes( x= vecchie, y=ev.centrality))+ geom_boxplot()
+noble.serrata.wt <- wilcox.test(noble.colleganza.families.df[ noble.colleganza.families.df$vecchie == F,]$ev.centrality, noble.colleganza.families.df[ noble.colleganza.families.df$vecchie == T,]$ev.centrality)
+@
+
+The p-value for this difference is \SExpr{noble.serrata.wt$p-value}; as a matter of fact, this p-value is lower than the difference between nobles and non-nobles. There is only a family that was kept outside the closure and has a high EV centrality value. However, this is the Barbarigo family, one of the \emph{ducali}, that were recognized as noble soon after the Serrata. The other four families with a EV centrality higher than 0.125 are the Viaro, Trevisan, Emo, Moro and Caravello families, of which the Moro is \emph{ducale}, Viaro and Emo \emph{nuove}, and the odd one is Trevisan, which is part of the last batch of nobles. On average, however, the first families that were ennobled were those that had a high eigenvector centrality in the colleganza network; those that did not, in general, were occupying peripheral positions in that network.
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
