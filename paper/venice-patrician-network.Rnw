@@ -123,7 +123,7 @@ The source for this data was published by Puga and Treffler \cite{10.1093/qje/qj
 
 This data is an interesting cross-section of the Venetian social network spanning from  \Sexpr{min(data$V3)} to  \Sexpr{max(data$V3)}, that is, it goes beyond the creation of the electoral college in 1172, but barely after the Serrata by the beginning of 1300. In that sense, it is the best data we have on the social situation, and social standing of families, before the access to Venetian nobility was closed. Besides, these are actual commercial ties that imply interchange of money, information and thus trust.
 
-<<r colleganza, fig.pos="h!tbp", fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\cite{10.1093/qje/qju006}. Groups are computed by edge betweenness, resulting in 18 different groups, 11 of which are connected \\protect\\label{fig:modcol}.'>>=
+<<r colleganza, fig.pos="h!tbp", fig.height=6, fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\cite{10.1093/qje/qju006}. Groups are computed by edge betweenness, resulting in 18 different groups, 11 of which are connected \\protect\\label{fig:modcol}.'>>=
 
 library(igraph)
 
@@ -165,7 +165,7 @@ kable(high.ev.families.df,caption="Groups of families that include those with th
 
 Please note that the Dandolo, which are featured in the title of this paper, is not prominent in the chart; it is neither well connected nor in a powerful group. Very few incentives, then, to connect with them at this point in time. These groups are also connected: The Contarini are connected to the Zorzi family, and the Viaro to the Lion family.
 
-<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.env="figure*", fig.cap="Plotting the type of family along with actual weights. Please see text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
+<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.height=6, fig.env="figure*", fig.cap="Plotting the type of family along with actual weights. Please see text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
 types <- NULL
 colors <- NULL
 family.colors <- list("Ducali"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
