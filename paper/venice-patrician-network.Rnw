@@ -165,18 +165,13 @@ kable(high.ev.families.df,caption="Groups of families that include those with th
 
 Please note that the Dandolo, which are featured in the title of this paper, is not prominent in the chart; it is neither well connected nor in a powerful group. Very few incentives, then, to connect with them at this point in time. These groups are also connected: The Contarini are connected to the Zorzi family, and the Viaro to the Lion family.
 
-<<r weighted.plot, echo=FALSE>>=
-E(venice.colleganza.sn)$weight <- 1
-venice.colleganza.sn <- simplify(venice.colleganza.sn, edge.attr.comb=list(weight="sum"))
-
+<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.env="figure*", fig.cap="Plotting the type of family along with actual weights. Please see text for interpretation of shape and colors">>=
 types <- NULL
 colors <- NULL
-family.colors <- list("Ancient"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
-                     "Nuovissime"="red","Soldi"="yellow","Vecchie"="lightblue","Apostoliche"="pink")
+family.colors <- list("Ducali"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
+                     "Nuovissime"="red","Soldo"="yellow","Vecchie"="lightblue","Apostoliche"="pink")
 for (r in V(venice.colleganza.sn)$name) {
   if (! is.null(family.type.dict[[r]])) {
-    print(r)
-    print(family.type.dict[[r]])
     types <- c(types,"square")
     colors <- c(colors, family.colors[[family.type.dict[[r]]]])
   } else {
@@ -185,7 +180,8 @@ for (r in V(venice.colleganza.sn)$name) {
   }
 }
 V(venice.colleganza.sn)$types <- types
-plot(venice.colleganza.sn,vertex.size=10,vertex.shape=V(venice.colleganza.sn)$types, vertex.label.cex=0.7)
+V(venice.colleganza.sn)$colors <- colors
+plot(venice.colleganza.sn,vertex.size=4,vertex.shape=V(venice.colleganza.sn)$types, vertex.label.cex=0.7, vertex.color = V(venice.colleganza.sn)$colors,edge.width=E(venice.colleganza.sn)$weight)
 @
 
 \section{Conclusions}
