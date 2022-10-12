@@ -170,11 +170,33 @@ types <- NULL
 colors <- NULL
 family.colors <- list("Ducali"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
                      "Nuovissime"="red","Soldo"="yellow","Vecchie"="lightblue","Apostoliche"="pink")
-for (r in V(venice.colleganza.sn)$name) {
+colleganza.families.df <- data.frame(Family=character(), 
+                                     ev.centrality=double(), 
+                                     family.type=character(),
+                                     noble=logical(),
+                                     vecchie=logical(),
+                                     stringsAsFactors=FALSE)
+for (r in V(venice.colleganza.sn) ) {
+ family <- V(venice.colleganza.sn)[[r]]
+ r <- family$name
   if (! is.null(family.type.dict[[r]])) {
     types <- c(types,"square")
-    colors <- c(colors, family.colors[[family.type.dict[[r]]]])
+    family.type <- family.type.dict[[r]]
+    colors <- c(colors, family.colors[[ family.type ]])
+    vecchie <- family.type == "Vecchie" || family.type == "Evangeliche" || family.type == "Apostoliche"
+    colleganza.families.df <- rbind( colleganza.families.df,
+                                     data.frame( Family=r,
+                                                 ev.centrality=family$eigen,
+                                                 family.type = family.type,
+                                                 vecchie = vecchie,
+                                                 noble=T))
   } else {
+    colleganza.families.df <- rbind( colleganza.families.df,
+                                     data.frame( Family=r,
+                                                 ev.centrality=family$eigen,
+                                                 family.type = "None",
+                                                 vecchie = F,
+                                                 noble=F))
     colors <- c(colors,"darkgray")
     types <- c(types,"circle")
   }
@@ -192,7 +214,14 @@ Since these colleganza contracts occur mainly before the serrata, it is interest
 
 As in the previous one, the Fruchterman-Reingold algorithm places those with the highest centrality at the center of the image, and we can observe that there is barely a circle there; all of them families that would sooner or later become noble. There is an over abundance of pink, with all families except for Dolfin "circling" the center. \emph{Evalgeliche} families are in a second circle, and connect with other families, also having strong connections with some other families: Corner with Tiepolo, Giustiniani with Barbo and Morosini, Badoer with Barbarigo and Emo. In general, a strong position and links within this social network prefigures what is going to happen later, the closure, where the \emph{evangeliche}, \emph{apostoliche} and other \emph{vecchie} families would become the only ones with access to power (and lucrative contracts that would be eventually closed to others too).
 
-There are several conclusions that can be drawn from this. Most families, \Sexpr{ length(types[types == "square"])/length(types)} \% of them, who participated in these contracts would eventually become noble. Then, those with the best connections would be part of the initial batch of families that became nobles. 
+There are several conclusions that can be drawn from this. Most families, \Sexpr{ length(types[types == "square"])/length(types)} \% of them, who participated in these contracts would eventually become noble. Then, those with the best connections would be part of the initial batch of families that became nobles. This difference in connectivity can be examined by checking the average eigenvector centrality for every type of family, which is done in Figure \ref{fig:col.noble.bp}.
+
+<<r colleganza.ev.nobility, echo=FALSE,fig.pos="h!tbp", fig.env="figure*", fig.cap="Boxplot of eigenvector centrality for families that would eventually become noble and those that did not.\\protect\\ref{fig:col.noble.bp}">>=
+library(ggplot2)
+ggplot(colleganza.families.df,aes( x= noble, y=ev.centrality))+ geom_boxplot()
+@
+
+
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
