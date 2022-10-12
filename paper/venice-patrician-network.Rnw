@@ -119,7 +119,7 @@ data <- read.csv("../resources/colleganza-pairs.csv",header=FALSE)
 # data <- read.csv("resources/colleganza-pairs.csv",header=FALSE)
 @
 
-The source for this data was published by Puga and Treffler \cite{10.1093/qje/qju006}. It contains data for 230 \emph{colleganza} contracts, linking two families one of which puts the capital, while the other acts as captain of the vessel that will ply the route (to Flanders, Middle East or Black sea ports). We made a small correction to this dataset, by unifying the "Mastropietro" and "Malipiero" names, which are actually different versions of the same name. This does not have a big impact on the overall structure, since the Malipiero is a peripheral family, but it does change those specific links.
+The source for this data was published by Puga and Treffler \cite{10.1093/qje/qju006}. It contains data for 230 \emph{colleganza} contracts, linking two families one of which puts the capital, while the other acts as captain of the vessel that will ply the route (to Flanders, Middle East or Black sea ports). We made a small correction to this dataset, by unifying the "Mastropietro" and "Malipiero" names, which are actually different versions of the same name. This does not have a big impact on the overall structure, since the Malipiero is a peripheral family, but it does change those specific links. We also normalized Zeno to Zen, which is how it shows up in our other sources.
 
 This data is an interesting cross-section of the Venetian social network spanning from  \Sexpr{min(data$V3)} to  \Sexpr{max(data$V3)}, that is, it goes beyond the creation of the electoral college in 1172, but barely after the Serrata by the beginning of 1300. In that sense, it is the best data we have on the social situation, and social standing of families, before the access to Venetian nobility was closed. Besides, these are actual commercial ties that imply interchange of money, information and thus trust.
 
@@ -216,20 +216,21 @@ As in the previous one, the Fruchterman-Reingold algorithm places those with the
 
 There are several conclusions that can be drawn from this. Most families, \Sexpr{ length(types[types == "square"])/length(types)} \% of them, who participated in these contracts would eventually become noble. Then, those with the best connections would be part of the initial batch of families that became nobles. This difference in connectivity can be examined by checking the average eigenvector centrality for every type of family, which is done in Figure \ref{fig:col.noble.bp}.
 
-<<r colleganza.ev.nobility, echo=FALSE,fig.pos="h!tbp", fig.env="figure*", fig.cap="Boxplot of eigenvector centrality for families that would eventually become noble and those that did not.\\protect\\ref{fig:col.noble.bp}">>=
+<<r colleganza.ev.nobility, echo=FALSE,fig.pos="h!tbp",fig.height=4, fig.cap="Boxplot of eigenvector centrality for families that would eventually become noble and those that did not.\\protect\\label{fig:col.noble.bp}">>=
 library(ggplot2)
 ggplot(colleganza.families.df,aes( x= noble, y=ev.centrality))+ geom_boxplot()
 @
 
 But was there any reason to choose a set of families over others for the first Serrata? Let's look at the ev within the noble families. This is represented in Figure \ref{fig:col.noble.bp.serrata}.
 
-<<r colleganza.ev.serrata, echo=FALSE, ,fig.pos="h!tbp", fig.env="figure*", fig.cap="Boxplot of eigenvector centrality for noble families, those that were "closed" (vecchie) and those that were only ennobled later.\\protect\\ref{fig:col.noble.bp.serrata}">>=
+<<r colleganza.ev.serrata, echo=FALSE, fig.pos="h!tbp",fig.height=4, fig.cap="Boxplot of eigenvector centrality for noble families, those that were \"closed\" (vecchie) and those that were only ennobled later.\\protect\\label{fig:col.noble.bp.serrata}">>=
 noble.colleganza.families.df <- colleganza.families.df[colleganza.families.df$noble==T,]
 ggplot(noble.colleganza.families.df,aes( x= vecchie, y=ev.centrality))+ geom_boxplot()
 noble.serrata.wt <- wilcox.test(noble.colleganza.families.df[ noble.colleganza.families.df$vecchie == F,]$ev.centrality, noble.colleganza.families.df[ noble.colleganza.families.df$vecchie == T,]$ev.centrality)
 @
 
-The p-value for this difference is \SExpr{noble.serrata.wt$p-value}; as a matter of fact, this p-value is lower than the difference between nobles and non-nobles. There is only a family that was kept outside the closure and has a high EV centrality value. However, this is the Barbarigo family, one of the \emph{ducali}, that were recognized as noble soon after the Serrata. The other four families with a EV centrality higher than 0.125 are the Viaro, Trevisan, Emo, Moro and Caravello families, of which the Moro is \emph{ducale}, Viaro and Emo \emph{nuove}, and the odd one is Trevisan, which is part of the last batch of nobles. On average, however, the first families that were ennobled were those that had a high eigenvector centrality in the colleganza network; those that did not, in general, were occupying peripheral positions in that network.
+The p-value for this difference is \Sexpr{ noble.serrata.wt$p.value }; as a matter of fact, this p-value is lower than the difference between nobles and non-nobles. There is only a family that was kept outside the closure and has a high EV centrality value. However, this is the Barbarigo family, one of the \emph{ducali}, that were recognized as noble soon after the Serrata. The other four families with a EV centrality higher than 0.125 are the Viaro, Trevisan, Emo, Moro and Caravello families, of which the Moro is \emph{ducale}, Viaro and Emo \emph{nuove}, and the odd one is Trevisan, which is part of the last batch of nobles. On average, however, the first families that were ennobled were those that had a high eigenvector centrality in the colleganza network; those that did not, in general, were occupying peripheral positions in that network.
+
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
