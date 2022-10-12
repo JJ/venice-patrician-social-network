@@ -22,6 +22,9 @@ for @families -> $raw {
         when /"title=\"" $<family> = (.+?) "\">"/  {
             @family-names.push: ~$<family>
         }
+        when /^$<family> = (\w+\s\w+)$/ {
+            @family-names.push: ~$<family>
+        }
         default { say $_}
     }
 }
