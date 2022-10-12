@@ -28,6 +28,13 @@
 library(igraph)
 data <- read.csv("../resources/family-pairs.csv",header=FALSE)
 venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
+
+# Read family types info
+family.types <- read.csv("../resources/family-types.csv")
+family.type.dict <- list()
+for (r in 1:nrow(family.types)) {
+  family.type.dict[[ family.types[r,"Family"] ]]  <-  family.types[r,"Type"]
+}
 @
 
 \begin{abstract}
