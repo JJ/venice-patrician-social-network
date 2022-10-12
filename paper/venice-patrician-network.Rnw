@@ -168,6 +168,24 @@ Please note that the Dandolo, which are featured in the title of this paper, is 
 <<r weighted.plot, echo=FALSE>>=
 E(venice.colleganza.sn)$weight <- 1
 venice.colleganza.sn <- simplify(venice.colleganza.sn, edge.attr.comb=list(weight="sum"))
+
+types <- NULL
+colors <- NULL
+family.colors <- list("Ancient"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
+                     "Nuovissime"="red","Soldi"="yellow","Vecchie"="lightblue","Apostoliche"="pink")
+for (r in V(venice.colleganza.sn)$name) {
+  if (! is.null(family.type.dict[[r]])) {
+    print(r)
+    print(family.type.dict[[r]])
+    types <- c(types,"square")
+    colors <- c(colors, family.colors[[family.type.dict[[r]]]])
+  } else {
+    colors <- c(colors,"darkgray")
+    types <- c(types,"circle")
+  }
+}
+V(venice.colleganza.sn)$types <- types
+plot(venice.colleganza.sn,vertex.size=10,vertex.shape=V(venice.colleganza.sn)$types, vertex.label.cex=0.7)
 @
 
 \section{Conclusions}
