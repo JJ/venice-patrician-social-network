@@ -165,7 +165,7 @@ kable(high.ev.families.df,caption="Groups of families that include those with th
 
 Please note that the Dandolo, which are featured in the title of this paper, is not prominent in the chart; it is neither well connected nor in a powerful group. Very few incentives, then, to connect with them at this point in time. These groups are also connected: The Contarini are connected to the Zorzi family, and the Viaro to the Lion family.
 
-<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.env="figure*", fig.cap="Plotting the type of family along with actual weights. Please see text for interpretation of shape and colors">>=
+<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.env="figure*", fig.cap="Plotting the type of family along with actual weights. Please see text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
 types <- NULL
 colors <- NULL
 family.colors <- list("Ducali"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
@@ -184,6 +184,15 @@ V(venice.colleganza.sn)$colors <- colors
 plot(venice.colleganza.sn,vertex.size=4,vertex.shape=V(venice.colleganza.sn)$types, vertex.label.cex=0.7, vertex.color = V(venice.colleganza.sn)$colors,edge.width=E(venice.colleganza.sn)$weight)
 @
 
+Since these colleganza contracts occur mainly before the serrata, it is interesting to analyze the participation of families that would become part of the nobility, and how these are featured within the social network. We do so in Figure \ref{fig:colw}. In this figure, we represent \begin{itemize}
+\item Weights are represented using connection width. It basically corresponds to the number of contracts between those two families.
+\item Families that would become noble are represented using squares; those that were never part of the nobility have gray circles.
+\item Color corresponds to the type of family. Gold are \emph{apostoliche} families, pink \emph{evancheliche}, the rest of the \emph{vecchie} families use light blue; green is used for \emph{nuove} families, except light gray that is used for those denominated \emph{ducali}; finally, red represents \emph{nuovissime} families.
+\end{itemize}
+
+As in the previous one, the Fruchterman-Reingold algorithm places those with the highest centrality at the center of the image, and we can observe that there is barely a circle there; all of them families that would sooner or later become noble. There is an over abundance of pink, with all families except for Dolfin "circling" the center. \emph{Evalgeliche} families are in a second circle, and connect with other families, also having strong connections with some other families: Corner with Tiepolo, Giustiniani with Barbo and Morosini, Badoer with Barbarigo and Emo. In general, a strong position and links within this social network prefigures what is going to happen later, the closure, where the \emph{evangeliche}, \emph{apostoliche} and other \emph{vecchie} families would become the only ones with access to power (and lucrative contracts that would be eventually closed to others too).
+
+There are several conclusions that can be drawn from this. Most families, \Sexpr{ length(types[types == "square"])/length(types)} \% of them, who participated in these contracts would eventually become noble. Then, those with the best connections would be part of the initial batch of families that became nobles. 
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
