@@ -12,10 +12,9 @@ V(marriages.sn)$eigen <- eigen_centrality(marriages.sn)
 V(marriages.sn)$pr <- unname(unlist(page_rank(marriages.sn)$vector))
 
 plot(marriages.sn,
-     layout=layout_with_sugiyama(marriages.sn),
+     layout=layout_in_circle(marriages.sn),
      vertex.size=V(marriages.sn)$betweenness/500,
      vertex.label.cex= V(marriages.sn)$degree/500,
-     vertex.label.dist=1,
      vertex.label.degree=V(marriages.sn)$degree)
 
 
