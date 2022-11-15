@@ -230,6 +230,22 @@ noble.serrata.wt <- wilcox.test(noble.colleganza.families.df[ noble.colleganza.f
 
 The p-value for this difference is \Sexpr{ noble.serrata.wt$p.value }; as a matter of fact, this p-value is lower than the difference between nobles and non-nobles. There is only a family that was kept outside the closure and has a high EV centrality value. However, this is the Barbarigo family, one of the \emph{ducali}, that were recognized as noble soon after the Serrata. The other four families with a EV centrality higher than 0.125 are the Viaro, Trevisan, Emo, Moro and Caravello families, of which the Moro is \emph{ducale}, Viaro and Emo \emph{nuove}, and the odd one is Trevisan, which is part of the last batch of nobles. On average, however, the first families that were ennobled were those that had a high eigenvector centrality in the colleganza network; those that did not, in general, were occupying peripheral positions in that network. Only four \emph{vecchie} families, the Gauli (which were probably extinct very soon), Barozzi, Belegno (also probably extinct) and Polani do not appear in this colleganza network sample. In general, we can conclude that EV centrality in the colleganza social network is a good predictor for an upgrade in the status of the families when the Serrata arrived. In the next sections we will a similar methodology to other available networks: the marriages social network in the XIV-XV century, as well as the social network created by doges (and in some cases, their fathers) marriages.
 
+\subsection{Marriages social network}
+\label{ss:marriage}
+
+<<r marriage.data, echo=FALSE>>=
+marriages <- read.csv("../data/venice_marriages_puga_treffler_families.csv")
+marriages <- marriages[ marriages$husband_familyname_std != '' & marriages$wife_familyname_std != '',]
+marriages <- marriages[ marriages$husband_familyname_std != marriages$wife_familyname_std,]
+marriages <- marriages[ marriages$year <= 1797 | is.na(marriages$year) ,]
+@
+
+This data, which has been, as in the previous section, taken from \cite{10.1093/qje/qju006} is another interesting sample of the Venetian social network spanning from  \Sexpr{min(marriages$year)} to the demise of the Venetian republic in 1797, although the original data, extracted from the city archives, went beyond that date. The original data has been filtered by \begin{itemize}
+\item eliminating marriages where one of the spouses was missing,
+\item eliminating also those where both partners belonged to the same family, and
+\item finally, as indicated, eliminating those that happened after the fall of the republic.
+\end{itemize}
+
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
