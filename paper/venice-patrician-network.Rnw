@@ -233,7 +233,7 @@ The p-value for this difference is \Sexpr{ noble.serrata.wt$p.value }; as a matt
 \subsection{Marriages social network}
 \label{ss:marriage}
 
-<<r marriage.data, echo=FALSE>>=
+<<r marriage.data, echo=FALSE,warning=FALSE,messages=FALSE>>=
 marriages <- read.csv("../data/venice_marriages_puga_treffler_families.csv")
 marriages <- marriages[ marriages$husband_familyname_std != '' & marriages$wife_familyname_std != '',]
 marriages <- marriages[ marriages$husband_familyname_std != marriages$wife_familyname_std,]
@@ -245,6 +245,14 @@ This data, which has been, as in the previous section, taken from \cite{10.1093/
 \item eliminating also those where both partners belonged to the same family, and
 \item finally, as indicated, eliminating those that happened after the fall of the republic.
 \end{itemize}
+
+<<r marriage.plot, echo=F,warning=FALSE,message=FALSE,fig.cap="Distribution by year of marriages in the dataset\\protect\\label{fig:number.of.marriages}.">>=
+ggplot(marriages,aes(x=year))+geom_freqpoly()
+@
+
+Figure \ref{fig:number.of.marriages} shows that there is a certain bias in the dataset, with most of them concentrated in the XVI century; the sample is big enough, however, to account for marriages happening all along the Republic, including its very last moments (when the number of marriages falles precipituously, either due to lack of registration of actual decline).
+
+We are interested, however, with the social network this dataset reveals.
 
 \section{Conclusions}
 
