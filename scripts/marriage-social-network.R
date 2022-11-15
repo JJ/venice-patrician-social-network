@@ -3,6 +3,7 @@ library(igraph)
 marriages <- read.csv("data/venice_marriages_puga_treffler_families.csv")
 marriages <- marriages[ marriages$husband_familyname_std != '' & marriages$wife_familyname_std != '',]
 marriages <- marriages[ marriages$husband_familyname_std != marriages$wife_familyname_std,]
+marriages <- marriages[ marriages$year <= 1797 | is.na(marriages$year) ,]
 marriages.sn <- graph.data.frame(data.frame(marriages$husband_familyname_std,marriages$wife_familyname_std),directed=F)
 plot(marriages.sn)
 V(marriages.sn)$degree <- degree(marriages.sn)
