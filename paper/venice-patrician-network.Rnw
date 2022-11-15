@@ -268,8 +268,8 @@ m.degree.table.ordered <- m.degree.table[ order(m.degree.table$degree,decreasing
 kable(m.degree.table.ordered[m.degree.table.ordered$degree > 400,],caption="Degree ranking for the families", row.names = F)
 @
 
-The well known Contarini family is at the top of the ranking, with a total of
-\Sexpr{100*length(marriages[ marriages$husband_familyname_std == 'Contarini' | marriages$wife_familyname_std == 'Contarini',]$year)/length(marriages$year)}\% of all weddings.
+The well known Contarini family \cite{gleason1993gasparo} is at the top of the ranking, with a total of
+\Sexpr{format(round(100*length(marriages[ marriages$husband_familyname_std == 'Contarini' | marriages$wife_familyname_std == 'Contarini',]$year)/length(marriages$year),2),nsmall=2)}\% of all weddings.
 
 \section{Conclusions}
 
