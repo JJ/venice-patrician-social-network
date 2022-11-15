@@ -235,6 +235,8 @@ The p-value for this difference is \Sexpr{ noble.serrata.wt$p.value }; as a matt
 
 <<r marriage.data, echo=FALSE,warning=FALSE,messages=FALSE>>=
 marriages <- read.csv("../data/venice_marriages_puga_treffler_families.csv")
+marriages.contarini <- marriages[ marriages$husband_familyname_std == 'Contarini' | marriages$wife_familyname_std == 'Contarini',]
+marriages.not.contarini <- marriages[ marriages$husband_familyname_std != 'Contarini' & marriages$wife_familyname_std != 'Contarini',]
 marriages <- marriages[ marriages$husband_familyname_std != '' & marriages$wife_familyname_std != '',]
 marriages <- marriages[ marriages$husband_familyname_std != marriages$wife_familyname_std,]
 marriages <- marriages[ marriages$year <= 1797 | is.na(marriages$year) ,]
@@ -269,7 +271,13 @@ kable(m.degree.table.ordered[m.degree.table.ordered$degree > 400,],caption="Degr
 @
 
 The well known Contarini family \cite{gleason1993gasparo} is at the top of the ranking, with a total of
-\Sexpr{format(round(100*length(marriages[ marriages$husband_familyname_std == 'Contarini' | marriages$wife_familyname_std == 'Contarini',]$year)/length(marriages$year),2),nsmall=2)}\% of all weddings.
+\Sexpr{format(round(100*length(marriages.contarini$year)/(length(marriages.contarini$year)+length(marriages.not.contarini$year)),2),nsmall=2)}\% of all weddings.
+
+<<r marriage.contarini, echo=F,warning=FALSE,message=FALSE,fig.cap="Number of marriages for the Contarini plotted together with others. Please take into account that this is obtained from the unfiltered original dataset\\protect\\label{fig:contarini.marriages}.">>=
+ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()+geom_freqpoly(data=marriages.not.contarini,aes(x=year, color='Others'))
+@
+
+Figure \ref{fig:contarini.marriages} shows the number of marriages in which one of the partners was Contarini, compared with the rest of the marriages. We can see how it reaches its peak in the XV century, to slowly get to a very low number by the end of the Republic.
 
 \section{Conclusions}
 
