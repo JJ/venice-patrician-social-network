@@ -25,3 +25,5 @@ auto/
 *.synctex.gz
 
 *.iml
+.Rproj.user
+*.Rproj
