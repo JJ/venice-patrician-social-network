@@ -279,8 +279,30 @@ The well known Contarini family \cite{gleason1993gasparo} is at the top of the r
 ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()+geom_freqpoly(data=marriages.not.contarini,aes(x=year, color='Others'))
 @
 
-Figure \ref{fig:contarini.marriages} shows the number of marriages in which one of the partners was Contarini, compared with the rest of the marriages. We can see how it reaches its peak in the XV century, to slowly get to a very low number by the end of the Republic. While the number of families involved in these marriages is \Sexpr{length(family.names)}, \Sexpr{length(family.names.contarini)-1} are married to a Contarini, that is, \SExpr{format(round((length(family.names.contarini)-1)/length(family.names),2),nsmall=2)}\% of them. It is certainly outstanding, and probably an unique event in world history.
+Figure \ref{fig:contarini.marriages} shows the number of marriages in which one of the partners was Contarini, compared with the rest of the marriages. We can see how it reaches its peak in the XV century, to slowly get to a very low number by the end of the Republic. While the number of families involved in these marriages is \Sexpr{length(family.names)}, \Sexpr{length(family.names.contarini)-1} are married to a Contarini, that is, \Sexpr{format(round((length(family.names.contarini)-1)/length(family.names),2),nsmall=2)}\% of them. It is certainly outstanding, and probably an unique event in world history, the creation of such a time-spanning social network by a single family.
 
+<<r ego.contarini, fig.height=6, fig.pos="h!tbp", fig.env="figure*", echo=F,fig.cap="Contarinis marriage ego network, with node size corresponding to the degree or number of connections. \\protect\\label{fig:contarini.ego}.">>=
+ego.marriages <- ego(marriages.sn)
+the.contarinis <- NULL
+for ( i in 1:length(ego.marriages)) { 
+  if ( ego.marriages[[i]][1]$name == 'Contarini' ) {
+    the.contarinis <- i
+  }
+}
+contarini.ego.network <- induced_subgraph(marriages.sn,ego.marriages[[the.contarinis]])
+V(contarini.ego.network)$degree <- degree(contarini.ego.network)
+E(contarini.ego.network)$weight <- 1
+contarini.ego.network <- simplify(contarini.ego.network,edge.attr.comb = list(weight="sum"))
+plot(contarini.ego.network,layout=layout_with_lgl,
+     vertex.size=V(contarini.ego.network)$degree/100,
+     vertex.label.cex=0.5,
+     vertex.frame.color="blue",
+     vertex.frame.width=2,
+     vertex.color="white",
+     edge.width=E(contarini.ego.network)$weight)
+@
+
+We can explore the extent of the influence network in Figure \ref{fig:contarini.ego}, which shows the so called \emph{ego} network, that is the subnetwork that includes only families that are connected (by marriage) to the Contarinis. The node size is relative to the degree (or number of connections), and it shows some well-connected families even within this network: the Morosinis, the Corners, the Querinis among them. Morosini and Contarini were also shown as prominent families in \cite{gooddoge}, that analyzed a social network, created only from doges' marriages, that should have a great affinity with this one.
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
