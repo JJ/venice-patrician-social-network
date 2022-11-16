@@ -235,7 +235,9 @@ The p-value for this difference is \Sexpr{ noble.serrata.wt$p.value }; as a matt
 
 <<r marriage.data, echo=FALSE,warning=FALSE,messages=FALSE>>=
 marriages <- read.csv("../data/venice_marriages_puga_treffler_families.csv")
+family.names <- unique( c(marriages$husband_familyname_std,marriages$wife_familyname_std))
 marriages.contarini <- marriages[ marriages$husband_familyname_std == 'Contarini' | marriages$wife_familyname_std == 'Contarini',]
+family.names.contarini <- unique( c(marriages.contarini$husband_familyname_std,marriages.contarini$wife_familyname_std))
 marriages.not.contarini <- marriages[ marriages$husband_familyname_std != 'Contarini' & marriages$wife_familyname_std != 'Contarini',]
 marriages <- marriages[ marriages$husband_familyname_std != '' & marriages$wife_familyname_std != '',]
 marriages <- marriages[ marriages$husband_familyname_std != marriages$wife_familyname_std,]
@@ -277,7 +279,7 @@ The well known Contarini family \cite{gleason1993gasparo} is at the top of the r
 ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()+geom_freqpoly(data=marriages.not.contarini,aes(x=year, color='Others'))
 @
 
-Figure \ref{fig:contarini.marriages} shows the number of marriages in which one of the partners was Contarini, compared with the rest of the marriages. We can see how it reaches its peak in the XV century, to slowly get to a very low number by the end of the Republic.
+Figure \ref{fig:contarini.marriages} shows the number of marriages in which one of the partners was Contarini, compared with the rest of the marriages. We can see how it reaches its peak in the XV century, to slowly get to a very low number by the end of the Republic. While the number of families involved in these marriages is \Sexpr{length(family.names)}, \Sexpr{length(family.names.contarini)-1} are married to a Contarini, that is, \SExpr{format(round((length(family.names.contarini)-1)/length(family.names),2),nsmall=2)}\% of them. It is certainly outstanding, and probably an unique event in world history.
 
 \section{Conclusions}
 
