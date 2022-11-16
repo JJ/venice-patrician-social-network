@@ -287,7 +287,7 @@ ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()+geom_f
 
 Figure \ref{fig:contarini.marriages} shows the number of marriages in which one of the partners was Contarini, compared with the rest of the marriages. We can see how it reaches its peak in the XV century, to slowly get to a very low number by the end of the Republic. While the number of families involved in these marriages is \Sexpr{length(family.names)}, \Sexpr{length(family.names.contarini)-1} are married to a Contarini, that is, \Sexpr{format(round((length(family.names.contarini)-1)/length(family.names),2),nsmall=2)}\% of them. It is certainly outstanding, and probably an unique event in world history, the creation of such a time-spanning social network by a single family.
 
-<<r ego.contarini, fig.height=6, fig.pos="h!tbp", fig.env="figure*", echo=F,fig.cap="Contarinis marriage ego network, with node size corresponding to the degree or number of connections. \\protect\\label{fig:contarini.ego}.">>=
+<<r ego.contarini, fig.height=5, fig.pos="h!tbp", fig.env="figure*", echo=F,fig.cap="Contarinis marriage ego network, with node size corresponding to the degree or number of connections. \\protect\\label{fig:contarini.ego}.">>=
 ego.marriages <- ego(marriages.sn)
 the.contarinis <- NULL
 for ( i in 1:length(ego.marriages)) { 
@@ -313,6 +313,7 @@ We can explore the extent of the influence network in Figure \ref{fig:contarini.
 No wonder, then, this family managed to convert one of them into \emph{dux} eight times, the first time in 1071, and the last in 1601, certifying its situation at the top of the, otherwise equal in rights, nobility \cite{wiki:contarini}. It is also one of the few noble families that survive in some form, with Contarinis in Sicily as well as in Brazil.
 
 <<r comparison.marriages.colleganza, echo=F, fig.cap="Plotting the eigenvector centrality in the \\protect\\emph{colleganza} network ($x$ axis) vs eigenvector centrality in the marriage network ($y$ axis)\\protect\\label{fig:col.vs.mar}.">>=
+family.values <- family.values[ family.values$Family %in% V(marriages.sn)$name, ]
 for (i in V(marriages.sn) ) {
   family.vertex <- V(marriages.sn)[[i]]
   family <- family.vertex$name
@@ -324,6 +325,7 @@ ggplot(family.values, aes(x=col.ev.centrality,y=mar.ev.centrality))+geom_point()
 model <- lm(data=family.values, mar.ev.centrality ~ col.ev.centrality)
 @
 
+Out of the \Sexpr{length(V(marriages.sn)$name)} families that are included in the marriage dataset, \Sexpr{length(family.values$Family)} were also in the \emph{colleganza} dataset; almost three quarters of the families that were there were carried over to the period represented in this dataset. However, the same cannot be said about the social capital. Figure \ref{fig:col.vs.mar} plots the eigenvector centrality for the families in both datasets, with the \emph{colleganza} EV in the $x$ axis and the marriage EV in the $y$ axis. It shows that, although some families with high values in during the pre-serrata period still stand, most of them do not. There is no model that fits this relationship, from which we can assume that the \emph{serrata} or some other event during that extended period created totally new social links, and unless the amount of social capital was considerable, your family would have to work almost from scratch in this new environment.
 
 \section{Conclusions}
 
