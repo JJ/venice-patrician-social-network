@@ -325,8 +325,16 @@ ggplot(family.values, aes(x=col.ev.centrality,y=mar.ev.centrality))+geom_point()
 model <- lm(data=family.values, mar.ev.centrality ~ col.ev.centrality)
 @
 
-Out of the \Sexpr{length(V(marriages.sn)$name)} families that are included in the marriage dataset, \Sexpr{length(family.values$Family)} were also in the \emph{colleganza} dataset; almost three quarters of the families that were there were carried over to the period represented in this dataset. However, the same cannot be said about the social capital. Figure \ref{fig:col.vs.mar} plots the eigenvector centrality for the families in both datasets, with the \emph{colleganza} EV in the $x$ axis and the marriage EV in the $y$ axis. It shows that, although some families with high values in during the pre-serrata period still stand, most of them do not. There is no model that fits this relationship, from which we can assume that the \emph{serrata} or some other event during that extended period created totally new social links, and unless the amount of social capital was considerable, your family would have to work almost from scratch in this new environment.
+Out of the \Sexpr{length(V(marriages.sn)$name)} families that are included in the marriage dataset, \Sexpr{length(family.values$Family)} were also in the \emph{colleganza} dataset; almost three quarters of the families that were there were carried over to the period represented in this dataset. However, the same cannot be said about the social capital. Figure \ref{fig:col.vs.mar} plots the eigenvector centrality for the families in both datasets, with the \emph{colleganza} EV in the $x$ axis and the marriage EV in the $y$ axis. It shows that, although some families with high values in during the pre-serrata period still stand, most of them do not. There is no model that fits this relationship, from which we can assume that the \emph{serrata} or some other event during that extended period created totally new social links, and unless the amount of social capital was considerable, your family would have to work almost from scratch in this new environment. Please compare this chart to Figure VIII in \cite{10.1093/qje/qju006}, which shows the relationship between the EV centrality for marriages taking place in the XV and XVI century; this case there is actually a relationship between them. However, the disruption in mercantile ties brought over by the Serrata (which is the topic of \cite{10.1093/qje/qju006}), which brought many *popolani* (commoner) families to ruin and eventual decay, also broke ties for many noble families that were incorporated to the Golden Book later, or simply did not have a sensible social strategy.
 
+<<r social.movement, echo=F>>=
+family.values$delta <- family.values$mar.ev.centrality - family.values$col.ev.centrality
+family.values.ordered <- family.values[ order(family.values$delta),]
+delta.ev.table <- data.frame( Family=family.values.ordered$Family, Difference=family.values.ordered$delta )
+kable(delta.ev.table[ 1:10,],caption="Families with the highest loss in EV centrality")
+kable(tail(delta.ev.table,n=10),caption="Families with the highest gain in EV centrality",row.names = F)
+
+@
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
