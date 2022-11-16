@@ -175,9 +175,15 @@ colleganza.families.df <- data.frame(Family=character(),
                                      noble=logical(),
                                      vecchie=logical(),
                                      stringsAsFactors=FALSE)
-for (r in V(venice.colleganza.sn) ) {
- family <- V(venice.colleganza.sn)[[r]]
+family.values <- data.frame(Family=character(), 
+                            col.ev.centrality=double(), 
+                            mar.ev.centrality=double())
+for (i in V(venice.colleganza.sn) ) {
+ family <- V(venice.colleganza.sn)[[i]]
  r <- family$name
+ family.values <- rbind(family.values,data.frame(Family=r,
+                                                 col.ev.centrality=family$eigen,
+                                                 mar.ev.centrality= 0))
   if (! is.null(family.type.dict[[r]])) {
     types <- c(types,"square")
     family.type <- family.type.dict[[r]]
@@ -305,6 +311,18 @@ plot(contarini.ego.network,layout=layout_with_lgl,
 We can explore the extent of the influence network in Figure \ref{fig:contarini.ego}, which shows the so called \emph{ego} network, that is the subnetwork that includes only families that are connected (by marriage) to the Contarinis. The node size is relative to the degree (or number of connections), and it shows some well-connected families even within this network: the Morosinis, the Corners, the Querinis among them. Morosini and Contarini were also shown as prominent families in \cite{gooddoge}, that analyzed a social network, created only from doges' marriages, that should have a great affinity with this one.
 
 No wonder, then, this family managed to convert one of them into \emph{dux} eight times, the first time in 1071, and the last in 1601, certifying its situation at the top of the, otherwise equal in rights, nobility \cite{wiki:contarini}. It is also one of the few noble families that survive in some form, with Contarinis in Sicily as well as in Brazil.
+
+<<r comparison.marriages.colleganza, echo=F, fig.cap="Plotting the eigenvector centrality in the \\protect\\emph{colleganza} network ($x$ axis) vs eigenvector centrality in the marriage network ($y$ axis)\\protect\\label{fig:col.vs.mar}.">>=
+for (i in V(marriages.sn) ) {
+  family.vertex <- V(marriages.sn)[[i]]
+  family <- family.vertex$name
+  if (length(family.values[ family.values$Family == family,]$Family) > 0 ) {
+    family.values[ family.values$Family == family,]$mar.ev.centrality <- family.vertex$eigen
+  }
+}
+ggplot(family.values, aes(x=col.ev.centrality,y=mar.ev.centrality))+geom_point()
+model <- lm(data=family.values, mar.ev.centrality ~ col.ev.centrality)
+@
 
 
 \section{Conclusions}
