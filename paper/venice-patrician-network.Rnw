@@ -298,11 +298,15 @@ plot(contarini.ego.network,layout=layout_with_lgl,
      vertex.label.cex=0.5,
      vertex.frame.color="blue",
      vertex.frame.width=2,
-     vertex.color="white",
+     vertex.color="yellow",
      edge.width=E(contarini.ego.network)$weight)
 @
 
 We can explore the extent of the influence network in Figure \ref{fig:contarini.ego}, which shows the so called \emph{ego} network, that is the subnetwork that includes only families that are connected (by marriage) to the Contarinis. The node size is relative to the degree (or number of connections), and it shows some well-connected families even within this network: the Morosinis, the Corners, the Querinis among them. Morosini and Contarini were also shown as prominent families in \cite{gooddoge}, that analyzed a social network, created only from doges' marriages, that should have a great affinity with this one.
+
+No wonder, then, this family managed to convert one of them into \emph{dux} eight times, the first time in 1071, and the last in 1601, certifying its situation at the top of the, otherwise equal in rights, nobility \cite{wiki:contarini}. It is also one of the few noble families that survive in some form, with Contarinis in Sicily as well as in Brazil.
+
+
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
