@@ -25,6 +25,9 @@ auto/
 *.synctex.gz
 
 *.iml
+*.blg
+*.aux
 .Rproj.user
 *.Rproj
 
+.DS_Store
