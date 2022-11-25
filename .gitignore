@@ -27,3 +27,5 @@ auto/
 *.iml
 .Rproj.user
 *.Rproj
+
+*.aux
