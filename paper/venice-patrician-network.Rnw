@@ -71,6 +71,8 @@ Several other papers have approached Venetian social networks. Talek \cite{Telek
 
 Other approaches to the study of doges, however, is possible. \cite{smith2021long} recently published a paper studying how the age of doges was chosen in such a way that, even if it was a lifelong post, their terms were naturally limited. As a matter of fact, we have computed the median number of years ruling to be \Sexpr{median(ages$Reigning)}, with average at \Sexpr{mean(ages$Reigning)}; see \cite{dogesterms} for an extended explanation of what (possibly) caused it and when it started to happen. From a different point of view, closer to the focus of this paper, Molinari \cite{molinari2020republic} studied how the election procedure affected the representation of different families in the highest magistrate of the republic, concluding that it kept a good balance between giving representation to a large group of families, while not totally disenfranchising smaller groups.
 
+Unfortunately, the automated extraction of social network data from documents that was going to be brought by the Venice Time Machine project cite{abbott2017time} was suspended in 2019; so researchers only have access to small datasets released by their creators.
+
 We will analyze in this paper the social network of patrician families revealed by the marriage of doges, as a way to understand the power dynamics among different noble families, and thus have some insights on the causes of the stability and longevity of the Venetian state. But let us first present a brief history of these patrician families, and their attributes.
 
 \section{A brief history of the doges, how they were chosen, and patrician families in Venice}
