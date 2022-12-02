@@ -22,7 +22,7 @@
 {JJ Merelo: Keeping up with the Dandolos}
 {JJ Merelo: Keeping up with the Dandolos}
 
-\corresp{Corresponding author: JJ Merelo (e-mail: jmerelo@ugr.es).}
+\corresp{Corresponding author: JJ Merelo (e-mail: jmerelo@ugr.es)}
 
 <<setup, echo=FALSE,message=FALSE>>=
 library(igraph)
@@ -51,7 +51,7 @@ Social network analysis, digital humanities, Venice, Venetian empire, doges, his
 
 \section{Introduction}
 
-During one thousand years, the Venetian republic managed to raise from a small fiefdom under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the \emph{Napoleonic} storm reconfigured the map of Europe for ever \cite{horodowich2013brief}.
+During more than eleven hundred years (from 679 A.D. to 1797), the Venetian republic managed to raise from a small fiefdom under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the \emph{Napoleonic} storm reconfigured the map of Europe for ever \cite{horodowich2013brief}.
 
 
 
