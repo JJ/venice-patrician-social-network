@@ -19,7 +19,6 @@ data <- read.csv("../resources/family-pairs.csv",header=FALSE)
 venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
 ```
 
-
 ## Introduction
 
 During one thousand years, the Venetian republic managed to raise from a small
@@ -62,11 +61,13 @@ finally draw some conclusions and present future work in the last section.
 
 ## State of the art
 
-Social network analysis has increasingly become a tool in the toolset of
+Social network analysis has increasingly become another instrument in the toolset of
 historians, but it has not been used comprehensively; it is still relatively
-rare to find this kind of studies. Most studies focus on trade or mercantile
-networks, since these are the ones that have relatively better coverage. The
-trading networks of Venice were studied in [@apellaniz2013venetian], focusing on
+rare to find social network analysis applied to the social or political evolution of a certain society.
+
+What there is, however, are studies focused on trade or mercantile
+networks, since these are the ones that have relatively better coverage. Focusing on the society we are interested in, Venice, its
+trading networks were studied in [@apellaniz2013venetian], focusing on
 how low-ranking or colonial individuals used mercantile networks to penetrate
 other social circles, or even how the manipulation of these helped mobility,
 social and otherwise, for them. In this, the power of social network analysis to
@@ -83,7 +84,7 @@ groups or cliques, and also how network-correlated attributes, such as wealth,
 arise. Based on their books, [@ryabova2016social,@ryabova2019venetian] analyses
 the social networks of a trading family, the Soranzo, which are also one of the
 *case vecchie*, please see below for a brief history of the Venetian
-nobility. This papers explains how mercantile companies were usually temporal
+nobility. This paper explains how mercantile companies were usually temporal
 partnerships in Venice, which augmented the importance of the social network as
 such. The study of commercial partnerships for this firm shows how extensive was
 commerce with German cities (possibly belonging to the Hansa league), which was
