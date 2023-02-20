@@ -37,11 +37,28 @@ business. But it was as extremely rare for a doge to be deposed due to
 corruption, or ousted by a coup d'ètat, as it was extremely common all over the
 Italian peninsula and elsewhere.
 
-However, Venice was a far cry from a democracy. Nobles (*patriziato*) and the people (*popolani*) were totally separate, with the patricians being the only one with a possibility of occupying any job going from simple administrative jobs, to the highest offices such as the Maggior Consiglio (equivalent to a Privy Council), the Senate or the *Consiglio dei dieci*, that worked as higher instance tribunal as well as home office. This effectively implied that a certain number of families ruled the Republic, from its inception to the end. This rule was, also, increasingly authoritarian, with a tight grip on power, that was, however, distributed among the different institutions.
+However, Venice was a far cry from a democracy. Nobles (*patriziato*) and the
+people (*popolani*) were totally separate, with the patricians being the only
+one with a possibility of occupying any job going from simple administrative
+jobs, to the highest offices such as the Maggior Consiglio (equivalent to a
+Privy Council), the Senate or the *Consiglio dei dieci*, that worked as higher
+instance tribunal as well as home office. This effectively implied that a
+certain number of families ruled the Republic, from its inception to the
+end. This rule was, also, increasingly authoritarian, with a tight grip on
+power, that was, however, distributed among the different institutions.
 
-It is, then, difficult to understand how what caused upheaval and instability in most Medieval and post-Medieval states instead was not a factor leading to the demise of the institution of the Doges. This paper tries to contribute to understand why, by studying the social network formed by these patrician families, and how it is related to the number of doges these families contributed as governors of the republic.
+It is, then, difficult to understand how what caused upheaval and instability in
+most Medieval and post-Medieval states instead was not a factor leading to the
+demise of the institution of the Doges. This paper tries to contribute to
+understand why, by studying the social network formed by these patrician
+families, and how it is related to the number of doges these families
+contributed as governors of the republic.
 
-The rest of the paper has been organized as follows: coming up, a brief revision of the state of the art. The extraction and preparation of data is described in the [next section](#dataset). The resulting social network will be analyzed in Section [The Venetian patrician families social network]. We will finally draw some conclusions and present future work in the last section.
+The rest of the paper has been organized as follows: coming up, a brief revision
+of the state of the art. The extraction and preparation of data is described in
+the [section that comes next](#dataset). The resulting social network will be
+analyzed in Section [The Venetian patrician families social network]. We will
+finally draw some conclusions and present future work in the last section.
 
 ## State of the art
 
@@ -207,7 +224,15 @@ V(venice.sn)$types <- types
 plot(venice.sn,vertex.size=10,vertex.shape=V(venice.sn)$shapes,layout=layout_with_fr, vertex.label.cex=0.7)
 ```
 
-This graph (in Figure 1) already reveals one of the features of this social network: there is a connected core of different families, and then small "islands". In general, these islands are composed of up to four families that only managed to promote a member either to doge or dogaressa; except for the one that includes Badoero, Pisani, Valier and Querini, which includes a family, Pisani, that had both a doge (Alvise Pisani, from 1735 to 1741, married to Elena Badoer) and a dogaressa (Elisabetta Pisana or Pisani, from 1656 to 1658, married to Bertuccio Valier). These are families that did not really make it, and accessed power when the power of the Republic was already on the wane.
+This graph (in Figure 1) already reveals one of the features of this social
+network: there is a connected core of different families, and then small
+"islands". In general, these islands are composed of up to four families that
+only managed to promote a member either to doge or dogaressa; except for the one
+that includes Badoero, Pisani, Valier and Querini, which includes a family,
+Pisani, that had both a doge (Alvise Pisani, from 1735 to 1741, married to Elena
+Badoer) and a dogaressa (Elisabetta Pisana or Pisani, from 1656 to 1658, married
+to Bertuccio Valier). These are families that did not really make it, and
+accessed power when the power of the Republic was already on the wane.
 
 
 ```{r connected_component, echo=FALSE, fig.height=10, fig.pos="!h", fig.cap="Connected component of the social network, with network coloring corresponding to the type of family. See text for interpretation"}
@@ -219,9 +244,23 @@ venice.sn.connected <- igraph::induced_subgraph(venice.sn, vert_ids)
 plot(venice.sn.connected,vertex.size=10,vertex.shape=V(venice.sn.connected)$shapes,layout=layout_with_fr, vertex.label.cex=0.7,vertex.color=V(venice.sn.connected)$types)
 ```
 
-In Figure 2 we show only the connected component, with color meaning as follows: "None"="darkgray", "Ancient"="lightgray", "Extinct pre-serrata"="gray", "Evangeliche"="gold", "Nuove"="lightgreen",
-                     "Nuovissime"="red","Soldi"="yellow","Vecchie"="lightblue","Apostoliche"="pink". 
-The light-pink center of the graph, which has five *apostoliche* families, Contarini, Faliero, Gradenigo, Morosini and Dandolo, is also "seeded" with an *evangeliche* family, Bembo. Other "evangelical" and "apostolic" families are in the periphery, but the majority of the graph is occupied by the *nuove* families (in light green). Just a few of the *nuovissime* are present here: Condulmiero, Cicogna and Vendramin; and only one of the families that bought their way into the patriciate, Manin, is included. This was, also, the last doge before the fall of the republic. Other *vecchie* families, like Soranzo and Zorzi, are also present peripherally.
+In Figure 2 we show only the connected component, with color meaning as follows:
+                     "None"="darkgray", "Ancient"="lightgray", "Extinct
+                     pre-serrata"="gray", "Evangeliche"="gold",
+                     "Nuove"="lightgreen",
+                     "Nuovissime"="red","Soldi"="yellow","Vecchie"="lightblue","Apostoliche"="pink".
+                     The light-pink center of the graph, which has five
+                     *apostoliche* families, Contarini, Faliero, Gradenigo,
+                     Morosini and Dandolo, is also "seeded" with an
+                     *evangeliche* family, Bembo. Other "evangelical" and
+                     "apostolic" families are in the periphery, but the majority
+                     of the graph is occupied by the *nuove* families (in light
+                     green). Just a few of the *nuovissime* are present here:
+                     Condulmiero, Cicogna and Vendramin; and only one of the
+                     families that bought their way into the patriciate, Manin,
+                     is included. This was, also, the last doge before the fall
+                     of the republic. Other *vecchie* families, like Soranzo and
+                     Zorzi, are also present peripherally.
 
 The chart also reveals a certain grouping. Although factions were not so much a factor in Venice politics, it can still show some insight into the time-wise organization of weddings and how different groups were formed through history; that is, it will tell us more about the temporal organization of the social network than about antagonist groups in the Senate or other institutions.
 
