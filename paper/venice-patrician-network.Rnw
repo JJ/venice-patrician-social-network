@@ -346,6 +346,14 @@ delta.ev.table <- data.frame( Family=family.values.ordered$Family, Difference=fa
 kable(delta.ev.table[ 1:10,],caption="Families with the highest loss in EV centrality")
 kable(tail(delta.ev.table,n=10),caption="Families with the highest gain in EV centrality",row.names = F)
 @
+
+\subsection{Dogal social network}
+
+<<r setup.dogal.SNA, echo=F>>=
+library(dogesr)
+doges.sn <- marriage.graph()
+@
+
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
