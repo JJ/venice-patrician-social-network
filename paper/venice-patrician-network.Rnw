@@ -354,6 +354,8 @@ library(dogesr)
 doges.sn <- marriage.graph()
 @
 
+An initial exploration of this social network was made in \cite{gooddoge}; data used in that paper has been enhanced with other marriages that had not been detected, and with the addition of mother-doge links. This has increased the amount of nodes to XXX and vertices to XXX.
+
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
