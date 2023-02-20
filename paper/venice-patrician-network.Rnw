@@ -19,8 +19,8 @@
 }
 
 \markboth
-{JJ Merelo: Keeping up with the Dandolos}
-{JJ Merelo: Keeping up with the Dandolos}
+{JJ Merelo: Keeping up with the Contarinis}
+{JJ Merelo: Keeping up with the Contarinis}
 
 \corresp{Corresponding author: JJ Merelo (e-mail: jmerelo@ugr.es)}
 
