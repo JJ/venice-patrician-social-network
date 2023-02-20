@@ -9,7 +9,7 @@ header-includes:
  \usepackage{float}
  \floatplacement{figure}{H}
 abstract: |
-  The Venetian republic was one of the most successful trans-modern states, surviving for a millennium through innovation, commercial cunning, exploitation of colonies and legal stability. Part of the success might be due to its government structure, a republic ruled by a doge chosen among a relatively limited set of Venetian patrician families. In this paper we analyze the structure of the social network they formed through marriage, and how government was monopolized by a relatively small set of families, the one that became patrician first.
+  The Venetian republic was one of the most successful trans-modern states, surviving for a millennium through innovation, commercial cunning, exploitation of colonies and legal stability. Part of the success might be due to its government structure, a republic ruled by a doge chosen among a relatively limited set of Venetian patrician families. In this paper we analyze the structure of the social network they formed through marriage, and how government was monopolized by a relatively small set of families, the ones that became patrician first.
 bibliography: ../patrician.bib
 ---
 
@@ -147,7 +147,7 @@ both <- intersect(unique.doges.pairs,unique.dogaresse)
 any.d <- union( unique.doges.pairs, unique.dogaresse)
 ```
 
-After these filters, there were only `r nrow(data)` left. Out of these, there were only `r length(unique.doges.pairs)` different families that became "Serenest princes" or doges, `r nrow(unique.dogaresse)` that were *dogaresse*. Some families had members in both roles: `r length(both)` of them, a very small percentage of the total families; on the other hand, a total of `r length(any.d)` participated in any of them.
+After these filters, there were only `r nrow(data)` left. Out of these, there were only `r length(unique.doges.pairs)` different families that became "Serenest princes" or doges, `r length(unique.dogaresse)` that were *dogaresse*. Some families had members in both roles: `r length(both)` of them, a very small percentage of the total families; on the other hand, a total of `r length(any.d)` participated in any of them.
 
 ```{r doges, include=FALSE}
 family.pairs <- read.csv("../resources/all-pairs.csv", header = FALSE)
