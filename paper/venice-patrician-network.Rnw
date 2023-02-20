@@ -358,6 +358,17 @@ doges.sn <- marriage.graph()
 
 An initial exploration of this social network was made in \cite{gooddoge}; data used in that paper has been enhanced with other marriages that had not been detected, and with the addition of mother-doge links. This has increased the amount of nodes to XXX and vertices to XXX.
 
+A priori, we should expect this social network to have a non-null intersection with the previous marriage network exposed in the previous subsection. The network that includes only links that are in this new social network, but not in the previous one, are shown in Figure \ref{fig:dogal.minus.marriage}.
+
+<<r intersection, echo=F, message=FALSE, fig.cap="Symmetric difference between the marriage network and the dogal network, showing only nodes and connections that apprear only in the latter, but not the former.\\protect\\label{fig:dogal.minus.marriage}.">>=
+intersection.sn <- doges.sn %s% marriages.sn
+difference.sn <- doges.sn %m% intersection.sn
+isolated.diff <- which(degree(difference.sn)==0)
+non.isolated.diff.sn <- delete.vertices( difference.sn, isolated.diff )
+plot(non.isolated.diff.sn)
+@
+
+This network includes only marriages that happened, apparently, before the marriage network started to be collected, and thus most "old" families, such as Candiano and Orseolo, immediately pop up. Its appearance, however, is important from the point of view of the early formation of social capital among the nobles, and some families that we have repeatedly seen in the previous subsections also appear here.
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
