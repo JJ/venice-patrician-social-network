@@ -314,7 +314,7 @@ We can explore the extent of the influence network in Figure \ref{fig:contarini.
 
 No wonder, then, this family managed to convert one of them into \emph{dux} eight times, the first time in 1071, and the last in 1601, certifying its situation at the top of the, otherwise equal in rights, nobility \cite{wiki:contarini}. It is also one of the few Venetian noble families that survive in some form, with Contarinis in Sicily as well as in Brazil.
 
-<<r contarini.diges, echo=F, fig.cap="Number of marriages in the Contarini family and dates when they became doges.\\protect\\label{fig:contarini:doges}">>=
+<<r contarini.diges, echo=F, message=F, warning=F, fig.cap="Number of marriages in the Contarini family and dates when they became doges.\\protect\\label{fig:contarini:doges}">>=
 vlines <- ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()
 for (i in c(1368,1623,1630,1655,1659,1676)) {
   vlines <- vlines +geom_vline(xintercept=i,color='gold',size=2)
@@ -349,7 +349,7 @@ kable(tail(delta.ev.table,n=10),caption="Families with the highest gain in EV ce
 
 \subsection{Dogal social network}
 
-<<r setup.dogal.SNA, echo=F>>=
+<<r setup.dogal.SNA, echo=F, message=FALSE>>=
 library(dogesr)
 doges.sn <- marriage.graph()
 @
