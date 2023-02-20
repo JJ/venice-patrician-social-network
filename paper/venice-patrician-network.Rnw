@@ -57,7 +57,7 @@ During more than eleven hundred years (from 679 A.D. to 1797), the Venetian repu
 
 \section{State of the art}
 
-Social network analysis has increasingly become a tool in the hands of historians, despite the hurdles for its comprehensive usage mainly stemming from incomplete or missing data; however, it is still relatively rare to find studies that apply them, or that use social network measurements to achieve a deeper understanding of some historical mechanism.
+Social network analysis has increasingly become a tool in the hands of historians, despite the hurdles for its comprehensive usage mainly stemming from incomplete or missing data \cite{wetherell_1998,doi:10.1080/01615440.2014.962208}; however, it is still relatively rare to find studies that apply them, or that use social network measurements to achieve a deeper understanding of some historical mechanism.
 
 Since mercantile networks, from the introduction of double entry bookkeeping, are quite extensively recorded, most studies use them to study trade or commercial networks \cite{lotz2022reconstructing,harreld2006merchants,walther2015business}, since these are the ones that have relatively better coverage. For instance, \cite{lotz2022reconstructing} mentions inscriptions as sources for Roman trade networks, extracted from the \emph{Corpus Inscriptionum Latinarum}. Any data set that we can obtain, at any rate, will be incomplete and a sample of the complete social network. As long as the bias of the sampling is examined and acknowledged, conclusions should be, to a certain extent, valid.
 
@@ -312,7 +312,7 @@ plot(contarini.ego.network,layout=layout_with_lgl,
 
 We can explore the extent of the influence network in Figure \ref{fig:contarini.ego}, which shows the so called \emph{ego} network, that is the subnetwork that includes only families that are connected (by marriage) to the Contarinis. The node size is relative to the degree (or number of connections), and it shows some well-connected families even within this network: the Morosinis, the Corners, the Querinis among them. Morosini and Contarini were also shown as prominent families in \cite{gooddoge}, that analyzed a social network, created only from doges' marriages, that should have a great affinity with this one.
 
-No wonder, then, this family managed to convert one of them into \emph{dux} eight times, the first time in 1071, and the last in 1601, certifying its situation at the top of the, otherwise equal in rights, nobility \cite{wiki:contarini}. It is also one of the few Venetian noble families that survive in some form, with Contarinis in Sicily as well as in Brazil.
+No wonder, then, this family managed to convert one of them into \emph{dux} eight times, the first time in 1071, and the last in 1601, certifying its situation at the top of the, otherwise equal in rights, nobility \cite{lane1973venice}. It is also one of the few Venetian noble families that survive in some form, with Contarinis in Sicily as well as in Brazil.
 
 <<r contarini.diges, echo=F, message=F, warning=F, fig.cap="Number of marriages in the Contarini family and dates when they became doges.\\protect\\label{fig:contarini:doges}">>=
 vlines <- ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()
