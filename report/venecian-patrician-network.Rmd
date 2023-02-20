@@ -82,9 +82,9 @@ quantities are essential to have a high-level understanding of emerging
 properties of the network, such as modularization, division between different
 groups or cliques, and also how network-correlated attributes, such as wealth,
 arise. Based on their books, [@ryabova2016social,@ryabova2019venetian] analyses
-the social networks of a trading family, the Soranzo, which are also one of the
-*case vecchie*, please see below for a brief history of the Venetian
-nobility. This paper explains how mercantile companies were usually temporal
+the social networks of a single trading family, the Soranzos, which are also one of the
+*case vecchie* (please see below for a brief history of the Venetian
+nobility). This paper explains how mercantile companies were usually temporal
 partnerships in Venice, which augmented the importance of the social network as
 such. The study of commercial partnerships for this firm shows how extensive was
 commerce with German cities (possibly belonging to the Hansa league), which was
