@@ -22,9 +22,20 @@ venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
 
 ## Introduction
 
-During one thousand years, the Venetian republic managed to raise from a small fiefdom under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the *Napoleonic* storm reconfigured the map of Europe for ever [@horodowich2013brief].
+During one thousand years, the Venetian republic managed to raise from a small
+fiefdom under suzerainty of the Byzantine empire to the biggest empire in the
+Mediterranean, and then maintain its existence until the *Napoleonic* storm
+reconfigured the map of Europe for ever [@horodowich2013brief].
 
-One of the main factors that influenced in that stability was the way it chose its presidents, or *doges*, as well as the constraints put on what they could effectively do, as well as a clear separation of powers that created a plethora of institutions with more or less clearly defined functions [@institutions]. The mercantile orientation of these institutions certainly helped, since it created a safe and secure environment where people from all over the world could do business. But it was extremely rare for a doge to be deposed due to corruption, or ousted by a coup d'ètat, as it was extremely common all over the Italian peninsula and elsewhere.
+One of the main factors that influenced in that stability was the way it chose
+its presidents, or *doges*, as well as the constraints put on what they could
+effectively do, as well as a clear separation of powers that created a plethora
+of institutions with more or less clearly defined functions [@institutions]. The
+mercantile orientation of these institutions certainly helped, since it created
+a safe and secure environment where people from all over the world could do
+business. But it was as extremely rare for a doge to be deposed due to
+corruption, or ousted by a coup d'ètat, as it was extremely common all over the
+Italian peninsula and elsewhere.
 
 However, Venice was a far cry from a democracy. Nobles (*patriziato*) and the people (*popolani*) were totally separate, with the patricians being the only one with a possibility of occupying any job going from simple administrative jobs, to the highest offices such as the Maggior Consiglio (equivalent to a Privy Council), the Senate or the *Consiglio dei dieci*, that worked as higher instance tribunal as well as home office. This effectively implied that a certain number of families ruled the Republic, from its inception to the end. This rule was, also, increasingly authoritarian, with a tight grip on power, that was, however, distributed among the different institutions.
 
@@ -34,15 +45,52 @@ The rest of the paper has been organized as follows: coming up, a brief revision
 
 ## State of the art
 
-Social network analysis has increasingly become a tool in the toolset of historians, but it has not been used comprehensively; it is still relatively rare to find this kind of studies. Most studies focus on trade or mercantile networks, since these are the ones that have relatively better coverage. The trading networks of Venice were studied in [@apellaniz2013venetian], focusing on how low-ranking or colonial individuals used mercantile networks to penetrate other social circles, or even how the manipulation of these helped mobility, social and otherwise, for them. In this, the power of social network analysis to first analyze, and then, by focusing on the position of specific nodes and mesoanalysis, gather insights on social mechanisms, was revealed. Two quantities were analyzed: betweenness and closeness centrality. The first measure is related to the position of a node (person) in a specific network, and how passing through that node is a necessity to communicate different parts of the network. Closeness centrality, on the other hand, expresses how difficult is, for a specific actor, to reach any other part of the network. These two quantities are essential to have a high-level understanding of emerging properties of the network, such as modularization, division between different groups or cliques, and also how network-correlated attributes, such as wealth, arise. Based on their books, [@ryabova2016social,@ryabova2019venetian] analyses the social networks of a trading family, the Soranzo, which are also one of the *case vecchie*, please see below for a brief history of the Venetian nobility. This papers explains how mercantile companies were usually temporal partnerships in Venice, which augmented the importance of the social network as such. The study of commercial partnerships for this firm shows how extensive was commerce with German cities (possibly belonging to the Hansa league), which was even bigger than the one with Venice itself. Although there's no attempt to analyze the ego network beyond the connections between the center and others, it shows many patrician families among the mercantile partners, revealing how ties between nobles occurred at many different levels, political, familiar, and mercantile.
+Social network analysis has increasingly become a tool in the toolset of
+historians, but it has not been used comprehensively; it is still relatively
+rare to find this kind of studies. Most studies focus on trade or mercantile
+networks, since these are the ones that have relatively better coverage. The
+trading networks of Venice were studied in [@apellaniz2013venetian], focusing on
+how low-ranking or colonial individuals used mercantile networks to penetrate
+other social circles, or even how the manipulation of these helped mobility,
+social and otherwise, for them. In this, the power of social network analysis to
+first analyze, and then, by focusing on the position of specific nodes and
+mesoanalysis, gather insights on social mechanisms, was revealed. Two quantities
+were analyzed: betweenness and closeness centrality. The first measure is
+related to the position of a node (person) in a specific network, and how
+passing through that node is a necessity to communicate different parts of the
+network. Closeness centrality, on the other hand, expresses how difficult is,
+for a specific actor, to reach any other part of the network. These two
+quantities are essential to have a high-level understanding of emerging
+properties of the network, such as modularization, division between different
+groups or cliques, and also how network-correlated attributes, such as wealth,
+arise. Based on their books, [@ryabova2016social,@ryabova2019venetian] analyses
+the social networks of a trading family, the Soranzo, which are also one of the
+*case vecchie*, please see below for a brief history of the Venetian
+nobility. This papers explains how mercantile companies were usually temporal
+partnerships in Venice, which augmented the importance of the social network as
+such. The study of commercial partnerships for this firm shows how extensive was
+commerce with German cities (possibly belonging to the Hansa league), which was
+even bigger than the one with Venice itself. Although there's no attempt to
+analyze the ego network beyond the connections between the center and others, it
+shows many patrician families among the mercantile partners, revealing how ties
+between nobles occurred at many different levels, political, familiar, and
+mercantile.
 
 ```{r age, include=FALSE}
 ages <- read.csv("../resources/years-reign.csv")
 ```
 
-Other approaches to the study of doges, however, is possible. [@smith2021long] recently publish a paper studying how the age of doges was chosen in such a way that, even if it was a lifelong post, their terms were naturally limited. As a matter of fact, we have computed the median number of years ruling to be `r median(ages$Reigning)`, with average at `r mean(ages$Reigning)`.
+Other approaches to the study of doges, however, are possible. [@smith2021long]
+recently publish a paper studying how the age of doges was chosen in such a way
+that, even if it was a lifelong post, their terms were naturally limited. As a
+matter of fact, we have computed the median number of years ruling to be `r
+median(ages$Reigning)`, with average at `r mean(ages$Reigning)`.
 
-We will analyze in this paper the social network of patrician families revealed by the marriage of doges, as a way to understand the power dynamics among different noble families, and thus have some insights on the causes of the stability and longevity of the Venetian state. But let us first present a brief history of these patrician families, and their attributes.
+We will analyze in this paper the social network of patrician families revealed
+by the marriage of doges, as a way to understand the power dynamics among
+different noble families, and thus have some insights on the causes of the
+stability and longevity of the Venetian state. But let us first present a brief
+history of these patrician families, and their attributes.
 
 ## A brief history of Venetian patriciate
 
@@ -92,7 +140,10 @@ family.married <-  unique(family.pairs[ family.pairs$V2 != "",]$V1)
 doges.married.or.not <- intersect(family.married,family.non.married)
 ```
 
-Out of all the families that contributed to the top most office in the republic, there were `r length(family.non.married)` that did not marry, or their marriages were not registered. Some relatively important families, like Bembo, Erizzo or Michele, appear in this list. 
+Out of all the families that contributed to the top most office in the republic,
+there were `r length(family.non.married)` that did not marry, or their marriages
+were not registered. Some relatively important families, like Bembo, Erizzo or
+Michele, appear in this list.
 Five o them, including Bembo, do appear as dogaresse. This means that out of the 65 families that became doges, just 26 are not linked by marriage to their families, at least with this small sample of links that is the list of married doges. Most of these non-married families, except five of them, Partecipazio, Candiano, Ziani, Galbaio and Teodato, had a single doge to their account. These are special cases: Partecipazio were the first doges, when office was still kind of inherited (the doge nominated a "consul", which succeeded him). So they *had* to be married; same goes for Candiano, except these took office a bit later. Galbaio and Teodato were not even properly doges, but more dukes or military leaders that took office in the first millennium. Ziani was in fact married, except that he was married to one such Cecilia, with no family recorded. So in fact families with more than one doge in them did include at least one marriage link with other patrician families; as a matter of fact, the Bembo family, for instance, included only one doge, Giovanni Bembo, but two dogaresse, Cornelia and Felicità.
 
 Looking at this from another point of view, there were `r length(family.non.married)` families with unmarried doges, or unregistered marriages, and `r length(family.married)` with married doges. But `r length(doges.married.or.not)` families have both doges who married and other who did not. These families were: `r doges.married.or.not`. This leaves only `r length(family.non.married) - length(doges.married.or.not)` who, being doges, do not have a registered marriage. This is a minority out of the `r length(unique.families)` that did.
