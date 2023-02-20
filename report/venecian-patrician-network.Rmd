@@ -1,7 +1,7 @@
 ---
 title: 'What is a good doge? Analyzing the patrician social network of the Republic of Venice'
 author: "JJ Merelo"
-date: '2022-08-23'
+date: "`r Sys.Date()`"
 output:
   pdf_document:
     keep_tex: true
@@ -147,7 +147,7 @@ both <- intersect(unique.doges.pairs,unique.dogaresse)
 any.d <- union( unique.doges.pairs, unique.dogaresse)
 ```
 
-After these filters, there were only `r nrow(data)` left. Out of these, there were only `r nrow(unique.doges.pairs)` different families that became "Serenest princes" or doges, `r nrow(unique.dogaresse)` that were *dogaresse*. Some families had members in both roles: `r length(both)` of them, a very small percentage of the total families; on the other hand, a total of `r length(any.d)` participated in any of them.
+After these filters, there were only `r nrow(data)` left. Out of these, there were only `r length(unique.doges.pairs)` different families that became "Serenest princes" or doges, `r nrow(unique.dogaresse)` that were *dogaresse*. Some families had members in both roles: `r length(both)` of them, a very small percentage of the total families; on the other hand, a total of `r length(any.d)` participated in any of them.
 
 ```{r doges, include=FALSE}
 family.pairs <- read.csv("../resources/all-pairs.csv", header = FALSE)
