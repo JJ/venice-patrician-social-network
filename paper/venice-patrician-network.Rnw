@@ -105,7 +105,7 @@ From the point of view of the social network, a complex game was afoot. While jo
 
 \section{Data set extraction and preparation}
 
-This paper uses two different data sources: data sets prepared for Puga and Trefler paper \cite{10.1093/qje/qju006}, which was available at \textt{https://diegopuga.org/data/venice/}. This data includes normalized family names for marriages registered with the Avogaria di Comune, as well as data for shipping contracts available from the several different sources. We have used the dataset as is, with very minor corrections mainly to normalize surnames in the same way as the data we already had.
+This paper uses two different data sources: data sets prepared for Puga and Trefler paper \cite{10.1093/qje/qju006}, which was available at \texttt{https://diegopuga.org/data/venice/}. This data includes normalized family names for marriages registered with the Avogaria di Comune, as well as data for shipping contracts available from the several different sources. We have used the dataset as is, with very minor corrections mainly to normalize surnames in the same way as the data we already had.
 
 The second dataset is included with the {\tt dogesr} R package, in its 0.2.0 version, published in the CRAN R package repository \cite{gooddoge}. It includes data from all doges, the women they married with, as well as their mothers, when available. This data has been gathered from the Wikipedia, and completed with other references.
 
