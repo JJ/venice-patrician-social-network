@@ -168,7 +168,7 @@ kable(high.ev.families.df,caption="Groups of families that include those with th
 
 Please note that the Dandolo, which are featured in the title of this paper, is not prominent in the chart; it is neither well connected nor in a powerful group. Very few incentives, then, to connect with them at this point in time. These groups are also connected: The Contarini are connected to the Zorzi family, and the Viaro to the Lion family.
 
-<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.height=6, fig.env="figure*", fig.cap="Plotting the type of family along with actual weights. Please see text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
+<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.height=6, fig.env="figure*", fig.cap="Plotting the type of family along with actual weightsin the colleganza network. Please refer to text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
 types <- NULL
 colors <- NULL
 family.colors <- list("Ducali"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
@@ -351,7 +351,9 @@ kable(tail(delta.ev.table,n=10),caption="Families with the highest gain in EV ce
 
 Among the biggest losers, shown in Table \ref{tab:centrality:loss}, is the Ziani family. This family was, in the initial times, so rich that it gave rise to the expression \cite{lane1973venice} "l'haver de chà Ziani", "have as much as the Ziani house". However, it was considered extinct soon after the Serrata; expenses accrued by the family (for instance, giving land to the state to build the Arsenale), and simple lack of family members might have led to that demise. As a mather of fact, there is a single marriage in the dataset, and it is not dated, so that might have simply been the case. As stated in \cite{RePEc:ver:wpaper:01/2023}, plague might not lead to large scale reconfiguration of the existing social network; however, together with war, it will definitely change the status of certain families, and reconfigure the status of families in their ego network.
 
-<<r ziani.ego, echo=F>>=
+We should not forget, however, that we are talking about a social network; changes in one family's status will bring structural changes, but also changes in position and standing in other families related to it. Let us check the ego network of the Ziani family, shown in Figure \ref{fig:ziani:ego}.
+%
+<<r ziani.ego, echo=F, fig.cap="Ego colleganza network for the Ziani family\\protect\\label{fig:ziani:ego}.">>=
 ego.colleganza <- ego(venice.colleganza.sn)
 the.zianis <- NULL
 for ( i in 1:length(ego.colleganza)) { 
@@ -362,6 +364,8 @@ for ( i in 1:length(ego.colleganza)) {
 ziani.ego.network <- induced_subgraph(venice.colleganza.sn,ego.colleganza[[the.zianis]])
 plot(ziani.ego.network)
 @
+%
+Ziani is connected with the above-mentioned Viaro family, as well as the Tiepolo and Gradenigo families. Those are unlucky choices, to say the least. The Tiepolo family included Bajamonte Tiepolo, who fell from grace after a failed coup d'ètat \cite{doi:10.1080/08850600500332516}. The Gradenigo was not too popular when one of its members, Pietro Gradenigo, became doge in 1289 (by the end of the period covered by the {\em colleganza} network). The Gradenigo family survived and thrived possibly thanks to their connections to other important families such as the Contarinis, although, as shown in Table \ref{tab:centrality:loss}, it took a big hit in EV centrality, that is, social capital.
 
 \subsection{Dogal social network}
 
