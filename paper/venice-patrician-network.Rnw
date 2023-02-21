@@ -349,7 +349,7 @@ kable(delta.ev.table[ 1:10,],caption="Families with the highest loss in EV centr
 kable(tail(delta.ev.table,n=10),caption="Families with the highest gain in EV centrality",row.names = F)
 @
 
-Amongh the biggest losers, shown in Table \ref{tab:centrality:loss}, is the Ziani family. This family was, in the initial times, so rich that it gave rise to the expression \cite{lane1973venice} "l'haver de chà Ziani", "have as much as the Ziani house". However, it was considered extinct soon after the Serrata; expenses accrued by the family (for instance, giving land to the state to build the Arsenale), and simple lack of family members might have led to that demise. As a mather of fact, there is a single marriage in the dataset, and it is not dated, so that might have simply been the case.
+Among the biggest losers, shown in Table \ref{tab:centrality:loss}, is the Ziani family. This family was, in the initial times, so rich that it gave rise to the expression \cite{lane1973venice} "l'haver de chà Ziani", "have as much as the Ziani house". However, it was considered extinct soon after the Serrata; expenses accrued by the family (for instance, giving land to the state to build the Arsenale), and simple lack of family members might have led to that demise. As a mather of fact, there is a single marriage in the dataset, and it is not dated, so that might have simply been the case. As stated in \cite{RePEc:ver:wpaper:01/2023}, plague might not lead to large scale reconfiguration of the existing social network; however, together with war, it will definitely change the status of certain families, and reconfigure the status of families in their ego network.
 
 \subsection{Dogal social network}
 
