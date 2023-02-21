@@ -394,11 +394,22 @@ doge.marriage.ev.table <- data.frame( Family=V(non.isolated.diff.sn)$name, degre
 kable(arrange(doge.marriage.ev.table[ doge.marriage.ev.table$degree> 0.1,],-degree),caption="Ranking of families in the exclusive dogal marriage network according to eigenvector centrality; only those with a value higher than 0.1 are shown.\\protect\\label{tab:dogal.minus.marriage.ev}")
 @
 
-Most of these are found in the biggest connected component in this network, including the disgraced family Faliero or Falier, that includes the only doge that was ever beheaded after the Serrata.
-
-<<r ev.table, echo=F, message=FALSE>>=
+Most of these are found in the biggest connected component in this network, including the disgraced family Faliero or Falier, that includes the only doge that was ever beheaded after the Serrata. This component is shown in Figure \ref{fig:dogal.minus.marriage.big}.
+%
+<<r dogal.big.component, echo=F, message=FALSE,fig.cap="Biggest connected component of the doge-marriage-exclusive network.\\protect\\label{fig:dogal.minus.marriage.big}.">>=
 E(non.isolated.diff.sn)$weight <- 1
 non.isolated.diff.sn <- simplify(non.isolated.diff.sn, edge.attr.comb=list(weight="sum"))
+
+components <- clusters(non.isolated.diff.sn, mode="weak")
+biggest_cluster_id <- which.max(components$csize)
+vert_ids <- V(non.isolated.diff.sn)[components$membership == biggest_cluster_id]
+
+doges.ni.sn.connected <- induced_subgraph(non.isolated.diff.sn, vert_ids)
+plot(doges.ni.sn.connected)
+@
+
+The Faliero family acted as a link between Gradenigo, Mocenigo and Loredan families and the Contarini and Bembos, on the other side. These families, however, were still supported by their very extensive network, and were still leaders in their respective clusters. Still, it is interesting to check how their position in the social network brought the Falier family to the highest position in the Republic, how that position is reflected in their social network standing, and how the Council of X "attacked the network", although due to the nature of such network, as well as the nature of politics in the Republic of Venice, it did not create factions and, in fact, there was only other ocassion in which a doge did not die during his tenure\footnote{As indicated in \cite{histories3010003}, part of the reason why this happened was due to the fact that, starting more or less in that century and after the Serrata, doges were mostly elected in their old age}.
+
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
