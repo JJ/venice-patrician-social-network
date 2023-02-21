@@ -154,7 +154,7 @@ eigen.df <- data.frame(Family=names(V(venice.colleganza.sn)),eigenvector.central
 eigen.df.ordered <- eigen.df[ order(eigen.df$eigenvector.centrality,decreasing = T),]
 library(knitr)
 betw.table <- data.frame( Family=eigen.df.ordered$Family, Betweenness=eigen.df.ordered$eigenvector.centrality )
-kable(betw.table[ betw.table$Betweenness> 0.1,],caption="Ranking of families according to eigenvector centrality; only those with a value higher than 0.1 are shown.")
+kable(betw.table[ betw.table$Betweenness> 0.1,],caption="Ranking of families in the colleganza network according to eigenvector centrality; only those with a value higher than 0.1 are shown.")
 @
 
 Please also check that the Soranzo family, which was the subject of Ryabova et al.'s papers \cite{ryabova2016social,ryabova2019venetian}, is also part of this ranking, showing their standing in the social network and making them a good representative of the noble/trading families at large, supporting the validity of their analysis.
@@ -279,7 +279,7 @@ We are interested, however, with the social network this dataset reveals. The de
 <<r marriage.degree, echo=FALSE>>=
 m.degree.table <- data.frame( Family=V(marriages.sn)$name, degree=V(marriages.sn)$degree )
 m.degree.table.ordered <- m.degree.table[ order(m.degree.table$degree,decreasing = T),]
-kable(m.degree.table.ordered[m.degree.table.ordered$degree > 400,],caption="Degree ranking for the families", row.names = F)
+kable(m.degree.table.ordered[m.degree.table.ordered$degree > 400,],caption="Degree ranking for the families in the marriage network", row.names = F)
 @
 
 The well known Contarini family \cite{gleason1993gasparo} is at the top of the ranking, with a total of
@@ -350,6 +350,18 @@ kable(tail(delta.ev.table,n=10),caption="Families with the highest gain in EV ce
 @
 
 Among the biggest losers, shown in Table \ref{tab:centrality:loss}, is the Ziani family. This family was, in the initial times, so rich that it gave rise to the expression \cite{lane1973venice} "l'haver de chà Ziani", "have as much as the Ziani house". However, it was considered extinct soon after the Serrata; expenses accrued by the family (for instance, giving land to the state to build the Arsenale), and simple lack of family members might have led to that demise. As a mather of fact, there is a single marriage in the dataset, and it is not dated, so that might have simply been the case. As stated in \cite{RePEc:ver:wpaper:01/2023}, plague might not lead to large scale reconfiguration of the existing social network; however, together with war, it will definitely change the status of certain families, and reconfigure the status of families in their ego network.
+
+<<r ziani.ego, echo=F>>=
+ego.colleganza <- ego(venice.colleganza.sn)
+the.zianis <- NULL
+for ( i in 1:length(ego.colleganza)) { 
+  if ( ego.colleganza[[i]][1]$name == 'Ziani' ) {
+    the.zianis <- i
+  }
+}
+ziani.ego.network <- induced_subgraph(venice.colleganza.sn,ego.colleganza[[the.zianis]])
+plot(ziani.ego.network)
+@
 
 \subsection{Dogal social network}
 
