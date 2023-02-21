@@ -118,7 +118,6 @@ We will analyze, in turn, the social networks due to the \emph{colleganza} or co
 
 <<r orig.data, echo=FALSE>>=
 data <- read.csv("../resources/colleganza-pairs.csv",header=FALSE)
-# data <- read.csv("resources/colleganza-pairs.csv",header=FALSE)
 @
 
 
@@ -395,6 +394,11 @@ doge.marriage.ev.table <- data.frame( Family=V(non.isolated.diff.sn)$name, degre
 kable(arrange(doge.marriage.ev.table[ doge.marriage.ev.table$degree> 0.1,],-degree),caption="Ranking of families in the exclusive dogal marriage network according to eigenvector centrality; only those with a value higher than 0.1 are shown.\\protect\\label{tab:dogal.minus.marriage.ev}")
 @
 
+Most of these are found in the biggest connected component in this network, including the disgraced family Faliero or Falier, that includes the only doge that was ever beheaded after the Serrata.
+
+<<r ev.table, echo=F, message=FALSE>>=
+E(non.isolated.diff.sn)$weight <- 1
+non.isolated.diff.sn <- simplify(non.isolated.diff.sn, edge.attr.comb=list(weight="sum"))
 \section{Conclusions}
 
 \bibliographystyle{IEEEtran}
