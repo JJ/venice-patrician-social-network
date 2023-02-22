@@ -377,7 +377,7 @@ library(dogesr)
 doges.sn <- marriage.graph()
 @
 
-An initial exploration of this social network was made in \cite{gooddoge}; data used in that paper has been enhanced with other marriages that had not been detected, and with the addition of mother-doge links. This has increased the amount of nodes to \Sexpr{length(V(doges.sn))} and edges to \Sexpr{length(E(doges.sn))}, as opposed to 35 nodes in the original network published in \cite{gooddoge}.
+An initial exploration of this social network was made in \cite{gooddoge}; data used in that paper has been enhanced with other marriages that had not been detected previously \cite{staley1910dogaressas}, and with the addition of mother-doge links. This has increased the amount of nodes to \Sexpr{length(V(doges.sn))} and edges to \Sexpr{length(E(doges.sn))}, as opposed to 35 nodes in the original network published in \cite{gooddoge}.
 
 A priori, we should expect this social network to have a non-null intersection with the previous marriage network exposed in the previous subsection. The network that includes only links that are in this new social network, but not in the previous one, are shown in Figure \ref{fig:dogal.minus.marriage}.
 
