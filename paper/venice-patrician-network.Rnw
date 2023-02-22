@@ -164,8 +164,12 @@ Please also check that the Soranzo family, which was the subject of Ryabova et a
 But more interesting, from the point of view of future events, is how these families clustered around each other. The figure shows these clusters with different colors, and also where families with high eigenvector centrality lie. These are the two clusters that include these families:
 
 <<r high.ev.families,echo=FALSE>>=
-high.ev.families.df <- data.frame("Morosini group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==2]),rep("",5)), "Contarini group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==4]),rep("",4)),"Viaro group" = as_ids(V(venice.colleganza.sn)[cnet$membership==3]), check.names = FALSE)
-kable(high.ev.families.df,caption="Groups of families that include those with the highest eigenvector centrality, named by the most characteristic \\protect{\\em casa} in them.")
+high.ev.families.df <- data.frame("Morosini group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==2]),rep("",5)),
+                                  "Contarini group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==4]),rep("",4)),
+                                  "Viaro group" = as_ids(V(venice.colleganza.sn)[cnet$membership==3]),
+                                  "Ziani group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==1]),rep("",4)),
+                                  check.names = FALSE)
+kable(high.ev.families.df,caption="Groups (clusters) of families that include those with the highest eigenvector centrality, named by the most characteristic \\protect{\\em casa} in them.")
 @
 
 Please note that the Dandolo, which are featured in the title of this paper, is not prominent in the chart; it is neither well connected nor in a powerful group. Very few incentives, then, to connect with them at this point in time. These groups are also connected: The Contarini are connected to the Zorzi family, and the Viaro to the Lion family.
