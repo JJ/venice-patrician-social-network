@@ -176,7 +176,7 @@ kable(high.ev.families.df,caption="Groups (clusters) of families that include th
 
 Please note that the Dandolo family is not prominent in the chart; it is neither well connected nor in a powerful group. Very few incentives, then, to connect with them at this point in time. These groups are also connected: The Contarinis are connected to the Zorzi family, and the Viaro to the Lion family. However, there seems to be little actual strategizing in these connections. \emph{Colleganza} contracts are purely commercial, and mainly based on trust and maximization of benefits. It required big investments, and also incurred in big risks \cite{lane1973venice}. Using them for the sake of being better connected does not seem like a wise investment in a very commercially oriented context.
 
-<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.height=6, fig.env="figure*", fig.cap="Plotting the type of family along with actual weightsin the colleganza network. Please refer to text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
+<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.height=6, fig.env="figure*", fig.cap="Plotting the type of family along with actual weights in the colleganza network. Please refer to text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
 types <- NULL
 colors <- NULL
 family.colors <- list("Ducali"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
