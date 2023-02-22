@@ -116,7 +116,7 @@ Except for the unknown brides and, thus, their families, which are probably not,
 
 There are several sources, that is, samples, of the social graph of the patrician families in Venice. All of them have one trait in common: they focus on families, more than on the individual level; this might be due to the scale of this social analysis, which spans many centuries, or simply to the fact that social links were, indeed, maintained by families through centuries.
 
-We will analyze, in turn, the social networks due to the \emph{colleganza} or commercial joint ventures, the marriage social network, and the doges marriage and matrilinear social network; this order roughly reflects the time spam of every dataset. We will use two main measures: betweenness centrality and eigenvector centrality \cite{landherr2010critical}. While the first measures mainly how necessary is a particular node to transmit information, the second is related to how connected a node is to the nodes with the highest influence. Since what we have is a (possibly small) sample of the network, the second is supposed to be less influenced by this fact; betweenness centrality, on the other hand, will vary greatly if new nodes and/or connections are added to the sample.
+We will analyze, in turn, the social networks due to the \emph{colleganza} or commercial joint ventures, the marriage social network, and the doges marriage and matrilinear social network; this order roughly reflects the time span of every dataset. We will mainly use eigenvector centrality \cite{landherr2010critical} to reflect the standing of different families in the social network, which is related to how connected a node is to the nodes with the highest influence. What we will be looking for is the influence of certain events on the social network, as well as how the position in such network is correlated to actual political and economic positions of the family.
 
 \subsection{\emph{Colleganza} social network}
 
@@ -125,7 +125,7 @@ data <- read.csv("../resources/colleganza-pairs.csv",header=FALSE)
 @
 
 
-This data, which has been taken from \cite{10.1093/qje/qju006}, is an interesting cross-section of the Venetian social network spanning from \Sexpr{min(data$V3)} to  \Sexpr{max(data$V3)}, that is, it goes beyond the creation of the electoral college in 1172, but barely covers the post-Serrata era, which started by the beginning of 1300. In that sense, it is the best data we have on the social situation, and social standing of families, before the access to Venetian nobility was closed (although a more precise term for what happened would be "regulated"). Besides, these are actual commercial ties that imply interchange of money, information and thus trust and social capital.
+This dataset, which has been taken from \cite{10.1093/qje/qju006}, is an interesting cross-section of the Venetian social network spanning from \Sexpr{min(data$V3)} to  \Sexpr{max(data$V3)}, that is, it goes beyond the creation of the electoral college in 1172, but barely covers the post-Serrata era, which started by the beginning of 1300. In that sense, it is the best data we have on the social situation, and social standing of families, before the access to Venetian nobility was closed (although a more precise term for what happened would be "regulated"). Besides, these are actual commercial ties that imply interchange of money, information and thus trust and social capital.
 
 <<r colleganza, fig.pos="h!tbp", fig.height=6, fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\cite{10.1093/qje/qju006}. Groups are computed by edge betweenness, resulting in 18 different groups, 11 of which are connected \\protect\\label{fig:modcol}.'>>=
 
@@ -233,7 +233,7 @@ library(ggplot2)
 ggplot(colleganza.families.df,aes( x= noble, y=ev.centrality))+ geom_boxplot()
 @
 
-But was there any reason to choose a set of families over others for the first Serrata? Let's look at the ev within the noble families. This is represented in Figure \ref{fig:col.noble.bp.serrata}.
+But was there any reason to choose a set of families over others for the first Serrata? Let's look at the EV centrality within the noble families. This is represented in Figure \ref{fig:col.noble.bp.serrata}.
 
 <<r colleganza.ev.serrata, echo=FALSE, fig.pos="h!tbp",fig.height=4, fig.cap="Boxplot of eigenvector centrality for noble families, those that were \"closed\" (vecchie) and those that were only ennobled later.\\protect\\label{fig:col.noble.bp.serrata}">>=
 noble.colleganza.families.df <- colleganza.families.df[colleganza.families.df$noble==T,]
@@ -241,7 +241,9 @@ ggplot(noble.colleganza.families.df,aes( x= vecchie, y=ev.centrality))+ geom_box
 noble.serrata.wt <- wilcox.test(noble.colleganza.families.df[ noble.colleganza.families.df$vecchie == F,]$ev.centrality, noble.colleganza.families.df[ noble.colleganza.families.df$vecchie == T,]$ev.centrality)
 @
 
-The p-value for this difference is \Sexpr{ noble.serrata.wt$p.value }; as a matter of fact, this p-value is lower than the difference between nobles and non-nobles. There is only a family that was kept outside the closure and has a high EV centrality value. However, this is the Barbarigo family, one of the \emph{ducali}, that were recognized as noble soon after the Serrata. The other four families with a EV centrality higher than 0.125 are the Viaro, Trevisan, Emo, Moro and Caravello families, of which the Moro is \emph{ducale}, Viaro and Emo \emph{nuove}, and the odd one is Trevisan, which is part of the last batch of nobles. On average, however, the first families that were ennobled were those that had a high eigenvector centrality in the colleganza network; those that did not, in general, were occupying peripheral positions in that network. Only four \emph{vecchie} families, the Gauli (which were probably extinct very soon), Barozzi, Belegno (also probably extinct) and Polani do not appear in this colleganza network sample. In general, we can conclude that EV centrality in the colleganza social network is a good predictor for an upgrade in the status of the families when the Serrata arrived. In the next sections we will a similar methodology to other available networks: the marriages social network in the XIV-XV century, as well as the social network created by doges (and in some cases, their fathers) marriages.
+The p-value for this difference is \Sexpr{ noble.serrata.wt$p.value }; as a matter of fact, this p-value is lower than the difference between nobles and non-nobles. There is only a family that was kept outside the closure and has a high EV centrality value. However, this is the Barbarigo family, one of the \emph{ducali} families, that were recognized as noble soon after the Serrata. The other four families with a EV centrality higher than 0.125 are the Viaro, Trevisan, Emo, Moro and Caravello families, of which the Moro is \emph{ducale}, Viaro and Emo \emph{nuove}, and the odd one is Trevisan, which is part of the last batch of nobles. On average, however, the first families that were ennobled were those that had a high eigenvector centrality in the colleganza network; those that did not, in general, were occupying peripheral positions in that network. Only four \emph{vecchie} families, the Gauli (which were probably extinct very soon), Barozzi, Belegno (also probably extinct) and Polani do not appear in this colleganza network sample. In general, we can conclude that EV centrality in the colleganza social network is a good predictor for an upgrade in the status of the families when the Serrata arrived. In the next sections we will a similar methodology to other available networks: the marriages social network in the XIV-XV century, as well as the social network created by doges (and in some cases, their fathers) marriages.
+
+This dataset ends in \Sexpr{max(data$V3)}; by that time, Venice was still very much a maritime republic, with its wealth based on trade; however, the end of the dataset reflects in a way the shift to actual production that was initiated in the XIV century; that period, however, is covered by the next social network created by marriages.
 
 \subsection{Marriages social network}
 \label{ss:marriage}
@@ -277,7 +279,7 @@ V(marriages.sn)$eigen <-  unname(unlist(eigen_centrality(marriages.sn)$vector))
 V(marriages.sn)$pr <- unname(unlist(page_rank(marriages.sn)$vector))
 @
 
-We are interested, however, with the social network this dataset reveals. The degree of nodes in this graph will tell us how many links the families had.
+We are interested, however, with the social network this dataset reveals. The degree of nodes in this graph will tell us how many links the families had; the families with the top degree are shown in Table \ref{tab:marriage:ranking}.
 
 <<r marriage.degree, echo=FALSE>>=
 m.degree.table <- data.frame( Family=V(marriages.sn)$name, degree=V(marriages.sn)$degree )
@@ -294,7 +296,7 @@ ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()+geom_f
 
 Figure \ref{fig:contarini.marriages} shows the number of marriages in which one of the partners was Contarini, compared with the rest of the marriages. We can see how it reaches its peak in the XV century, to slowly get to a very low number by the end of the Republic. While the number of families involved in these marriages is \Sexpr{length(family.names)}, \Sexpr{length(family.names.contarini)-1} are married to a Contarini, that is, \Sexpr{format(round((length(family.names.contarini)-1)/length(family.names),2),nsmall=2)}\% of them. It is certainly outstanding, and probably an unique event in world history, the creation of such a time-spanning social network by a single family.
 
-<<r ego.contarini, fig.height=5, fig.pos="h!tbp", fig.env="figure*", echo=F,fig.cap="Contarinis marriage ego network, with node size corresponding to the degree or number of connections. \\protect\\label{fig:contarini.ego}.">>=
+<<r ego.contarini, fig.height=5, fig.pos="h!tbp", fig.env="figure*", echo=F,fig.cap="Contarinis marriage ego network, with node size corresponding to the degree or number of connections. \\protect\\label{fig:contarini.ego}">>=
 ego.marriages <- ego(marriages.sn)
 the.contarinis <- NULL
 for ( i in 1:length(ego.marriages)) { 
