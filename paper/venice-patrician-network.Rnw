@@ -56,6 +56,8 @@ During more than eleven hundred years (from 679 to 1797 A.D.), the Venetian repu
 Many different approaches to research this history are possible \cite{doi:10.1086/242943,wetherell_1998}. In this paper we will follow a social network approach. Social networks are able to reflect, at the same time, big social movements and structure and the influence in them of individual actors, according to their position of the network \cite{tilly1985european}. 
 
 
+The rest of the paper is organized as follows: next up we will present the state of the art in historical social network analysis and computational historical analysis applied to Venice. Next, Section \ref{sec:history} presents a brief history of Venice for context. How data for this study has been obtained and processed is presented in Section \fef{sec:data}. Data is piecewise analyzed next in Section \ref{sec:sna}. Finally, these results are discussed and conclusions are drawn.
+
 \section{State of the art}
 
 Social network analysis has increasingly become a tool in the hands of historians, despite the hurdles for its comprehensive usage mainly stemming from incomplete or missing data \cite{wetherell_1998,doi:10.1080/01615440.2014.962208}; however, it is still relatively rare to find studies that apply them, or that use social network measurements to achieve a deeper understanding of some historical mechanism or social dynamics that eventually shape history.
@@ -78,7 +80,8 @@ Unfortunately, the automated extraction of social network data from documents th
 
 We will analyze in this paper the social network of patrician families revealed by the marriage of doges, as a way to understand the power dynamics among different noble families, and thus have some insights on the causes of the stability and longevity of the Venetian state. But let us first present a brief history of these patrician families, and their attributes.
 
-\section{A brief history of the doges, how they were chosen, and patrician families in Venice}
+\section{A brief history of Venice}
+\label{sec:history}
 
 The Venetian \emph{patriziato} (Italian) or \emph{patrisiato} (Venetian), that is, the patriciate or nobility, has always been attached to the access to power symbolized by the office of the doge. However, it has evolved with the institution and the different instituted laws that constrained it. In general, being a patrician meant you could had the right to be elected or to elect the doge. And nobility, as usual, was inherited, so you became noble by simply being part of a family (in Venetian, \emph{casa}), and obviously could never become one of them if you had not \cite{chojnacki2000women}.
 
@@ -107,6 +110,7 @@ This procedure guaranteed whoever had the inclination to become doge, and the fa
 From the point of view of the social network, a complex game was afoot. While joining the clique of a powerful family with many links might give your \emph{casa} certain guarantees, you could not simply ignore other \emph{case} because their votes might be needed in an electoral college stage, or at the very end. On the other hand, there were only so many daughters you could marry or so many commercial enterprises you could create with other families. So a certain strategy, that went beyond simple commercial interest, might be needed. In the next sections we will see whether there are certain hints of this, at least within the relatively limited sample that the doges marriage social network gives us.
 
 \section{Data set extraction and preparation}
+\label{sec:data}
 
 This paper uses two different data sources: data sets prepared for Puga and Trefler paper \cite{10.1093/qje/qju006}, which was available at \texttt{https://diegopuga.org/data/venice/}. This data includes normalized family names for marriages registered with the Avogaria di Comune, as well as data for shipping contracts available from the several different sources. We have used the dataset as is, with very minor corrections mainly to normalize surnames in the same way as the data we already had.
 
