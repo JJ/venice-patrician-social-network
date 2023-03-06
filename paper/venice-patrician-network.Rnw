@@ -113,9 +113,9 @@ From the point of view of the social network, a complex game was afoot. While jo
 \section{Data set extraction and preparation}
 \label{sec:data}
 
-This paper uses two different data sources: data sets prepared for Puga and Trefler paper \cite{10.1093/qje/qju006}, which was available at \texttt{https://diegopuga.org/data/venice/}. This data includes normalized family names for marriages registered with the Avogaria di Comune, as well as data for shipping contracts available from the several different sources. We have used the dataset as is, with very minor corrections mainly to normalize surnames in the same way as the data we already had.
+This paper uses two different data sources: data sets prepared for Puga and Trefler paper \cite{10.1093/qje/qju006} by them, which were downloaded from \texttt{https://diegopuga.org/data/venice/}. This dataset includes normalized family names for marriages registered with the Avogaria di Comune, as well as data for shipping contracts available from several different sources. We have used the dataset as is, with very minor corrections mainly to normalize surnames in the same way as the data we already had.
 
-The second dataset is included with the {\tt dogesr} R package, in its 0.2.0 version, published in the CRAN R package repository \cite{gooddoge}. It includes data from all doges, the women they married with, as well as their mothers, when available. This data has been gathered from the Wikipedia, and completed with other references.
+The second dataset is included with the {\tt dogesr} R package, in its 0.2.0 version, published in the CRAN R package repository \cite{gooddoge}. It includes data from all doges, the women they married with, as well as their mothers, when available. This data has been gathered from the Wikipedia, and completed with other references \cite{staley1910dogaressas}.
 
 Except for the unknown brides and, thus, their families, which are probably not, at any rate, part of the Venetian nobility, and unlike most datasets used in digital humanities, this social network is, in its narrowest sense, complete. However, it is but a sample of the social network that links Venetian noble families and that would include all kind of links: familiar, commercial and political. Focusing on the cusp of the social network, the doges, it is probably quite a representative sample; after all, these were arranged marriages and one does not simply marry with a doge or a family with a member having a high chance of becoming one. Another advantage is that it spans the whole duration of the republic, and is also (relatively) well dated\footnote{The actual date of the wedding is not available, but the moment the doge started its tenure is well known and recorded.}.
 
@@ -413,7 +413,7 @@ non.isolated.diff.sn <- delete.vertices( difference.sn, isolated.diff )
 plot(non.isolated.diff.sn)
 @
 
-This network includes only marriages that happened, apparently, before the marriage network started to be collected, and thus most "old" families, such as Candiano and Orseolo, immediately pop up. Its appearance, however, is important from the point of view of the early formation of social capital among the nobles, and some families that we have repeatedly seen in the previous subsections also appear here. Let us analyze the EV centrality for this network; EV centrality ranking appears in Table \ref{tab:dogal.minus.marriage.ev}.
+This social network includes only marriages that happened, apparently, before the marriage network started to be collected, and thus most "old" families, such as Candiano and Orseolo, immediately pop up. Its appearance, however, is important from the point of view of the early formation of social capital among the nobles, and some families that we have repeatedly seen in the previous subsections also appear here. Let us analyze the EV centrality for this network; EV centrality ranking appears in Table \ref{tab:dogal.minus.marriage.ev}.
 
 <<r ev.table, echo=F, message=FALSE>>=
 library(dplyr)
