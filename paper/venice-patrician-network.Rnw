@@ -299,7 +299,7 @@ The nodes in this network are essentially, after the "second" \emph{Serrata}, me
 ggplot(marriages,aes(x=year))+geom_freqpoly()
 @
 
-Figure \ref{fig:number.of.marriages} shows that there is a certain bias in the dataset, with most of them concentrated in the XVI century; the sample is big enough, however, to account for marriages happening all along the Republic, including its very last moments (when the number of marriages falles precipituously, either due to lack of registration of actual decline).
+Figure \ref{fig:number.of.marriages} shows that there is a certain bias in the dataset, with most of them concentrated in the XVI century; the sample is big enough, however, to account for marriages happening all along the Republic, including its very last moments (when the number of marriages falls precipitously, either due to lack of registration of actual decline).
 
 <<r marriage.sn, echo=F>>=
 marriages.sn <- graph.data.frame(data.frame(marriages$husband_familyname_std,marriages$wife_familyname_std),directed=F)
@@ -322,11 +322,24 @@ The well known Contarini family \cite{gleason1993gasparo} is at the top of the r
 \Sexpr{format(round(100*length(marriages.contarini$year)/(length(marriages.contarini$year)+length(marriages.not.contarini$year)),2),nsmall=2)}\% of all marriages. Out of these, roughly half have a husband from the family (actually \Sexpr{length(marriages.contarini[marriages.contarini$husband_familyname_std == "Contarini",]$marriage_number)}), the other half (\Sexpr{length(marriages.contarini[marriages.contarini$wife_familyname_std == "Contarini",]$marriage_number)}) a wife. 
 
 <<r marriage.contarini, echo=F,warning=FALSE,message=FALSE,fig.cap="Number of marriages for the Contarini plotted together with others. Please take into account that this is obtained from the unfiltered original dataset\\protect\\label{fig:contarini.marriages}.">>=
+library(dplyr)
 ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()+geom_freqpoly(data=marriages.not.contarini,aes(x=year, color='Others'))
+husbands.contarini <- marriages.contarini[ marriages.contarini$wife_familyname_std == "Contarini",] %>% count(husband_familyname_std) %>% arrange(desc(n))
+kable(husbands.contarini %>% head(.,10),
+      col.names=c("Husband family","Number"),
+      caption="Husband families who married with Contarini wives, top 10. \\protect\\label{tab.contarini.hubby.top}",
+      row.names = F)
+wives.contarini <- marriages.contarini[ marriages.contarini$husband_familyname_std == "Contarini",] %>% count(wife_familyname_std) %>% arrange(desc(n))
+kable( wives.contarini %>% head(.,10),
+      col.names=c("Wife family","Number"),
+      caption="Wives families who married with Contarini husbands, top 10. \\protect\\label{tab.contarini.wiv.top}",
+      row.names = F)
 @
 
 Figure \ref{fig:contarini.marriages} shows the number of marriages in which one of the partners was Contarini, compared with the rest of the marriages. We can see how it reaches its peak in the XV century, to slowly get to a very low number by the end of the Republic. While the number of families involved in these marriages is \Sexpr{length(family.names)}, \Sexpr{length(family.names.contarini)-1} are married to a Contarini, that is, \Sexpr{format(round((length(family.names.contarini)-1)/length(family.names),2),nsmall=2)}\% of them. It is certainly outstanding, and probably an unique event in world history, how such a time-spanning social network was created by a single family.
 
+Part of the explanation might be the families they married with. Tables \ref{tab.contarini.hubby.top} and \ref{tab.contarini.wiv.top} show the families with the most marriages; the Contarinis married a lot with other branches of the families, since they were, quite obviously, very numerous. The Morosini and Corner family comes next; the first one is possibly the other family that managed to survive all different phases of the Venice state, and just like the Morosinis, managed to become doge in the same number as the Contarinis. Other families: the Corner, Querini, Michiel, Dolfin, also appear in both tables. However, the first "name" in the table of wife's families is literally no name; since this is the standard name of the wife, it means that it does not correspond to any known family; either this was due to marriages happening before the second \emph{Serrata} or that the wife requested marriage to the Avogaria del Comun and was accepted. Although it is not the majority of the marriages, it is certainly the "group" that occupies the top.
+%
 <<r ego.contarini, fig.height=5, fig.pos="h!tbp", fig.env="figure*", echo=F,fig.cap="Contarinis marriage ego network, with node size corresponding to the degree or number of connections. \\protect\\label{fig:contarini.ego}">>=
 ego.marriages <- ego(marriages.sn)
 the.contarinis <- NULL
@@ -348,11 +361,11 @@ plot(contarini.ego.network,layout=layout_with_lgl,
      edge.width=E(contarini.ego.network)$weight)
 @
 
-We can explore the extent of the influence network in Figure \ref{fig:contarini.ego}, which shows the so called \emph{ego} network, that is the subnetwork that includes only families that are connected (by marriage) to the Contarinis. The node size is relative to the degree (or number of connections), and it shows some well-connected families even within this network: the Morosinis, the Corners, the Querinis among them. Morosini and Contarini were also shown as prominent families in \cite{gooddoge}, that analyzed a social network, created only from doges' marriages, that should have a great affinity with this one.
+We can explore the extent of the Contarini influence network in Figure \ref{fig:contarini.ego}, which shows the so called \emph{ego} network, that is the subnetwork that includes only families that are connected (by marriage) to the Contarinis. The node size is relative to the degree (or number of connections), and it shows some well-connected families even within this network: the Morosinis, the Corners, the Querinis among them. Morosini and Contarini were also shown as prominent families in \cite{gooddoge}, that analyzed a social network, created only from doges' marriages, that should have a great affinity with this one.
 
 No wonder, then, this family managed to convert one of them into \emph{dux} eight times, the first time in 1071, and the last in 1601, certifying its situation at the top of the, otherwise equal in rights, nobility \cite{lane1973venice}. It is also one of the few Venetian noble families that survive in some form, with Contarinis in Sicily as well as in Brazil.
 
-<<r contarini.diges, echo=F, message=F, warning=F, fig.cap="Number of marriages in the Contarini family and dates when they became doges.\\protect\\label{fig:contarini:doges}">>=
+<<r contarini.doges, echo=F, message=F, warning=F, fig.cap="Number of marriages in the Contarini family and dates when they became doges.\\protect\\label{fig:contarini:doges}">>=
 vlines <- ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()
 for (i in c(1368,1623,1630,1655,1659,1676)) {
   vlines <- vlines +geom_vline(xintercept=i,color='gold',size=2)
