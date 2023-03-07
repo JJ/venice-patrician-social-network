@@ -62,7 +62,7 @@ In this paper, we will try, through social network analysis, respond several res
 \item[RQ4] Are there some hints on the use of \emph{tactical} social networking, that is, creating social links to further a political agenda?
 \end{itemize}
 
-The main method we will use to answer these questions will be using existing datasets, one of which has been created for the purposes of this paper, to analyze the sample of the Venetian social network they represent. Although the sample is not complete, it is at least representative and have been used successfully by several researchers \cite{10.1093/qje/qju006,gooddoge,10.1257/app.20180463} to gain insights on the historical dynamics of the Republic of Venice.
+The main method we will use to answer these questions will be using existing datasets, one of which has been created for the purposes of this paper, to analyze the sample of the Venetian social network they represent. Although the sample is not complete, it is at least representative and have been used successfully by several researchers \cite{10.1093/qje/qju006,gooddoge,10.1257/app.20180463,Telek2017MarryingTR} to gain insights on the historical dynamics of the Republic of Venice.
 
 The rest of the paper is organized as follows: next up we will present the state of the art in historical social network analysis and computational historical analysis applied to Venice. Next, Section \ref{sec:history} presents a brief history of Venice for context. How data for this study has been obtained and processed is presented in Section \ref{sec:data}. Data is piecewise analyzed next in Section \ref{sec:sna}. Finally, these results are discussed and conclusions are drawn in the last Section.
 
