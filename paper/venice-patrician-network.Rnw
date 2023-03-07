@@ -315,10 +315,11 @@ We are interested, however, with the social network this dataset reveals. The de
 m.degree.table <- data.frame( Family=V(marriages.sn)$name, degree=V(marriages.sn)$degree )
 m.degree.table.ordered <- m.degree.table[ order(m.degree.table$degree,decreasing = T),]
 kable(m.degree.table.ordered[m.degree.table.ordered$degree > 400,],caption="Degree ranking for the families in the marriage network\\protect\\label{tab:marriage:ranking}", row.names = F)
+contarini.marriages <- length(marriages.contarini$marriage_number)
 @
 
 The well known Contarini family \cite{gleason1993gasparo} is at the top of the ranking, with a total of
-\Sexpr{format(round(100*length(marriages.contarini$year)/(length(marriages.contarini$year)+length(marriages.not.contarini$year)),2),nsmall=2)}\% of all weddings.
+\Sexpr{format(round(100*length(marriages.contarini$year)/(length(marriages.contarini$year)+length(marriages.not.contarini$year)),2),nsmall=2)}\% of all marriages. Out of these, roughly half have a husband from the family (actually \Sexpr{length(marriages.contarini[marriages.contarini$husband_familyname_std == "Contarini",]$marriage_number)}), the other half (\Sexpr{length(marriages.contarini[marriages.contarini$wife_familyname_std == "Contarini",]$marriage_number)}) a wife. 
 
 <<r marriage.contarini, echo=F,warning=FALSE,message=FALSE,fig.cap="Number of marriages for the Contarini plotted together with others. Please take into account that this is obtained from the unfiltered original dataset\\protect\\label{fig:contarini.marriages}.">>=
 ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()+geom_freqpoly(data=marriages.not.contarini,aes(x=year, color='Others'))
