@@ -295,7 +295,7 @@ In general, marriages were a family-arranged affair in Venice \cite{Telek2017Mar
 
 The nodes in this network are essentially, after the "second" \emph{Serrata}, member of noble families; at any rate, the dowry requirements implied that any woman marrying into a noble family had to be supported by a relatively wealthy family, or be wealty herself. This is why most women, indeed, do belong to known noble families; some of them who did not, however, could sue to be authorized to marry by the same \emph{Avogaria del Comun} that registered those marriages \cite{GossipandStreetCultureinEarlyModernVenice}. For non-noble families of citizen, this could be a way of entering the social network through the periphery.
 
-<<r marriage.plot, echo=F,warning=FALSE,message=FALSE,fig.cap="Distribution by year of marriages in the dataset\\protect\\label{fig:number.of.marriages}.">>=
+<<r marriage.plot, echo=F,warning=FALSE,message=FALSE,fig.height=4,fig.cap="Distribution by year of marriages in the dataset\\protect\\label{fig:number.of.marriages}.">>=
 ggplot(marriages,aes(x=year))+geom_freqpoly()
 @
 
@@ -321,7 +321,7 @@ contarini.marriages <- length(marriages.contarini$marriage_number)
 The well known Contarini family \cite{gleason1993gasparo} is at the top of the ranking, with a total of
 \Sexpr{format(round(100*length(marriages.contarini$year)/(length(marriages.contarini$year)+length(marriages.not.contarini$year)),2),nsmall=2)}\% of all marriages. Out of these, roughly half have a husband from the family (actually \Sexpr{length(marriages.contarini[marriages.contarini$husband_familyname_std == "Contarini",]$marriage_number)}), the other half (\Sexpr{length(marriages.contarini[marriages.contarini$wife_familyname_std == "Contarini",]$marriage_number)}) a wife. 
 
-<<r marriage.contarini, echo=F,warning=FALSE,message=FALSE,fig.cap="Number of marriages for the Contarini plotted together with others. Please take into account that this is obtained from the unfiltered original dataset\\protect\\label{fig:contarini.marriages}.">>=
+<<r marriage.contarini, echo=F,warning=FALSE,message=FALSE,fig.height=4,fig.cap="Number of marriages for the Contarini plotted together with others. Please take into account that this is obtained from the unfiltered original dataset\\protect\\label{fig:contarini.marriages}.">>=
 library(dplyr)
 ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()+geom_freqpoly(data=marriages.not.contarini,aes(x=year, color='Others'))
 husbands.contarini <- marriages.contarini[ marriages.contarini$wife_familyname_std == "Contarini",] %>% count(husband_familyname_std) %>% arrange(desc(n))
@@ -365,7 +365,7 @@ We can explore the extent of the Contarini influence network in Figure \ref{fig:
 
 No wonder, then, this family managed to convert one of them into \emph{dux} eight times, the first time in 1071, and the last in 1601, certifying its situation at the top of the, otherwise equal in rights, nobility \cite{lane1973venice}. It is also one of the few Venetian noble families that survive in some form, with Contarinis in Sicily as well as in Brazil.
 
-<<r contarini.doges, echo=F, message=F, warning=F, fig.cap="Number of marriages in the Contarini family and dates when they became doges.\\protect\\label{fig:contarini:doges}">>=
+<<r contarini.doges, fig.height=4, echo=F, message=F, warning=F, fig.cap="Number of marriages in the Contarini family and dates when they became doges.\\protect\\label{fig:contarini:doges}">>=
 vlines <- ggplot(marriages.contarini,aes(x=year,color='Contarini'))+geom_freqpoly()
 for (i in c(1368,1623,1630,1655,1659,1676)) {
   vlines <- vlines +geom_vline(xintercept=i,color='gold',size=2)
@@ -402,7 +402,7 @@ Among the biggest losers, shown in Table \ref{tab:centrality:loss}, is the Ziani
 
 We should not forget, however, that we are talking about a social network; changes in one family's status will bring structural changes, but also changes in position and standing in other families related to it. Let us check the ego network of the Ziani family, shown in Figure \ref{fig:ziani:ego}.
 %
-<<r ziani.ego, echo=F, fig.cap="Ego colleganza network for the Ziani family\\protect\\label{fig:ziani:ego}.">>=
+<<r ziani.ego, echo=F, fig.height=4, fig.cap="Ego colleganza network for the Ziani family\\protect\\label{fig:ziani:ego}.">>=
 ego.colleganza <- ego(venice.colleganza.sn)
 the.zianis <- NULL
 for ( i in 1:length(ego.colleganza)) { 
