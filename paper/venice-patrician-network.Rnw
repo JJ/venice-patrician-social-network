@@ -318,7 +318,7 @@ kable(m.degree.table.ordered[m.degree.table.ordered$degree > 400,],caption="Degr
 contarini.marriages <- length(marriages.contarini$marriage_number)
 @
 
-The well known Contarini family \cite{gleason1993gasparo} is at the top of the ranking, with a total of
+The well known Contarini family \cite{gleason1993gasparo} is at the top of the ranking (something already observed by \cite{10.1093/qje/qju006}, with a total of
 \Sexpr{format(round(100*length(marriages.contarini$year)/(length(marriages.contarini$year)+length(marriages.not.contarini$year)),2),nsmall=2)}\% of all marriages. Out of these, roughly half have a husband from the family (actually \Sexpr{length(marriages.contarini[marriages.contarini$husband_familyname_std == "Contarini",]$marriage_number)}), the other half (\Sexpr{length(marriages.contarini[marriages.contarini$wife_familyname_std == "Contarini",]$marriage_number)}) a wife. 
 
 <<r marriage.contarini, echo=F,warning=FALSE,message=FALSE,fig.height=4,fig.cap="Number of marriages for the Contarini plotted together with others. Please take into account that this is obtained from the unfiltered original dataset\\protect\\label{fig:contarini.marriages}.">>=
