@@ -464,6 +464,25 @@ plot(doges.ni.sn.connected)
 
 The Faliero family acted as a bridge between the Gradenigo, Mocenigo and Loredan families on one side and the Contarini and Bembos on the other side. These families, however, were still supported by their very extensive network, and were still leaders in their respective clusters. Still, it is interesting to check how their position in the social network brought the Faliero family to the highest position in the Republic, how that position is reflected in their social network standing, and how the Council of X "attacked the connectors", although due to the nature of such network, as well as the nature of politics in the Republic of Venice, it did not create factions and, in fact, there was only other occasion in which a doge did not die during his tenure\footnote{As indicated in \cite{histories3010003} (after \cite{smith2021long}), part of the reason why this happened was due to the fact that, starting more or less in that century and after the \emph{Serrata}, doges were mostly elected in their old age.}. The weddings corresponding to the Gradenigo side took place in the XIV and XV century; the Marino Faliero, the disgraced doge, married Aluycia Gradenigo and Tommasina Contarini, thus two of the existing links happened to a single person; Vital Faliero, on the other hand, married in the XI century to Cornella Bembo, falling thus off the period covered by the marriage network. In general, what we see in this doges-only marriage network are periods of time that are not covered by the dataset analyzed in subsection \ref{ss:marriage}; that implies that in the (unknown) general social network, these specific nodes might not have such a great standing, and thus its elimination might not have such a big impact. This is, effectively, what we observe in this case.
 
+\subsection{Macro network features}
+
+Since these three datasets represent a different sample of the Venetian social network, is there any feature that is shared by all of them?
+
+<<r macro.network, echo=F, message=FALSE>>=
+macro.measures <- data.frame( name="Doges",diameter=diameter(doges.sn), clustering.coefficient=transitivity(doges.sn,type="global"), assortativity=assortativity_degree(doges.sn))
+macro.measures <- rbind(macro.measures,
+                        data.frame( name="Marriages",diameter=diameter(marriages.sn), clustering.coefficient=transitivity(marriages.sn,type="global"), assortativity=assortativity_degree(marriages.sn)))
+macro.measures <- rbind(macro.measures,
+                        data.frame( name="Colleganza",
+                                    diameter=diameter(venice.colleganza.sn),
+                                    clustering.coefficient=transitivity(venice.colleganza.sn,type="global"),
+                                    assortativity=assortativity_degree(venice.colleganza.sn)))
+kable(macro.measures,
+      caption="Macro measurements for the three social networks under analysis.\\protect\\label{tab:macro}")
+@
+
+
+
 \section{Discussion}
 
 \section{Conclusions}
