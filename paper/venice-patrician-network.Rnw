@@ -466,7 +466,7 @@ The Faliero family acted as a bridge between the Gradenigo, Mocenigo and Loredan
 
 \subsection{Macro network features}
 
-Since these three datasets represent a different sample of the Venetian social network, is there any feature that is shared by all of them?
+Since these three datasets represent a different sample of the Venetian social network, is there any feature that is shared by all of them? We have taken several macro measures from these network, and shown them in Table \ref{tab:macro}.
 
 <<r macro.network, echo=F, message=FALSE>>=
 macro.measures <- data.frame( name="Doges",diameter=diameter(doges.sn), clustering.coefficient=transitivity(doges.sn,type="global"), assortativity=assortativity_degree(doges.sn))
@@ -482,6 +482,9 @@ kable(macro.measures,
       col.names=c("Network","Diameter","Transitivity","Assortativity"))
 @
 
+These measurements reflect the features of the underlying social network. The nature of the three networks is different: the marriage network is a very good sample of the patrician social network, although limited in time; the doges' families social network is a narrow sample, but it spans almost the whole duration of the republic; finally, the \emph{colleganza} social network spans the first centuries of the Venetian Republic, and is unique in the sense that it includes merchants as well as nobles (to the extent that a noble class actually existed before the \emph{Serrata}).
+
+ The first one, diameter, is related to cohesion and how different parts of the network are related to each other; it is quite remarkable that the diameter in the marriages social network is limited to six.
 
 
 \section{Discussion}
