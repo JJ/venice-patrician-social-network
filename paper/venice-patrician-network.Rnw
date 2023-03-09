@@ -469,17 +469,27 @@ The Faliero family acted as a bridge between the Gradenigo, Mocenigo and Loredan
 Since these three datasets represent a different sample of the Venetian social network, is there any feature that is shared by all of them? We have taken several macro measures from these network, and shown them in Table \ref{tab:macro}.
 
 <<r macro.network, echo=F, message=FALSE>>=
-macro.measures <- data.frame( name="Doges",diameter=diameter(doges.sn), clustering.coefficient=transitivity(doges.sn,type="global"), assortativity=assortativity_degree(doges.sn))
+
+biggest.connected.component.size <- function( sn ) {
+  components <- clusters(sn, mode="weak")
+  biggest_cluster_id <- which.max(components$csize)
+  vert_ids <- V(sn)[components$membership == biggest_cluster_id]
+  return(length(vert_ids)/length(V(sn)$name))
+}
+macro.measures <- data.frame( name="Doges",connected=biggest.connected.component.size(doges.sn), diameter=diameter(doges.sn), clustering.coefficient=transitivity(doges.sn,type="global"), assortativity=assortativity_degree(doges.sn))
 macro.measures <- rbind(macro.measures,
-                        data.frame( name="Marriages",diameter=diameter(marriages.sn), clustering.coefficient=transitivity(marriages.sn,type="global"), assortativity=assortativity_degree(marriages.sn)))
+                        data.frame( name="Marriages",
+                                    connected=biggest.connected.component.size(marriages.sn),
+                                    diameter=diameter(marriages.sn), clustering.coefficient=transitivity(marriages.sn,type="global"), assortativity=assortativity_degree(marriages.sn)))
 macro.measures <- rbind(macro.measures,
                         data.frame( name="Colleganza",
+                                    connected=biggest.connected.component.size(venice.colleganza.sn),
                                     diameter=diameter(venice.colleganza.sn),
                                     clustering.coefficient=transitivity(venice.colleganza.sn,type="global"),
                                     assortativity=assortativity_degree(venice.colleganza.sn)))
-kable(macro.measures,
+kable(macro.measures, digits=3,
       caption="Macro measurements for the three social networks under analysis.\\protect\\label{tab:macro}",
-      col.names=c("Network","Diameter","Transitivity","Assortativity"))
+      col.names=c("Network","Connected", "Diameter","Transitivity","Assortativity"))
 @
 
 These measurements reflect the features of the underlying social network. The nature of the three networks is different: the marriage network is a very good sample of the patrician social network, although limited in time; the doges' families social network is a narrow sample, but it spans almost the whole duration of the republic; finally, the \emph{colleganza} social network spans the first centuries of the Venetian Republic, and is unique in the sense that it includes merchants as well as nobles (to the extent that a noble class actually existed before the \emph{Serrata}).
