@@ -18,6 +18,9 @@
 \tfootnote{This paper has been supported in part by project and DemocratAI PID2020-115570GB-C22.
 }
 
+\newcommand{\coll}{\emph{colleganza}}
+\newcommand{\colln}{\coll{} network}
+
 \markboth
 {JJ Merelo: Keeping up with the Contarinis}
 {JJ Merelo: Keeping up with the Contarinis}
@@ -502,7 +505,7 @@ The \emph{colleganza} network is remarkable also in its assortativity, or how no
 
 \section{Discussion}
 
-In this paper we set out to answer a series of research questions through the analysis of social networks in the Republic of Venice; these social networks are a good, albeit incomplete, cross section of all kinds of relationships established throughout all its history. One of the easiest questions to answer is RQ2, related to how the position of the network of certain families explains their accession to doge status or other offices; to a certain extent, this has already been proved by \cite{gooddoge, 10.1093/qje/qju006,Telek2017MarryingTR}, mainly looking at the doges and marriage network.
+In this paper we set out to answer a series of research questions through the analysis of social networks in the Republic of Venice; these social networks are a good, albeit incomplete, cross section of all kinds of relationships established throughout all its history. One of the easiest questions to answer is RQ2, related to how the position of the network of certain families explains their accession to doge status or other offices; to a certain extent, this has already been proved by \cite{gooddoge, 10.1093/qje/qju006,Telek2017MarryingTR}, mainly looking at the doges and marriage network. We have also shown how the \emph{Serrata} made the families with the highest EV centrality in the \colln, through the restriction of seats in the Maggior Consiglio to those whose family had already occupied that office. The high EV of the Contarini family explains their dominance of the doge position during the XVII century, too, but also their permanence as a relatively wealthy family throughout the ages. Families that through their commercial activity or marriage alliances keep being active, like the Morosinis or Querinis, keep popping up in historical events even by the end of the Republic. In most cases, and as already shown in \cite{gooddoge}, only families with a high EV centrality (in any of the network studied) are able to become doges; this starts to fail in the last century of the Republic; the Manin (last doge) and Ruzzini (doge from 1722 to 1732) did not have a high degree or centrality; other families: Mocenigo, Corner, Pisani, Grimani, Loredan, Foscarini and Renier, did have a high EV centrality. The Mocenigo family, which gave the Republic three doges in the XVIII century, is part of the "exclusive" dogal network, with a high EV, part of the Ziani group in the \colln; it does not have the highest degree in the marriage network, but it is among the top 50. So, to answer RQ2, the social network position, measured by their eigenvector centrality and degree, explains and to a certain point predicts the occupation of high-level jobs and to a certain point the survival of the family\footnote{It can be argued that the survival of the Contarini family is due to their sheer numbers, and to a certain point that is true. However, their network position would then be a second-order effect, because "fitness" (number of surviving offspring) is also an effect of wealth and position, specially for women; since dowry was a significant expense \cite{sperling_1999}, only wealthy families would manage to marry their daughters and thus reach a certain number of members.}.
 
 \section{Conclusions}
 
