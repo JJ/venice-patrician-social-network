@@ -478,7 +478,8 @@ macro.measures <- rbind(macro.measures,
                                     clustering.coefficient=transitivity(venice.colleganza.sn,type="global"),
                                     assortativity=assortativity_degree(venice.colleganza.sn)))
 kable(macro.measures,
-      caption="Macro measurements for the three social networks under analysis.\\protect\\label{tab:macro}")
+      caption="Macro measurements for the three social networks under analysis.\\protect\\label{tab:macro}",
+      col.names=c("Network","Diameter","Transitivity","Assortativity"))
 @
 
 
