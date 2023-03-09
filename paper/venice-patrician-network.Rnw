@@ -500,8 +500,9 @@ Diameter, in the next column, is also related to cohesion and how different part
 
 The \emph{colleganza} network is remarkable also in its assortativity, or how nodes connect to other nodes. This quantity is negative, meaning that low-connectivity nodes connect to high-degree nodes preferably; it is positive in the other cases, showing the assortativity of these mainly familiar networks. This reflects the asymmetric nature of \emph{colleganza} network, with "capitalist" families funding the ventures of "working" merchants, who did the actual work. But this kind of network favored social mobility, as indicated by \cite{10.1093/qje/qju006}. This was found, apparently, not in the best interest of the republic, which actually favored cohesion, something that is reflected in the later (marriage) or longer-running (doges) network.
 
-
 \section{Discussion}
+
+In this paper we set out to answer a series of research questions through the analysis of social networks in the Republic of Venice; these social networks are a good, albeit incomplete, cross section of all kinds of relationships established throughout all its history. One of the easiest questions to answer is RQ2, related to how the position of the network of certain families explains their accession to doge status or other offices; to a certain extent, this has already been proved by \cite{gooddoge, 10.1093/qje/qju006,Telek2017MarryingTR}, mainly looking at the doges and marriage network.
 
 \section{Conclusions}
 
