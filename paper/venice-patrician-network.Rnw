@@ -537,7 +537,7 @@ This opens many future lines of work, the most interesting of which would be how
 
 \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{jj.jpg}}]{JJ Merelo}
 
-has a PhD in Physics
+JJ Merelo is professor at the university of Granada, in the department of Computer Engineering, Automatics and Robotics. He obtained a PhD in Physics in 1994 from the same university. He has been interested in complex systems for a long time, including applications to ecology and social systems. He is also an advocate of open science and free software.
 
 \end{IEEEbiography}
 
