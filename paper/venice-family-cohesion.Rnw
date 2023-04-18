@@ -12,7 +12,7 @@
 \history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
 \doi{10.1109/ACCESS.2017.DOI}
 
-\title{The family is the most important thing: maitaining cohesion in Venetian extended families through marriage.}
+\title{Keeping up with the Contarinis: Understanding family ties and power dynamics in the Republic of Venice through social network analysis}
 \author{\uppercase{J. J. Merelo}\authorrefmark{1}}
 \address[1]{Computer Engineering, Automatics and Robotics department, University of Granada (Spain)}
 \tfootnote{This paper has been supported in part by project and DemocratAI PID2020-115570GB-C22.
@@ -42,7 +42,7 @@ for (r in 1:nrow(family.types)) {
 @
 
 \begin{abstract}
-
+For the best part of a millennium, the Republic of Venice was a state with a stable form of government equivalent to an elective monarchy. Rulers, called \em{doges} (singular \emph{dux} or \emph{doxe} in the vernacular language), were chosen from the noble families following a complicated procedure that essentially guaranteed a very wide majority was needed to support that specific person. The need for a qualified majority implied that social capital was essential to achieve that specific job; this was also true for every other job in the host of institutions that supported the government. Social capital was accrued by families, not by individuals, since nobility was hereditary and there were certain restrictions to having several members of the same family in collegiate institutions; and this was done through commercial, political, and also social acts: trade and mutual investment or joint ventures, support through endorsements for government jobs, and also marriage. Thus, understanding the social network and its evolution is essential to gather some insights on the tenure and standing of some families, some of which managed to "make doge" for several centuries, as well as how \emph{new} families had a head start to those very coveted positions and how others simply vanished. In this paper we will, through samples of that social network obtained from existing and available open sources, namely, marriages of doges, registered marriages, and joint commercial ventures, analyze the main actors in those social networks, as well as study its dynamics and how it correlates to other events in the history of the Republic. We will also try and check if there was some hints of strategizing for better positions in the social networks for the families involved. The position of certain families in the social network will be analyzed and matched to their historical record.
 \end{abstract}
 
 \begin{keywords}
@@ -55,19 +55,85 @@ Social network analysis, digital humanities, Venice, Venetian empire, doges, his
 
 \section{Introduction}
 
+During more than eleven hundred years (from 679 to 1797 A.D.), the Venetian republic managed to raise from a small salt-producing and fishing village under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the \emph{Napoleonic} storm reconfigured the map of Europe forever \cite{horodowich2013brief}.
+
+Many different approaches to research social and political dynamics in this part of history are possible \cite{doi:10.1086/242943,wetherell_1998}. In this paper we will follow a social network approach. A social network \cite{mitchell1974social} is a graph, that is, a collection of nodes, which in a social context are called {\em actors}, linked by {\em edges}, which in a social context are also simply called {\em links} or ties (as in {\em family ties}).
+
+Social networks are able to simultaneously reflect big social movements and the structure and the influence in them of individual actors, according to their position of the network \cite{tilly1985european}. This position in the social network is related to the less easily measurable reputation, and reputation has been proved to be one of the keys to the success of the Venetian system \cite{de2008secret,sperling_1999}. But what should we consider {\em actors} in this social network? In principle, we will consider families with the same surname a single actor through history. There are several reasons to do so, besides the fact that all social network analysis performed on the Republic of Venice has done it previously \cite{ryabova2019venetian,Telek2017MarryingTR,10.1093/qje/qju006,RePEc:ver:wpaper:01/2023}; the family (or \emph{casata}) in Venice was also an economic unit, with all the family guaranteeing commercial enterprises or being responsible for losses incurred by the head of the family, the reputation unit was not the individual or nuclear family, but the extended family \cite{bellavitis13}. In time, some families (notably the Contarinis) became so big that, to a certain extent, they were locally considered different families\footnote{The Contarini included several "branches": San Silvestro, dal Bovolo, dagli Scrigni, dal Zaffo; the first and the last were the ones that actually included doges.}. There are several reasons why we will still consider them the same family, and thus a single node in the social network. The first is methodological; which part of the family they belong is simply lost to the records, and is impossible to know in retrospect. The second has some bases on historical context: every family was proud of its common origin \cite{casini2010some}, and, reputation-wise, they would take good care of not doing anything that would besmirch the name of their {\em casata}. As a matter of fact, this division only affected {\em big} families, and most of them had a single branch or, at most, a few closely-related ones. The fact that some families had different palaces in different parishes, and were referred to by this fact \footnote{There were more lurid ones: A Contarini branch was called {\em dal naso}, "of the nose", due to one of their members breaking the aforementioned appendix of a doge \cite{tassini1882curiosita}, a fact for which he was beheaded.}, was probably a pragmatical measure; in practice, they considered themselves part of the same extended family. Finally, these families, even if separated, probably still held so many close ties that they would be closer to each other than to the rest of the families. We will try, with the data at hand, to provide some proof of this latter assertion. 
+
+One of the key features of the Venetian trading system was the role of the state as provider of shipping resources, a system (the "staple" system) in which monopolies on the trading of certain products guaranteed profits for tradesmen \cite{christ2019venetian,lane1973venice}, as well as a general coordination of shipping routes and lanes; earning social capital (that is, achieving a certain level of reputation) within the system allowed individual families access to certain government jobs\footnote{In general, most official appointments were reserved to nobles, although a few of them, notable the Chancellery, were reserved to non-noble families, together with some other clerk-level positions\cite{7499060320111001}.} in the first stages of the Republic, but this could explain also how some families remained in the inner circles of power and wealth throughout all the republic history.
+
+In this paper, we will try, through social network analysis, to answer the following research questions: \begin{itemize}
+\item[RQ1] Can the long periods of time in the inner circles of power of certain families whose political and economical activity spanned the thousand years of the republic be explained through their position in this network?
+\item[RQ2] Does the position in the network of a family explain its changes in standing after certain political events?
+\item[RQ3] Are there macro-qualities of the network which explain the stability of the political system, despite external geopolitical or technological events?
+\item[RQ4] Are there some hints on the use of \emph{tactical} social networking, that is, creating social links to further a political agenda?
+\end{itemize}
+
+To answer these questions we will use several datasets on links between families in the Republic of Venice, one of which has been created\footnote{Or rather expanded from the one used in \cite{gooddoge}.} for the purposes of this paper, to analyze the sample of the Venetian social network they represent. As such a sample,  it is not complete, and it is impossible to know what percentage of the real social network it represents;  but several analysis performed on this data show that it is at least representative, or has no obvious bias (overrepresenting or under representing some family, for instance) and has been used successfully by several researchers \cite{10.1093/qje/qju006,gooddoge,10.1257/app.20180463,Telek2017MarryingTR} to gain insights on the mechanisms behind the historical dynamics of the Republic of Venice.
 
 The rest of the paper is organized as follows: next up we will present the state of the art in historical social network analysis and computational historical analysis applied to Venice. Next, Section \ref{sec:history} presents a brief history of Venice for context. How data for this study has been obtained and processed is presented in Section \ref{sec:data}. Available data is piecewise analyzed next in Section \ref{sec:sna}. Finally, these results are discussed and conclusions are drawn in the last Section.
 
 \section{State of the art}
 
+Social network analysis has increasingly become a tool in the hands of historians, despite the hurdles for its comprehensive usage mainly stemming from incomplete or missing data \cite{wetherell_1998,doi:10.1080/01615440.2014.962208}; however, it is still relatively rare to find studies that apply them, or that use social network measurements to achieve a deeper understanding of some historical mechanism or social dynamics that eventually shape history.
+
+Since mercantile networks, from the introduction of double entry bookkeeping, are quite extensively recorded, most studies use them to study trade or commercial networks \cite{lotz2022reconstructing,harreld2006merchants,walther2015business}, a type of social network that does not need any further prove of interchange of information, since it already involves the interchange of money and merchandise. For instance, \cite{lotz2022reconstructing} mentions inscriptions as sources for Roman trade networks, extracted from the \emph{Corpus Inscriptionum Latinarum}. Any data set that can obtained, at any rate, will be incomplete and a sample of the complete social network. However, as long as the bias of the sampling is examined and acknowledged, conclusions should be, to a certain extent, valid.
+
+Since Venice is widely known for its mercantile nature, its trading networks were studied in \cite{apellaniz2013venetian}, focusing on how low-ranking or colonial individuals used mercantile networks to penetrate other social circles, or even how the manipulation of these helped their mobility, social and otherwise. In this, the power of social network analysis to first analyze, and then, by focusing on the position of specific nodes and mesoanalysis, gather insights on social historical mechanisms, was revealed. Two quantities were analyzed: betweenness and closeness centrality. The first measure is related to the position of a node (person) in a specific network, and how passing through that node is a necessity to communicate different parts of the network. Closeness centrality, on the other hand, expresses how difficult is, for a specific actor, to reach any other part of the network. These two quantities are essential to have a high-level understanding of emerging properties of the network, such as modularization, division between different groups or cliques, and also how network-correlated attributes, such as wealth, arise. Based on their books, \cite{ryabova2016social,ryabova2019venetian} analyses the social networks of a trading family, the Soranzo, one of the \emph{case vecchie}. These papers explains how mercantile companies were usually temporal partnerships in Venice, which augmented the importance of the social network as such, and a way to accrue social capital. The study of commercial partnerships for this firm shows how extensive was commerce with German cities (very probably belonging to the Hansa league), which was even bigger than the one with Venice itself. Although there's no attempt to analyze the ego network beyond the connections between the center and others, it shows many patrician families among the mercantile partners, revealing how ties between nobles occurred at many different levels, political, familiar, and mercantile.
+
+<<r age, include=FALSE>>=
+ages <- read.csv("../resources/years-reign.csv")
+@
+
+Other kinds of networks usually have scattered or missing registries, and thus are more difficult to analyze. Marriage networks is one of these: in most cases, there is no centralized registry that allows to track individual or families through time. However, that is not the case in Venice, which is why several other papers have analyzed them for hints on social mobility and how social position helped individual careers. Telek \cite{Telek2017MarryingTR}, using data from Puga and Trefler \cite{10.1093/qje/qju006}, analyzed the marriage social networks and found that marrying into a family with high betweenness centrality contributed to ascent in the Venetian bureaucracy. The paper mentioned as source, by Puga and Trefler  \cite{10.1093/qje/qju006}, although it does not have social network as its focus, does make a case of social networking as the main political and economic elevator in the republic of Venice, and how the social mobility brought by the \emph{colleganza} or government-sponsored joint commercial ventures was stopped short by the \emph{Serrata} at the end of the XIII century. This event brought social and legal stability to the republic, but created a clear split between nobility and the rest of the population that might have ended the republic if Napoleon has not done it before. Marrying patterns and strategies in a part of the population usually have long-lasting effects, as proved by Goñi \cite{10.1257/app.20180463} in its study of how the disappearance of a social event that was used by British nobles to engage their offspring for a few years created an opportunity for social mobility that lasted until the XX century.
+
+Evidence of other social relationships are not so common; however, the Republic of Venice and its host of institutions recorded everything in the \emph{Archivio di Stato}; this has allowed the investigation of other social networks, such as the bimodal network that linked noble families and government jobs \cite{RePEc:ver:wpaper:01/2023}. This paper looks at how the large-scale structure of the social network changed after one of the most lethal plagues, the Black Death in 1347-48 that decimated the Venetian population. They show that the network is affected by this kind of events, although the actual influence in the standing of some families depends on their position in the network; this proves that effects that are external to the network will always have to be taken into account when explaining its evolution.
+
+Venice has been approached as the subject of other quantitative studies in several occasions. \cite{smith2021long} recently published a paper studying how the age of doges was chosen in such a way that, even if it was a lifelong post, their terms were naturally limited. As a matter of fact, we have computed the median number of years ruling to be \Sexpr{median(ages$Reigning)}, with average at \Sexpr{mean(ages$Reigning)}; see \cite{histories3010003} for an extended explanation of what (possibly) caused it and when it started to happen. From a different point of view, closer to the focus of this paper, Molinari \cite{molinari2020republic} studied how the election procedure affected the representation of different families in the highest magistrate of the republic, concluding that it kept a good balance between giving representation to a large group of families, while not totally disenfranchising smaller groups.
+
+
+We will analyze in this paper the social network of (mostly) patrician families revealed by nobles and commercial ventures, as a way to understand their power and social  dynamics and thus have some insights on the causes of the stability and longevity of the Venetian state. But let us first present a brief history of these patrician families, and their attributes.
+
 \section{A brief history of Venice}
 \label{sec:history}
 
+When we talk about social dynamics in Venice, we are really talking about a limited part of the population: the nobility; the Venetian \emph{patriziato} (Italian) or \emph{patrisiato} (Venetian), that is, the patriciate or nobility, has always been attached to the access to power symbolized by the office of the doge. However, it has evolved with the institution and the different constitution-like laws that constrained it. In general, being a patrician meant you could had the right to be elected or to elect the doge. And nobility, as usual, was inherited, so you became noble by simply being part of a family (in Venetian, \emph{casa}), and obviously could never become one of them if you had not \cite{chojnacki2000women}.
+
+How did this nobility came to be? After a brief period when Venice was part of the exarchate of Ravenna and was governed by a military administration, dogarate was restored in 742, with doges, once again, elected popularly. The period that started then was not particularly stable. Many doges were deposed by the people or directly killed; the Venetians abhorred instability, which is why the first restricting law was introduced in the \emph{concio} or popular assembly in 1032: the doge was forbidden from appointing a consul (a second in command destined to succeed him), and even more so, a privy council was appointed to take care of enforcing that law; a council "of the Wise" was created in the next century to further control and counter-balance the executive power of the doge.
+
+The XI century was also the date when Venice started to focus on seafaring, becoming a \emph{stato da mar}, a sea state or a maritime republic \cite{lane1973venice}; however, it was not until the next century when state supported commercial enterprise began to flourish. While before, risk and investment was shared among different merchants who shipped their wares in a specific expedition, in the XII century a type of contract known as \emph{colleganza} became widely used. Merchants still traveled with their wares, but instead of taking a loan, they shared the profits with whoever had invested the money. These contracts were based on a web of trust, and it allowed entrepreneurial spirits to accrue social as well as real capital. Successful merchants became active part of the government of the city, and part of the pool from which the doge was elected; but this also caused accumulation of power, in the way of government offices, by certain families, and the exclusion of others.
+
+So by the end of the XIII century there was a need to make access to government offices more systematic, instead of relying only on the public face offered by the family. But one of the key laws for the future governance of the Republic was the \emph{Serrata} \cite{serrata} or "closure" that was introduced in the transition between the XIII and XIV century \cite{ferraro_2012}. This series of laws effectively \emph{closed} the induction into the Supreme Council (\emph{Maggior Consiglio}) to most citizens, and consecrated the existence of a relatively small group of patrician families with a monopoly on power. Although theoretically any \emph{citadino} or \emph{patrizio} could be elected as doge, the pool of possible doges was reduced to a few persons that had spent a life of serving in different institutions, including one or several terms in the aforementioned Maggior Consiglio. This made people effectively known and eventually eligible, so the highest seat was effectively closed to this group of families.
+
+For some time after this \emph{Serrata}, only 25 families, thereafter called \emph{vecchie} (meaning "old"), were the total extent of the patriciate. Out of those families, 12 were called \emph{apostoliche}, a name coming, apparently, only from their number, and were supposed to be among the founding families of the state; another four were denominated \emph{evangelisti}: Giustinian, Corner, Bragadin and Bembo. These families will, effectively, form the initial pool where the doges were drawn from, and are also the families that have been for the most time a part of the nobility.
+
+This was a relatively small pool for a relatively small city-state. But starting from the XIII century, Venice expanded through the Adriatic and Mediterranean, and the need to expand the nobility became evident. So, other set of families were also converted into patricians. These so called \emph{nuove} or new were incorporated in the XIII and XIV centuries, initially after the war against Genoa and the fall of Constantinople. Those incorporated in the XIV century were called \emph{nuovissime}, or "very new"; this set included a few families from "abroad" (mainly, the Adriatic colonies placed where Croatia and Montenegro are now, and even other cities in \emph{terraferma}, or the continent, such as Verona or Parma). This expansion in the number of noble families has coincided with what has been termed the "second" \emph{Serrata}: forbidding weddings between nobles and regular citizens, and closing also access to nobility to men born out of wedlock \cite{sperling_1999}. These laws were introduced by the beginning of the XV century, and contributed to the reduction of social mobility, as well as to access to a pool of social capital of wealthy non noble merchants.
+
+Not all was lost for this social group: with the decadence of the Republic in the XVII century, you could simply pay your way into the nobility. More than a hundred families accessed that way, some in the very last years of the Republic. These were referred to as \emph{per soldo}, "by money" \cite{ferraro_2012:soldi}. However, by that time, nothing could stave off the end of the Republic, and social mobility did not matter at all.
+
+Throughout most of the history of the republic, however, relationships between families worked at many different levels, and, as \cite{chojnacki_1985}, these levels cannot be separated. Arranged marriages and commercial relationships were a fair aspect of them, but also \emph{sponsorship} into what was called \emph{Balla d'Oro}, a lottery to choose certain members into the Maggior Consiglio at an early age. Nobles could only be designated for these term-limited seats when they were twenty five; however, they could become eligible when they were only twenty years old if they won the lottery. However, to get a ticket for this "lottery" as many as five families were needed. This created a series of mutual links that could persist through time \cite{chojnacki_1985}.
+
+These power dynamics came into play when a new doge was elected. Starting with the Maggior Consiglio, to which all the noble families belonged, there followed a procedure \cite{electing:doge} where \begin{enumerate}
+\item A small group of electors were randomly selected. For instance, the first step drew 30 members from the Maggior Consiglio, from which again only 9 members were chosen.
+\item This random electoral college chose the electoral college in the next step. However, every member of this next-phase electoral college needed to be chosen by a super-majority; in the first case, 7 over 9 were needed.
+\item Four electoral colleges, with different numbers whose origin is difficult to ascertain, were successively elected until the final one: 41 members. 25 out of these were needed to nominate the doge.
+\end{enumerate}
+
+This procedure guaranteed whoever had the inclination to become doge, and the family that supported him, needed a super-majority \cite{super:majority} to become one. But, at the same time, there was a chance that, through the byzantine procedure, some family that had some, but not overwhelming, support, ended up with a qualified majority in one of the steps and thus achieved power. At the same time, it was a system that ensured wide popular (read: patrician) support for the future doge, but did not disenfranchise any family that was not able to join that majority.
+
+From the point of view of the social network, a complex game was afoot. While joining the clique of a powerful family with many links might give your \emph{casa} certain guarantees, you could not simply ignore other \emph{case} because their votes might be needed in an electoral college stage, or at the very end. On the other hand, there were only so many daughters you could marry or so many commercial enterprises you could create with other families. So a certain strategy, that went beyond simple commercial interest, might be needed.
+
+In the next sections we will analyze what data we have on the Venetian social networks, looking at how the reflect on one hand and explain on the other hand the social, politic and, to a certain extent, economic events in the history of the republic. We will try to explain how the structure and main actors in the social network came to be, and how they kept themselves in the positions they attained. Next we will briefly explain how data was obtained and prepared for this paper.
 
 \section{Data set extraction and preparation}
 \label{sec:data}
 
 This paper uses two different data sources: data sets prepared for Puga and Trefler paper \cite{10.1093/qje/qju006} by them, which were downloaded from \texttt{https://diegopuga.org/data/venice/}. These datasets includes normalized family names for marriages registered with the Avogaria di Comun \cite{10.2307/1142398}, as well as data for shipping contracts available from several different sources. We have used these datasets as they are, with very minor corrections mainly to normalize surnames in the same way as the data we already had\footnote{Modified data is available from the GitHub repository that includes this paper, respecting the original license}.
+
+The second dataset is included with the {\tt dogesr} R package, in its 0.2.0 version, published in the CRAN R package repository \cite{gooddoge}. It includes data from all doges, the women they married with, as well as their mothers, when available. This data has been gathered from the Wikipedia, and completed with other references \cite{staley1910dogaressas}.
+
+Except for the unknown brides and, thus, their families, which are probably not, at any rate, part of the Venetian nobility, and unlike most datasets used in digital humanities, this social network is, in its narrowest sense, complete. However, it is but a sample of the social network that links Venetian noble families and that would include all kind of links: familiar, commercial and political. Focusing on the cusp of the social network, the doges, it is probably quite a representative sample; after all, these were arranged marriages and one does not simply marry with a doge or a family with a member having a high chance of becoming one. Another advantage is that it spans the whole duration of the republic, and is also (relatively) well dated\footnote{The actual date of the wedding is not available, but the moment the doge started its tenure is well known and recorded.}.
 
 \section{Analyzing Venetian social networks}
 \label{sec:sna}
@@ -76,19 +142,168 @@ There are several sources, that is, samples, of the social graph of the patricia
 
 We will analyze, in turn, the social networks due to the \emph{colleganza} or commercial joint ventures, the marriage social network, and the doges marriage and matrilinear social network; this order roughly reflects the time span of every dataset. We will mainly use eigenvector centrality \cite{landherr2010critical} to reflect the standing of different families in the social network, which is related to how connected a node is to the nodes with the highest influence. What we will be looking for is the influence of certain events on the social network, as well as how the position in such network is correlated to actual political and economic positions of the family.
 
+\subsection{\emph{Colleganza} social network}
+
+<<r orig.data, echo=FALSE>>=
+data <- read.csv("../resources/colleganza-pairs.csv",header=FALSE)
+@
+
+This dataset, which has been taken from \cite{10.1093/qje/qju006}, is an interesting cross-section of the Venetian social network spanning from \Sexpr{min(data$V3)} to  \Sexpr{max(data$V3)}, that is, it goes beyond the creation of the electoral college in 1172, but barely covers the post-\emph{Serrata} era, which started by the beginning of 1300. In that sense, it is the best data we have on the social situation, and social standing of families, before the access to Venetian nobility was closed (although a more precise term for what happened would be "regulated"). Besides, these are actual commercial ties that imply interchange of money, information and thus trust and social capital.
+
+<<r colleganza, fig.pos="h!tbp", fig.height=6, fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\cite{10.1093/qje/qju006}. Groups are computed by edge betweenness, resulting in 18 different groups, 11 of which are connected \\protect\\label{fig:modcol}.'>>=
+
+library(igraph)
+
+venice.colleganza.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
+cnet <- cluster_edge_betweenness(venice.colleganza.sn)
+
+V(venice.colleganza.sn)$degree <- degree(venice.colleganza.sn)
+
+E(venice.colleganza.sn)$weight <- 1
+venice.colleganza.sn <- simplify(venice.colleganza.sn, edge.attr.comb=list(weight="sum"))
+V(venice.colleganza.sn)$betweenness <- betweenness(venice.colleganza.sn)
+V(venice.colleganza.sn)$eigen <- unname(unlist(eigen_centrality(venice.colleganza.sn)$vector))
+V(venice.colleganza.sn)$pr <- unname(unlist(page_rank(venice.colleganza.sn)$vector))
+
+family.types.unstacked <- stack(family.type.dict)
+family.types.df <- data.frame( Name=family.types.unstacked$ind, Type = family.types.unstacked$values)
+V(venice.colleganza.sn)$type <- family.types.df[ family.types.df$Name %in% names(V(venice.colleganza.sn)),]$Type
+plot(cnet,venice.colleganza.sn,
+     layout=layout_with_fr(venice.colleganza.sn),
+     vertex.size=10*V(venice.colleganza.sn)$eigen,
+     vertex.label.cex=0.5)
+@
+
+As the Figure \ref{fig:modcol} shows, out of the \Sexpr{length(V(venice.colleganza.sn))} families that are included in the dataset, 108 are connected; most families, in one way or another, participated in these joint ventures, with varying allegiances through time. Groups have been defined by a high number of internals links using the {\tt cluster\_edge\_betweenness} method in the {\tt igraph} package \cite{csardi2006igraph}. Different groups are encircled by a figure with the same color, and they have the same node color. Every family is represented by a node, and a link indicates that the dataset includes a colleganza contract. Nodes are sized proportionally to eigenvector centrality; since in most cases, it is very low or zero, the existence of a node is only revealed by the family name. Graph layout follows the standard \texttt{igraph} layout, which is Fruchterman-Reingold \cite{fruchterman1991graph} by default. Eigenvector centrality was also used as a measure of importance by \cite{10.1093/qje/qju006}, although they focus on the marriage social network, examining this one only for the presence of commoners and nobles.
+
+But this graph shows also the scale of the \emph{colleganza} system, which involves many different families, but also the fact that there are just a few families, and well known families at that, with a high eigenvector centrality. What strikes us most is the prominence of the Viaro or Viadro family, which is almost completely unknown (or at least forgotten), and is due mainly to the doings of a single entrepreneurial person, Tommaso Viadro \cite{de2008secret}, which initiated joint ventures with many families, including several of the important ones, the Gradenigos and Badoers\footnote{Tommaso Viadro is mentioned in \cite{lane1973venice} as the castellan of Negroponte that contributed to its seizure by the Ottomans; this caused his fell from grace. But, more notably, four of his sons died during a plague. Both causes, together, no doubt contributed to his demise}. This family is clearly not one of the most important families, even for the period considered, and this probably shows the vulnerability of measures like betweenness to low sample sizes. But this fact is an interesting showcase of how the \emph{Serrata} changed everything, as posited by \cite{10.1093/qje/qju006}, closing social mobility of entrepreneurial families and shooting down the possibility of them participating in the government of the Republic. It also shows how closely knit this social network was, with just a few families kept out of it including, curiously enough, some families such as the Loredan, which later on was elevated to high nobility. Again, and as indicated by Puga and Trefler, this shows how the \emph{Serrata} upended social order, bringing a set of families to the forefront, while dropping other families such as the aforementioned Viaro. The ranking of families according to eigenvector centrality is shown next.
+
+<<r colleganza.table, echo=FALSE>>=
+eigen.df <- data.frame(Family=names(V(venice.colleganza.sn)),eigenvector.centrality=V(venice.colleganza.sn)$eigen,type=V(venice.colleganza.sn)$type)
+eigen.df.ordered <- eigen.df[ order(eigen.df$eigenvector.centrality,decreasing = T),]
+library(knitr)
+betw.table <- data.frame( Family=eigen.df.ordered$Family, Betweenness=eigen.df.ordered$eigenvector.centrality, Type=eigen.df.ordered$type )
+kable(betw.table[ betw.table$Betweenness> 0.1,],caption="Ranking of families in the colleganza network according to eigenvector centrality and their type; only those with a value higher than 0.1 are shown.\\protect\\label{tab:ranking:colleganza}")
+@
+
+Please also check that the Soranzo family, which was the subject of Ryabova et al.'s papers \cite{ryabova2016social,ryabova2019venetian}, is also part of this ranking, showing their standing in the social network and making them a good representative of the noble/trading families at large, supporting the validity of their analysis. In fact, Figure \ref{fig:modcol} shows that it is close to the "center", making it a well-related family, which in fact, as Table \ref{tab:ranking:colleganza} is one of the families with the highest EV centrality. This table also shows how all the families with a high EV centrality eventually became nobility, either for the \emph{Serrata} (all of them except the \emph{nuove}) or soon after, after the Genoese wars (the \emph{nuove}). Four apostolic families have a high EV, and the highest are the Morosinis, one of the oldest families. Nobility breeds centrality, centrality begets wealth, which helps maintain centrality or even increases it.
+
+<<r high.ev.families,echo=FALSE>>=
+high.ev.families.df <- data.frame("Morosini group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==2]),rep("",5)),
+                                  "Contarini group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==4]),rep("",4)),
+                                  "Viaro group" = as_ids(V(venice.colleganza.sn)[cnet$membership==3]),
+                                  "Ziani group" = c(as_ids(V(venice.colleganza.sn)[cnet$membership==1]),rep("",4)),
+                                  check.names = FALSE)
+kable(high.ev.families.df,caption="Groups (clusters) of families that include those with the highest eigenvector centrality, named by the most characteristic \\protect{\\em casa} in them.\\protect\\label{tab:groups:colleganza}")
+@
+
+But more interesting, from the point of view of future events, is how these families clustered around each other. The figure shows these clusters with different colors, and also where families with high eigenvector centrality lie. The  clusters that include these families are shown in Table \ref{tab:groups:colleganza}; four clusters with the most representative families have been chosen to appear here.
+
+Please note that the Dandolo family is not prominent in the chart; it is neither well connected nor in any of the groups that include the most connected families. Very few incentives, then, to connect with them at the extended period of time reflected by this dataset. These groups are also connected: The Contarinis are connected to the Zorzi family, and the Viaro to the Lion family. However, there seems to be little actual strategizing in these connections. \emph{Colleganza} contracts are purely commercial, and mainly based on trust and maximization of benefits. It required big investments, and also incurred in big risks \cite{lane1973venice}. Using them for the sake of being better connected does not seem like a wise investment in a very commercially oriented context.
+
+<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.height=6, fig.env="figure*", fig.cap="Plotting the type of family along with actual weights in the colleganza network. Please refer to text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
+types <- NULL
+colors <- NULL
+family.colors <- list("Ducali"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
+                     "Nuovissime"="red","Soldo"="yellow","Vecchie"="lightblue","Apostoliche"="pink")
+colleganza.families.df <- data.frame(Family=character(), 
+                                     ev.centrality=double(), 
+                                     family.type=character(),
+                                     noble=logical(),
+                                     vecchie=logical(),
+                                     stringsAsFactors=FALSE)
+family.values <- data.frame(Family=character(), 
+                            col.ev.centrality=double(), 
+                            mar.ev.centrality=double())
+for (i in V(venice.colleganza.sn) ) {
+ family <- V(venice.colleganza.sn)[[i]]
+ r <- family$name
+ family.values <- rbind(family.values,data.frame(Family=r,
+                                                 col.ev.centrality=family$eigen,
+                                                 mar.ev.centrality= 0))
+  if (! is.null(family.type.dict[[r]])) {
+    types <- c(types,"square")
+    family.type <- family.type.dict[[r]]
+    colors <- c(colors, family.colors[[ family.type ]])
+    vecchie <- family.type == "Vecchie" || family.type == "Evangeliche" || family.type == "Apostoliche"
+    colleganza.families.df <- rbind( colleganza.families.df,
+                                     data.frame( Family=r,
+                                                 ev.centrality=family$eigen,
+                                                 family.type = family.type,
+                                                 vecchie = vecchie,
+                                                 noble=T))
+  } else {
+    colleganza.families.df <- rbind( colleganza.families.df,
+                                     data.frame( Family=r,
+                                                 ev.centrality=family$eigen,
+                                                 family.type = "None",
+                                                 vecchie = F,
+                                                 noble=F))
+    colors <- c(colors,"darkgray")
+    types <- c(types,"circle")
+  }
+}
+V(venice.colleganza.sn)$types <- types
+V(venice.colleganza.sn)$colors <- colors
+plot(venice.colleganza.sn,vertex.size=4,vertex.shape=V(venice.colleganza.sn)$types, vertex.label.cex=0.7, vertex.color = V(venice.colleganza.sn)$colors,edge.width=E(venice.colleganza.sn)$weight)
+@
+
+Since these colleganza contracts occur mainly before the \emph{Serrata}, it is interesting to analyze the participation of families that would become part of the nobility, and how these are featured within the social network. We do so in Figure \ref{fig:colw}. In this figure, we represent \begin{itemize}
+\item Weights are represented using connection width. It basically corresponds to the number of contracts between those two families.
+\item Families that would become noble are represented using squares; those that were never part of the nobility have gray circles.
+\item Color corresponds to the type of family. Gold are \emph{apostoliche} families, pink \emph{evancheliche}, the rest of the \emph{vecchie} families use light blue; green is used for \emph{nuove} families, except light gray that is used for those denominated \emph{ducali}; finally, red represents \emph{nuovissime} families.
+\end{itemize}
+
+As in the previous one, the Fruchterman-Reingold algorithm places those with the highest centrality at the center of the image, and we can observe that there is barely a circle there; all of them families that would sooner or later become noble. There is an over abundance of pink, with all families except for Dolfin "circling" the center. \emph{Evangeliche} families are in a second circle, and connect with other families, also having strong connections with some other families: Corner with Tiepolo, Giustiniani with Barbo and Morosini, Badoer with Barbarigo and Emo. In general, a strong position and links within this social network prefigures what is going to happen later, the closure, where the \emph{evangeliche}, \emph{apostoliche} and other \emph{vecchie} families would become the only ones with access to power (and lucrative contracts that would be eventually closed to others too).
+
+<<r colleganza.ev.nobility, echo=FALSE,fig.pos="h!tbp",fig.height=4, fig.cap="Boxplot of eigenvector centrality in the \\protect\\emph{colleganza} network for families that would eventually become noble (after the \\protect\\emph{Serrata} and those that did not.\\protect\\label{fig:col.noble.bp}">>=
+library(ggplot2)
+ggplot(colleganza.families.df,aes( x= noble, y=ev.centrality))+ geom_boxplot()
+@
+
+There are several conclusions that can be drawn from this. Most families (\Sexpr{ 100*length(types[types == "square"])/length(types)} \% of them) who participated in these contracts would eventually be officially considered "noble: those with the best connections would be part of the initial batch of families that did, at the moment of the \emph{Serrata}. This difference in connectivity can be examined by checking the average eigenvector centrality for every kind of family, which is done in Figure \ref{fig:col.noble.bp}; the boxplot shows that on average, families that were considered noble had a much higher eigenvector centrality that those that did not.
+
+<<r colleganza.ev.serrata, echo=FALSE, fig.pos="h!tbp",fig.height=4, fig.cap="Boxplot of eigenvector centrality for noble families, those that were \"closed\" (that is, the \\protect\\emph{vecchie} that were part of the \"closure\" brought by the \\protect\\emph{Serrata}) and those that were only ennobled later.\\protect\\label{fig:col.noble.bp.serrata}">>=
+noble.colleganza.families.df <- colleganza.families.df[colleganza.families.df$noble==T,]
+ggplot(noble.colleganza.families.df,aes( x= vecchie, y=ev.centrality))+ geom_boxplot()
+noble.serrata.wt <- wilcox.test(noble.colleganza.families.df[ noble.colleganza.families.df$vecchie == F,]$ev.centrality, noble.colleganza.families.df[ noble.colleganza.families.df$vecchie == T,]$ev.centrality)
+@
+
+But was there any reason to choose a set of families over others for the first \emph{Serrata}? The alleged reason was to systematize access to the \emph{Maggior Consiglio}, and this was achieved. The way to achieve this was first to allow election into that council only if a member of the family has \emph{already} been elected before 1295; later, the person had to prove that an ancestor had held some government post, and finally a supermajority among the council of forty was needed to be elected to the Great Council \cite{lane1973venice}. A priori, none of those measures are related or even mention \emph{reputation}, so social standing should not have been an issue. However, let's look at the EV centrality within the noble families. This is represented in Figure \ref{fig:col.noble.bp.serrata}, which is a boxplot of EV values for noble families that were considered \emph{vecchie}, and those which did not; on average, the latter have a lower EV value than the former.
+
+The p-value for this difference is \Sexpr{ noble.serrata.wt$p.value }; as a matter of fact, this p-value is lower than the difference between nobles and non-nobles, among nobles, there was greater differentiation between those that were selected for the \emph{Serrata} and those that were ennobled later, than between all families that became noble at any moment and those that did not. There is only a family that was kept outside the closure and has a high EV centrality value. However, this is the Barbarigo family, one of the \emph{ducali} families, that were recognized as noble soon after the \emph{Serrata}. The other four families with a EV centrality higher than 0.125 are the Viaro, Trevisan, Emo, Moro and Caravello families, of which the Moro is \emph{ducale}, Viaro and Emo \emph{nuove}, and the odd one is Trevisan, which is part of the last batch of nobles. On average, however, the first families that were ennobled were those that had a high eigenvector centrality in the colleganza network; those that did not, in general, were occupying peripheral positions in that network. Only four \emph{vecchie} families, the Gauli (which were probably extinct very soon after), Barozzi, Belegno (also probably extinct) and Polani do not appear in this colleganza network sample. In general, we can conclude that EV centrality in the colleganza social network is a good predictor for an upgrade in the status of the families when the \emph{Serrata} arrived. In the next sections we will a similar methodology to other available networks: the marriages social network in the XIV-XV century, as well as the social network created by doges (and in some cases, their fathers) marriages.
+
+Focusing on one of the main objectives of this paper, these connections seem to be more organic than strategic. Wealthy families connected to other families in a bigger grade than less wealthy families, and social position seems to be mostly a consequence of wealth than its cause. However, this social position which, as indicated, is driven by wealth, eventually led to being one of the families chosen for the Golden Book, where the Venetian nobles were inscribed after the Serrata.
+
+This dataset ends in \Sexpr{max(data$V3)}; by that time, Venice was still very much a maritime republic, with its wealth based on trade; however, the end of the dataset reflects in a way the shift to actual production that was initiated in the XIV century; that period, however, is covered by the next social network created by marriages, which we will analyze in the next section.
+
 \subsection{Social network of registered noble marriages}
 \label{ss:marriage}
 
 <<r marriage.data, echo=FALSE,warning=FALSE,messages=FALSE>>=
 marriages <- read.csv("../data/venice_marriages_puga_treffler_families.csv")
 family.names <- unique( c(marriages$husband_familyname_std,marriages$wife_familyname_std))
-marriages.self <- marriages[ marriages$husband_familyname_std == marriages$wife_familyname_std,]
-sorted.marriages.self <- marriages.self %>% count(wife_familyname_std, sort=T) 
-# family.names.contarini <- unique( c(marriages.contarini$husband_familyname_std,marriages.contarini$wife_familyname_std))
+marriages.contarini <- marriages[ marriages$husband_familyname_std == 'Contarini' | marriages$wife_familyname_std == 'Contarini',]
+family.names.contarini <- unique( c(marriages.contarini$husband_familyname_std,marriages.contarini$wife_familyname_std))
 marriages.not.contarini <- marriages[ marriages$husband_familyname_std != 'Contarini' & marriages$wife_familyname_std != 'Contarini',]
 marriages <- marriages[ marriages$husband_familyname_std != '' & marriages$wife_familyname_std != '',]
 marriages <- marriages[ marriages$husband_familyname_std != marriages$wife_familyname_std,]
 marriages <- marriages[ marriages$year <= 1797 | is.na(marriages$year) ,]
+@
+
+This dataset, which has been, as in the previous section, taken from \cite{10.1093/qje/qju006} is another interesting sample of the Venetian social network spanning from  \Sexpr{min(marriages[ !is.na(marriages$year),]$year)} to the demise of the Venetian republic in 1797, although the original data, extracted from the city archives, went beyond that date. There is no overlap in the dates between this dataset and the previous one, although there is a certain amount of marriages with no registered date, which might have, in fact, occurred before the first recorded date and thus overlap, in time, with the \emph{colleganza} network. Even if this happens, it should not be too common, so we could affirm that this marriage network represent a stage later than the \emph{colleganza} network in the social evolution of the noble families in Venice.
+
+The original data has been filtered by \begin{itemize}
+\item eliminating marriages where one of the spouse names was missing,
+\item eliminating also those where both partners belonged to the same family, and
+\item finally, as indicated, eliminating those that happened after the fall of the republic.
+\end{itemize}
+
+In general, marriages were a family-arranged affair in Venice \cite{Telek2017MarryingTR}. Its nature, even more so at by the beginning of the XV century, was largely commercial, over all if the family wanted to marry a female member \cite{10.2307/202860}. Female member's dowries were an investment that mobilized a considerable amount of family assets; as in the case of \emph{colleganza}, these marriage networks were, to a large extent, commercial networks. However, the investment made in the bride's dowry do not came in the way of cash, but commercial and political support. This is why it is interesting to approach this analysis in order to answer the research questions made in the introduction.
+
+The nodes in this network are essentially, after the "second" \emph{Serrata}, member of noble families; at any rate, the dowry requirements implied that any woman marrying into a noble family had to be supported by a relatively wealthy family, or be wealthy herself. This is why most women, indeed, do belong to known noble families; some of them who did not, however, could sue to be authorized to marry by the same \emph{Avogaria del Comun} that registered those marriages \cite{GossipandStreetCultureinEarlyModernVenice}. For non-noble families of citizen, this could be a way of entering the social network through the periphery.
+
+<<r marriage.plot, echo=F,warning=FALSE,message=FALSE,fig.height=4,fig.cap="Distribution by year of marriages in the dataset\\protect\\label{fig:number.of.marriages}.">>=
 ggplot(marriages,aes(x=year))+geom_freqpoly()
 @
 
