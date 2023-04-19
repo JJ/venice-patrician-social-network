@@ -1,7 +1,7 @@
 %% This is file `bmc-mathphys.bst' (created: 2011-12-27)
 %% Compatible with bibtex version 0.99d.
 %%
-%% Please submit bugs or your comments to latex-support@vtex.lt
+%% Please submit bugs or your comments to vtex@vtex.lt
 %% Start subject with a "[BMC] bibtex: " + subject
 %%
 %% Sorting entries is done by name and year fields!
@@ -25,29 +25,6 @@
 % Changes:
 % 2013-07-15 -- added XML output (taken from bmc_article.bst) v2.0
 %
-% Settings:
-% It's possible to pass few options to bibtex style via @settings reference. 
-% To validate options, need to write that reference (@settings) citeing key (f.e: \citation{foo}) 
-% to aux file. From tex file it can be done with \nocite{} command.
-%
-%	Examples:
-%		1) To make unsorted bibliography (bibs listed as cited)  
-%			a) write to bib file:
-%				@settings{label, options="unsort"}
-%			b) write in tex file \nocite{label}
-%		
-%		2) To make author-year bibliography
-%			a) write to bib file:
-%				@settings{label, options="nameyear"}
-%			b) write in tex file \nocite{label}
-%		
-%		3) To make alphanumerical unsorted bibliography (bibs listed as cited)  
-%			a) write to bib file:
-%				@settings{label, options="alpha,unsort"}
-%			b) write in tex file \nocite{label}
-% 
-% By default, style produces unsorted bibliography. 
-%
 
 ENTRY
   { address
@@ -63,6 +40,7 @@ ENTRY
     isbn
     journal
     key
+    keywords
     month
     note
     number
@@ -80,6 +58,13 @@ ENTRY
     options
     urldate
     eprint
+    archive
+    archivePrefix
+    primaryClass
+    eid
+    adsurl
+    adsnote
+    version
   }
   {}
   { label extra.label sort.label short.list}
@@ -302,6 +287,92 @@ FUNCTION {springer.publisher}
     { "Springer"  }
     { publisher }
  if$
+}
+
+FUNCTION {format.adsurl}
+{
+  adsurl empty$
+      { "" }
+      {" \href{" adsurl "}" *}
+  if$           
+}
+
+FUNCTION {format.adsnote}
+{
+  adsnote empty$
+      { "" }
+      { ". " * adsnote *}
+  if$           
+}
+
+
+FUNCTION {format.soft.title}
+{
+  title empty$
+      { "" }
+      { title "," *}
+  if$           
+}
+
+FUNCTION {format.softmisctitle}
+{ title empty$
+     { ""}
+     { version empty$
+          { title ", " *}
+          { title ", " * version " " *}
+       if$
+     }
+  if$
+}
+
+FUNCTION {format.softmisc.archive}
+{
+  archivePrefix empty$
+      { "" }
+      { "" }
+  if$           
+}
+
+FUNCTION {format.archive}
+{
+  archivePrefix empty$
+      { "" }
+      { archivePrefix ":" *}
+  if$           
+}
+
+FUNCTION {format.primaryClass}
+{
+  primaryClass empty$
+      { "" }
+      { "{[" primaryClass * "]}" *}
+  if$           
+}
+
+FUNCTION {format.eprint}
+{ eprint empty$
+     { ""}
+     { archive empty$
+          {"{\href{https://arxiv.org/abs/" eprint * "}" *
+             "{{" * format.archive * eprint * "}}}" *}
+          {"{\href{https://arxiv.org/abs/" eprint * "}" *
+             "{{" * format.archive * eprint * "}}}" *}
+       if$
+     }
+     if$
+}
+
+FUNCTION {format.softmisc.eprint}
+{ eprint empty$
+     { ""}
+     { archive empty$
+          {"{\href{https://ascl.net/" format.softmisc.archive * eprint * "}" *
+             "{{" * format.archive * eprint * "}}}" *}
+          {"{\href{https://ascl.net/" format.softmisc.archive * eprint * "}" *
+             "{{" * format.archive * eprint * "}}}" *}
+       if$
+     }
+     if$
 }
 
 FUNCTION {format.pub.address}
@@ -555,11 +626,11 @@ FUNCTION {format.author.editor}
               {"\b" b * "{" *}
             if$
           }
-        if$			
-
-        v empty$
-          'skip$
-          {v * " " *}
+%%        if$			
+%%
+%%        v empty$
+%%          'skip$
+%%          {v * " " *}
         if$
         
            l empty$
@@ -748,36 +819,23 @@ FUNCTION {print.count}
   "%%% " 
   bibitem.count int.to.str$ * write$
 }
+
+
 FUNCTION {output.bibitem}
 { print.count
   newline$
-  "\bibitem"
-  "nameyear" is.in.list
-     {
-       "[\protect\citeauthoryear{" * write$
+  "\bibitem[\protect\citeauthoryear{" write$
            check.auth.edit.org write$ 
        "}{" write$ 
            check.year write$ 
-       "}]" 
-    }
-    'skip$
-  if$
-  "alpha" is.in.list
-     {
-       "[" * write$
-      label write$
-      "]" 
-    }
-    'skip$
-  if$
-
-  "{" * write$  
+       "}]{"  write$  
   cite$ write$
   "}" write$
-
   newline$
   "" before.all 'output.state :=
 }
+
+
 
 
 FUNCTION {string.to.integer}
@@ -964,6 +1022,16 @@ FUNCTION {parens}
 { "(" swap$ * ")" * }
 
 FUNCTION {format.date.parens}
+{ year empty$
+    { "" }
+    { year byear parens }
+  if$
+}
+
+FUNCTION {noparens}
+{ " " swap$ * "" * }
+
+FUNCTION {format.softmiscdate}
 { year empty$
     { "" }
     { year byear parens }
@@ -1325,6 +1393,7 @@ FUNCTION {format.url}
   if$
 }
 
+
 FUNCTION {publisher.month.pages}{
   publisher empty$ series empty$ and
      { address empty$
@@ -1395,7 +1464,8 @@ FUNCTION {format.doi}
   { 
      "nodoi" is.in.list
       {""}
-      {"doi:\doiurl{" process.doi * "}" * }
+      %%{"doi:\doiurl{" process.doi * "}" * }
+      {"\doiurl{" process.doi * "} " * }
      if$
   }
   if$
@@ -1586,15 +1656,18 @@ FUNCTION {item.end}
     or
     {
      new.sentence 
-       format.isbn output
+%       format.isbn output
     }
      'skip$
   if$
   new.sentence
-  eprint empty$
-    'skip$
-    {"\arxivurl{" eprint * "}" * output}
-  if$ 
+  %% commented by SPi as we are using format.eprint %%
+  %% and also to avoide eprint being printed twice - Start %%
+  %%eprint empty$
+  %%  'skip$
+  %%  {"\arxivurl{" eprint * "}" * output}
+  %%if$ 
+  %% End %%
   chapter empty$
   type$ "unpublished" = not 
   type$ "misc" = not 
@@ -1609,6 +1682,78 @@ FUNCTION {item.end}
   v 'list.string :=
   fin.entry
 }
+
+FUNCTION {article.item.end}
+{	chapter empty$
+  type$ "unpublished" = not 
+  type$ "misc" = not 
+  and	and
+    {	new.sentence
+%      format.doi  output
+    }
+    'skip$
+  if$
+  
+  type$ "unpublished" =
+  type$ "misc" =
+  or
+    {	note empty$
+        'skip$
+        {note.presented
+            'skip$
+            {new.sentence note output}
+         if$		
+        }
+      if$	
+      format.date.parens output
+    }
+    { new.sentence
+      type$ "proceedings" =
+        {	author empty$ editor empty$ and
+            'bcomment.note
+             'format.chapter.and.note 
+           if$	
+        }
+         'format.chapter.and.note 
+       if$		
+    }
+  if$
+  list.string  'v :=
+  default.list  'list.string :=
+
+  type$ ".isbn" * is.in.list
+  "cnd" is.in.list 
+    or
+    {
+     new.sentence 
+%       format.isbn output
+    }
+     'skip$
+  if$
+  new.sentence
+  %% commented by SPi as we are using format.eprint %%
+  %% and also to avoide eprint being printed twice - Start %%
+  %%eprint empty$
+  %%  'skip$
+  %%  {"\arxivurl{" eprint * "}" * output}
+  %%if$ 
+  %% End %%
+  chapter empty$
+  type$ "unpublished" = not 
+  type$ "misc" = not 
+  and	and
+    'skip$
+    {	new.sentence
+%%      format.doi  output
+    }
+  if$
+  new.sentence
+  format.url 
+  v 'list.string :=
+  fin.entry
+}
+
+
 FUNCTION {insert.element}
 {	#0 bother =
     {	element "{botherref}" * write$ newline$}
@@ -1645,12 +1790,22 @@ FUNCTION {insert.element}
      }
   if$
 }
+
 FUNCTION {end.element}
 { "\end" 'element :=
   item.end
   insert.element
   "\endbibitem" write$ newline$
 }
+
+FUNCTION {article.end.element}
+{ "\end" 'element :=
+  article.item.end
+  insert.element
+  "\endbibitem" write$ newline$
+}
+
+
 FUNCTION {begin.element}
 { "\begin" 'element :=
   insert.element
@@ -1720,7 +1875,10 @@ FUNCTION {article}
   if$
    format.pages output
    format.date.parens output
-  end.element
+   format.doi output
+   format.eprint output
+   format.primaryClass output
+  article.end.element
 }
 
 
@@ -1832,6 +1990,30 @@ FUNCTION {misc}
     'new.sentence
   if$
   format.pub.address
+  end.element
+}
+
+FUNCTION {softmisc}
+{output.bibitem
+   #0 'bother :=
+  begin.element
+  author empty$
+    'skip$
+    {format.authors}
+  if$
+  stupid.colon
+  format.title "btitle" make.tag "title" output.check
+  insert.comma
+  version output
+  insert.comma
+  %%address empty$ publisher empty$ howpublished empty$ and and
+  %%'skip$
+  %%  'new.sentence
+  %%if$
+  format.pub.address 
+  format.softmiscdate output
+  insert.comma
+  format.softmisc.eprint output
   end.element
 }
 
@@ -2640,7 +2822,8 @@ FUNCTION {write.preambule}
   "\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi" write$ newline$
   "\ifx \blpage  \undefined \def \blpage #1{#1}\fi" write$ newline$
   "\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi" write$ newline$
-  "\ifx \doiurl  \undefined \def \doiurl#1{\textsf{#1}}\fi" write$ newline$
+  %%"\ifx \doiurl  \undefined \def \doiurl#1{\textsf{#1}}\fi" write$ newline$
+  "\ifx \doiurl  \undefined \def \doiurl#1{\url{https://doi.org/#1}}\fi" write$ newline$
   "\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi" write$ newline$
   "\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi" write$ newline$
   "\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi" write$ newline$
@@ -2656,6 +2839,7 @@ FUNCTION {write.preambule}
   "\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi" write$ newline$
   "\ifx \bparticle \undefined \def \bparticle#1{#1}\fi" write$ newline$
   "\ifx \barticle \undefined \def \barticle#1{#1}\fi" write$ newline$	
+  "\bibcommenthead" write$ newline$
 }
 
 
@@ -3015,9 +3199,9 @@ FUNCTION {export.xml}{
   "</bibl>" write$ newline$
 } 
 
-EXECUTE {begin.bmcxmlcomment}
-ITERATE {export.xml}
-EXECUTE {end.bmcxmlcomment}
+%%EXECUTE {begin.bmcxmlcomment}
+%%ITERATE {export.xml}
+%%EXECUTE {end.bmcxmlcomment}
 
 
 
