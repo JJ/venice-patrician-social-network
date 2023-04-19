@@ -72,7 +72,7 @@
 
 \begin{document}
 
-\title[Taking into account intra-family links in family network analysis]{Taking into account intra-family links in family network analysis}
+\title[Intra-family links in the analysis of alliance networks]{Taking into account intra-family links in family network analysis}
 
 %%=============================================================%%
 %% Prefix	-> \pfx{Dr}
@@ -98,19 +98,7 @@
 
 \abstract{}
 
-%%================================%%
-%% Sample for structured abstract %%
-%%================================%%
-
-% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
-% 
-% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
-% 
-% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
-% 
-% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
-
-\keywords{keyword1, Keyword2, Keyword3, Keyword4}
+\keywords{social network analysis, alliance networks, complex graphs}
 
 %%\pacs[JEL Classification]{D8, H51}
 
@@ -120,7 +108,7 @@
 
 \section{Introduction}\label{sec1}
 
-Marriage networks are a kind of social networks where the actors, or nodes, are families \cite{doi:10.1080/1081602X.2020.1869056,padgett1994marriage,15345421020220101}. 
+Marriage networks are a kind of social networks where the actors, or nodes, are families \cite{doi:10.1080/1081602X.2020.1869056,padgett1994marriage,15345421020220101}. In these networks, nodes or vertices usually represent a family through time, while arcs join two families if there has been a marriage between them. This is the usual simplification to one-mode network of what is, to start with, a bipartite graph, where the two "parties" are the families of the two persons that traditionally form a marriage. However, that simplification, which is usual, drops information that might be interesting in the analysis of these alliance networks through time: intra-family marriages are simply eliminated, since social network analysis does not usually use multigraphs \cite{Shafie+2015+1+21}, that allow "loops" or connections from a node to itself.
 
 \section{Methods}\label{sec11}
 
