@@ -120,7 +120,7 @@
 
 \section{Introduction}\label{sec1}
 
-Marriage networks are a kind of social networks where the actors, or nodes, are families \cite{doi:10.1080/1081602X.2020.1869056,padgett1994marriage}. 
+Marriage networks are a kind of social networks where the actors, or nodes, are families \cite{doi:10.1080/1081602X.2020.1869056,padgett1994marriage,15345421020220101}. 
 
 \section{Methods}\label{sec11}
 
@@ -156,7 +156,7 @@ Discussions should be brief and focused. In some disciplines use of Discussion o
 
 
 
-\bibliography{../patrician}% common bib file
+\bibliography{../patrician, ../marriage}% common bib file
 %% if required, the content of .bbl file can be included here once bbl is generated
 %%\input sn-article.bbl
 
