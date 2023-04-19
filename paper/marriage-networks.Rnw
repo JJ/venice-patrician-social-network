@@ -72,7 +72,7 @@
 
 \begin{document}
 
-\title[Intra-family links in the analysis marital networks]{Intra-family links in the analysis marital networks}
+\title[Intra-family links in the analysis of marital networks]{Intra-family links in the analysis of marital networks}
 
 %%=============================================================%%
 %% Prefix	-> \pfx{Dr}
@@ -108,16 +108,28 @@
 
 \section{Introduction}\label{sec1}
 
-Marriage networks are a kind of social networks where the actors, or nodes, are families \cite{doi:10.1080/1081602X.2020.1869056,padgett1994marriage,15345421020220101}. In these networks, nodes or vertices usually represent a family through time, while arcs join two families if there has been a marriage between them. This is the usual simplification to one-mode network of what is, to start with, a bipartite graph, where the two "parties" are the families of the two persons that traditionally form a marriage. However, that simplification, which is usual, drops information that might be interesting in the analysis of these alliance networks through time: intra-family marriages are simply eliminated, since social network analysis does not usually use multigraphs \cite{Shafie+2015+1+21}, that allow "loops" or connections from a node to itself.
+Marriage or marital networks are a kind of social networks where the actors, or nodes, are usually families \cite{doi:10.1080/1081602X.2020.1869056,padgett1994marriage,15345421020220101}. In these networks, nodes or vertices usually represent a family through time, while arcs join two families if there has been a marriage between them. This is the usual simplification to one-mode network of what is, to start with, a bipartite graph, where the two "parties" are the families of the two persons that traditionally form a marriage. However, that simplification, which is usual, drops information that might be interesting in the analysis of these alliance networks through time: intra-family marriages are simply eliminated, since social network analysis does not usually use multigraphs \cite{Shafie+2015+1+21}, that allow "loops" or connections from a node to itself.
 
 It could be argued that an effective treatment of this kind of networks should use its {\em true} from, that is, multigraphs. Unfortunately, and despite pioneering efforts \cite{doi:10.1080/0022250X.2016.1219732}, it is for the time being impossible to perform comprehensive social network analysis, including node-level measurements as well as meso-level structures, using this form; this is why most recent papers  \cite{MaritalNetworksandPortfoliosofPrestige,15345421020220101} keep the usual methodology of collapsing these multigraphs to single-mode graphs and applying off-the-shelf social network analysis tools (such as {\em igraph} or {\em Gephi}) to them.
 
-\section{Methods}\label{sec11}
+The fact that these off-the-shelf tools can be used is essential for the democratization of social network analysis in historical, anthropological and sociological networks, so we will set this as the foundation of the proposals we are going to lay out in this paper. Beyond that, our main interest is to analyze different ways of incorporating those {\em loops}, or intra-family ties, so that their importance and influence can be easily incorporated into the analysis of marital, or familiar, networks.
 
+The incorporation of these loops should, besides, fulfill additional requirements:\begin{itemize}
+\item It should be done in such a way that it does not disrupt the essential node-level properties for single nodes, that is, it should not substantially change the different measures, mainly centrality measures, taken prior to the incorporation of loops into the dataset or the analysis.
+\item It should affect community-level measurements, such as community detection algorithms, in a {\em sensible} way, so that if there is strong self-connections in a family, it should fall between the self-same community, whatever the community detection algorithm that is used.
+\item It should help visualize the structure of the network, by enabling usual visualization algorithms to work on the resulting dataset.
+\item It should not introduce, if possible, uninterpretable artifacts that would obscure the analysis.
+\end{itemize}
+
+In this paper we will analyze different ways of incorporating loops into marital network analysis, essentially proposing a new way of converting bipartite network that contain loops to single-mode networks; according to the requirements set out previously, we will try to pick one by empirically applying different possible methods to a specific dataset and checking the results.
+
+The rest of the paper is organized as follows: the next section is a brief survey of analysis of marital networks, and the methodology they use to pre-process their original data; next, Section \ref{sec:methods} will present the dataset we will be using, together with its context, as well as the steps we will follow with each proposed method. Next Section \ref{sec:results} will apply these methods to the dataset, and score them according to how well they fulfill the requirements, followed by a brief discussion in Section \ref{sec:sec12}. Finally, our conclusion will be presented in Section \ref{sec13}, picking a specific method, and eventually proposing new lines of work.
+
+\section{Methods}\label{sec:methods}
+
+\section{Experiments and results}\label{sec:results}
 
 \section{Discussion}\label{sec12}
-
-Discussions should be brief and focused. In some disciplines use of Discussion or `Conclusion' is interchangeable. It is not mandatory to use both. Some journals prefer a section `Results and Discussion' followed by a section `Conclusion'. Please refer to Journal-level guidance for any specific requirements. 
 
 \section{Conclusion}\label{sec13}
 
