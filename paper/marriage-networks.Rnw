@@ -164,6 +164,8 @@ This dataset, which has been taken from \cite{10.1093/qje/qju006} is another int
 
 As has been indicated in the introduction, the usual procedure is to process this bipartite network to a single-mode undirected graph by eliminating marriages between member of the same family, that is, where the standard family name of bride and groom was the same. Additionally, marriages where the wife family standard name was empty have been changed to \texttt{NON-PATRICIAN-WIFE}. This will show up as a single node in the resulting social network. The resulting network has \Sexpr{length(V(marriages.sn))} nodes and \Sexpr{length(E(marriages.sn))} arcs.
 
+We will want to check how different ways of integrating intra-links affect actor-level measurements; this is why we show the ranking for different relevant social network centrality measures in Tables \ref{tab:top:degree}, \ref{tab:top:betweenness}, \ref{tab:top:eigen} and \ref{tab:top:pr}.
+
 \section{Experiments and results}\label{sec:results}
 
 \section{Discussion}\label{sec12}
