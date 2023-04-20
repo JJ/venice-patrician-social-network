@@ -129,14 +129,23 @@ The rest of the paper is organized as follows: the next section is a brief surve
 
 <<r marriage.data, echo=FALSE,warning=FALSE,messages=FALSE>>=
 library(igraph)
+tablify <- function( graph, column ) {
+  m.table <- data.frame( Family=V(graph)$name, degree=vertex_attr(graph,column) )
+  names(m.table)[names(m.table) == "degree"] <- column
+  return( m.table[ order(m.table[[column]],decreasing = T),] )
+}
 marriages <- read.csv("../data/venice_marriages_puga_treffler_families.csv")
 marriages <- marriages[ marriages$husband_familyname_std != marriages$wife_familyname_std,]
 marriages[ marriages$wife_familyname_std == '',]$wife_familyname_std <- "NON-PATRICIAN-WIFE"
 marriages.sn <- graph.data.frame(data.frame(marriages$husband_familyname_std,marriages$wife_familyname_std),directed=F)
 V(marriages.sn)$degree <- degree(marriages.sn)
+m.degree <- tablify( marriages.sn, "degree")
 V(marriages.sn)$betweenness <- betweenness(marriages.sn)
+m.betweenness <- tablify( marriages.sn, "betweenness")
 V(marriages.sn)$eigen <-  unname(unlist(eigen_centrality(marriages.sn)$vector))
+m.eigen <- tablify( marriages.sn, "eigen")
 V(marriages.sn)$pr <- unname(unlist(page_rank(marriages.sn)$vector))
+m.pr <- tablify( marriages.sn, "pr")
 @
 
 This dataset, which has been taken from \cite{10.1093/qje/qju006} is another interesting sample of the Venetian social network spanning from  \Sexpr{min(marriages[ !is.na(marriages$year),]$year)} to \Sexpr{max(marriages[ !is.na(marriages$year),]$year)}. This data was extracted from the city archives and published by the authors of the paper; it will also be available from the repository where this paper is being written, following our usual open science policies. 
