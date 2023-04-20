@@ -123,6 +123,8 @@ The incorporation of these loops should, besides, fulfill additional requirement
 
 In this paper we will analyze different ways of incorporating loops into marital network analysis, essentially proposing a new way of converting bipartite network that contain loops to single-mode networks; according to the requirements set out previously, we will try to pick one by empirically applying different possible methods to a specific dataset and checking the results.
 
+This paper has been developed in an open science environment, following the principles of Agile Science \cite{mereloguervos2022agile}. This guarantees in-time delivery, as well as a clear problem-solving orientation from the beginning. Milestones in the development of the paper can be checked in its repository.
+
 The rest of the paper is organized as follows: the next section is a brief survey of analysis of marital networks, and the methodology they use to pre-process their original data; next, Section \ref{sec:methods} will present the dataset we will be using, together with its context, as well as the steps we will follow with each proposed method. Next Section \ref{sec:results} will apply these methods to the dataset, and score them according to how well they fulfill the requirements, followed by a brief discussion in Section \ref{sec:sec12}. Finally, our conclusion will be presented in Section \ref{sec13}, picking a specific method, and eventually proposing new lines of work.
 
 \section{Methods}\label{sec:methods}
