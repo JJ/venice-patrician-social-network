@@ -127,6 +127,12 @@ The rest of the paper is organized as follows: the next section is a brief surve
 
 \section{Methods}\label{sec:methods}
 
+<<r marriage.data, echo=FALSE,warning=FALSE,messages=FALSE>>=
+marriages <- read.csv("../data/venice_marriages_puga_treffler_families.csv")
+@
+
+This dataset, which has been taken from \cite{10.1093/qje/qju006} is another interesting sample of the Venetian social network spanning from  \Sexpr{min(marriages[ !is.na(marriages$year),]$year)} to \Sexpr{max(marriages[ !is.na(marriages$year),]$year)}. This data was extracted from the city archives and published by the authors of the paper; it will also be available from the repository where this paper is being written, following our usual open science policies.
+
 \section{Experiments and results}\label{sec:results}
 
 \section{Discussion}\label{sec12}
