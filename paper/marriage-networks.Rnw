@@ -171,6 +171,7 @@ As has been indicated in the introduction, the usual procedure is to process thi
 <<r self.marriages, echo=F, message=F>>=
 library(dplyr)
 library(tidyr)
+library(tibble)
 marriages.self <- marriages.raw[ marriages.raw$husband_familyname_std == marriages.raw$wife_familyname_std,]
 sorted.marriages.self <- marriages.self %>% count(wife_familyname_std, sort=T)
 kable(sorted.marriages.self %>% head(.,10),
@@ -179,10 +180,16 @@ kable(sorted.marriages.self %>% head(.,10),
       caption="Top 10 families by number of intra-family marriages.\\protect\\label{tab:intra}")
 all.names <- unique( c( marriages.raw$wife_familyname_std, marriages.raw$husband_familyname_std))
 all.marriages <- marriages.raw %>% select(husband_familyname_std,wife_familyname_std) %>% rowid_to_column() %>% pivot_longer(-rowid) %>% group_by(value) %>% summarise(n = n_distinct(rowid)) %>% arrange(desc(n))
+marriages.table <- left_join(all.marriages,sorted.marriages.self,by=c("value" = "wife_familyname_std"))
+marriages.table$intra.marriages.rate <- marriages.table$n.y / marriages.table$n.x
 @
 
 We will want to check how different ways of integrating intra-links affect actor-level measurements; this is why we show the ranking for different relevant social network centrality measures in Tables \ref{tab:top:degree}, \ref{tab:top:betweenness}, \ref{tab:top:EV} and \ref{tab:top:pr}. However, as indicated in the introduction, this leaves out all data related to intra-family marriages, the top 10 of which is shown in Table \ref{tab:intra}. 
 
+<<r plot.intra, echo=F, message=F,warning=F>>=
+library(ggplot2)
+ggplot(marriages.table,aes(x=n.x, y = n.y))+geom_point()
+@
 \section{Experiments and results}\label{sec:results}
 
 \section{Discussion}\label{sec12}
