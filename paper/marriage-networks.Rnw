@@ -204,9 +204,28 @@ plot(marriages.newnodes, vertex.size=5)
 
 The general appearance of the new network is shown in Figure \ref{fig:newnodes}; since the new nodes are marked with yellow, we can see that, they mostly hang in a loose way, in the periphery of the network, except of course in some cases where they are connected to central families like the Correr or Michiel. The overall shape of the network is not, however, changed, and thus the structural influence of these "new" nodes is, again, lost. We could perform additional measurements, but it is quite clear that this new network structure does not contribute much to the understanding of the network other than what seems obvious: new "new" nodes are connected to the "old" ones with a strength that is equivalent to the number of intra-family marriages.
 
-We need to try a different approach, then.
+We need to try a different approach, then. A possible way of taking these intra-family ties into account is to consider husband and wifes as different vertices of the graph. From the historical point of view, this only makes sense in settings where marriages are not equalitarian; but from the purely pragmatic point of view, will allow us to simply consider in the same way weddings from one family to itself as weddings to other families.
 
-
+<<r split.families, echo=F>>=
+marriages.sf <- marriages.raw
+marriages.sf$husband_familyname_std <- paste0(marriages.sf$husband_familyname_std,"-M")
+marriages.sf$wife_familyname_std <- paste0(marriages.sf$wife_familyname_std,"-F")
+marriages.sf[ marriages.sf$wife_familyname_std == '-F',]$wife_familyname_std <- "NON-PATRICIAN-WIFE"
+marriages.sf.sn <- graph.data.frame(data.frame(marriages.sf$husband_familyname_std,marriages.sf$wife_familyname_std),directed=F)
+plot(marriages.sf.sn,vertex.size=5)
+V(marriages.sf.sn)$degree <- degree(marriages.sf.sn)
+m.sf.degree <- tablify( marriages.sf.sn, "degree")
+show.table(m.sf.degree, "degree", "degree")
+V(marriages.sf.sn)$betweenness <- betweenness(marriages.sf.sn)
+m.betweenness <- tablify( marriages.sf.sn, "betweenness")
+show.table(m.betweenness, "betweenness", "betweenness centrality")
+V(marriages.sf.sn)$eigen <-  unname(unlist(eigen_centrality(marriages.sf.sn)$vector))
+m.eigen <- tablify( marriages.sf.sn, "eigen")
+show.table(m.eigen, "EV", "eigenvector centrality")
+V(marriages.sf.sn)$pr <- unname(unlist(page_rank(marriages.sf.sn)$vector))
+m.pr <- tablify( marriages.sf.sn, "pr")
+show.table(m.pr, "pr", "page rank")
+@
 
 \section{Discussion}\label{sec12}
 
