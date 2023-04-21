@@ -184,12 +184,8 @@ marriages.table <- left_join(all.marriages,sorted.marriages.self,by=c("value" = 
 marriages.table$intra.marriages.rate <- marriages.table$n.y / marriages.table$n.x
 @
 
-We will want to check how different ways of integrating intra-links affect actor-level measurements; this is why we show the ranking for different relevant social network centrality measures in Tables \ref{tab:top:degree}, \ref{tab:top:betweenness}, \ref{tab:top:EV} and \ref{tab:top:pr}. However, as indicated in the introduction, this leaves out all data related to intra-family marriages, the top 10 of which is shown in Table \ref{tab:intra}. 
+We will want to check how different ways of integrating intra-links affect actor-level measurements; this is why we show the ranking for different relevant social network centrality measures in Tables \ref{tab:top:degree}, \ref{tab:top:betweenness}, \ref{tab:top:EV} and \ref{tab:top:pr}. However, as indicated in the introduction, this leaves out all data related to intra-family marriages, the top 10 of which is shown in Table \ref{tab:intra}. So once we have established the importance of these intra-family marriages, which can go up to \Sexpr{round(100*marriages.table[ marriages.table$value =="Contarini",]$intra.marriages.rate)}\% in the case of the Contarinis. This is why, to incorporate this fact into the analysis of the social network, new methods are needed. We will present several possible approaches in the next section.
 
-<<r plot.intra, echo=F, message=F,warning=F>>=
-library(ggplot2)
-ggplot(marriages.table,aes(x=n.x, y = n.y))+geom_point()
-@
 \section{Experiments and results}\label{sec:results}
 
 \section{Discussion}\label{sec12}
