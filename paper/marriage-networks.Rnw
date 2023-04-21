@@ -188,6 +188,26 @@ We will want to check how different ways of integrating intra-links affect actor
 
 \section{Experiments and results}\label{sec:results}
 
+In this section, we will present several methods that would try to incorporate this data into the analysis of familiar networks. With every method, we will be interested in how the network measurements change, as well as how well gives us insight into the analysis of the social network.
+
+The first method tested will be one which is relatively straightforward and simple: for every node with intra-node connections, add a new node that will be connected {\em only} to the family with a weight equivalent to the number of connections.
+
+<<r newnodes, echo=F, fig.cap="Graph representation of the marital network enhanced with new nodes representing intra-family connections. Links are not weighted, and the representation uses the best available; new nodes are represented in yellow.\\protect\\label{fig:newnodes}">>=
+
+marriages.newnodes <- marriages.sn
+for ( n in sorted.marriages.self$wife_familyname_std ) {
+  new.name <- paste0(n,"'")
+  marriages.newnodes <- marriages.newnodes + vertex(new.name,color="yellow") + edge(n,new.name,weight=marriages.table[marriages.table$value == n,]$n.y)
+}
+plot(marriages.newnodes, vertex.size=5)
+@
+
+The general appearance of the new network is shown in Figure \ref{fig:newnodes}; since the new nodes are marked with yellow, we can see that, they mostly hang in a loose way, in the periphery of the network, except of course in some cases where they are connected to central families like the Correr or Michiel. The overall shape of the network is not, however, changed, and thus the structural influence of these "new" nodes is, again, lost. We could perform additional measurements, but it is quite clear that this new network structure does not contribute much to the understanding of the network other than what seems obvious: new "new" nodes are connected to the "old" ones with a strength that is equivalent to the number of intra-family marriages.
+
+We need to try a different approach, then.
+
+
+
 \section{Discussion}\label{sec12}
 
 \section{Conclusion}\label{sec13}
