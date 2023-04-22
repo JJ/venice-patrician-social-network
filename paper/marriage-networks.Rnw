@@ -192,7 +192,7 @@ In this section, we will present several methods that would try to incorporate t
 
 The first method tested will be one which is relatively straightforward and simple: for every node with intra-node connections, add a new node that will be connected {\em only} to the family with a weight equivalent to the number of connections.
 
-<<r newnodes, echo=F, fig.cap="Graph representation of the marital network enhanced with new nodes representing intra-family connections. Links are not weighted, and the representation uses the best available; "new" nodes are represented in yellow.\\protect\\label{fig:newnodes}">>=
+<<r newnodes, echo=F, fig.cap="Graph representation of the marital network enhanced with new nodes representing intra-family connections. Links are not weighted, and the representation uses the best available; \"new\" nodes are represented in yellow.\\protect\\label{fig:newnodes}">>=
 
 marriages.newnodes <- marriages.sn
 for ( n in sorted.marriages.self$wife_familyname_std ) {
@@ -206,7 +206,7 @@ The general appearance of the new network is shown in Figure \ref{fig:newnodes};
 
 We need to try a different approach, then. A possible way of taking these intra-family ties into account is to consider husband and wives as different vertices of the graph. From the historical point of view, this only makes sense in settings where marriages are not equalitarian; but from the purely pragmatic point of view, will allow us to simply consider in the same way weddings from one family to itself as weddings to other families.
 
-<<r split.families, echo=F, fig.cap="Graph representation of the \"split families\" method, that considers separately husbands and wives in the marital network. "Husband" nodes are colored in blue, "Wife" nodes in gold.\\protect\\label{fig:sf}">>=
+<<r split.families, echo=F, fig.cap="Graph representation of data processed using the \"split families\" method, that considers separately husbands and wives in the marital network. \"Husband\" nodes are colored in blue, \"Wife\" nodes in gold.\\protect\\label{fig:sf}">>=
 marriages.sf <- marriages.raw
 marriages.sf$husband_familyname_std <- paste0(marriages.sf$husband_familyname_std,"-M")
 marriages.sf$wife_familyname_std <- paste0(marriages.sf$wife_familyname_std,"-F")
@@ -217,19 +217,24 @@ V(marriages.sf.sn)[marriages.sf$wife_familyname_std]$color <- "gold"
 plot(marriages.sf.sn,vertex.size=3,vertex.label=NA)
 V(marriages.sf.sn)$degree <- degree(marriages.sf.sn)
 m.sf.degree <- tablify( marriages.sf.sn, "degree")
-show.table(m.sf.degree, "degree", "degree using the \"split families\" method. \"Husband\" vertices use the suffix \"M\", \"wives'\"), \"F\"")
+show.table(m.sf.degree, "degree.sf", "degree, split families")
 V(marriages.sf.sn)$betweenness <- betweenness(marriages.sf.sn)
 m.sf.betweenness <- tablify( marriages.sf.sn, "betweenness")
-show.table(m.sf.betweenness, "betweenness", "betweenness centrality, split families")
+show.table(m.sf.betweenness, "betweenness.sf", "betweenness centrality, split families")
 V(marriages.sf.sn)$eigen <-  unname(unlist(eigen_centrality(marriages.sf.sn)$vector))
 m.sf.eigen <- tablify( marriages.sf.sn, "eigen")
-show.table(m.sf.eigen, "EV", "eigenvector centrality, split families")
+show.table(m.sf.eigen, "EV.sf", "eigenvector centrality, split families")
 V(marriages.sf.sn)$pr <- unname(unlist(page_rank(marriages.sf.sn)$vector))
 m.sf.pr <- tablify( marriages.sf.sn, "pr")
-show.table(m.sf.pr, "pr", "page rank, split families")
+show.table(m.sf.pr, "pr.sf", "page rank, split families")
 @
 
 What we can see in Figure \ref{fig:sf} is that we can already obtain some insight on the network structure that might make splitting family nodes between husbands and wives meaningful. Some families seem to occupy the center through the "husband" nodes (blue), others through their "wife" nodes (gold). Another interesting thing is that, while the graph in Figure \ref{fig:newnodes} is totally connected, this one has spun off a small sub-network that connects the females of a family to the males of others; they can still be connected through their "other" parts, but they would need intra-family marriages for those parts to be connected to this small subnetwork. That is obviously an artifact of this representation; we cannot pretend that the female and male part of a family is disconnected even if there are not intra-marriages. However, taking this into account would lead to additional artifacts.
+
+Looking at Tables \ref{tab:top:degree.sf},\ref{tab:top:betweenness.sf},\ref{tab:top:EV.sf},\ref{tab:top:pr.sf}, there are obviously some changes with respect to the original tables (for instance, \ref{tab:top:degree},\ref{tab:top:betweenness}), since the graph has been defined in a different way. The Contarinis are still at the top, although the female members of the Contariny family seems to be the only ones that have made it to the top families according to betweenness, for instance.
+
+However, it is very difficult to interpret, from the historical or sociological point of view, "male" and "female" members of the family as different actors in a social network. So, even if this analysis of the situation might have some interesting angles of research, it does not properly match the purpose we had in this case.
+
 
 \section{Discussion}\label{sec12}
 
