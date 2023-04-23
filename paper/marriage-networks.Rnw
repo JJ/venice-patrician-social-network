@@ -239,6 +239,8 @@ m.dup.pr <- tablify( marriages.dup.sn, "pr")
 show.table(m.dup.pr[ !grepl("'",m.dup.pr$Family),], "pr.dup", "page rank, duplicated nodes")
 @
 
+We can again compare the state of the network with or without this addition; Tables \ref{tab:top:degree.dup},\ref{tab:top:betweenness.dup},\ref{tab:top:EV.dup},\ref{tab:top:pr.dup} show the results. In this case, the "replicated" nodes have been eliminated, since they have exactly the same values as the "original", by design. Tables Tables \ref{tab:top:degree.dup} and Tables \ref{tab:top:degree} show the fact that there are many more connections, since many of them have been duplicated; this is not so much interesting as the comparison of the other tables. Tables \ref{tab:top:betweenness} and \ref{tab:top:betweenness.dup} already show the structural change brought by this addition; betweenness centrality \cite{betweenness} measures how "in-between" a certain node is, that is, how often you find it when you go from one random node to another. This procedure has increased the number of nodes, thus the measurements for specific nodes is bound to be affected.
+
 \section{Discussion}\label{sec12}
 
 \section{Conclusion}\label{sec13}
