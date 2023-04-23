@@ -205,7 +205,7 @@ Looking at Tables \ref{tab:top:degree.sf},\ref{tab:top:betweenness.sf},\ref{tab:
 
 These results show that this way of taking into account intra-family marriages already allow us an alternative way to measure the social standing of a family. However, it is very difficult to interpret, from the historical or sociological point of view, "male" and "female" members of the family as different actors in a social network. So, even if this analysis of the situation might have some interesting angles of research, it does not properly match the purpose we had in this case.
 
-<<r dup, echo=F >>=
+<<r dup, echo=F, cache=T, fig.cap="Graph representation of data processed using the \"duplication\" method, that duplicates the node for families that have intra-connections; \"original\" nodes are colored in blue, \"replicated\" nodes in gold.\\protect\\label{fig:dup}" >>=
 marriages.dup <- data.frame(marriages)
 duplicates.h <- marriages.dup[ marriages.dup$husband_familyname_std %in% intra.marriages,]
 duplicates.h$husband_familyname_std <- paste0(duplicates.h$husband_familyname_std,"'")
@@ -221,6 +221,24 @@ V(marriages.dup.sn)$color <- "blue"
 V(marriages.dup.sn)[these.self.marriages$husband_familyname_std]$color <- "gold"
 plot(marriages.dup.sn,vertex.size=3,vertex.label=NA)
 @
+
+The third alternative is equivalent to the first one, that is, it creates a new node for every family with intra-family connection, which is connected to the first one by as many edges as intra-family marriages; however, additionally, this new node is also linked to all the nodes the original node was; so the "original" and "replicated" node have all the same connections (which might include also "replicated" nodes, of course), and they are also linked between themselves. The resulting graph is shown in Figure \ref{fig:dup}, with "replicated" nodes in gold; what we can observe in this picture is that there are less of these nodes than the other ones, but they are mainly in the center of the graph, since families with intra-family marriages are usually more central than the rest.
+
+<<r dup.tables, echo=F>>=
+V(marriages.dup.sn)$degree <- degree(marriages.dup.sn)
+m.dup.degree <- tablify( marriages.dup.sn, "degree")
+show.table(m.dup.degree[ !grepl("'",m.dup.degree$Family),], "degree.dup", "degree, duplicated nodes")
+V(marriages.dup.sn)$betweenness <- betweenness(marriages.dup.sn)
+m.dup.betweenness <- tablify( marriages.dup.sn, "betweenness")
+show.table(m.dup.betweenness[ !grepl("'",m.dup.betweenness$Family),], "betweenness.dup", "betweenness centrality, duplicated nodes")
+V(marriages.dup.sn)$eigen <-  unname(unlist(eigen_centrality(marriages.dup.sn)$vector))
+m.dup.eigen <- tablify( marriages.dup.sn, "eigen")
+show.table(m.dup.eigen[ !grepl("'",m.dup.eigen$Family),], "EV.dup", "eigenvector centrality, duplicated nodes")
+V(marriages.dup.sn)$pr <- unname(unlist(page_rank(marriages.dup.sn)$vector))
+m.dup.pr <- tablify( marriages.dup.sn, "pr")
+show.table(m.dup.pr[ !grepl("'",m.dup.pr$Family),], "pr.dup", "page rank, duplicated nodes")
+@
+
 \section{Discussion}\label{sec12}
 
 \section{Conclusion}\label{sec13}
