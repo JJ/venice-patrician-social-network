@@ -239,9 +239,33 @@ m.dup.pr <- tablify( marriages.dup.sn, "pr")
 show.table(m.dup.pr[ !grepl("'",m.dup.pr$Family),], "pr.dup", "page rank, duplicated nodes")
 @
 
-We can again compare the state of the network with or without this addition; Tables \ref{tab:top:degree.dup},\ref{tab:top:betweenness.dup},\ref{tab:top:EV.dup},\ref{tab:top:pr.dup} show the results. In this case, the "replicated" nodes have been eliminated, since they have exactly the same values as the "original", by design. Tables Tables \ref{tab:top:degree.dup} and Tables \ref{tab:top:degree} show the fact that there are many more connections, since many of them have been duplicated; this is not so much interesting as the comparison of the other tables. Tables \ref{tab:top:betweenness} and \ref{tab:top:betweenness.dup} already show the structural change brought by this addition; betweenness centrality \cite{betweenness} measures how "in-between" a certain node is, that is, how often you find it when you go from one random node to another. This procedure has increased the number of nodes, thus the measurements for specific nodes is bound to be affected.
+We can again compare the state of the network with or without this addition; Tables \ref{tab:top:degree.dup},\ref{tab:top:betweenness.dup},\ref{tab:top:EV.dup},\ref{tab:top:pr.dup} show the results. In this case, the "replicated" nodes have been eliminated, since they have exactly the same values as the "original", by design. Tables Tables \ref{tab:top:degree.dup} and Tables \ref{tab:top:degree} show the fact that there are many more connections, since many of them have been duplicated; this is not so much interesting as the comparison of the other tables. Tables \ref{tab:top:betweenness} and \ref{tab:top:betweenness.dup} already show the structural change brought by this addition; betweenness centrality \cite{betweenness} measures how "in-between" a certain node is, that is, how often you find it when you go from one random node to another. This procedure has increased the number of nodes, thus the measurements for specific nodes is bound to be affected; besides the actual value, which is lower, the Venier family has jumped rank; this family did not belong to the original ranking. However, the fact is that we can easily assume that this change is due to the incorporation of intra-family links. As a matter of fact, there are not so many changes which is precisely what we wanted to achieve.
+
+The effect on eigenvector centrality \ref{ruhnau2000eigenvector}, observed when comparing \ref{tab:top:EV} and \ref{tab:top:EV.dup}, is even more interesting. The "non-family" node that includes all non-patrician wifes is no longer first in the ranking, having been overcome by the Contarini family, which we know has a high number of intra-family marriages, as seen in Table \ref{tab:top}. This reflects the fact that since there is an important "path" created between both Contarini family nodes, they have been able to increase this measure. As a matter of fact, since it is a big family, it would be almost impossible to severe links to the {\em whole} family. By this artifact of duplicating the nodes, we create an alternate way of arriving to any part of the family, directly or through other, separate, part of the family. This creates an interesting interpretation for this "replicated" nodes. It simply represents "other" part of the family that is not directly related to "this" part of the family. By not making it fixed by splitting the family along patri- or matri-linear lines, but simply indicating the fact that there are different, non-directly related parts of the family with these two nodes, we can capture part of the social dynamics in these extended families and incorporate them into the analysis of marital networks.
 
 \section{Discussion}\label{sec12}
+
+How these three methods respond to the criteria we established at the beginning is summarized in Table \ref{tab:reqs}.
+%
+\begin{table}[h!tbp]
+		\centering
+		\caption{Summary of features of the three methods we have introduced for accounting for intra-family marriages.\label{tab:reqs}}
+		\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		\textbf{Method} & \textbf{Structural changes} & \textbf{Community changes} & \textbf{Help visualization} & \textbf{Artifacts} \\
+		\hline
+		{\em New nodes} & No & No & No & Yes \\
+		\hline
+		{\em Split families} & Yes & Yes & Yes & Yes \\
+		\hline
+		{\em Duplicated nodes} & No & Yes & Yes & No \\
+		\hline
+		\end{tabular}
+		\end{table}
+%
+The third method, which we call {\emph duplicated nodes}, does not introduce structural changes, since new nodes are structurally equivalent to the ones they replicate; it does introduce changes in the community due to the new links, as we want; it helps visualize the structure, since the placement of the new nodes is related, at the same time, with its structure and the fact that it is linked to the one it replicates. Finally, these new nodes can be interpreted as {\em other} parts of the family; this is a characteristic that sets it apart from the others. The {\em new nodes} method introduced other nodes that were only linked to the original ones, and thus had no real interpretation; splitting the family along gender lines introduces the unwanted artifact that we might have two nodes unlined by marriage, but they are still family, so they cannot really be interpreted as different nodes. Besides, centrality measures which are different by gender are also impossible to interprete.
+
+This takes us to propose the last method for incorporating intra-family marriages into social network analysis. We will expand on this conclusion on the next, and final, section.
 
 \section{Conclusion}\label{sec13}
 
