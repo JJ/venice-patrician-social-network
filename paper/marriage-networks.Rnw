@@ -143,6 +143,7 @@ library(tidyr)
 library(tibble)
 marriages.self <- marriages.raw[ marriages.raw$husband_familyname_std == marriages.raw$wife_familyname_std,]
 sorted.marriages.self <- marriages.self %>% count(wife_familyname_std, sort=T)
+intra.marriages <- unique(marriages.self$wife_familyname_std)
 kable(sorted.marriages.self %>% head(.,10),
       row.names = F,
       col.names= c("Family","# Intra-family marriages"),
@@ -204,7 +205,14 @@ Looking at Tables \ref{tab:top:degree.sf},\ref{tab:top:betweenness.sf},\ref{tab:
 
 These results show that this way of taking into account intra-family marriages already allow us an alternative way to measure the social standing of a family. However, it is very difficult to interpret, from the historical or sociological point of view, "male" and "female" members of the family as different actors in a social network. So, even if this analysis of the situation might have some interesting angles of research, it does not properly match the purpose we had in this case.
 
-
+<<r dup, echo=F >>=
+marriages.dup <- marriages.sn
+for ( n in intra.marriages ) {
+  new.name <- paste0(n,"'")
+  marriages.dup <- marriages.dup + vertex(new.name,color="yellow") + edge(n,new.name,weight=marriages.table[marriages.table$value == n,]$n.y)
+  neighborhood <- neighbors(marriages.dup,V(marriages.dup)[n])
+}
+@
 \section{Discussion}\label{sec12}
 
 \section{Conclusion}\label{sec13}
