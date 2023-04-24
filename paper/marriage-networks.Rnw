@@ -286,6 +286,11 @@ This takes us to propose the last method for incorporating intra-family marriage
 
 \section{Conclusion}\label{sec13}
 
+Intra-family ties are an important part of the dynamics in marital networks; however, so far they had rarely been taken into account in the its analysis, or analyzed outside the social graph from which different measurements, mainly related to centrality and community, are taken. In this paper we set out to propose a way of incorporating these links into social graphs in such a way that they can be easily analyzed using off-the-shelf social network analysis software.
+
+After testing three different networks, we have concluded that duplicating the vertices representing families with non-null intra-family ties, and linking them with as many arcs as ties, allows us to estimate the influence of these ties into the structure of the whole network, without incurring in the penalty of including artifacts with complicated implementation. These new nodes have reasonable actor-level measurements (which are exactly the same as the other node), can be interpreted as "other part of the family", and their visual representation shows how this "other part of the family" is embedded in the social network, by using the mainstream graph-rendering methods, which place central vertices/actors at the center of the image. We have tested our three different methods on a well known dataset, the Republic of Venice marriage dataset originally published by Puga and Treffler \cite{10.1093/qje/qju006}. Besides the advantages shown above, this method is not computationally intensive, and can be performed either manually through the manipulation of the spreadsheet, or using any data-oriented scripting language such as R or Python. Due to our commitment with open science, the code used in this paper for this purpose is embedded in the source code of the paper through the use of \cite{xie2018knitr}, contained in the repository \url{https://github.com/JJ/venice-patrician-social-network}, covered with the GPL free license. Data is available from the same repository, as well as the original source.
+
+
 
 \backmatter
 
