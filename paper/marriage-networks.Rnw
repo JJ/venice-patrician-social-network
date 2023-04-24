@@ -104,11 +104,11 @@ Marital, or family, networks, are an interesting source of insights to understan
 
 After the pioneering analysis of the marital networks in the Grand Duchy of Florence by Padgett \cite{padgett1994marriage}, marital networks have been explored also in different cultures and historical periods: Korea in the era of the Joseon dynasty \cite{doi:10.1080/1081602X.2020.1869056}, Victorian United Kingdom \cite{10.1257/app.20180463}, late medieval Republic of Ragusa \cite{ferligoj1996ragusan} (current Dubrovnik) and Taiwan \cite{MaritalNetworksandPortfoliosofPrestige}. In some contemporary studies, the effect of marital networks on the cohesion of groups formed by several families, like the 'Ndrangheta \cite{CATINO2022318}, has been studied; the importance of the study of marital networks in the criminal underworld has also been acknowledged in \cite{doi:10.1177/10439862221138683}.
 
-However, 
+However, even if the importance of intra-family marriages in the cohesion of the whole network cannot be disregarded, none of them have used either a multigraph approach \cite{Shafie+2015+1+21}, which would include "loops" or connections of any other way of incorporating them into the numerical analysis. This paper tries to make a contribution in this area, testing different ways of including intra-family connections, and trying eventually to pick the most adequate for the required analysis.
 
 \section{Methods}\label{sec:methods}
 
-<<r marriage.data, cache=T, echo=FALSE,warning=FALSE,message=FALSE>>=
+<<r marriage.data, echo=FALSE,warning=FALSE,message=FALSE>>=
 library(igraph)
 library(knitr)
 library(stringr)
@@ -143,7 +143,7 @@ m.pr <- tablify( marriages.sn, "pr")
 show.table(m.pr, "pr", "page rank")
 @
 
-This dataset, which has been taken from \cite{10.1093/qje/qju006} is another interesting sample of the Venetian social network spanning from  \Sexpr{min(marriages[ !is.na(marriages$year),]$year)} to \Sexpr{max(marriages[ !is.na(marriages$year),]$year)}. This data was extracted from the city archives and published by the authors of the paper; it will also be available from the repository where this paper is being written, following our usual open science policies. For a brief historial introduction to the history of Venice that can give you some context, check \cite{10.1093/qje/qju006,gooddoge}.
+This dataset, which has been taken from \cite{10.1093/qje/qju006} is another interesting sample of the Venetian social network spanning from  \Sexpr{min(marriages[ !is.na(marriages$year),]$year)} to \Sexpr{max(marriages[ !is.na(marriages$year),]$year)}. This data was extracted from the city archives and published by the authors of the paper; it will also be available from the repository where this paper is being written, following our usual open science policies. For a brief historical introduction to the history of Venice that can give you some context, check \cite{10.1093/qje/qju006,gooddoge}.
 
 As has been indicated in the introduction, the usual procedure is to process this bipartite network to a single-mode undirected graph by eliminating marriages between member of the same family, that is, where the standard family name of bride and groom was the same. Additionally, marriages where the wife family standard name was empty have been changed to \texttt{NON-PATRICIAN-WIFE}. This will show up as a single node in the resulting social network. The resulting network has \Sexpr{length(V(marriages.sn))} nodes and \Sexpr{length(E(marriages.sn))} arcs.
 
