@@ -96,6 +96,10 @@ This paper has been developed in an open science environment, following the prin
 
 The rest of the paper is organized as follows: the next section is a brief survey of analysis of marital networks, and the methodology they use to pre-process their original data; next, Section \ref{sec:methods} will present the dataset we will be using, together with its context, as well as the steps we will follow with each proposed method. Next Section \ref{sec:results} will apply these methods to the dataset, and score them according to how well they fulfill the requirements, followed by a brief discussion in Section \ref{sec:sec12}. Finally, our conclusion will be presented in Section \ref{sec13}, picking a specific method, and eventually proposing new lines of work.
 
+\section{State of the art}
+
+Marital, or family, networks, are an interesting source of insights to understand social, economic and political dynamics of polities below a certain size, and where families are powerfully linked through economic or social inheritance mechanisms. In the case of Venice (as was the case in most European states throughout the middle ages) nobility, and thus access to power, was limited to noble families, thus accession to nobility was done through inheritance; this is why there are several papers that analyze Venetian marital networks, either taking into account all (available) noble marriages \cite{Telek2017MarryingTR,10.1093/qje/qju006} or just the registered marriages of doges or presidents of the republic \cite{gooddoge}
+
 \section{Methods}\label{sec:methods}
 
 <<r marriage.data, echo=FALSE,warning=FALSE,message=FALSE>>=
@@ -246,7 +250,7 @@ We can again compare the state of the network with or without this addition; Tab
 
 The effect on eigenvector centrality \ref{ruhnau2000eigenvector}, observed when comparing \ref{tab:top:EV} and \ref{tab:top:EV.dup}, is even more interesting. The "non-family" node that includes all non-patrician wifes is no longer first in the ranking, having been overcome by the Contarini family, which we know has a high number of intra-family marriages, as seen in Table \ref{tab:top}. This reflects the fact that since there is an important "path" created between both Contarini family nodes, they have been able to increase this measure. As a matter of fact, since it is a big family, it would be almost impossible to severe links to the {\em whole} family. By this artifact of duplicating the nodes, we create an alternate way of arriving to any part of the family, directly or through other, separate, part of the family. This creates an interesting interpretation for this "replicated" nodes. It simply represents "other" part of the family that is not directly related to "this" part of the family. By not making it fixed by splitting the family along patri- or matri-linear lines, but simply indicating the fact that there are different, non-directly related parts of the family with these two nodes, we can capture part of the social dynamics in these extended families and incorporate them into the analysis of marital networks.
 
-\section{Discussion}\label{sec12}
+\section{Discussion}\label{sec:sec12}
 
 How these three methods respond to the criteria we established at the beginning is summarized in Table \ref{tab:reqs}.
 %
@@ -270,7 +274,7 @@ The third method, which we call {\emph duplicated nodes}, does not introduce str
 
 In practice, what we are doing with this method is to account for the fact that families that have a significant, or at least non-null, amount of intra-family marriages are, customarily or legally, big enough to be considered split in two parts. However, these parts will be, from the analytic point of view, indistinguishable from each other, and externally considered the same, which is why they will have exactly the same values for all social measures. The fact that they are linked also accounts for these intra-family marriages, and explains its cohesion of the family.
 
-All three method proposed are heuristic, and its validity can only be ascertained post-hoc; this is why we have made the analysis included in Table \ref{tab:reqs}. This does not exclude other methods, or invalidates ways of analyzing intra-family marriages that fall outside the analysis of social networks; for instance, simply considering the percentage of intra-family marriages vs. inter-family marriages. However, if we acknowledge that marriages form social links, excluding intra-family marriages from marital networks might result in quantitative errors that are difficult to overcome via global analysis; social network analysis affords the researcher quantitative insignts at the actor (family) level, as well as the meso (community) level that would not be available otherwise.
+All three method proposed are heuristic, and its validity can only be ascertained post-hoc; this is why we have made the analysis included in Table \ref{tab:reqs}. This does not exclude other methods, or invalidates ways of analyzing intra-family marriages that fall outside the analysis of social networks; for instance, simply considering the percentage of intra-family marriages vs. inter-family marriages. However, if we acknowledge that marriages form social links, excluding intra-family marriages from marital networks might result in quantitative errors that are difficult to overcome via global analysis; social network analysis affords the researcher quantitative insights at the actor (family) level, as well as the meso (community) level that would not be available otherwise.
 
 This takes us to propose the last method for incorporating intra-family marriages into social network analysis. We will expand on this conclusion on the next, and final, section.
 
