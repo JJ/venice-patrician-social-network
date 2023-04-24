@@ -296,19 +296,18 @@ The immediate future line of work is to investigate the influence of these intra
 
 \bmhead{Acknowledgments}
 
+N/A
 
 \section*{Declarations}
 
 
 \begin{itemize}
-\item Funding
-\item Conflict of interest/Competing interests (check journal-specific guidelines for which heading to use)
-\item Ethics approval 
-\item Consent to participate
-\item Consent for publication
-\item Availability of data and materials
-\item Code availability 
-\item Authors' contributions
+\item {\em Funding} This work is supported by the Ministerio espa\~{n}ol de Econom\'{\i}a y
+Competitividad (Spanish Ministry of Competitivity and Economy) under project
+PID2020-115570GB-C22 (DemocratAI::UGR). Funding for open access charge has been provided by the  Universidad de Granada / CBUA.
+\item {\em Availability of data and materials} Data is available from \url{https://github.com/JJ/venice-patrician-social-network/blob/main/data/venice_marriages_puga_treffler_families.csv}, and originally from \cite{https://diegopuga.org/data/venice/}. License is the same as the rest of the project, that is, GPL.
+\item {\em Code availability:} Code is embedded in the source of the paper at \cite{https://github.com/JJ/venice-patrician-social-network/blob/main/paper/marriage-networks.Rnw}. As the rest of the paper and project, it is available under the GPL license.
+\item Authors' contributions: JJ Merelo has written the paper and performed the analysis shown in it.
 \end{itemize}
 
 \noindent
@@ -317,8 +316,6 @@ The immediate future line of work is to investigate the influence of these intra
 
 
 \bibliography{../patrician,../marriage}% common bib file
-%% if required, the content of .bbl file can be included here once bbl is generated
-%%\input sn-article.bbl
 
 
 \end{document}
