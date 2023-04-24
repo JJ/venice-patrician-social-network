@@ -17,6 +17,7 @@ auto/
 *.pdf
 
 *.log
+*.out
 
 *.tex
 *.tgz
