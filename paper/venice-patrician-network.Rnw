@@ -105,7 +105,7 @@ From the point of view of the social network, a complex game was afoot. While jo
 
 In the next sections we will analyze what data we have on the Venetian social networks, looking at how the reflect on one hand and explain on the other hand the social, politic and, to a certain extent, economic events in the history of the republic. We will try to explain how the structure and main actors in the social network came to be, and how they kept themselves in the positions they attained. Next, after presenting the state of the art, we will briefly explain how data was obtained and prepared for this paper.
 
-\section{State of the art}
+\section{State of the art}\label{sec:soa}
 
 Social network analysis has increasingly become a tool in the hands of historians, despite the hurdles for its comprehensive usage, mainly stemming from incomplete or missing data \cite{wetherell_1998,doi:10.1080/01615440.2014.962208}; however, it is still relatively rare to find studies that apply social network analysis to gain insight into historical events, or that use social network measurements to achieve a deeper understanding of some historical mechanism or social dynamics that eventually shape history.
 
@@ -540,7 +540,7 @@ This opens many future lines of work, the most interesting of which would be how
 This paper has been conceived as an open research effort, and is released as open source software at https://github.com/JJ/venice-patrician-social-network . Processed data, as well as the scripts (which are embedded in the paper source), are released with a free license in that repository. We encourage readers to reuse data and code in any setting they want, in the spirit of free software.
 
 \bibliographystyle{IEEEtran}
-\bibliography{../patrician}
+\bibliography{../patrician,../marriage}
 
 \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{jj.jpg}}]{JJ Merelo}
  is a professor at the university of Granada, in the department of Computer Engineering, Automatics and Robotics. He obtained a PhD in Physics in 1994 from the same university. He has been interested in complex systems for a long time, including applications to ecology and social systems. He is also an advocate of open science and free software.
