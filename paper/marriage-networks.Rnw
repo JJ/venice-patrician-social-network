@@ -72,7 +72,7 @@ The fact that these off-the-shelf tools can be used is essential for the democra
 
 The incorporation of these loops should, besides, fulfill additional requirements:\begin{itemize}
 \item It should be done in such a way that it does not disrupt the essential node-level properties for single nodes, that is, it should not substantially change the different measures, mainly centrality measures, taken prior to the incorporation of loops into the dataset or the analysis. If new nodes are introduced, they should have preferably the same value for all centrality measurements, or show very small variations. If centrality measures change for a node, it should reflect the way it is connected to families with many intra-family connections and do so in an interpretable way.
-\item It should affect community-level measurements, such as community detection algorithms, in a {\em sensible} way, so that if there is strong self-connections in a family, it should fall between the self-same community, whatever the community detection algorithm that is used.
+\item It should affect community-level analysis, such as community detection algorithms, in a {\em sensible} way, so that if there is strong self-connections in a family, it should fall between the self-same community as it was before, whatever the community detection algorithm that is used.
 \item It should help visualize the structure of the network, by enabling usual visualization algorithms to work on the resulting dataset.
 \item It should not introduce, if possible, uninterpretable artifacts that would obscure the analysis.
 \end{itemize}
