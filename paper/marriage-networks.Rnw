@@ -39,10 +39,12 @@
 %%=============================================================%%
 
 \author*[1,2]{\fnm{JJ} \sur{Merelo}}\email{jmerelo@ugr.es}
+\author[3]{\fnm{Cristina} \sur{Molinari}}\email{cmolinar@unive.it}
 
-\affil*[1]{\orgdiv{Department of computer engineering, automatics and robotics}, \orgname{University of Granada}, \city{Granada}, \country{SPAIN}}
+\affil*[1]{\orgdiv{Department of Computer Engineering, Automatics and Robotics}, \orgname{University of Granada}, \city{Granada}, \country{SPAIN}}
 
-\affil[2]{\orgdiv{CITIC}, \orgname{Organization}, \orgname{University of Granada}, \city{Granada}, \country{SPAIN}}
+\affil[2]{\orgdiv{CITIC}, \orgname{University of Granada}, \city{Granada}, \country{SPAIN}}
+\affil[3]{\orgdiv{Dipartimento di Economia}, \orgname{University Ca' Foscari}, \city{Venice}, \country{ITALY}}
 
 %%==================================%%
 %% sample for unstructured abstract %%
