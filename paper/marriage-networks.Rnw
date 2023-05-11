@@ -60,7 +60,7 @@
 
 \section{Introduction}\label{sec1}
 
-Marriage or marital networks are a kind of social networks where the actors, also called vertices or nodes, are usually families \cite{doi:10.1080/1081602X.2020.1869056,padgett1994marriage,ferligoj1996ragusan}. Studying these networks gives researchers and the general public insight on individual careers \cite{Telek2017MarryingTR}, as well as on general economical and political dynamics \cite{doi:10.1080/1081602X.2020.1869056}.
+Marriage or marital networks are a kind of social networks where the actors, also called vertices or nodes, are usually families \cite{doi:10.1080/1081602X.2020.1869056,padgett1994marriage,ferligoj1996ragusan}, social groups linked by kinship ties that descend from a single or a group of common ancestor. Studying these networks gives researchers and the general public insight on individual careers \cite{Telek2017MarryingTR}, as well as on general economical and political dynamics \cite{doi:10.1080/1081602X.2020.1869056}.
 
 In these networks, nodes or vertices usually represent a family through time, while arcs join two families if there has been a marriage between them. This is the usual simplification to one-mode network of what is, to start with, a bipartite graph, where the two "parties" are the families of the two persons that traditionally form a marriage. However, that simplification, which is usual, drops information that might be interesting in the analysis of these alliance networks through time: intra-family marriages are simply eliminated, since social network analysis does not usually use multigraphs \cite{Shafie+2015+1+21}, that allow "loops" or connections from a node to itself.
 
