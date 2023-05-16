@@ -55,7 +55,7 @@ Social network analysis, digital humanities, Venice, Venetian empire, doges, his
 
 \section{Introduction}
 
-During more than eleven hundred years (from 679 to 1797 A.D.), the Venetian republic managed to raise from a small salt-producing and fishing village under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the \emph{Napoleonic} storm reconfigured the map of Europe forever \cite{horodowich2013brief}.
+During slightly more than eleven hundred years (from 679 to 1797 A.D.), the Venetian republic managed to raise from a small salt-producing and fishing village under suzerainty of the Byzantine empire to the biggest empire in the Mediterranean, and then maintain its existence until the \emph{Napoleonic} storm reconfigured the map of Europe forever \cite{horodowich2013brief}.
 
 Many different approaches to research social and political dynamics in this part of history are possible \cite{doi:10.1086/242943,wetherell_1998}. In this paper we will follow a social network approach. A social network \cite{mitchell1974social} is a graph, that is, a collection of nodes, which in a social context are called {\em actors}, linked by {\em edges}, which in a social context are also simply called {\em links} or ties (as in {\em family ties}).
 
