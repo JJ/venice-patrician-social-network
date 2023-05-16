@@ -35,3 +35,5 @@ auto/
 
 
 cache/
+
+*.spl
