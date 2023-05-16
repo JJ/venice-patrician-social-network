@@ -46,7 +46,7 @@ For the best part of a millennium, the Republic of Venice was a state with a sta
 \end{abstract}
 
 \begin{keywords}
-Social network analysis, digital humanities, Venice, Venetian empire, doges, history
+Social network analysis, digital humanities, Venice, Venetian republic, doges, history
 \end{keywords}
 
 \titlepgskip=-15pt
