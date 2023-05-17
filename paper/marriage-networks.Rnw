@@ -77,7 +77,7 @@ The incorporation of these loops should, besides, fulfill additional requirement
 \item It should not introduce, if possible, uninterpretable artifacts that would obscure the analysis.
 \end{itemize}
 
-In this paper we will analyze different ways of incorporating loops into marital network analysis, essentially proposing a new way of converting bipartite network that contain loops to single-mode networks; according to the requirements set out previously, we will try to pick one by empirically applying different possible methods to a specific dataset and checking the results.
+In this paper we will analyze different ways of incorporating loops into marital network analysis: we propose a selection of methods to convert bipartite networks into single-mode networks; we then apply them to a specific dataset of marriages in the Republic of Venice and empirically pick the one that best satifisfies the requirements we have set out previously.
 
 This paper has been developed in an open science environment, following the principles of Agile Science \cite{mereloguervos2022agile}. This guarantees in-time delivery, as well as a clear problem-solving orientation from the beginning. Milestones in the development of the paper can be checked in its repository.
 
