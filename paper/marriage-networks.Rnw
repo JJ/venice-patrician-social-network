@@ -39,7 +39,7 @@
 %%=============================================================%%
 
 \author*[1,2]{\fnm{JJ} \sur{Merelo}}\email{jmerelo@ugr.es}
-\author[3]{\fnm{Cristina} \sur{Molinari}}\email{cmolinar@unive.it}
+\author[3]{\fnm{M. Cristina} \sur{Molinari}}\email{cmolinar@unive.it}
 
 \affil*[1]{\orgdiv{Department of Computer Engineering, Automatics and Robotics}, \orgname{University of Granada}, \city{Granada}, \country{SPAIN}}
 
@@ -50,7 +50,7 @@
 %% sample for unstructured abstract %%
 %%==================================%%
 
-\abstract{While marital networks represent the matrimonial connections among different families in a certain historial and geographical milieu, they rarely take into account internal dynamics in said families, which sometimes are big enough to include a certain amount of intra-family marriages. This analysis is essential first to understand the long-term dynamics of the network, including basic facts like why a group of humans big enough to arrange internal marriages is still considered a single family; this is why in this paper we investigate different procedures to account for intra-family links in the analysis of marital (matrimonial) networks. We first present a series of criteria the result of this procedure must fulfill, and eventually select one that is able at the same time to incorporate these intra-family links and allow researchers to employ their usual social network analysis tools. Through the comparison of the visual representation and betweenness measures for the baseline and modified network, and a qualitative analysis of the procedure followed for modifying the underlying network, we have found that the most satisfactory procedure among those proposed, which duplicates nodes for families with intra-family marriages and adds new edges that link these nodes to account for these marriages, is computationally simple, conceptually sound, becoming this an useful tool for the analysis of marital networks.}
+\abstract{While marital networks represent the matrimonial connections among different families in a certain historial and geographical milieu, they rarely take into account internal family dynamics, which sometimes are big enough to include a certain amount of intra-family marriages. This analysis is essential first to understand the long-term dynamics of the network, including basic facts like why a group of humans big enough to arrange internal marriages is still considered a single family; this is why in this paper we investigate different procedures to account for intra-family links in the analysis of marital (matrimonial) networks. We first present a series of criteria the result of this procedure must fulfill, then propose three alternative ways to include intra-family ties, and eventually select one that is able at the same time to incorporate these intra-family links and allow researchers to employ their usual social network analysis tools. Through the comparison of the visual representation and betweenness measures for the baseline and modified network, and a qualitative analysis of the procedure followed for modifying the underlying network, we found that the most satisfactory procedure among those proposed duplicates nodes for families with intra-family marriages and adds new edges that link these nodes to account for these marriages, is computationally simple, conceptually sound, becoming this an useful tool for the analysis of marital networks.}
 
 \keywords{social network analysis, alliance networks, complex graphs, marital networks}
 
