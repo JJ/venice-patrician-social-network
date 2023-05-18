@@ -162,7 +162,7 @@ In all cases, centrality measures will be using the \emph{undirected}, \emph{unw
 
 \section{Experiments and results}\label{sec:results}
 
-In this section, we will present several methods that would try to incorporate this data into the analysis of familiar networks. With every method, we will be interested in how the network measurements change, as well as how well gives us insight into the analysis of the social network.
+In this section, we will present several methods that would try to incorporate intra-family marriage data into the analysis of familiar networks. With every method, we will be interested in how the network measurements change, as well as how well it gives us insight into the analysis of the social network.
 
 The first method tested will be one which is relatively straightforward and simple: for every node with intra-node connections, add a new node that will be connected {\em only} to the family with a weight equivalent to the number of connections.
 
