@@ -75,6 +75,7 @@ The incorporation of these loops should, besides, fulfill additional requirement
 \item It should affect community-level analysis, such as community detection algorithms, in a {\em sensible} way, so that if there is strong self-connections in a family, it should fall between the self-same community as it was before, whatever the community detection algorithm used.
 \item It should help visualize the structure of the network, by enabling the usual visualization algorithms to work on the resulting dataset.
 \item It should not introduce, if possible, uninterpretable artifacts that would obscure the analysis.
+\item It should take into account the existence of intrafamily links, as well as its number, if needed.
 \end{itemize}
 
 In this paper we will analyze different ways of incorporating loops into marital network analysis: we propose a selection of methods to convert bipartite networks into single-mode networks; we then apply them to a specific dataset of marriages in the Republic of Venice and empirically pick the one that best satifisfies the requirements we have set out previously.
