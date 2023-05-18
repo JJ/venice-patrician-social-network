@@ -115,7 +115,7 @@ show.table <- function( table, name, title ) {
       row.names = F)
 }
 
-marriages.raw <- read.csv("../data/venice_marriages_puga_treffler_families.csv")
+marriages.raw <- read.csv("../data-raw/venice_marriages_puga_treffler_families.csv")
 marriages <- marriages.raw[ marriages.raw$husband_familyname_std != marriages.raw$wife_familyname_std,]
 marriages[ marriages$wife_familyname_std == '',]$wife_familyname_std <- "NON-PATRICIAN-WIFE"
 marriages.sn <- graph.data.frame(data.frame(marriages$husband_familyname_std,marriages$wife_familyname_std),directed=F)
