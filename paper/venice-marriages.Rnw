@@ -107,6 +107,10 @@
 
 %% \linenumbers
 
+<<r marriage.data, echo=FALSE,warning=FALSE,message=FALSE>>=
+load("../data/venice-marriages.Rda")
+@
+
 %% main text
 \section{Introduction}
 \label{sec:intro}
