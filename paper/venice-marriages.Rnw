@@ -108,7 +108,10 @@
 %% \linenumbers
 
 <<r marriage.data, echo=FALSE,warning=FALSE,message=FALSE>>=
+library(dplyr)
 load("../data/venice-marriages.Rda")
+marriages.raw$year10 <- floor( marriages.raw$year/10)
+
 @
 
 %% main text
@@ -116,6 +119,14 @@ load("../data/venice-marriages.Rda")
 \label{sec:intro}
 
 The Republic of Venice (see \cite{lane1973venice}) was an aristocratic state governed by a president, or doge, elected among a closed set of noble families.
+
+<<r marriage.plot, echo=FALSE,warning=FALSE,message=FALSE>>=
+library(ggplot2)
+library(ggthemes)
+marriages.year <- marriages.raw %>% count(year)
+marriages.decennium <- marriages.raw %>%  count( year10 )
+ggplot(marriages.year, aes(x=year,y=n))+geom_line()+theme_tufte()
+@
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
