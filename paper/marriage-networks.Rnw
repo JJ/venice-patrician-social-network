@@ -260,15 +260,16 @@ How these three methods respond to the criteria we established at the beginning 
 \begin{table}[h!tbp]
 		\centering
 		\caption{Summary of features of the three methods we have introduced for accounting for intra-family marriages.\label{tab:reqs}}
-		\begin{tabular}{|l|c|c|c|c|}
+		\begin{tabular}{|l|c|c|c|c|c|}
 		\hline
-		\textbf{Method} & \textbf{Structural changes} & \textbf{Community changes} & \textbf{Help visualization} & \textbf{Artifacts} \\
+		\textbf{Method} & \textbf{Structural} & \textbf{Community} & \textbf{Helps} & \textbf{Artifacts} &\textbf{Link}\\
+		 & \textbf{changes} & \textbf{changes} & \text{visualization} &  &\textbf{importance}\\
 		\hline
-		{\em New nodes} & No & No & No & Yes \\
+		{\em New nodes} & No & No & No & Yes & Yes\\
 		\hline
-		{\em Split families} & Yes & Yes & Yes & Yes \\
+		{\em Split families} & Yes & Yes & Yes & Yes & Yes \\
 		\hline
-		{\em Duplicated nodes} & No & Yes & Yes & No \\
+		{\em Duplicated nodes} & No & Yes & Yes & No & Yes\\
 		\hline
 		\end{tabular}
 		\end{table}
@@ -278,6 +279,8 @@ The third method, which we are going to call {\emph duplicated nodes}, does not 
 In practice, what we are doing with this method is to account for the fact that families that have a significant, or at least non-null, amount of intra-family marriages are, customarily or legally, big enough to be considered split in two parts. However, these parts will be, from the analytic point of view, indistinguishable from each other, and externally considered the same, which is why they will have exactly the same values for all centrality measures. The fact that they are linked also accounts for these intra-family marriages, and explains how they contribute to the cohesion of the family.
 
 All three method proposed are heuristic, and its validity can only be ascertained post-hoc; this is why we have made the analysis included in Table \ref{tab:reqs}. This does not exclude other methods, or invalidates ways of analyzing intra-family marriages that fall outside the analysis of social networks; for instance, simply considering the percentage of intra-family marriages vs. inter-family marriages. However, if we acknowledge that marriages form social links, excluding intra-family marriages from marital networks might result in quantitative errors that are difficult to overcome via global analysis; social network analysis affords the researcher quantitative insights at the actor (family) level, as well as the meso (community) level that would not be available otherwise.
+
+All three methods take into account the importance of the intra-family marriages, since all of them add new edges to the network, which can be weighted, if needed. This does not differentiate them, but it is still a sanity check that, whichever method is chosen, can incorporate weights so that community detection algorithms, or weighted versions of the centrality measures can be applied to them.
 
 This takes us to propose the last method for incorporating intra-family marriages into social network analysis. We will expand on this conclusion on the next, and final, section.
 
