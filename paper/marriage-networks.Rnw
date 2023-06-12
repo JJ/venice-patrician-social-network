@@ -84,7 +84,7 @@ The rest of the paper is organized as follows: the next section is a brief surve
 
 \section{State of the art}
 
-Marital, or family, networks are an interesting source of insights to understand social, economic and political dynamics of polities below a certain size,  where families are powerfully linked through economic or social inheritance mechanisms.
+Marital, matrimonial, or family, networks are an interesting source of insights to understand social, economic and political dynamics of polities below a certain size,  where families are powerfully linked through economic or social inheritance mechanisms.
 
 After the pioneering analysis of the marital networks in the Grand Duchy of Florence by Padgett \cite{padgett1994marriage}, marital networks have been explored in many different cultures and historical periods: Korea in the era of the Joseon dynasty \cite{doi:10.1080/1081602X.2020.1869056}, Victorian United Kingdom \cite{10.1257/app.20180463}, late medieval Republic of Ragusa \cite{ferligoj1996ragusan} (current Dubrovnik), and Taiwan \cite{MaritalNetworksandPortfoliosofPrestige} in recent times. In some contemporary studies, the effect of marital networks on the cohesion of groups formed by several families, like the 'Ndrangheta \cite{CATINO2022318}, has been studied; the importance of the study of marital networks in the criminal underworld has also been acknowledged in \cite{doi:10.1177/10439862221138683}.
 
