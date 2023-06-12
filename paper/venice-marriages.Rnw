@@ -124,6 +124,7 @@ The Republic of Venice (see \cite{lane1973venice}) was an aristocratic state gov
 library(ggplot2)
 library(ggthemes)
 marriages.year <- marriages.raw %>% count(year)
+marriages.year <- marriages.year[ marriages.year$year != "",]
 marriages.decennium <- marriages.raw %>%  count( year10 )
 ggplot(marriages.year, aes(x=year,y=n))+geom_line()+theme_tufte()
 @
