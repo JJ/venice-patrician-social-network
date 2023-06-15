@@ -94,9 +94,9 @@ This paper tries to make a contribution in this area, testing different ways of 
 
 \section{Methods}\label{sec:methods}
 
-In order to be able to empirically check the different methodologies proposed, we need a dataset that includes a significant number of intra-family connections, and that thus far has not been analyzed properly due to the lack of incorporation of these connections into the social network analysis.
+In order to be able to empirically check the different methodologies proposed, we need a dataset that includes a significant number of intra-family connections, and that thus far could not be analyzed properly due to the lack of incorporation of these connections into the social network analysis.
 
-<<r marriage.data, echo=FALSE,warning=FALSE,message=FALSE>>=
+<<r marriage.data, echo=FALSE,cache=T,warning=FALSE,message=FALSE>>=
 library(igraph)
 library(knitr)
 library(stringr)
@@ -208,7 +208,7 @@ Looking at Tables \ref{tab:top:degree.sf},\ref{tab:top:betweenness.sf},\ref{tab:
 
 These results show that this way of taking into account intra-family marriages already allow us an alternative way to measure the social standing of a family. However, it is very difficult to interpret, from the historical or sociological point of view, "male" and "female" members of the family as different actors in a social network. So, even if this analysis of the situation might have some interesting angles of research, it does not properly match the purpose we had in this case.
 
-<<r dup, echo=F, cache=T, fig.cap="Graph representation of data processed using the \"duplication\" method, that duplicates the node for families that have intra-connections; \"original\" nodes are colored in blue, \"replicated\" nodes in gold.\\protect\\label{fig:dup}" >>=
+<<r dup, echo=F, fig.cap="Graph representation of data processed using the \"duplication\" method, that duplicates the node for families that have intra-connections; \"original\" nodes are colored in blue, \"replicated\" nodes in gold.\\protect\\label{fig:dup}" >>=
 marriages.dup <- data.frame(marriages)
 duplicates.h <- marriages.dup[ marriages.dup$husband_familyname_std %in% intra.marriages,]
 duplicates.h$husband_familyname_std <- paste0(duplicates.h$husband_familyname_std,"'")
