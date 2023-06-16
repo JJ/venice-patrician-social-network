@@ -162,6 +162,7 @@ marriages.table <- left_join(all.marriages,sorted.marriages.self,by=c("value" = 
 marriages.table$intra.marriages.rate <- marriages.table$n.y / marriages.table$n.x
 
 marriages.summary <- data.frame(family=intra.marriages, EV.with.self=sapply( intra.marriages, function(x) V(all.marriages.sn)[[x]]$eigen ), EV.no.self=sapply( intra.marriages, function(x) V(marriages.sn)[[x]]$eigen ), intra.marriages=sapply( intra.marriages, function(x) sorted.marriages.self[sorted.marriages.self$wife_familyname_std ==x,]$n ))
+ggplot(marriages.summary, aes(x=EV.with.self,y=EV.no.self, color=intra.marriages, size=intra.marriages))+geom_point()+geom_abline(intercept=0,slope=1,linetype="dashed",color="red")+scale_x_log10()+scale_y_log10()
 @
 
 We will want to check how different ways of integrating intra-links affect actor-level measurements; as a benchmark we show the ranking for different relevant social network centrality measures: Degree, betweenness centrality, eigenvalue centrality and pagerank, computed on the original dataset (Tables \ref{tab:top:degree}, \ref{tab:top:betweenness}, \ref{tab:top:EV} and \ref{tab:top:pr}). Of these measurements, degree, which is simply the number of edges that link a node with others, is included mainly to have a indication of how many new links have been added to every node, and how these affect the top families. Betweenness centrality \cite{betweenness} is an important measure of how a family is able to intermediate between others; it is a good first approximation to the power, reputation or influence a family has. 
