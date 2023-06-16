@@ -114,8 +114,10 @@ show.table <- function( table, name, title ) {
 }
 
 load("../data/venice-marriages.Rda")
+marriages <- marriages[ marriages$wife_familyname_std != '',] # Eliminates those that are not noble
+all.marriages <- marriages                                    # Keep marriages with intra-family ties
+all.marriages.sn <- raph.data.frame(data.frame(all.marriages$husband_familyname_std,all.marriages$wife_familyname_std),directed=F)
 marriages <- marriages.raw[ marriages.raw$husband_familyname_std != marriages.raw$wife_familyname_std,]
-marriages <- marriages[ marriages$wife_familyname_std != '',]
 marriages.sn <- graph.data.frame(data.frame(marriages$husband_familyname_std,marriages$wife_familyname_std),directed=F)
 V(marriages.sn)$degree <- degree(marriages.sn)
 m.degree <- tablify( marriages.sn, "degree")
