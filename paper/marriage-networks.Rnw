@@ -168,14 +168,13 @@ In this section, we will present several methods that would try to incorporate i
 
 The first method tested will be one which is relatively straightforward and simple: for every node with intra-node connections, add a new node that will be connected {\em only} to the family with a weight equivalent to the number of connections.
 
-<<r newnodes, echo=F, cache=T, fig.cap="Graph representation of the marital network enhanced with new nodes representing intra-family connections. Links are not weighted, and the representation uses the best available; \"new\" nodes are represented in yellow.\\protect\\label{fig:newnodes}">>=
+<<newnodes, echo=F, cache=T>>=
 
 marriages.newnodes <- marriages.sn
 for ( n in sorted.marriages.self$wife_familyname_std ) {
   new.name <- paste0(n,"'")
   marriages.newnodes <- marriages.newnodes + vertex(new.name,color="yellow") + edge(n,new.name,weight=marriages.table[marriages.table$value == n,]$n.y)
 }
-plot(marriages.newnodes, vertex.size=5,vertex.label=NA)
 @
 
 The general appearance of the new network is shown in Figure \ref{fig:newnodes}; since the new nodes are marked with yellow, we can see that, they mostly hang in a loose way, in the periphery of the network, except of course in some cases where they are connected to central families like the Correr or Michiel. The overall shape of the network is not, however, changed, and thus the structural influence of these "new" nodes is, again, lost. We could perform additional measurements, but it is quite clear that this new network structure does not contribute much to the understanding of the network other than what seems obvious: new "new" nodes are connected to the "old" ones with a strength that is equivalent to the number of intra-family marriages.
