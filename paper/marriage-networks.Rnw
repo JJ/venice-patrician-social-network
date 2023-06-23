@@ -96,7 +96,7 @@ This paper tries to make a contribution in this area, testing different ways of 
 
 In order to be able to empirically check the different methodologies proposed, we need a dataset that includes a significant number of intra-family connections, and that thus far could not be analyzed properly due to the lack of incorporation of these connections into the social network analysis.
 
-<<r marriage.data, echo=FALSE,cache=T,warning=FALSE,message=FALSE>>=
+<<marriage.data, echo=FALSE,cache=T,warning=FALSE,message=FALSE>>=
 library(igraph)
 library(knitr)
 library(stringr)
@@ -115,13 +115,6 @@ show.table <- function( table, name, title ) {
 
 load("../data/venice-marriages.Rda")
 marriages <- marriages.raw[ marriages.raw$wife_familyname_std != '',] # Eliminates those that are not noble
-
-# Use self-loops
-all.marriages <- marriages                                    # Keep marriages with intra-family ties
-all.marriages.sn <- graph.data.frame(data.frame(all.marriages$husband_familyname_std,all.marriages$wife_familyname_std),directed=F)
-V(all.marriages.sn)$eigen <-  unname(unlist(eigen_centrality(all.marriages.sn)$vector))
-all.m.eigen <- tablify( all.marriages.sn, "eigen")
-# show.table(all.m.eigen, "EV with self loops", "eigenvector centrality")
 
 # Eliminate self-loops
 marriages <- marriages[ marriages$husband_familyname_std != marriages$wife_familyname_std,]
@@ -145,10 +138,11 @@ Our choice fell to the dataset of marriages involving a noble husband in the Rep
 As explained in the introduction, it is common to reduce the bipartite network contained in the dataset to a single-mode undirected graph (and, in most cases, unweighted) by eliminating marriages between members of the same family, that is, where the normalized\footnote{Venetian family names have sometimes different spellings in the records, alternating between Venetian and Italian spelling, for instance; this is why family names have been normalized to a single spelling, usually the most common one. For instance, "Cornaro" and "Corner" have been normalized to "Corner".} family name of bride and groom is the same; this dataset has been processed in the same way\footnote{The source for this processing stage is written in R and included in the source of this paper; it can be consulted in this paper repository}. We have also eliminated, since it is not needed for the purposes of this paper, all marriages that include a non-patrician wife.
 The processed marital network has \Sexpr{length(V(marriages.sn))} nodes and \Sexpr{length(E(marriages.sn))} arcs.
 
-<<r self.marriages, echo=F, message=F>>=
+<<self.marriages, echo=F, message=F>>=
 library(dplyr)
 library(tidyr)
 library(tibble)
+library(knitr)
 marriages.self <- marriages.raw[ marriages.raw$husband_familyname_std == marriages.raw$wife_familyname_std,]
 sorted.marriages.self <- marriages.self %>% count(wife_familyname_std, sort=T)
 intra.marriages <- unique(marriages.self$wife_familyname_std)
@@ -160,14 +154,9 @@ all.names <- unique( c( marriages.raw$wife_familyname_std, marriages.raw$husband
 all.marriages <- marriages.raw %>% select(husband_familyname_std,wife_familyname_std) %>% rowid_to_column() %>% pivot_longer(-rowid) %>% group_by(value) %>% summarise(n = n_distinct(rowid)) %>% arrange(desc(n))
 marriages.table <- left_join(all.marriages,sorted.marriages.self,by=c("value" = "wife_familyname_std"))
 marriages.table$intra.marriages.rate <- marriages.table$n.y / marriages.table$n.x
-
-marriages.summary <- data.frame(family=intra.marriages, EV.with.self=sapply( intra.marriages, function(x) V(all.marriages.sn)[[x]]$eigen ), EV.no.self=sapply( intra.marriages, function(x) V(marriages.sn)[[x]]$eigen ), intra.marriages=sapply( intra.marriages, function(x) sorted.marriages.self[sorted.marriages.self$wife_familyname_std ==x,]$n ))
-ggplot(marriages.summary, aes(x=EV.with.self,y=EV.no.self, color=intra.marriages, size=intra.marriages))+geom_point()+geom_abline(intercept=0,slope=1,linetype="dashed",color="red")+scale_x_log10()+scale_y_log10()
-marriages.summary$diff <- (marriages.summary$EV.no.self - marriages.summary$EV.with.self)/marriages.summary$EV.no.self
-ggplot(marriages.summary, aes(x=intra.marriages,y=diff))+geom_point()
 @
 
-We will want to check how different ways of integrating intra-links affect actor-level measurements; as a benchmark we show the ranking for different relevant social network centrality measures: Degree, betweenness centrality, eigenvalue centrality and pagerank, computed on the original dataset (Tables \ref{tab:top:degree}, \ref{tab:top:betweenness}, \ref{tab:top:EV} and \ref{tab:top:pr}). Of these measurements, degree, which is simply the number of edges that link a node with others, is included mainly to have a indication of how many new links have been added to every node, and how these affect the top families. Betweenness centrality \cite{betweenness} is an important measure of how a family is able to intermediate between others; it is a good first approximation to the power, reputation or influence a family has. 
+We will want to check how different ways of integrating intra-actor links affect actor-level measurements; as a benchmark we show the ranking for different relevant social network centrality measures: Degree, betweenness centrality, eigenvalue centrality and pagerank, computed on the original dataset (Tables \ref{tab:top:degree}, \ref{tab:top:betweenness}, \ref{tab:top:EV} and \ref{tab:top:pr}). Of these measurements, degree, which is simply the number of edges that link a node with others, is included mainly to have a indication of how many new links have been added to every node, and how these affect the top families. Betweenness centrality \cite{betweenness} is an important measure of how a family is able to intermediate between others; it is a good first approximation to the power, reputation or influence a family has. 
 
 This are the baseline measurements and, as indicated in the introduction, this leaves out all data related to intra-family marriages, the top 10 of which is shown in Table \ref{tab:intra}. So once we have established the importance of these intra-family marriages, which can go up to \Sexpr{round(100*marriages.table[ marriages.table$value =="Contarini",]$intra.marriages.rate)}\% in the case of the Contarinis. This is why, in order to incorporate this fact into the analysis of the social network, new methods are needed. We will present several possible approaches in the next section. Eigenvector centrality \cite{BONACICH2007555} has been used extensively in social network analysis \cite{gooddoge} and takes into account not only the number of paths from one to another a node is in, but how those paths align with the main "axes of movement" in the network; pagerank centrality \cite{BRIN1998107} is similar in that sense, but identifies "important" axes of transmission of information in a different way; while EV centrality looks at the network from the point of the view of the individual nodes, pagerank centrality is a global measure, so they complement each other in showing how the different methods introduced affect the overall picture of the network.
 
