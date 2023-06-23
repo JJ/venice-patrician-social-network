@@ -255,9 +255,9 @@ How these three methods respond to the criteria we established at the beginning 
 		\begin{tabular}{|l|c|c|c|c|c|}
 		\hline
 		\textbf{Method} & \textbf{Structural} & \textbf{Community} & \textbf{Helps} & \textbf{Artifacts} &\textbf{Link}\\
-		 & \textbf{changes} & \textbf{changes} & \text{visualization} &  &\textbf{importance}\\
+		 & \textbf{changes} & \textbf{changes} & \textbf{visualization} &  &\textbf{importance}\\
 		\hline
-		{\em New nodes} & No & No & No & Yes & Yes\\
+		{\em New nodes} & No & No & (Yes) & Yes & Yes\\
 		\hline
 		{\em Split families} & Yes & Yes & Yes & Yes & Yes \\
 		\hline
