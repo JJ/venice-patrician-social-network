@@ -72,7 +72,7 @@ To be able to use off-the-shelf tools, essential for the democratization of soci
 The incorporation of these loops should, besides, fulfill additional requirements:\begin{itemize}
 \item It should help visualize the structure of the network, by enabling the usual visualization algorithms to work on the resulting dataset.
 \item It should not introduce, if possible, uninterpretable artifacts that would obscure the analysis.
-\item It should be able to incorporate the importance of intra-family links, not only its existence.
+\item It should be able to incorporate the importance and actual weight of intra-family links, not only its existence.
 \end{itemize}
 
 In this paper we will analyze different ways of incorporating loops into marital network analysis: we propose a selection of methods to convert bipartite networks into single-mode networks; we then apply them to a specific dataset of marriages in the Republic of Venice and empirically pick the one that best satisfies the requirements we have set out previously. While it is complicated or even impossible to associate the values obtained by the different centrality measures to some external measurement so that we can prove that the new values (that take into account self-loops) are \emph{better} than the old one in the sense that they match better some ideal and thus nonexistent centrality measure, we can certainly add a layer of qualitative and, to a certain extent, quantitative validation by examining results in the light of \cite{self:loops}, which compares values for eigenvector centrality with or without loops; this can be done since eigenvector centrality computation is not based on paths through edges, but on the connection matrix, and can thus accommodate self-loops.
@@ -80,7 +80,7 @@ What that paper, acting on this same dataset, concludes is that eigenvector cent
 
 This paper has been developed in an open science environment, following the principles of Agile Science \cite{mereloguervos2022agile}. This guarantees in-time delivery, as well as a clear problem-solving orientation from the beginning. Milestones in the development of the paper can be checked in its repository.
 
-The rest of the paper is organized as follows: the next section is a brief survey of analysis of marital networks, and the methodology they use to pre-process their original data; next, Section \ref{sec:methods} presents the dataset we will be using, together with its context, as well as the steps of each proposed method. Next, Section \ref{sec:results} applies these methods to the chosen dataset, and scores them according to how well they fulfill the requirements. A brief discussion follows in Section \ref{sec:sec12}. Finally, our conclusion are presented in Section \ref{sec13}, where we a specific method, and eventually propose new lines of work.
+The rest of the paper is organized as follows: the next section is a brief survey of analysis of marital networks, and the methodology they use to pre-process their original data; next, Section \ref{sec:methods} presents the dataset we will be using, together with its context, as well as the steps of each proposed method. Next, Section \ref{sec:results} applies these methods to the chosen dataset, and scores them according to how well they fulfill the requirements. A brief discussion follows in Section \ref{sec:sec12}. Finally, our conclusion are presented in Section \ref{sec13}, where we choose a specific method, and propose new lines of work.
 
 \section{State of the art}
 
