@@ -164,7 +164,7 @@ In all cases, centrality measures will be using the \emph{undirected}, \emph{non
 
 In this section, we will present several methods that would try to incorporate intra-family marriage data into the analysis of familiar networks. With every method, we will be interested in how the chosen centrality measures change, as well as how well it gives us insight into the analysis of the social network. What seems to be clear, in principle, is that any new method should consist in the creation of new nodes and edges linking these new, "artificial" nodes, to the old ones, since methods such as the pagerank and betweenness centrality use paths over edges for their computation; edges will have to correspond, somehow, to these intra links we want to incorporate into the graph modelling the social network. So any method proposed will mainly have to feature creation of new nodes.
 
-The first method tested will be one which is relatively straightforward and simple: for every node with intra-node connections, add a new one that will be connected {\em only} to the it with a weight equivalent to the number of connections. Essentially, we convert a self-loop into an edge by creating a new node for the same family, with connections only to the original node.
+The first method tested will be one which is relatively straightforward and simple: for every node with intra-node connections, add a new one that will be connected {\em only} to  it with a weight equivalent to the number of intra-family marriages. Essentially, we convert a self-loop into an edge by creating a new node for the same family, with connections only to the original node.
 
 <<newnodes, echo=F, cache=T>>=
 
