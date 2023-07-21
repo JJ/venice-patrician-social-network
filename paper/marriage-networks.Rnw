@@ -306,7 +306,7 @@ Competitividad (Spanish Ministry of Competitivity and Economy) under project
 PID2020-115570GB-C22 (DemocratAI::UGR). Funding for open access charge has been provided by the  Universidad de Granada / CBUA.
 \item {\em Availability of data and materials}: Data is available from \url{https://github.com/JJ/venice-patrician-social-network/blob/main/data/venice_marriages_puga_treffler_families.csv}, and originally from \url{https://diegopuga.org/data/venice/}. License is the same as the rest of the project, that is, GPL.
 \item {\em Code availability:} Code is embedded in the source of the paper at \url{https://github.com/JJ/venice-patrician-social-network/blob/main/paper/marriage-networks.Rnw}. As the rest of the paper and project, it is available under the GPL license.
-\item Authors' contributions: JJM has written the paper and performed the analysis shown in it.
+\item Authors' contributions: JJM has written the paper and performed the analysis shown in it. MCM has performed extensive revision and suggestions, and proposed new analysis and hypothesis.
 \end{itemize}
 
 \noindent
