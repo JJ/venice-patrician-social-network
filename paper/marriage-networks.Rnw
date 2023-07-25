@@ -299,7 +299,6 @@ The line of work we will follow in the immediate future will be to investigate t
 
 \section*{Declarations}
 
-
 \begin{itemize}
 \item {\em Funding}: This work is supported by the Ministerio espa\~{n}ol de Econom\'{\i}a y
 Competitividad (Spanish Ministry of Competitivity and Economy) under project
@@ -312,7 +311,9 @@ PID2020-115570GB-C22 (DemocratAI::UGR). Funding for open access charge has been 
 \noindent
 %If any of the sections are not relevant to your manuscript, please include the heading and write `Not applicable' for that section. 
 
+\section{Conflict of interest}
 
+On behalf of all authors, the corresponding author states that there is no conflict of interest. 
 
 \bibliography{../patrician,../marriage}% common bib file
 
