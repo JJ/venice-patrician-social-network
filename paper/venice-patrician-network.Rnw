@@ -167,7 +167,7 @@ V(venice.colleganza.sn)$pr <- unname(unlist(page_rank(venice.colleganza.sn)$vect
 
 family.types.unstacked <- stack(family.type.dict)
 family.types.df <- data.frame( Name=family.types.unstacked$ind, Type = family.types.unstacked$values)
-V(venice.colleganza.sn)$type <- family.types.df[ family.types.df$Name %in% names(V(venice.colleganza.sn)),]$Type
+#V(venice.colleganza.sn)$type <- family.types.df[ V(venice.colleganza.sn)$name %in% family.types.df$Name,]$Type
 plot(cnet,venice.colleganza.sn,
      layout=layout_with_fr(venice.colleganza.sn),
      vertex.size=10*V(venice.colleganza.sn)$eigen,
@@ -281,7 +281,7 @@ This dataset ends in \Sexpr{max(data$V3)}; by that time, Venice was still very m
 \label{ss:marriage}
 
 <<r marriage.data, echo=FALSE,warning=FALSE,messages=FALSE>>=
-marriages <- read.csv("../data/venice_marriages_puga_treffler_families.csv")
+marriages <- read.csv("../data-raw/venice_marriages_puga_treffler_families.csv")
 family.names <- unique( c(marriages$husband_familyname_std,marriages$wife_familyname_std))
 marriages.contarini <- marriages[ marriages$husband_familyname_std == 'Contarini' | marriages$wife_familyname_std == 'Contarini',]
 family.names.contarini <- unique( c(marriages.contarini$husband_familyname_std,marriages.contarini$wife_familyname_std))
