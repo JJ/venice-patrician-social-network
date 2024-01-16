@@ -167,7 +167,6 @@ V(venice.colleganza.sn)$pr <- unname(unlist(page_rank(venice.colleganza.sn)$vect
 
 family.types.unstacked <- stack(family.type.dict)
 family.types.df <- data.frame( Name=family.types.unstacked$ind, Type = family.types.unstacked$values)
-#V(venice.colleganza.sn)$type <- family.types.df[ V(venice.colleganza.sn)$name %in% family.types.df$Name,]$Type
 plot(cnet,venice.colleganza.sn,
      layout=layout_with_fr(venice.colleganza.sn),
      vertex.size=10*V(venice.colleganza.sn)$eigen,
@@ -178,7 +177,9 @@ As the Figure \ref{fig:modcol} shows, out of the \Sexpr{length(V(venice.collegan
 
 But this graph shows also the scale of the \emph{colleganza} system, which involves many different families, but also the fact that there are just a few families, and well known families at that, with a high eigenvector centrality. What strikes us most is the prominence of the Viaro or Viadro family, which is almost completely unknown (or at least forgotten), and is due mainly to the doings of a single entrepreneurial person, Tommaso Viadro \cite{de2008secret}, which initiated joint ventures with many families, including several of the important ones, the Gradenigos and Badoers\footnote{Tommaso Viadro is mentioned in \cite{lane1973venice} as the castellan of Negroponte that contributed to its seizure by the Ottomans; this caused his fell from grace. But, more notably, four of his sons died during a plague. Both causes, together, no doubt contributed to his demise}. This family is clearly not one of the most important families, even for the period considered, and this probably shows the vulnerability of measures like betweenness to low sample sizes. But this fact is an interesting showcase of how the \emph{Serrata} changed everything, as posited by \cite{10.1093/qje/qju006}, closing social mobility of entrepreneurial families and shooting down the possibility of them participating in the government of the Republic. It also shows how closely knit this social network was, with just a few families kept out of it including, curiously enough, some families such as the Loredan, which later on was elevated to high nobility. Again, and as indicated by Puga and Trefler, this shows how the \emph{Serrata} upended social order, bringing a set of families to the forefront, while dropping other families such as the aforementioned Viaro. The ranking of families according to eigenvector centrality is shown next.
 
-<<r colleganza.table, echo=FALSE>>=
+<<colleganza.table, echo=FALSE>>=
+# Assign to each family its type contained in family.types.df
+V(venice.colleganza.sn)$type <- family.types.df[match(V(venice.colleganza.sn)$name,family.types.df$Name),"Type"]
 eigen.df <- data.frame(Family=names(V(venice.colleganza.sn)),eigenvector.centrality=V(venice.colleganza.sn)$eigen,type=V(venice.colleganza.sn)$type)
 eigen.df.ordered <- eigen.df[ order(eigen.df$eigenvector.centrality,decreasing = T),]
 library(knitr)
@@ -201,7 +202,7 @@ But more interesting, from the point of view of future events, is how these fami
 
 Please note that the Dandolo family is not prominent in the chart; it is neither well connected nor in any of the groups that include the most connected families. Very few incentives, then, to connect with them at the extended period of time reflected by this dataset. These groups are also connected: The Contarinis are connected to the Zorzi family, and the Viaro to the Lion family. However, there seems to be little actual strategizing in these connections. \emph{Colleganza} contracts are purely commercial, and mainly based on trust and maximization of benefits. It required big investments, and also incurred in big risks \cite{lane1973venice}. Using them for the sake of being better connected does not seem like a wise investment in a very commercially oriented context.
 
-<<r weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.height=6, fig.env="figure*", fig.cap="Plotting the type of family along with actual weights in the colleganza network. Please refer to text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
+<<venice.sna.weighted.plot, echo=FALSE,fig.pos="h!tbp", fig.height=6, fig.env="figure*", fig.cap="Plotting the type of family along with actual weights in the colleganza network. Please refer to text for interpretation of shape and colors. \\protect\\label{fig:colw}">>=
 types <- NULL
 colors <- NULL
 family.colors <- list("Ducali"="lightgray","Extinct pre-serrata"="gray","Evangeliche"="gold","Nuove"="lightgreen",
@@ -433,7 +434,9 @@ There is still a period in time that is not well covered by these two social net
 
 <<r setup.dogal.SNA, echo=F, message=FALSE>>=
 library(dogesr)
-doges.sn <- marriage.graph()
+data(marriage.graph)
+data("doges.marriages")
+doges.sn <- doges.marriages.sn
 @
 
 An initial exploration of this social network was made in \cite{gooddoge}; data used in that paper has been enhanced with other marriages that had not been detected previously \cite{staley1910dogaressas}, and with the addition of mother-doge links. This has increased the amount of nodes to \Sexpr{length(V(doges.sn))} and edges to \Sexpr{length(E(doges.sn))}, as opposed to 35 nodes in the original network published in \cite{gooddoge}.
