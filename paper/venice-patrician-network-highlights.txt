@@ -1,0 +1,4 @@
+* A comprehensive cross-section of social networks in the Republic of Venice have been analyzed.
+* The structure of the network itself and successive legislative changes favor stability and resilience, which explains the longevity of the political structure.
+* A comprehensive analysis of the permanence of certain families (notably the Contarinis) is performed through the analysis of its status in the social network.
+* A meso-analysis of the community structure also reveals a tendency to avoid a power-law network that would imply a concentration of power in a single family. This is explained through internal network dynamics, as well as legislative changes.
