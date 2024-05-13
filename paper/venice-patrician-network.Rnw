@@ -4,6 +4,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
+\usepackage{hyperref}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \usepackage{float}
@@ -18,12 +19,13 @@
 \newcommand{\colln}{\coll{} network}
 \newcommand{\serr}{\emph{Serrata}}
 
+
+
 \begin{frontmatter}
-\author{\uppercase{J. J. Merelo}\authorrefmark{1}}
-\address[1]{Computer Engineering, Automatics and Robotics department, University of Granada (Spain)}
-\tfootnote{This paper has been supported in part by project and DemocratAI PID2020-115570GB-C22.
-}
-%\author{Hidden for double blind review}
+
+\author{J. J. Merelo}
+\ead{jmerelo@ugr.es}
+\affiliation[1]{organization={Universidad de Granada}, addressline={CITIC-UGR}, city={Granada}, postcode={18071}, country={Spain}}
 
 <<setup, echo=FALSE,message=FALSE>>=
 library(igraph)
@@ -1133,7 +1135,7 @@ indicated in \citep{histories3010003} (after \citep{smith2021long}), part of the
 reason why this happened was due to the fact that, starting more or less in that
 century and after the \emph{Serrata}, doges were mostly elected in their old
 age.}. The weddings corresponding to the Gradenigo side took place in the XIV
-and XV century; the Marino Faliero, the disgraced doge, married Aluycia
+and XV century; Marino Faliero, the disgraced doge, married Aluycia
 Gradenigo and Tommasina Contarini, thus two of the existing links happened to a
 single person; Vital Faliero, on the other hand, married in the XI century to
 Cornella Bembo, falling thus off the period covered by the marriage network. In
@@ -1450,8 +1452,10 @@ have created the right kind of \emph{intermediate} disturbance in the system
 technological changes and negative events like plague of war and their economic
 and social effects would also constitute an interesting research venue.
 
-This paper has been conceived as an open research effort, and is released as open source software at %https://github.com/JJ/venice-patrician-social-network
-\texttt{Hidden.for.double.blind}. Processed data, as well as the scripts (which are embedded in the paper source), are released with a free license in that repository. We encourage readers to reuse data and code in any setting they want, in the spirit of free software.
+\section*{Acknowledgements}
+
+This paper has been supported in part by project and DemocratAI
+PID2020-115570GB-C22. This paper has been conceived as an open research effort, and is released as open source software at \url{https://github.com/JJ/venice-patrician-social-network}. Processed data, as well as the scripts (which are embedded in the paper source), are released with a free license in that repository. We encourage readers to reuse data and code in any setting they want, in the spirit of free software.
 
 \bibliographystyle{elsarticle-num-names}
 \bibliography{../patrician,../marriage}
