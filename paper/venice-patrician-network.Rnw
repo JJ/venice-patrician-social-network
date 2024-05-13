@@ -165,11 +165,10 @@ successfully been used by several researchers
 gain insights on the mechanisms behind the historical dynamics of the Republic
 of Venice.
 
-The rest of the paper is organized as follows: next a brief history of Venice,
+The rest of the paper is organized as follows: next a brief history of Venice (Section \ref{sec:history}),
 mainly to properly understand the context of this paper, follwed by the state of
 the art in historical social network analysis as well as computational
-historical analysis applied to Venice in Section \ref{sec:soa}. Next, Section
-\ref{sec:history} presents . How data for this study has been obtained and
+historical analysis applied to Venice in Section \ref{sec:soa}. How data for this study has been obtained and
 processed is presented in Section \ref{sec:data}. Available data is piecewise
 analyzed in Section \ref{sec:sna}. Finally, results are discussed and
 conclusions are drawn in the last Section.
