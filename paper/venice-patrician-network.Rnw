@@ -27,7 +27,7 @@
 \ead{jmerelo@ugr.es}
 \affiliation[1]{organization={Universidad de Granada}, addressline={CITIC-UGR}, city={Granada}, postcode={18071}, country={Spain}}
 
-<<setup, echo=FALSE,message=FALSE>>=
+<<setup, echo=FALSE,message=FALSE,warning=F>>=
 library(igraph)
 data <- read.csv("../resources/family-pairs.csv",header=FALSE)
 venice.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
@@ -508,11 +508,11 @@ precise term for what happened would be ``regulated''). Besides, these are
 actual commercial ties that imply interchange of money, information and thus
 trust and social capital.
 
-<<r colleganza, fig.pos="h!tbp", fig.height=6, fig.env="figure*", echo=FALSE, warning=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\citep{10.1093/qje/qju006}. Groups are computed by edge betweenness, resulting in 18 different groups, 11 of which are connected \\protect\\label{fig:modcol}.'>>=
+<<r colleganza, fig.pos="h!tbp", fig.height=6, fig.env="figure*", echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Modularity and eigenvector centrality (indicated by node size) for the {\\protect\\em colleganza} social network, taken from \\protect\\citep{10.1093/qje/qju006}. Groups are computed by edge betweenness, resulting in 18 different groups, 11 of which are connected \\protect\\label{fig:modcol}.'>>=
 
 library(igraph)
 
-venice.colleganza.sn <- graph.data.frame(data.frame(data$V1,data$V2),directed=F)
+venice.colleganza.sn <- graph_from_data_frame(data.frame(data$V1,data$V2),directed=F)
 cnet <- cluster_edge_betweenness(venice.colleganza.sn)
 
 V(venice.colleganza.sn)$degree <- degree(venice.colleganza.sn)
@@ -824,7 +824,7 @@ ggplot(marriages,aes(x=year))+geom_freqpoly()
 
 Figure \ref{fig:number.of.marriages} shows that there is a certain bias in the dataset, with most of them concentrated in the XVI century; the sample is big enough, however, to account for marriages happening all along the Republic, including its very last moments (when the number of marriages falls precipitously, either due to lack of registration of actual decline).
 
-<<r marriage.sn, echo=F>>=
+<<r marriage.sn, echo=F, warning=F>>=
 marriages.sn <- graph.data.frame(data.frame(marriages$husband_familyname_std,marriages$wife_familyname_std),directed=F)
 V(marriages.sn)$degree <- degree(marriages.sn)
 V(marriages.sn)$betweenness <- betweenness(marriages.sn)
